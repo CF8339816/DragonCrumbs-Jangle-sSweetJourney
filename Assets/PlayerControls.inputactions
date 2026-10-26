@@ -16,7 +16,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Jump/Glide",
+                    "name": "JumpGlide",
                     "type": "Button",
                     "id": "52f55dd8-d5d6-4eeb-8291-2eb6b031b44c",
                     "expectedControlType": "",
@@ -141,7 +141,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Jump/Glide",
+                    "action": "JumpGlide",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
