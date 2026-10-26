@@ -18,6 +18,7 @@ public class JangleController : MonoBehaviour
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float jumpSpeed = 8f;
     [SerializeField] private float glideSpeed = -1f;
+    [SerializeField] private float Gravity = -9.8f;
 
     [Header("References")]
     [SerializeField] private GameObject jangleFlameProxy; // set firebreath object
@@ -86,12 +87,13 @@ public class JangleController : MonoBehaviour
     private void OnJumpGlideInput(InputAction.CallbackContext context)
     {
            
-        rb2d.linearVelocity = new Vector2(rb2d.linearVelocity.x, jumpSpeed); // does a quick jump upwards when space pressed
-        isGliding = true;
+        rb2d.linearVelocity = new Vector2(rb2d.linearVelocity.x, jumpSpeed ); // does a quick jump upwards when space pressed
+        isGliding = true;        
     }
 
     private void OnJumpGlideStopped(InputAction.CallbackContext context)
     {
+        rb2d.linearVelocity = new Vector2(rb2d.linearVelocity.x, -Gravity);
         isGliding = false;
     }
 
@@ -119,7 +121,7 @@ public class JangleController : MonoBehaviour
            
         if (isGliding && rb2d.linearVelocity.y < 0)
         {
-            rb2d.linearVelocity = new Vector2(rb2d.linearVelocity.x, glideSpeed);// causes a slow glide if space held while falling allows for jump and for glide
+            rb2d.linearVelocity = new Vector2(rb2d.linearVelocity.x, glideSpeed );// causes a slow glide if space held while falling allows for jump and for glide
         }
     }
 
@@ -132,123 +134,3 @@ public class JangleController : MonoBehaviour
     }
 }
 
-
-//    [SerializeField] private float moveSpeed = 5f;
-//    private PlayerControls inputActions;
-//    private Vector2 moveInput;
-//    private Vector3 jumpGlideInput;
-//    private bool FlameOn = false;
-//    [SerializeField] float JumpSpeed= 5;
-//    [SerializeField] float GlideSpeed= -1;
-
-//    private GameObject jangleFlameProxy;
-
-//    private CharacterController characterController;
-//    private void Awake()
-//    {
-//        inputActions = new PlayerControls();
-//        characterController = GetComponent<CharacterController>();
-//    }
-//    private void OnEnable()
-//    {
-//        inputActions.Player.Enable();
-//        inputActions.Player.Move.performed += OnMoveInput;
-//        inputActions.Player.Move.canceled += OnMoveStopped;
-
-//        inputActions.Player.JumpGlide.performed += OnjumpGlideInput;
-//        inputActions.Player.JumpGlide.canceled += OnjumpGlideStopped;
-
-//        inputActions.Player.FireBreath.performed += OnFireBreathInput;
-//        inputActions.Player.FireBreath.canceled += OnFireBreathStopped;
-
-
-
-//    }
-//    private void OnDisable()
-//    {
-//        inputActions.Player.Move.performed -= OnMoveInput;
-//        inputActions.Player.Move.canceled -= OnMoveStopped;
-
-//        inputActions.Player.JumpGlide.performed -= OnjumpGlideInput;
-//        inputActions.Player.JumpGlide.canceled -= OnjumpGlideStopped;
-
-//        inputActions.Player.FireBreath.performed -= OnFireBreathInput;
-//        inputActions.Player.FireBreath.canceled -= OnFireBreathStopped;
-
-
-//        inputActions.Player.Disable();
-//    }
-//    private void Update()
-//    {
-//        MovePlayer();
-//    }
-//    private void OnMoveInput(InputAction.CallbackContext context)
-//    {
-//        moveInput = context.ReadValue<Vector2>();
-//    }
-//    private void OnMoveStopped(InputAction.CallbackContext context)
-//    {
-//        moveInput = Vector2.zero; 
-//    }
-
-//    private void OnjumpGlideInput(InputAction.CallbackContext context)
-//    {
-//        jumpGlideInput = context.ReadValue<Vector3>();
-//    }
-//    private void OnjumpGlideStopped(InputAction.CallbackContext context)
-//    {
-//        jumpGlideInput = Vector3.zero;
-//    }
-
-//    private void OnFireBreathInput(InputAction.CallbackContext context)
-//    {
-//        OnFireBreath();
-//    }
-//    private void OnFireBreathStopped(InputAction.CallbackContext context)
-//    {
-
-//    }
-
-
-
-
-
-//    private void MovePlayer()
-//    {
-//        Vector3 direction = new Vector3(moveInput.x, 0f, moveInput.y);
-//        characterController.Move(direction * moveSpeed * Time.deltaTime);
-//    }
-
-//    private void OnJumpGlide()
-//    {
-//        if (jumpGlideInput != null)
-//        {
-//            Vector3 direction = new Vector3(moveInput.x, GlideSpeed, moveInput.y);
-//            characterController.Move(direction * moveSpeed * Time.deltaTime);
-//        }
-//        else 
-//        {
-//            Vector3 direction = new Vector3(moveInput.x, JumpSpeed, moveInput.y);
-//            characterController.Move(direction * moveSpeed * Time.deltaTime);
-//        }
-
-//    }
-
-//    private void OnFireBreath()
-//    {
-//        if (FlameOn)
-//        {
-//           jangleFlameProxy.SetActive (true);
-
-//            FlameOn = true;
-//        }
-
-//        else
-//        {
-//            jangleFlameProxy.SetActive (false);
-//            FlameOn = false;
-
-//        }
-//    }
-
-//}
