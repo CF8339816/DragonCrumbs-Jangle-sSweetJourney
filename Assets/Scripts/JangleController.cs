@@ -20,7 +20,7 @@ public class JangleController : MonoBehaviour
     [SerializeField] private float glideSpeed = -1.5f; // ----Gentle downward speed cap for glide---- CF
 
     [Header("References")]
-    [SerializeField] private GameObject jangleFlameProxy; // ----set firebreath object----CF
+    [SerializeField] private GameObject jangleFlame; // ----set firebreath object----CF
 
     private PlayerControls inputActions;
     private Vector2 moveInput;
@@ -28,6 +28,7 @@ public class JangleController : MonoBehaviour
 
     private bool isGliding = false;
     private bool flameOn = false;
+    private bool isFacingRight = false;
 
     private void Awake()
     {
@@ -73,6 +74,7 @@ public class JangleController : MonoBehaviour
     {
         MovePlayer();
         HandleGlide();
+
     }
 
     private void OnMoveInput(InputAction.CallbackContext context)
@@ -87,16 +89,16 @@ public class JangleController : MonoBehaviour
 
     private void OnJumpGlideInput(InputAction.CallbackContext context)
     {
-        
+
         rb2d.linearVelocity = new Vector2(rb2d.linearVelocity.x, jumpSpeed);//---- applies upward force for jump when spacebar is pressed---- CF
 
-       
+
         isGliding = true;// ----marks gliding state true as long as spacebar is held down---- CF
     }
 
     private void OnJumpGlideStopped(InputAction.CallbackContext context)
     {
-        
+
         isGliding = false;// ----  reverts to standard gravity force when space bar released ---- CF
     }
 
@@ -114,15 +116,22 @@ public class JangleController : MonoBehaviour
 
     private void MovePlayer()
     {
-      
-        
         rb2d.linearVelocity = new Vector2(moveInput.x * moveSpeed, rb2d.linearVelocity.y);// ---- adds gravity to movement  to apply it naturally and ensure ground contact---- CF
+        if (moveInput.x > 0 && !isFacingRight) // ---- checks the direction of motion and ensures player sprite parent is facing the direction of motion----CF
+        {
+            FlipCharacter();
+        }
+        else if (moveInput.x < 0 && isFacingRight)// -----else flips it the other way if moving the other direction ---- CF
+        {
+            FlipCharacter();
+        }
+
     }
 
     private void HandleGlide()
     {
-        
-       
+
+
         if (isGliding && rb2d.linearVelocity.y < 0)// ----checks for glide and  then applies the glide slow if falling ---- CF
         {
             rb2d.linearVelocity = new Vector2(rb2d.linearVelocity.x, glideSpeed);
@@ -131,9 +140,20 @@ public class JangleController : MonoBehaviour
 
     private void ToggleFireBreath()
     {
-        if (jangleFlameProxy != null)
+        if (jangleFlame != null)//---- verifies the flameobject exists ---- CF
         {
-            jangleFlameProxy.SetActive(flameOn);
+            jangleFlame.SetActive(flameOn); // ---- Brings the Fwoooooshhhhhhhhhhh---- CF
         }
     }
+
+    private void FlipCharacter()
+    {
+        isFacingRight = !isFacingRight;//---- checks facing ----CF
+        Vector3 currentScale = transform.localScale; // ----selects the parent's scale value asvariable to adjust----CF
+        currentScale.x *= -1; // ---- flips sprite packet parrnt through neg x to turn it over / flip direction---- CF
+        transform.localScale = currentScale; // ---- sets new scale transform as currnet value---- CF
+    }
+    
 }
+
+

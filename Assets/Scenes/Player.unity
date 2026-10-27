@@ -953,7 +953,7 @@ MonoBehaviour:
   moveSpeed: 5
   jumpSpeed: 8
   glideSpeed: -1
-  jangleFlameProxy: {fileID: 0}
+  jangleFlame: {fileID: 1985917967}
 --- !u!50 &1572457530
 Rigidbody2D:
   serializedVersion: 5
@@ -978,7 +978,7 @@ Rigidbody2D:
     serializedVersion: 2
     m_Bits: 0
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!61 &1572457531
