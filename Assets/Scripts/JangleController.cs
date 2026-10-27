@@ -1,27 +1,26 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+
 #region coder & project
 /// <summary>
 /// GAME2065/4087/Game Development III(B)/Cameron,Jordan
 /// Dragon Crumbs: Jangle's SweetJourney  GameJam3  Percy Hebb, Chris French, Kevin Card, Myranda Roy
 /// Coder current script: Chris French Second Year NSCC Game Programming 
-/// Additions / annotations:
-/// 
+/// Additions / annotations: Fixed floating jump bugs, established clear gravity transitions.
 /// </summary>
 #endregion   
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class JangleController : MonoBehaviour
-{  
+{
     [Header("Movement")]
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float jumpSpeed = 8f;
-    [SerializeField] private float glideSpeed = -1f;
-    [SerializeField] private float Gravity = -9.8f;
+    [SerializeField] private float glideSpeed = -1.5f; // ----Gentle downward speed cap for glide---- CF
 
     [Header("References")]
-    [SerializeField] private GameObject jangleFlameProxy; // set firebreath object
+    [SerializeField] private GameObject jangleFlameProxy; // ----set firebreath object----CF
 
     private PlayerControls inputActions;
     private Vector2 moveInput;
@@ -34,22 +33,25 @@ public class JangleController : MonoBehaviour
     {
         inputActions = new PlayerControls();
         rb2d = GetComponent<Rigidbody2D>();
+
+        if (rb2d.gravityScale == 0)// ----maks sure rigid body handles gravity---- CF
+        {
+            rb2d.gravityScale = 1.5f; //----tweaking gravity value for feel of game play---- CF
+        }
     }
 
     private void OnEnable()
     {
         inputActions.Player.Enable();
 
-           
-        inputActions.Player.Move.performed += OnMoveInput; // WASD Movement
+        inputActions.Player.Move.performed += OnMoveInput; // ---- WASD Movement ---- CF
         inputActions.Player.Move.canceled += OnMoveStopped;
 
-           
-        inputActions.Player.JumpGlide.performed += OnJumpGlideInput; // Spacebar Jump & Glide
+        inputActions.Player.JumpGlide.performed += OnJumpGlideInput; // ---- Spacebar Jump & Glide ---- CF
         inputActions.Player.JumpGlide.canceled += OnJumpGlideStopped;
 
-         
-        inputActions.Player.FireBreath.performed += OnFireBreathInput;   // Shift Fire Breath
+        inputActions.Player.FireBreath.performed += OnFireBreathInput;   // ----Ctrl either left or right  Fire Breath  changed from shift to avoid sticky keys if player spams breath---- CF
+
         inputActions.Player.FireBreath.canceled += OnFireBreathStopped;
     }
 
@@ -67,13 +69,12 @@ public class JangleController : MonoBehaviour
         inputActions.Player.Disable();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         MovePlayer();
         HandleGlide();
     }
 
-       
     private void OnMoveInput(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
@@ -86,15 +87,17 @@ public class JangleController : MonoBehaviour
 
     private void OnJumpGlideInput(InputAction.CallbackContext context)
     {
-           
-        rb2d.linearVelocity = new Vector2(rb2d.linearVelocity.x, jumpSpeed ); // does a quick jump upwards when space pressed
-        isGliding = true;        
+        
+        rb2d.linearVelocity = new Vector2(rb2d.linearVelocity.x, jumpSpeed);//---- applies upward force for jump when spacebar is pressed---- CF
+
+       
+        isGliding = true;// ----marks gliding state true as long as spacebar is held down---- CF
     }
 
     private void OnJumpGlideStopped(InputAction.CallbackContext context)
     {
-        rb2d.linearVelocity = new Vector2(rb2d.linearVelocity.x, -Gravity);
-        isGliding = false;
+        
+        isGliding = false;// ----  reverts to standard gravity force when space bar released ---- CF
     }
 
     private void OnFireBreathInput(InputAction.CallbackContext context)
@@ -109,19 +112,20 @@ public class JangleController : MonoBehaviour
         ToggleFireBreath();
     }
 
-     
     private void MovePlayer()
     {
-          
-        rb2d.linearVelocity = new Vector2(moveInput.x * moveSpeed, rb2d.linearVelocity.y);
+      
+        
+        rb2d.linearVelocity = new Vector2(moveInput.x * moveSpeed, rb2d.linearVelocity.y);// ---- adds gravity to movement  to apply it naturally and ensure ground contact---- CF
     }
 
     private void HandleGlide()
     {
-           
-        if (isGliding && rb2d.linearVelocity.y < 0)
+        
+       
+        if (isGliding && rb2d.linearVelocity.y < 0)// ----checks for glide and  then applies the glide slow if falling ---- CF
         {
-            rb2d.linearVelocity = new Vector2(rb2d.linearVelocity.x, glideSpeed );// causes a slow glide if space held while falling allows for jump and for glide
+            rb2d.linearVelocity = new Vector2(rb2d.linearVelocity.x, glideSpeed);
         }
     }
 
@@ -133,4 +137,3 @@ public class JangleController : MonoBehaviour
         }
     }
 }
-
