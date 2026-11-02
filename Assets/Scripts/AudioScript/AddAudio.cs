@@ -20,21 +20,21 @@ public class AddAudio : MonoBehaviour
     private BackgroundMusicManager backgroundMusicManager;
 
     [Header("audio clip")]
-    [SerializeField] public AudioClip SlicingLemonLimes;// defines clip 
-    [SerializeField] public AudioClip Cheers;// defines clip 
-    [SerializeField] public AudioClip GlassClinks;// defines clip 
-    [SerializeField] public AudioClip SingleVGlassClink;// defines clip 
-    [SerializeField] public AudioClip PourDrink;// defines clip 
-    [SerializeField] public AudioClip MixingDrinks;
+    [SerializeField] public AudioClip millFlour;// defines clip 
+    [SerializeField] public AudioClip Success;// defines clip 
+    [SerializeField] public AudioClip ClimbLadder;// defines clip 
+    [SerializeField] public AudioClip SFX1;// defines clip 
+    [SerializeField] public AudioClip SFX2;// defines clip 
+    [SerializeField] public AudioClip SFX3;
 
-    [SerializeField] public AudioClip OtherSlicing;// defines clip 
-    [SerializeField] public AudioClip IceIntoGlass;// defines clip 
-    [SerializeField] public AudioClip BatGirlAudioclip;// defines clip 
-    [SerializeField] public AudioClip BluegirlAudioclip;// defines clip 
-    [SerializeField] public AudioClip PigtailsAudioclip;// defines clip 
-    [SerializeField] public AudioClip NurseAudioclip;// defines clip 
-    [SerializeField] public AudioClip VampFabioAudioclip;// defines clip 
-    [SerializeField] public AudioClip ZombusterAudioclip;// defines clip 
+    [SerializeField] public AudioClip SFX4;// defines clip 
+    [SerializeField] public AudioClip SFX5;// defines clip 
+    [SerializeField] public AudioClip SFX6;// defines clip 
+    [SerializeField] public AudioClip SFX7;// defines clip 
+    [SerializeField] public AudioClip SFX8;// defines clip 
+    [SerializeField] public AudioClip SFX9;// defines clip 
+    [SerializeField] public AudioClip SFX10;// defines clip 
+    [SerializeField] public AudioClip SFX11;// defines clip 
     [SerializeField] public AudioSource sourceSFXandDialogue;// defines audio source
     private static AudioSource currentlyPlayingSource; //defines any currently playing for audio checks
     [SerializeField] private float startingVolume = .35f;
@@ -57,12 +57,12 @@ public class AddAudio : MonoBehaviour
         sourceSFXandDialogue.spatialBlend = 0f;
         sourceSFXandDialogue.playOnAwake = false;
         sourceSFXandDialogue.mute = false;
-    
+
     }
     private void Start()
     {
         StartupAudio();
-       
+
     }
     public void StartupAudio()
     {
@@ -95,8 +95,8 @@ public class AddAudio : MonoBehaviour
             sourceSFXandDialogue.volume = newVolume;
         }
     }
- 
-    public void OnSlicingLemonLimes()
+
+    public void OnMillFlour()
     {
         if (volumeSlider != null && sourceSFXandDialogue != null)// presets volume per new govenrences above
         {
@@ -105,13 +105,13 @@ public class AddAudio : MonoBehaviour
 
         if (sourceSFXandDialogue != null && sourceSFXandDialogue.clip != null)
         {
-            sourceSFXandDialogue.PlayOneShot(SlicingLemonLimes, 1.0f);//plays defined audio clip on ente of collider zone
-        
+            sourceSFXandDialogue.PlayOneShot(millFlour, 1.0f);//plays defined audio clip on ente of collider zone
+
         }
     }
 
 
-    public void OnCheers()
+    public void OnSuccess()
     {
         if (volumeSlider != null && sourceSFXandDialogue != null)// presets volume per new govenrences above
         {
@@ -120,13 +120,13 @@ public class AddAudio : MonoBehaviour
 
         if (sourceSFXandDialogue != null && sourceSFXandDialogue.clip != null)
         {
-            sourceSFXandDialogue.PlayOneShot(Cheers, 1.0f);//plays defined audio clip on ente of collider zone
-   
+            sourceSFXandDialogue.PlayOneShot(Success, 1.0f);//plays defined audio clip on ente of collider zone
+
         }
     }
 
-  
-    public void OnGlassClinks()
+
+    public void OnClimbLadder()
     {
         if (volumeSlider != null && sourceSFXandDialogue != null)// presets volume per new govenrences above
         {
@@ -135,12 +135,12 @@ public class AddAudio : MonoBehaviour
 
         if (sourceSFXandDialogue != null && sourceSFXandDialogue.clip != null)
         {
-            sourceSFXandDialogue.PlayOneShot(GlassClinks, 1.0f);//plays defined audio clip on ente of collider zone
-     
+            sourceSFXandDialogue.PlayOneShot(ClimbLadder, 1.0f);//plays defined audio clip on ente of collider zone
+
         }
     }
 
-    public void OnSingleVGlassClink()
+    public void OnSFX1()
     {
         if (volumeSlider != null && sourceSFXandDialogue != null)// presets volume per new govenrences above
         {
@@ -149,11 +149,11 @@ public class AddAudio : MonoBehaviour
 
         if (sourceSFXandDialogue != null && sourceSFXandDialogue.clip != null)
         {
-            sourceSFXandDialogue.PlayOneShot(SingleVGlassClink, 1.0f);//plays defined audio clip on ente of collider zone
-      
+            sourceSFXandDialogue.PlayOneShot(SFX1, 1.0f);//plays defined audio clip on ente of collider zone
+
         }
     }
-    public void OnPourDrink()
+    public void OnSFX2()
     {
         if (volumeSlider != null && sourceSFXandDialogue != null)// presets volume per new govenrences above
         {
@@ -162,11 +162,11 @@ public class AddAudio : MonoBehaviour
 
         if (sourceSFXandDialogue != null && sourceSFXandDialogue.clip != null)
         {
-            sourceSFXandDialogue.PlayOneShot(PourDrink, 1.0f);//plays defined audio clip on ente of collider zone
-    
+            sourceSFXandDialogue.PlayOneShot(SFX2, 1.0f);//plays defined audio clip on ente of collider zone
+
         }
     }
-    public void OnMixingDrinks()
+    public void OnSFX3()
     {
         if (volumeSlider != null && sourceSFXandDialogue != null)// presets volume per new govenrences above
         {
@@ -175,11 +175,11 @@ public class AddAudio : MonoBehaviour
 
         if (sourceSFXandDialogue != null && sourceSFXandDialogue.clip != null)
         {
-            sourceSFXandDialogue.PlayOneShot(MixingDrinks, 1.0f);//plays defined audio clip on ente of collider zone
-    
+            sourceSFXandDialogue.PlayOneShot(SFX3, 1.0f);//plays defined audio clip on ente of collider zone
+
         }
     }
-    public void OnIceIntoGlass()
+    public void OnSFX4()
     {
         if (volumeSlider != null && sourceSFXandDialogue != null)// presets volume per new govenrences above
         {
@@ -188,13 +188,13 @@ public class AddAudio : MonoBehaviour
 
         if (sourceSFXandDialogue != null && sourceSFXandDialogue.clip != null)
         {
-            sourceSFXandDialogue.PlayOneShot(IceIntoGlass, 1.0f);//plays defined audio clip on ente of collider zone
-       
-      
+            sourceSFXandDialogue.PlayOneShot(SFX4, 1.0f);//plays defined audio clip on ente of collider zone
+
+
         }
-        
+
     }
-    public void OnOtherSlicing()
+    public void OnSFX5()
     {
         if (volumeSlider != null && sourceSFXandDialogue != null)// presets volume per new govenrences above
         {
@@ -203,13 +203,13 @@ public class AddAudio : MonoBehaviour
 
         if (sourceSFXandDialogue != null && sourceSFXandDialogue.clip != null)
         {
-            sourceSFXandDialogue.PlayOneShot(OtherSlicing, 1.0f);//plays defined audio clip on ente of collider zone
-       
-     
+            sourceSFXandDialogue.PlayOneShot(SFX5, 1.0f);//plays defined audio clip on ente of collider zone
+
+
         }
-   
+
     }
-    public void OnBatGirlAudioclip()
+    public void OnSFX6()
     {
         if (volumeSlider != null && sourceSFXandDialogue != null)// presets volume per new govenrences above
         {
@@ -219,31 +219,14 @@ public class AddAudio : MonoBehaviour
         if (sourceSFXandDialogue != null && sourceSFXandDialogue.clip != null)
         {
             sourceSFXandDialogue.volume = 2f;
-            sourceSFXandDialogue.clip = BatGirlAudioclip;
-            sourceSFXandDialogue.loop = false;
-            sourceSFXandDialogue.Play();     
-                
-        }
-        
-    }
-    public void OnVampFabioAudioclip()
-    {
-        if (volumeSlider != null && sourceSFXandDialogue != null)// presets volume per new govenrences above
-        {
-            sourceSFXandDialogue.volume = volumeSlider.value;
-        }
-
-        if (sourceSFXandDialogue != null && sourceSFXandDialogue.clip != null)
-        {
-            sourceSFXandDialogue.volume = 2f;
-            sourceSFXandDialogue.clip = VampFabioAudioclip;
+            sourceSFXandDialogue.clip = SFX6;
             sourceSFXandDialogue.loop = false;
             sourceSFXandDialogue.Play();
-           
+
         }
-      
+
     }
-    public void OnBluegirlAudioclip()
+    public void OnSFX7()
     {
         if (volumeSlider != null && sourceSFXandDialogue != null)// presets volume per new govenrences above
         {
@@ -253,14 +236,14 @@ public class AddAudio : MonoBehaviour
         if (sourceSFXandDialogue != null && sourceSFXandDialogue.clip != null)
         {
             sourceSFXandDialogue.volume = 2f;
-            sourceSFXandDialogue.clip = BluegirlAudioclip;
+            sourceSFXandDialogue.clip = SFX7;
             sourceSFXandDialogue.loop = false;
             sourceSFXandDialogue.Play();
-            
+
         }
-       
+
     }
-    public void OnPigtailsAudioclip()
+    public void OnSFX8()
     {
         if (volumeSlider != null && sourceSFXandDialogue != null)// presets volume per new govenrences above
         {
@@ -270,15 +253,14 @@ public class AddAudio : MonoBehaviour
         if (sourceSFXandDialogue != null && sourceSFXandDialogue.clip != null)
         {
             sourceSFXandDialogue.volume = 2f;
-            sourceSFXandDialogue.clip = PigtailsAudioclip;
+            sourceSFXandDialogue.clip = SFX8;
             sourceSFXandDialogue.loop = false;
             sourceSFXandDialogue.Play();
-         ;
+
         }
-        
 
     }
-    public void OnNurseAudioclip()
+    public void OnSFX9()
     {
         if (volumeSlider != null && sourceSFXandDialogue != null)// presets volume per new govenrences above
         {
@@ -288,14 +270,15 @@ public class AddAudio : MonoBehaviour
         if (sourceSFXandDialogue != null && sourceSFXandDialogue.clip != null)
         {
             sourceSFXandDialogue.volume = 2f;
-            sourceSFXandDialogue.clip = NurseAudioclip;
+            sourceSFXandDialogue.clip = SFX9;
             sourceSFXandDialogue.loop = false;
             sourceSFXandDialogue.Play();
-           
+            ;
         }
-        
+
+
     }
-    public void OnZombusterAudioclip()
+    public void OnSFX10()
     {
         if (volumeSlider != null && sourceSFXandDialogue != null)// presets volume per new govenrences above
         {
@@ -305,12 +288,29 @@ public class AddAudio : MonoBehaviour
         if (sourceSFXandDialogue != null && sourceSFXandDialogue.clip != null)
         {
             sourceSFXandDialogue.volume = 2f;
-            sourceSFXandDialogue.clip = ZombusterAudioclip;
+            sourceSFXandDialogue.clip = SFX10;
             sourceSFXandDialogue.loop = false;
             sourceSFXandDialogue.Play();
-             
+
         }
-     
+
+    }
+    public void OnSFX11()
+    {
+        if (volumeSlider != null && sourceSFXandDialogue != null)// presets volume per new govenrences above
+        {
+            sourceSFXandDialogue.volume = volumeSlider.value;
+        }
+
+        if (sourceSFXandDialogue != null && sourceSFXandDialogue.clip != null)
+        {
+            sourceSFXandDialogue.volume = 2f;
+            sourceSFXandDialogue.clip = SFX11;
+            sourceSFXandDialogue.loop = false;
+            sourceSFXandDialogue.Play();
+
+        }
+
     }
 
 

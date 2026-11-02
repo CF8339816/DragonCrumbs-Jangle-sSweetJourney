@@ -1,13 +1,15 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
-#region coder & project
+using Unity.Cinemachine;
+#region
 /// <summary>
-/// NSCC GAME2025 / 4086 / Game Programming III(B)/ Doucette,Matthew
-/// Unity: Game Manager & Persistence
+///NSCC GAME2065/4087/Game Development III(B)/Cameron,Jordan
+///Jam 3: Dragon Crumbs: Jangle's Sweet Journey
+/// team: Chris French, Kevin Card, Percy Hebb, Myranda Roy.
 /// Coder current script: Chris French Second Year NSCC Game Programming 
-/// Additions / annotations:
-/// 
+/// Additions / annotations: Kevin Card
+/// code review: 
 /// </summary>
 #endregion
 public class GameExitManager : MonoBehaviour
