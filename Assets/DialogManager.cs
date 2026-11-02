@@ -17,6 +17,9 @@ public class DialogManager : MonoBehaviour
 
     private string currentText;
 
+    
+    
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -36,11 +39,32 @@ public class DialogManager : MonoBehaviour
 
     public void StartDialog(string[] text)
     {
+        
         ToggleTextBox();
         Debug.Log("Talking");
         dialog.Clear();
         talking = true;
         foreach(string line in text)
+        {
+            dialog.Enqueue(line);
+            Debug.Log($"added {line} to queue");
+        }
+        ContinueDialog();
+
+    }
+    public void StartDialog(string[] text, string[] secondText)
+    {
+        
+        ToggleTextBox();
+        Debug.Log("Talking");
+        dialog.Clear();
+        talking = true;
+        foreach (string line in text)
+        {
+            dialog.Enqueue(line);
+            Debug.Log($"added {line} to queue");
+        }
+        foreach (string line in secondText)
         {
             dialog.Enqueue(line);
             Debug.Log($"added {line} to queue");
@@ -72,6 +96,7 @@ public class DialogManager : MonoBehaviour
     }
     public void StopTalking()
     {
+
         Debug.Log("stopped talking");
         ToggleTextBox();
         talking = false;

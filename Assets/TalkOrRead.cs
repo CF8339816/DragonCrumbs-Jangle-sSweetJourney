@@ -4,7 +4,7 @@ public class TalkOrRead : MonoBehaviour,IInteractable
 {
     [TextArea]public string[] Dialog;
 
-    public void Interact()
+    public virtual void Interact()
     {
         Debug.Log("talked");
         if (!DialogManager.dialogManager.talking)
