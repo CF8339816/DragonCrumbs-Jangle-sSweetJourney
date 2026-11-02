@@ -17,7 +17,15 @@ public class ItemManager : MonoBehaviour
     {
         
     }
-    
+    public void LoadLevel1Recipe()
+    {
+        recipe.Clear();
+        recipe.Add(new items("apple",5));
+        recipe.Add(new items("flower", 1));
+        recipe.Add(new items("honey", 1));
+        recipe.Add(new items("weat", 5));
+        
+    }
     public void AddToItem(string item)
     {
         item.ToLower();
