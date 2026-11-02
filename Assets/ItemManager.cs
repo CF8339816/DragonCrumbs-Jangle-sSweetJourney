@@ -24,6 +24,8 @@ public class ItemManager : MonoBehaviour
         {
             if (recipe[i].itemName.ToLower() == item)
             {
+
+
                 recipe[i].AddToItemCount();
             }
         }
