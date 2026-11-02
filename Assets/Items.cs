@@ -21,4 +21,16 @@ public class items : MonoBehaviour
 
         }
     }
+    public bool HasEnoughOfItem()
+    {
+        if(amountHeld == amountNeeded)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
+    }
 }
