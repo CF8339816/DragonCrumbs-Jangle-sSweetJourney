@@ -395,7 +395,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ever play super paper mario
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -568,7 +568,7 @@ GameObject:
   - component: {fileID: 1115715847}
   - component: {fileID: 1115715846}
   m_Layer: 0
-  m_Name: Capsule
+  m_Name: test npc, standard dialog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -588,7 +588,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TalkOrRead
   Dialog:
   - That's Mr L. This new Hire of Count Bleck's a real mystery man.
-  - Max HP is 40. Attack is 3. He uses his High jump as a weapon and that
+  - Max HP is 40. Attack is 3. He uses his High jump as a weapon and that powered-up
+    super jump is quite... super.
   - He has no other outstanding features of note. And why does he remind me so much
     of Mario?
 --- !u!136 &1115715847
@@ -743,6 +744,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1537117279}
+  - component: {fileID: 1537117280}
   m_Layer: 0
   m_Name: itemManager
   m_TagString: Untagged
@@ -765,6 +767,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1537117280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1537117278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ddf27128a3b83443a91a0c66a3cfa4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ItemManager
 --- !u!1 &1953868098
 GameObject:
   m_ObjectHideFlags: 0
