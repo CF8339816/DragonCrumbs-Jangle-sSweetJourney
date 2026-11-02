@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class TalkOrRead : MonoBehaviour
+public class TalkOrRead : MonoBehaviour,IInteractable
 {
     [TextArea]public string[] Dialog;
 
