@@ -27,6 +27,10 @@ public class ItemManager : MonoBehaviour
 
 
                 recipe[i].AddToItemCount();
+                if (recipe[i].amountHeld == recipe[i].amountNeeded)
+                {
+                    //do stuff here
+                }
             }
         }
     }
