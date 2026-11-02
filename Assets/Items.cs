@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class items : MonoBehaviour
+public class items
 {
     public string itemName;
     public int amountHeld = 0;

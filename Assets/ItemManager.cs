@@ -17,6 +17,7 @@ public class ItemManager : MonoBehaviour
     {
         
     }
+    
     public void AddToItem(string item)
     {
         item.ToLower();
