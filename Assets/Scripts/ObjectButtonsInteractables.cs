@@ -111,6 +111,17 @@ public class ObjectButtonsInteractables : MonoBehaviour
 
     }
 
+    public void OnRecipeConfirm()
+    {
+        ReferenePannel.SetActive(false);
+
+    }
+    public void OnRecipeRePick()
+    {
+        ReferenePannel.SetActive(false);
+
+    }
+
     public void OnRecipeSelect()
     {
         ReferenePannel.SetActive(true);
