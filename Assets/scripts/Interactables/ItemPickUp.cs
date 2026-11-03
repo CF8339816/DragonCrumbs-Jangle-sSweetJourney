@@ -15,5 +15,6 @@ public class ItemPickUp : MonoBehaviour,IInteractable
     public void Interact()
     {
         itemManager.AddToItem(itemToEffect);
+        Destroy(this.gameObject);
     }
 }

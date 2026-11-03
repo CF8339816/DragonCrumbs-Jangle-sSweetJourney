@@ -1,12 +1,14 @@
 using UnityEngine;
 
-public class DialogWthCheck : TalkOrRead
+public class DialogWthCheck : TalkOrRead,IInteractable
 {
 
     public ItemManager itemManager;
 
     [TextArea] public string[] secondDialogPass;
     [TextArea] public string[] secondDialogFail;
+
+    [TextArea] public string[] DialogAfterGvingItem;
     public string itemToCheck;
 
     private bool itemCheckPassed = false;
@@ -22,7 +24,11 @@ public class DialogWthCheck : TalkOrRead
         Debug.Log("talked");
         if (!DialogManager.dialogManager.talking)
         {
-            if (itemManager.CheckItem(itemToCheck))
+            if (itemAdded)
+            {
+                DialogManager.dialogManager.StartDialog(DialogAfterGvingItem);
+            }
+            else if (itemManager.CheckItem(itemToCheck))
             {
                 itemCheckPassed = true;
                 DialogManager.dialogManager.StartDialog(Dialog, secondDialogPass);
@@ -45,7 +51,7 @@ public class DialogWthCheck : TalkOrRead
         {
             if (itemCheckPassed && DialogManager.dialogManager.talking == false && itemAdded == false)
             {
-
+                Debug.Log($"gave {itemToAdd}");
                 itemManager.AddToItem(itemToAdd);
                 itemAdded = true;
             }

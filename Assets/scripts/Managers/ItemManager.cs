@@ -44,7 +44,7 @@ public class ItemManager : MonoBehaviour
             if (recipe[i].itemName.ToLower() == item)
             {
 
-
+                Debug.Log($"you got {item}");
                 recipe[i].AddToItemCount();
                 if (recipe[i].amountHeld == recipe[i].amountNeeded)
                 {
@@ -61,6 +61,7 @@ public class ItemManager : MonoBehaviour
         {
             if (recipe[i].itemName.ToLower() == item)
             {
+                Debug.Log($"had enough of {item}");
                 hasEnoughOfItem = recipe[i].HasEnoughOfItem();
             }
         }
