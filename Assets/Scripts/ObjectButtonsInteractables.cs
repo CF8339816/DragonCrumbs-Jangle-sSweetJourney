@@ -6,7 +6,7 @@ using Unity.Cinemachine;
 /// <summary>
 ///NSCC GAME2065/4087/Game Development III(B)/Cameron,Jordan
 ///Jam 3: Dragon Crumbs: Jangle's Sweet Journey
-/// team: Chris French, Kevin Card, Percy Hebb, Myranda Roy.
+/// team: Percy Hebb, Chris French, Kevin Card,  Myranda Roy.
 /// Coder current script: Chris French Second Year NSCC Game Programming 
 /// Additions / annotations: Kevin Card
 /// code review: 
@@ -16,7 +16,7 @@ public class ObjectButtonsInteractables : MonoBehaviour
 {    
 
     [Header("UI Elements")]//---- Defines Game Elements for active et calls----CF
-    [SerializeField] public GameObject ReferenePannel;
+    [SerializeField] public GameObject ReferenePanel;
     [SerializeField] public GameObject OKButton;
     [SerializeField] public GameObject Accept;
     [SerializeField] public GameObject RePick;
@@ -27,8 +27,12 @@ public class ObjectButtonsInteractables : MonoBehaviour
     [SerializeField] public GameObject CrossOut2;
     [SerializeField] public GameObject CheckMark3;
     [SerializeField] public GameObject CrossOut3;
-
-
+    [SerializeField] public GameObject QuestPanel;
+    [SerializeField] public GameObject ApplePieRecipeCard;
+    [SerializeField] public GameObject BrowniesRecipeCard;
+    [SerializeField] public GameObject PineNutFudgeRecipeCard;
+    [SerializeField] public GameObject CheeseCakeRecipeCard;
+    [SerializeField] public GameObject CookiesRecipeCard;
 
 
 
@@ -59,7 +63,7 @@ public class ObjectButtonsInteractables : MonoBehaviour
     [SerializeField] public GameObject RefCheckMark3;
     [SerializeField] public GameObject RefCrossOut3;
 
-
+    private string[] RecipeList;
 
 
     //[Header ("Additional recipie i there is time ")]//----Defines ingredient visuals for second recipie if there is time to incude one----CF
@@ -67,7 +71,9 @@ public class ObjectButtonsInteractables : MonoBehaviour
     //[SerializeField] public GameObject IngredientNA2;
     //[SerializeField] public GameObject IngredientNA3;
 
+    public bool isBakery = false;
 
+    public bool isQuest = false;
 
 
 
@@ -75,7 +81,12 @@ public class ObjectButtonsInteractables : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        ReferenePannel.SetActive(false);// ---- turns off the reference card when hud begins----CF
+        ReferenePanel.SetActive(false);// ---- turns off the reference card when hud begins----CF
+        isQuest = false;
+        isBakery = true;
+        RecipeList = new string[] { "Apple Pie", "Brownies", "Pine Nut Fudge", "Cheesecake", "Cookies" };
+
+
     }
 
     // Update is called once per frame
@@ -83,14 +94,24 @@ public class ObjectButtonsInteractables : MonoBehaviour
     {
         
 
+        if (isBakery)
+        {
+            ReferenePanel.SetActive(false);
+
+            QuestPanel.SetActive(false);
+
+
+        }
+
+        if (isQuest)
+
+        {
+
+            QuestPanel.SetActive(true);
 
 
 
-
-
-
-
-
+        }
 
 
 
@@ -99,7 +120,7 @@ public class ObjectButtonsInteractables : MonoBehaviour
 
     public void OnRecipeCheck()
     {
-    ReferenePannel.SetActive(true);    
+    ReferenePanel.SetActive(true);    
     OKButton.SetActive(true);
     Accept.SetActive(false);
     RePick.SetActive(false);
@@ -107,24 +128,82 @@ public class ObjectButtonsInteractables : MonoBehaviour
     }
     public void OnRecipeOK()
     {
-        ReferenePannel.SetActive(false);
+        ReferenePanel.SetActive(false);
 
     }
 
     public void OnRecipeConfirm()
     {
-        ReferenePannel.SetActive(false);
-
+        ReferenePanel.SetActive(false);
+        ///load travel map scene for the quest area---CF
+        ///set the info on the  corner recipe card and turn on the quest panel
+        isQuest = true;
+        isBakery = false;
     }
     public void OnRecipeRePick()
     {
-        ReferenePannel.SetActive(false);
+        ReferenePanel.SetActive(false);
 
     }
 
+    public void OnRecipeSelectApplePie()
+    {
+        ReferenePanel.SetActive(true);
+        OKButton.SetActive(false);
+        Accept.SetActive(true);
+        RePick.SetActive(true);
+        RefCheckMark1.SetActive(false);
+        RefCrossOut1.SetActive(false);
+        RefCheckMark2.SetActive(false);
+        RefCrossOut2.SetActive(false);
+        RefCheckMark3.SetActive(false);
+        RefCrossOut3.SetActive(false);
+
+
+    }
+    public void OnRecipeSelectBrownies()
+    {
+        ReferenePanel.SetActive(true);
+        OKButton.SetActive(false);
+        Accept.SetActive(true);
+        RePick.SetActive(true);
+    
+      
+    }
+    public void OnRecipeSelectPineNutFudge()
+    {
+        ReferenePanel.SetActive(true);
+        OKButton.SetActive(false);
+        Accept.SetActive(true);
+        RePick.SetActive(true);
+   
+       
+    }
+    public void OnRecipeSelectCheesecake()
+    {
+        ReferenePanel.SetActive(true);
+        OKButton.SetActive(false);
+        Accept.SetActive(true);
+        RePick.SetActive(true);
+      
+       
+    }
+    public void OnRecipeSelectCookies()
+    {
+        ReferenePanel.SetActive(true);
+        OKButton.SetActive(false);
+        Accept.SetActive(true);
+        RePick.SetActive(true);
+     
+       
+    }
+   
+
+
+
     public void OnRecipeSelect()
     {
-        ReferenePannel.SetActive(true);
+        ReferenePanel.SetActive(true);
         OKButton.SetActive(false);
         Accept.SetActive(true);
         RePick.SetActive(true);
