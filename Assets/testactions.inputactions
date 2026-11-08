@@ -1,0 +1,35 @@
+{
+    "version": 1,
+    "name": "testactions",
+    "maps": [
+        {
+            "name": "interact test",
+            "id": "8411bedf-daf9-49ef-b18a-bbbcb39b6364",
+            "actions": [
+                {
+                    "name": "interact",
+                    "type": "Button",
+                    "id": "99bdcfee-b227-4988-a074-4569fc0e0948",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "53844a10-2106-4ec2-9494-41e9fb4e61e8",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
