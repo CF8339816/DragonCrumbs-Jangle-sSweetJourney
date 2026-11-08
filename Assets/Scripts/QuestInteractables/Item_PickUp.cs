@@ -1,11 +1,11 @@
 using UnityEngine;
 
-public class ItemPickUp : MonoBehaviour,IInteractable
+public class Item_PickUp : MonoBehaviour,IInteractable
 {
     public string itemToEffect;
 
 
-    public ItemManager itemManager;
+    public Item_Manager itemManager;
 
     private void Start()
     {

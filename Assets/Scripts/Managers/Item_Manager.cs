@@ -2,7 +2,7 @@ using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemManager : MonoBehaviour
+public class Item_Manager : MonoBehaviour
 {
 
     public List<items> recipe = new List<items>();

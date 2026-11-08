@@ -1,9 +1,9 @@
 using UnityEngine;
 
-public class DialogWthCheck : TalkOrRead,IInteractable
+public class Dialog_WthCheck : TalkOrRead,IInteractable
 {
 
-    public ItemManager itemManager;
+    public Item_Manager itemManager;
 
     [TextArea] public string[] secondDialogPass;
     [TextArea] public string[] secondDialogFail;
@@ -22,26 +22,26 @@ public class DialogWthCheck : TalkOrRead,IInteractable
     public override void Interact()
     {
         Debug.Log("talked");
-        if (!DialogManager.dialogManager.talking)
+        if (!Dialog_Manager.dialogManager.talking)
         {
             if (itemAdded)
             {
-                DialogManager.dialogManager.StartDialog(DialogAfterGvingItem);
+                Dialog_Manager.dialogManager.StartDialog(DialogAfterGvingItem);
             }
             else if (itemManager.CheckItem(itemToCheck))
             {
                 itemCheckPassed = true;
-                DialogManager.dialogManager.StartDialog(Dialog, secondDialogPass);
+                Dialog_Manager.dialogManager.StartDialog(Dialog, secondDialogPass);
             }
             else
             {
-                DialogManager.dialogManager.StartDialog(Dialog, secondDialogFail);
+                Dialog_Manager.dialogManager.StartDialog(Dialog, secondDialogFail);
             }
             
         }
         else
         {
-            DialogManager.dialogManager.ContinueDialog();
+            Dialog_Manager.dialogManager.ContinueDialog();
 
         }
     }
@@ -49,7 +49,7 @@ public class DialogWthCheck : TalkOrRead,IInteractable
     {
         if (itemToAdd != null)
         {
-            if (itemCheckPassed && DialogManager.dialogManager.talking == false && itemAdded == false)
+            if (itemCheckPassed && Dialog_Manager.dialogManager.talking == false && itemAdded == false)
             {
                 Debug.Log($"gave {itemToAdd}");
                 itemManager.AddToItem(itemToAdd);

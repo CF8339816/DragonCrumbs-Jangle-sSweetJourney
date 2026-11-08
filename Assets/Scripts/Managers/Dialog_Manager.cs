@@ -6,10 +6,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class DialogManager : MonoBehaviour
+public class Dialog_Manager : MonoBehaviour
 {
     public float wrightSpeed = 0.01f;
-    public static DialogManager dialogManager;
+    public static Dialog_Manager dialogManager;
     private bool wrighting = false;
     public bool talking = false;
 
