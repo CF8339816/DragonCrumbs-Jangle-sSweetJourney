@@ -8,6 +8,27 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/StartHub.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/Quest1A.unity
+    guid: baa4ca577b2c4fb4e82a5ffdc086c3c5
+  - enabled: 1
+    path: Assets/Scenes/Quest1B.unity
+    guid: 397af6bb50d2d73428235cbd69ef0c02
+  - enabled: 1
+    path: Assets/Scenes/Quest1C.unity
+    guid: c89533e63e419e346a4c4a21f835208f
+  - enabled: 1
+    path: Assets/Scenes/Bakery.unity
+    guid: e49c7c394cf30e749a795e685db7adec
+  - enabled: 1
+    path: Assets/Scenes/QuestHUD.unity
+    guid: f3a7fd864e5d58946a564b6d78c564c7
+  - enabled: 1
+    path: Assets/Scenes/TravelMap.unity
+    guid: 166488caf8e6e2b4c874f4cb86e12297
+  - enabled: 1
+    path: Assets/Scenes/Pause.unity
+    guid: a35c1bfd452499f4b93560fb3c5a050d
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

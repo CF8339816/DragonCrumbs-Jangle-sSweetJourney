@@ -21,17 +21,20 @@ public class Custom_sceneManager : MonoBehaviour
     private HudManager hudManager;
     //private PauseManager pauseManager;
 
-    [SerializeField] GameObject dude;
-    private const int MAIN_INDEX = 0;
-    private const int LEVEL_1_INDEX = 1;
-    private const int LEVEL_2_INDEX = 2;
-    private const int LEVEL_3_INDEX = 3;
-    private const int MENU_INDEX = 4;
-    private const int HUD_INDEX = 5;
-    private const int PAUSE_INDEX = 6;
-    private const int PLAYER_INDEX = 7;
-    private const int ENVIRONMENT_INDEX = 8;
-    private const int SHOP_INDEX = 9;
+    [SerializeField] GameObject Jangle;
+    [SerializeField] GameObject Instructions;
+
+    private const int STARTHUB_INDEX = 0;
+    private const int QUEST1A_INDEX = 1;
+    private const int QUEST1B_INDEX = 2;
+    private const int QUEST1C_INDEX = 3;
+    private const int BAKERY_INDEX = 4;
+    private const int QUESTHUD_INDEX = 5;
+    private const int TRAVELMAP_INDEX = 6;
+    private const int PAUSE_INDEX = 7;
+    // private const int PLAYER_INDEX = 7;
+    // private const int ENVIRONMENT_INDEX = 8;
+    //private const int SHOP_INDEX = 9;
     private int RETURNLEVEL_INDEX;
     private int ReturnIndex;
 
@@ -46,10 +49,10 @@ public class Custom_sceneManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject); // keeps script accessible across scene changes
 
-        Debug.Log(" Menu  awakening...");
-        SceneManager.LoadScene(MENU_INDEX, LoadSceneMode.Additive);
-        Debug.Log(" menu loaded...");
-    
+        //Debug.Log(" Menu  awakening...");
+        //SceneManager.LoadScene(MENU_INDEX, LoadSceneMode.Additive);
+        //Debug.Log(" menu loaded...");
+
 
     }
     private void OnEnable()

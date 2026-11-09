@@ -33,7 +33,7 @@ public class ObjectButtonsInteractables : MonoBehaviour
     [SerializeField] public GameObject PineNutFudgeRecipeCard;
     [SerializeField] public GameObject CheeseCakeRecipeCard;
     [SerializeField] public GameObject CookiesRecipeCard;
-
+    //[SerializeField] public GameObject Instructions;
 
 
 
@@ -81,6 +81,7 @@ public class ObjectButtonsInteractables : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        //Instructions.SetActive(false);
         ReferenePanel.SetActive(false);// ---- turns off the reference card when hud begins----CF
         isQuest = false;
         isBakery = true;
