@@ -153,7 +153,37 @@ public class JangleController : MonoBehaviour
         currentScale.x *= -1; // ---- flips sprite packet parrnt through neg x to turn it over / flip direction---- CF
         transform.localScale = currentScale; // ---- sets new scale transform as currnet value---- CF
     }
-    
+    public int InteractRange = 3;
+    public void Interact(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            RaycastHit2D hit;
+            if (isFacingRight)
+            {
+                
+                if(Physics2D.Raycast(this.transform.position,this.transform.right, InteractRange))
+                {
+                    hit = Physics2D.Raycast(this.transform.position, this.transform.right, InteractRange);
+                    if (hit.transform.gameObject.CompareTag("Interactable"))
+                    {
+                        hit.transform.gameObject.GetComponent<IInteractable>().Interact();
+                    }
+                }
+            }
+            else
+            {
+                if (Physics2D .Raycast(this.transform.position, -this.transform.right, InteractRange))
+                {
+                    hit = Physics2D.Raycast(this.transform.position, -this.transform.right, InteractRange);
+                    if (hit.transform.gameObject.CompareTag("Interactable"))
+                    {
+                        hit.transform.gameObject.GetComponent<IInteractable>().Interact();
+                    }
+                }
+            }
+        }
+    }
 }
 
 
