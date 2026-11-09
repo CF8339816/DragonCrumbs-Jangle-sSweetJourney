@@ -133,8 +133,8 @@ GameObject:
   - component: {fileID: 15105724}
   - component: {fileID: 15105723}
   m_Layer: 0
-  m_Name: Circle
-  m_TagString: Untagged
+  m_Name: apple
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -314,8 +314,8 @@ GameObject:
   - component: {fileID: 33286003}
   - component: {fileID: 33286002}
   m_Layer: 0
-  m_Name: Circle (1)
-  m_TagString: Untagged
+  m_Name: apple
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -495,8 +495,8 @@ GameObject:
   - component: {fileID: 318021320}
   - component: {fileID: 318021319}
   m_Layer: 0
-  m_Name: Capsule
-  m_TagString: Untagged
+  m_Name: placeholder npc
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -997,8 +997,8 @@ GameObject:
   - component: {fileID: 830763154}
   - component: {fileID: 830763153}
   m_Layer: 0
-  m_Name: Circle (3)
-  m_TagString: Untagged
+  m_Name: apple
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1272,7 +1272,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.1, z: 0}
-  m_LocalScale: {x: 10, y: 1, z: 10}
+  m_LocalScale: {x: 20, y: 1, z: 20}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1507,8 +1507,8 @@ GameObject:
   - component: {fileID: 1039637859}
   - component: {fileID: 1039637858}
   m_Layer: 0
-  m_Name: Circle (4)
-  m_TagString: Untagged
+  m_Name: apple
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1736,8 +1736,8 @@ GameObject:
   - component: {fileID: 1278081613}
   - component: {fileID: 1278081612}
   m_Layer: 0
-  m_Name: Circle (2)
-  m_TagString: Untagged
+  m_Name: apple
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1948,6 +1948,52 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemManager
   currentRecpie: 0
+--- !u!1 &1694895705
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1694895707}
+  - component: {fileID: 1694895706}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1694895706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1694895705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a38ebb6f9dd4d1f488a1c169ab6594f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PassiveItemCheckObject
+  itemToCheck: apple
+  timer: 5
+--- !u!4 &1694895707
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1694895705}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -10.67612, y: 16.24, z: -2.58266}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1953868098
 GameObject:
   m_ObjectHideFlags: 0
@@ -2141,3 +2187,4 @@ SceneRoots:
   - {fileID: 1278081616}
   - {fileID: 830763157}
   - {fileID: 1039637862}
+  - {fileID: 1694895707}

@@ -6,6 +6,7 @@ public class ItemPickUp : MonoBehaviour,IInteractable
 
 
     public ItemManager itemManager;
+    
 
     private void Start()
     {
