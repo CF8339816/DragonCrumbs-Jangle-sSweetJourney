@@ -1380,7 +1380,7 @@ MonoBehaviour:
   secondDialogFail:
   - I'll be here when you get to that part of testing
   DialogAfterGvingItem:
-  - Injoy playing that... you do have a wii, right?
+  - enjoy playing that... you have a wii, right?
   itemToCheck: apple
   itemToAdd: SPM
 --- !u!23 &1687479275
