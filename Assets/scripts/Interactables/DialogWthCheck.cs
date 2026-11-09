@@ -18,6 +18,7 @@ public class DialogWthCheck : TalkOrRead,IInteractable
     private void Start()
     {
         //either set item manger to static or replace it in other code with static
+        itemManager = ItemManager.instace;
     }
     public override void Interact()
     {
