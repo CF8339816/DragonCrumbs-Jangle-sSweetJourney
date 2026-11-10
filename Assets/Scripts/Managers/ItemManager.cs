@@ -99,7 +99,7 @@ public class ItemManager : MonoBehaviour
         item.ToLower();
         for(int i = 0; i < recipe.Count; i++)
         {
-            if (recipe[i].itemName.ToLower() == item)
+            if (recipe[i].itemName.ToLower() == item.ToLower())
             {
 
                 Debug.Log($"you got {item}");
@@ -117,7 +117,7 @@ public class ItemManager : MonoBehaviour
         item.ToLower();
         for (int i = 0; i < recipe.Count; i++)
         {
-            if (recipe[i].itemName.ToLower() == item)
+            if (recipe[i].itemName.ToLower() == item.ToLower())
             {
                 Debug.Log($"had enough of {item}");
                 hasEnoughOfItem = recipe[i].HasEnoughOfItem();

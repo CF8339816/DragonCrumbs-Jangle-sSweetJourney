@@ -154,8 +154,9 @@ public class JangleController : MonoBehaviour
         transform.localScale = currentScale; // ---- sets new scale transform as currnet value---- CF
     }
     public int InteractRange = 3;
-    public void Interact(InputAction.CallbackContext context)
+    public void OnInteract(InputAction.CallbackContext context)
     {
+        Debug.Log("tried to interact");
         if (context.performed)
         {
             RaycastHit2D hit;
