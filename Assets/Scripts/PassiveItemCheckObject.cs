@@ -17,5 +17,6 @@ public class PassiveItemCheckObject : MonoBehaviour
                 //level change here
             }
         }
+        
     }
 }

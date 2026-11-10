@@ -20,6 +20,7 @@ public class ItemManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        LoadRecipe(currentRecpie);
         //remove when instace is moved to survace hub
         if(instace == null)
         {
@@ -99,6 +100,7 @@ public class ItemManager : MonoBehaviour
         item.ToLower();
         for(int i = 0; i < recipe.Count; i++)
         {
+            
             if (recipe[i].itemName.ToLower() == item.ToLower())
             {
 
@@ -119,8 +121,12 @@ public class ItemManager : MonoBehaviour
         {
             if (recipe[i].itemName.ToLower() == item.ToLower())
             {
-                Debug.Log($"had enough of {item}");
+                
                 hasEnoughOfItem = recipe[i].HasEnoughOfItem();
+                if (hasEnoughOfItem)
+                {
+                    Debug.Log($"had enough of {item}");
+                }
             }
         }
 

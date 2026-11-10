@@ -140,9 +140,13 @@ public class JangleController : MonoBehaviour
 
     private void ToggleFireBreath()
     {
-        if (jangleFlame != null)//---- verifies the flameobject exists ---- CF
+        //if (jangleFlame != null)//---- verifies the flameobject exists ---- CF
+        //{
+        //    jangleFlame.SetActive(flameOn); // ---- Brings the Fwoooooshhhhhhhhhhh---- CF
+        //}
+        if (currentInteractable != null)
         {
-            jangleFlame.SetActive(flameOn); // ---- Brings the Fwoooooshhhhhhhhhhh---- CF
+            currentInteractable.Interact();
         }
     }
 
@@ -153,7 +157,34 @@ public class JangleController : MonoBehaviour
         currentScale.x *= -1; // ---- flips sprite packet parrnt through neg x to turn it over / flip direction---- CF
         transform.localScale = currentScale; // ---- sets new scale transform as currnet value---- CF
     }
-    
+
+    private IInteractable currentInteractable;
+    public void OnInteract(InputAction.CallbackContext context)
+    {
+        if(context.performed && currentInteractable != null)
+        {
+            currentInteractable.Interact();
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Interactable"))
+        {
+            currentInteractable = collision.GetComponent<IInteractable>();
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Interactable"))
+        {
+            if(currentInteractable == collision.GetComponent<IInteractable>())
+            {
+                currentInteractable = null;
+            }
+        }
+    }
+
 }
 
 
