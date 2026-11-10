@@ -140,13 +140,9 @@ public class JangleController : MonoBehaviour
 
     private void ToggleFireBreath()
     {
-        //if (jangleFlame != null)//---- verifies the flameobject exists ---- CF
-        //{
-        //    jangleFlame.SetActive(flameOn); // ---- Brings the Fwoooooshhhhhhhhhhh---- CF
-        //}
-        if (currentInteractable != null)
+        if (jangleFlame != null)//---- verifies the flameobject exists ---- CF
         {
-            currentInteractable.Interact();
+            jangleFlame.SetActive(flameOn); // ---- Brings the Fwoooooshhhhhhhhhhh---- CF
         }
     }
 
