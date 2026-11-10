@@ -127,6 +127,6 @@ public class ItemManager : MonoBehaviour
 
 
         return hasEnoughOfItem;
-        ;
+        
     }
 }
