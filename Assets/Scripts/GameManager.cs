@@ -15,13 +15,15 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
     public static GameExitManager gameExitManager;
-    public static ServiceHub serviceHub;
-    public static Custom_sceneManager customSceneManager;
+
+
     public static MenuManager menuManager;
     public static HudManager hudManager;
     //public static PauseManager pauseManager;
 
-      
+    [SerializeField] GameObject Jangle;
+    [SerializeField] GameObject Instructions;
+
     public void Awake()
     {
         if (Instance != null && Instance != this)

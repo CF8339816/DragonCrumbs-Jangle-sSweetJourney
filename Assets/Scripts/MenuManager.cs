@@ -21,6 +21,7 @@ public class MenuManager : MonoBehaviour
 
     //[SerializeField] GameObject Jangle;
     [SerializeField] GameObject Instructions;
+    [SerializeField] GameObject StartSplash;
 
     private const int STARTHUB_INDEX = 0;
     private const int QUEST1A_INDEX = 1;
@@ -127,8 +128,19 @@ public class MenuManager : MonoBehaviour
     public void onLevel1()
     {
         LoadLevelByIndex(QUEST1A_INDEX);
-       
-      
+             
+    }
+
+    public void onLevel2()
+    {
+        LoadLevelByIndex(QUEST1B_INDEX);
+
+    }
+
+    public void onLevel3()
+    {
+        LoadLevelByIndex(QUEST1C_INDEX);
+
     }
 
     public void onBakery()
@@ -136,49 +148,37 @@ public class MenuManager : MonoBehaviour
         LoadLevelByIndex(BAKERY_INDEX);
 
     }
-    //public void onLevel3()
-    //{
-    //    LoadLevelByIndex(LEVEL_3_INDEX);
-    //    SceneManager.LoadScene(MENU_INDEX, LoadSceneMode.Additive);
-    //    SceneManager.LoadScene(HUD_INDEX, LoadSceneMode.Additive);
-    //    SceneManager.LoadScene(PLAYER_INDEX, LoadSceneMode.Additive);
-    //    SceneManager.LoadScene(ENVIRONMENT_INDEX, LoadSceneMode.Additive);
-    //    //dude.SetActive(true);
-
-    //}
-    //public void onMenu()
-    //{
-    //    LoadLevelByIndex(MAIN_INDEX);
-    //    SceneManager.LoadScene(MENU_INDEX, LoadSceneMode.Additive);
-
-    //}
-
-    //public void onPause()
-    // {
 
 
-    //     //if (dude != null)
-    //     //{
-    //     //    dude.SetActive(false); 
-    //     //}
-    //     ReturnIndex = SceneManager.GetActiveScene().buildIndex;
-    //     LoadLevelByIndex(PAUSE_INDEX);
-    // }
-
-    //public void onShopEnter()
-    //{
+    public void onPause()
+    {
 
 
-    //    ReturnIndex = SceneManager.GetActiveScene().buildIndex;
-    //    LoadLevelByIndex(SHOP_INDEX);
-    //}
+        if (gameManager.Jangle != null)
+        {
+            gameManager.Jangle.SetActive(false);
+        }
+        ReturnIndex = SceneManager.GetActiveScene().buildIndex;
+        LoadLevelByIndex(PAUSE_INDEX);
+    }
+
+    
 
     public void onBegin()
     {
+        StartSplash.SetActive(false);
         Instructions.SetActive(true);
+
     }
-   public void onStart()
+    public void onReselect()
     {
+        StartSplash.SetActive(true);
+        Instructions.SetActive(false);
+
+    }
+    public void onStart()
+    {
+        StartSplash.SetActive(false);
         Instructions.SetActive(false);
         onBakery();
         }

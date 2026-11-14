@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5807701866550425621}
-  - component: {fileID: 3300868998138261902}
   - component: {fileID: 7813943932155508176}
   - component: {fileID: 8201568613860812012}
   - component: {fileID: 1240197563878807089}
+  - component: {fileID: 268583558551992349}
   m_Layer: 0
   m_Name: _ServiceHub
   m_TagString: Untagged
@@ -35,23 +35,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3300868998138261902
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1887375814404526371}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8450c9df566f6944fa17fd6f356b1d62, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ServiceHub
-  menuManager: {fileID: 1240197563878807089}
-  gameManager: {fileID: 7813943932155508176}
-  gameExitManager: {fileID: 8201568613860812012}
-  cameraPrefab: {fileID: 1615848325210533413, guid: c33c3277ae69fbe42826edef4b39d7da, type: 3}
-  eventSystemPrefab: {fileID: 559076875463310399, guid: 5ef43a50dc149e74cbab161d863e3373, type: 3}
 --- !u!114 &7813943932155508176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64,6 +47,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65d76deada3cc854e81ed42a4136fde4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  Jangle: {fileID: 4086809592721445492, guid: 3d03a8c2dc2a18f438aa50b3901b0ef7, type: 3}
+  Instructions: {fileID: 3126994440105031056, guid: a3e723799f43ed1459a448018f82d7dd, type: 3}
 --- !u!114 &8201568613860812012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89,5 +74,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1370c68bce237724d8f1971b18ea7089, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MenuManager
-  Instructions: {fileID: 0}
+  Instructions: {fileID: 3126994440105031056, guid: a3e723799f43ed1459a448018f82d7dd, type: 3}
+  StartSplash: {fileID: 8419769341032362555, guid: 28f30adc5f6fce047a77fe7dd5649334, type: 3}
   ReturnIndex: 0
+--- !u!114 &268583558551992349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1887375814404526371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52694c778c26e1744968ede3fd8e2e4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HudManager

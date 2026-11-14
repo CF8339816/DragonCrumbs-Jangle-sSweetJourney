@@ -29,6 +29,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Pause.unity
     guid: a35c1bfd452499f4b93560fb3c5a050d
+  - enabled: 1
+    path: Assets/Scenes/_BootStrap_.unity
+    guid: 4d344e7799f790449a3a2ebd9656a840
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
