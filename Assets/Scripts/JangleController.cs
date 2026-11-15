@@ -153,7 +153,34 @@ public class JangleController : MonoBehaviour
         currentScale.x *= -1; // ---- flips sprite packet parrnt through neg x to turn it over / flip direction---- CF
         transform.localScale = currentScale; // ---- sets new scale transform as currnet value---- CF
     }
-    
+
+    private IInteractable currentInteractable;
+    public void OnInteract(InputAction.CallbackContext context)
+    {
+        if(context.performed && currentInteractable != null)
+        {
+            currentInteractable.Interact();
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Interactable"))
+        {
+            currentInteractable = collision.GetComponent<IInteractable>();
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Interactable"))
+        {
+            if(currentInteractable == collision.GetComponent<IInteractable>())
+            {
+                currentInteractable = null;
+            }
+        }
+    }
+
 }
 
 

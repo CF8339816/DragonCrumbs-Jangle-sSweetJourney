@@ -1,18 +1,35 @@
 using NUnit.Framework;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ItemManager : MonoBehaviour
 {
-
+    // move to survice hub/game manager latter
+    public static ItemManager instace;
     public List<items> recipe = new List<items>();
-    public bool testing = false;
+    public enum Recpie
+    {
+        none,
+        test,
+        one,
+        two
+    }
+    public Recpie currentRecpie;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        if(testing == true)
+        LoadRecipe(currentRecpie);
+        //remove when instace is moved to survace hub
+        if(instace == null)
         {
-            LoadTestRecipe();
+            instace = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
+        else
+        {
+            Destroy(this.gameObject);
         }
     }
     
@@ -21,7 +38,41 @@ public class ItemManager : MonoBehaviour
     {
         
     }
-    public void LoadLevel1Recipe()
+    
+
+    public void LoadRecipe(Recpie rec)
+    {
+        currentRecpie = rec;
+        switch (currentRecpie)
+        {
+            case Recpie.none:
+                unloadRecipe();
+
+                break;
+
+            case Recpie.test:
+                LoadTestRecipe();
+
+                break;
+
+
+            case Recpie.one:
+
+                LoadLevel1Recipe();
+                break;
+
+
+            case Recpie.two:
+                LoadLevel2Recipe();
+
+                break;
+        }
+    }
+    public void unloadRecipe()
+    {
+        recipe.Clear();
+    }
+    private void LoadLevel1Recipe()
     {
         recipe.Clear();
         recipe.Add(new items("apple",5));
@@ -30,18 +81,27 @@ public class ItemManager : MonoBehaviour
         recipe.Add(new items("weat", 5));
         
     }
+    private void LoadLevel2Recipe()
+    {
+        recipe.Clear();
+        recipe.Add(new items("placeholder", 1));
+        recipe.Add(new items("placeholder", 1));
+        recipe.Add(new items("placeholder", 1));
+        recipe.Add(new items("placeholder", 1));
+
+    }
     private void LoadTestRecipe()
     {
         recipe.Clear();
-        recipe.Add(new items("apple", 1));
-        recipe.Add(new items("SPM", 1));
+        
     }
     public void AddToItem(string item)
     {
         item.ToLower();
         for(int i = 0; i < recipe.Count; i++)
         {
-            if (recipe[i].itemName.ToLower() == item)
+            
+            if (recipe[i].itemName.ToLower() == item.ToLower())
             {
 
                 Debug.Log($"you got {item}");
@@ -59,16 +119,20 @@ public class ItemManager : MonoBehaviour
         item.ToLower();
         for (int i = 0; i < recipe.Count; i++)
         {
-            if (recipe[i].itemName.ToLower() == item)
+            if (recipe[i].itemName.ToLower() == item.ToLower())
             {
-                Debug.Log($"had enough of {item}");
+                
                 hasEnoughOfItem = recipe[i].HasEnoughOfItem();
+                if (hasEnoughOfItem)
+                {
+                    Debug.Log($"had enough of {item}");
+                }
             }
         }
 
 
 
         return hasEnoughOfItem;
-        ;
+        
     }
 }
