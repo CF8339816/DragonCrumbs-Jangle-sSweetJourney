@@ -76,9 +76,9 @@ public class ItemManager : MonoBehaviour
     {
         recipe.Clear();
         recipe.Add(new items("apple",5));
-        recipe.Add(new items("flower", 1));
+        recipe.Add(new items("flour", 1));
         recipe.Add(new items("honey", 1));
-        recipe.Add(new items("weat", 5));
+        recipe.Add(new items("wheat", 5));
         
     }
     private void LoadLevel2Recipe()
