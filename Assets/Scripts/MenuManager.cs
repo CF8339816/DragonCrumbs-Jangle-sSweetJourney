@@ -16,10 +16,10 @@ using static UnityEngine.UIElements.UxmlAttributeDescription;
 public class MenuManager : MonoBehaviour
 {
     public static MenuManager Instance { get; private set; }
-    private GameManager gameManager;
+    
     private GameExitManager gameExitManager;
 
-    //[SerializeField] GameObject Jangle;
+    [SerializeField] GameObject Jangle;
     [SerializeField] GameObject Instructions;
     [SerializeField] GameObject StartSplash;
 
@@ -154,9 +154,9 @@ public class MenuManager : MonoBehaviour
     {
 
 
-        if (gameManager.Jangle != null)
+        if (Jangle != null)
         {
-            gameManager.Jangle.SetActive(false);
+            Jangle.SetActive(false);
         }
         ReturnIndex = SceneManager.GetActiveScene().buildIndex;
         LoadLevelByIndex(PAUSE_INDEX);

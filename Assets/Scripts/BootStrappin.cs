@@ -36,7 +36,7 @@ public class BootStrappin : MonoBehaviour
 
     public HudManager hudManager;
     public MenuManager menuManager;  
-    public GameManager gameManager;
+   
     public GameExitManager gameExitManager;
 
     public GameObject mainCharacterCameraPrefab;
@@ -84,13 +84,11 @@ public class BootStrappin : MonoBehaviour
         //Debug.Log(" Menu  awakening...");
         //SceneManager.LoadScene(MENU_INDEX, LoadSceneMode.Additive);
         //Debug.Log(" menu loaded...");
-        if (gameManager == null) gameManager = GetComponent<GameManager>();
+     
         if (gameExitManager == null) gameExitManager = GetComponent<GameExitManager>();
         if (hudManager == null) hudManager = GetComponent<HudManager>();
         if (menuManager == null) menuManager = GetComponent<MenuManager>();
-        //if (pauseManager == null) pauseManager = GetComponent<PauseManager>();
-        //if (shopManager == null) shopManager = GetComponent<ShopManager>();
-
+        
     }
 
     public void InitializeGlobalEventSystem()

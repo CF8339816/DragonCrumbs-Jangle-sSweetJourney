@@ -8,6 +8,13 @@ TagManager:
   - UIClickable
   - Vcam
   - ApplePie
+  - Oven
+  - PrepBoard
+  - Ladder
+  - BeeHive
+  - MillStone
+  - Basket
+  - ApplePieRecipe
   layers:
   - Default
   - TransparentFX
@@ -16,7 +23,7 @@ TagManager:
   - Water
   - UI
   - RecipeButtons
-  - 
+  - EnvironmentButtons
   - 
   - 
   - 
