@@ -1,6 +1,7 @@
-using UnityEngine;
-using TMPro;
 using System.Collections;
+using TMPro;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 public class TravelMapManager : MonoBehaviour
 {
     public static TravelMapManager Instance { get; private set; }
@@ -10,23 +11,40 @@ public class TravelMapManager : MonoBehaviour
     private bool isLoading = false;
    [SerializeField] private ObjectButtonsInteractables objectButtonsInteractables;
     [SerializeField] private MenuManager menuManager;
-
+    public string travelMapSceneName = "TravelMap";
 
     void Awake()
     {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-        Instance = this;
-        DontDestroyOnLoad(gameObject); // keeps script accessable accross scene changes
+        //if (Instance != null && Instance != this)
+        //{
+        //    Destroy(gameObject);
+        //    return;
+        //}
+        //Instance = this;
+        //DontDestroyOnLoad(gameObject); // keeps script accessable accross scene changes
         ResetCountdown();
     }
-    //private void Update()
-    //{
-    //    if (exitCountdownText == null) { exitCountdownText = GameObject.Find("exitCountdownText")?.GetComponent<TextMeshProUGUI>(); }
-    //}
+   
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        
+        if (scene.name == travelMapSceneName)
+        {
+            ResetCountdown();
+            onStageLoad();
+        }
+    }
+
     public void onStageLoad()
     {
         if (!isLoading)
@@ -40,32 +58,42 @@ public class TravelMapManager : MonoBehaviour
     }
     public IEnumerator StartLoadCountdown()
     {
-        while (Countdown > 0)
+        while (Countdown > .25f)
         {
-            //exitCountdownText.text = "Game Exit in: " + Mathf.Ceil(Countdown).ToString();// displays the countdown output in an always rounded up to whole int
+            
             yield return null;
             Countdown -= Time.deltaTime;
         }
         isLoading = false;
         ResetCountdown();
-        //exitCountdownText.text = "Exiting...";
+
         LoadQuestLevel();
+ 
     }
     private void ResetCountdown()
     {
         Countdown = StageLoadDelay;
-        //if (exitCountdownText != null)
-        //{
-        //    exitCountdownText.text = "";
-        //}
+        
     }
     public void LoadQuestLevel()
     {
-        if (objectButtonsInteractables.currentQuest == 0)
-        {
-            menuManager.onLevel1();
-        }
+        if (menuManager == null)
+            menuManager = FindFirstObjectByType<MenuManager>();
 
+        if (objectButtonsInteractables == null)
+            objectButtonsInteractables = FindFirstObjectByType<ObjectButtonsInteractables>();
+
+        if (menuManager != null && objectButtonsInteractables != null)
+        {
+            if (objectButtonsInteractables.currentQuest == 0)
+            {
+                menuManager.onLevel1();
+            }
+        }
+        else
+        {
+            Debug.LogWarning("TravelMapManager: Missing MenuManager or ObjectButtonsInteractables!");
+        }
 
 
 

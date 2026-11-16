@@ -800,9 +800,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 907869416888047876, guid: 2fdf9bbf0274dda4b8de7faff03c2fc6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 11.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 907869416888047876, guid: 2fdf9bbf0274dda4b8de7faff03c2fc6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -15
+      objectReference: {fileID: 0}
     - target: {fileID: 1038465398506774200, guid: 2fdf9bbf0274dda4b8de7faff03c2fc6, type: 3}
       propertyPath: m_Name
       value: Jangle
+      objectReference: {fileID: 0}
+    - target: {fileID: 1038465398506774200, guid: 2fdf9bbf0274dda4b8de7faff03c2fc6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1685948540614147637, guid: 2fdf9bbf0274dda4b8de7faff03c2fc6, type: 3}
       propertyPath: m_TargetDisplay
