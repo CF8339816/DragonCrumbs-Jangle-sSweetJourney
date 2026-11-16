@@ -54,6 +54,8 @@ public class JangleController : MonoBehaviour
         inputActions.Player.FireBreath.performed += OnFireBreathInput;   // ----Ctrl either left or right  Fire Breath  changed from shift to avoid sticky keys if player spams breath---- CF
 
         inputActions.Player.FireBreath.canceled += OnFireBreathStopped;
+
+        inputActions.Player.Interact.performed += OnInteract;
     }
 
     private void OnDisable()
@@ -66,6 +68,8 @@ public class JangleController : MonoBehaviour
 
         inputActions.Player.FireBreath.performed -= OnFireBreathInput;
         inputActions.Player.FireBreath.canceled -= OnFireBreathStopped;
+
+        inputActions.Player.Interact.performed -= OnInteract;
 
         inputActions.Player.Disable();
     }
