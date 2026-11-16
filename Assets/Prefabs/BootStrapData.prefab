@@ -51,11 +51,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   menuManager: {fileID: 1240197563878807089, guid: f9389a794ba45584d824083d1488aa29, type: 3}
-  dialogManager: {fileID: 0}
+  dialogManager: {fileID: 3972760830203295978, guid: f9389a794ba45584d824083d1488aa29, type: 3}
   gameExitManager: {fileID: 8201568613860812012, guid: f9389a794ba45584d824083d1488aa29, type: 3}
-  interactableManager: {fileID: 0}
-  itemManager: {fileID: 0}
-  objGOInteractionManager: {fileID: 0}
+  interactableManager: {fileID: 4250130618739359792, guid: f9389a794ba45584d824083d1488aa29, type: 3}
+  itemManager: {fileID: 3854175885471208990, guid: f9389a794ba45584d824083d1488aa29, type: 3}
+  objGOInteractionManager: {fileID: 2784474505139376469, guid: f9389a794ba45584d824083d1488aa29, type: 3}
   mainCharacterCameraPrefab: {fileID: 1615848325210533413, guid: c33c3277ae69fbe42826edef4b39d7da, type: 3}
   cinemachineMoveCamPrefab: {fileID: 6261206671109810870, guid: d159fce3f7f6fe04aab7695d81d49b7e, type: 3}
   eventSystemPrefab: {fileID: 559076875463310399, guid: 5ef43a50dc149e74cbab161d863e3373, type: 3}
@@ -71,7 +71,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1370c68bce237724d8f1971b18ea7089, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MenuManager
-  Jangle: {fileID: 4086809592721445492, guid: 3d03a8c2dc2a18f438aa50b3901b0ef7, type: 3}
+  Jangle: {fileID: 1038465398506774200, guid: 2fdf9bbf0274dda4b8de7faff03c2fc6, type: 3}
   Instructions: {fileID: 3126994440105031056, guid: a3e723799f43ed1459a448018f82d7dd, type: 3}
   StartSplash: {fileID: 8419769341032362555, guid: 28f30adc5f6fce047a77fe7dd5649334, type: 3}
   ReturnIndex: 0

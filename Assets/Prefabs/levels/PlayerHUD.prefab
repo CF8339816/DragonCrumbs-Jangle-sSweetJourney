@@ -1695,7 +1695,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &48303189296378654
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2013,7 +2013,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4540127749606331642
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2194,7 +2194,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 9028762252356145940}
         m_TargetAssemblyTypeName: ObjectButtonsInteractables, Assembly-CSharp
-        m_MethodName: OnRecipeConfirm
+        m_MethodName: OnApplePieStart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2221,7 +2221,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7933046702198445685
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2844,7 +2844,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5102260599276836568
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3522,7 +3522,7 @@ Canvas:
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_TargetDisplay: 1
+  m_TargetDisplay: 0
 --- !u!114 &4603928585061630906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5293,6 +5293,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cee1c40b8d68ae94a8af53752cdf16e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectButtonsInteractables
+  menuManager: {fileID: 1240197563878807089, guid: f9389a794ba45584d824083d1488aa29, type: 3}
   ReferenePanel: {fileID: 6830598022554756115}
   OKButton: {fileID: 2636570498447663628}
   Accept: {fileID: 3190845351491318541}
@@ -5329,6 +5330,13 @@ MonoBehaviour:
   RefCrossOut3: {fileID: 2914764104945321996}
   isBakery: 0
   isQuest: 0
+  ActiveQuest:
+  - ApplePie
+  - Brownies
+  - PineNutFudge
+  - Cheesecake
+  - Cookies
+  currentQuest: 0
 --- !u!1 &8276152251938774605
 GameObject:
   m_ObjectHideFlags: 0
