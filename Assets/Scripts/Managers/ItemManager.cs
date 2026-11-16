@@ -16,14 +16,13 @@ public class ItemManager : MonoBehaviour
         two
     }
     public Recpie currentRecpie;
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+
+    private void Awake() //----moved here to ensure it runs the exists check before other scripts to prtevent error---cf
     {
-        LoadRecipe(currentRecpie);
-        //remove when instace is moved to survace hub
-        if(instace == null)
+        //remove when instance is moved to survace hub
+        if (instace == null)
         {
+
             instace = this;
             DontDestroyOnLoad(this.gameObject);
         }
@@ -31,6 +30,23 @@ public class ItemManager : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+    }
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        ////remove when instance is moved to survace hub
+        //if (instace == null)
+        //{
+        //    instace = this;
+        //    DontDestroyOnLoad(this.gameObject);
+        //}
+        //else
+        //{
+        //    Destroy(this.gameObject);
+        //}
+
+        LoadRecipe(currentRecpie);
     }
     
     // Update is called once per frame
@@ -76,9 +92,9 @@ public class ItemManager : MonoBehaviour
     {
         recipe.Clear();
         recipe.Add(new items("apple",5));
-        recipe.Add(new items("flower", 1));
+        recipe.Add(new items("flour", 1));
         recipe.Add(new items("honey", 1));
-        recipe.Add(new items("weat", 5));
+        recipe.Add(new items("wheat", 5));
         
     }
     private void LoadLevel2Recipe()

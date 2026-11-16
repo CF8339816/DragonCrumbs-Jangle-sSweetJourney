@@ -5,13 +5,15 @@
 //using UnityEngine.InputSystem;
 //#region coder & project
 ///// <summary>
-///// NSCC GAME2025 / 4086 / Game Programming III(B)/ Doucette,Matthew
-///// Unity: Game Manager & Persistence
+///// NSCC GAME2065/4087/Game Development III(B)/Cameron,Jordan
+///// Jam 3 :DragonCrumbs: Jangle's Sweet Journey
+///// team: Chris French, Percy Hebb, Kevin Card, Myranda Roy
 ///// Coder current script: Chris French Second Year NSCC Game Programming 
 ///// Additions / annotations:
-///// 
+///// code review: 
 ///// </summary>
 //#endregion
+
 //public class PauseManager : MonoBehaviour
 //{
 //    public static PauseManager Instance { get; private set; }
@@ -21,13 +23,13 @@
 //   // private CharacterController characterController;
 //    [SerializeField] GameObject dude;
 //     private const int STARTHUB_INDEX = 0;
-        //private const int QUEST1A_INDEX = 1;
-        //private const int QUEST1B_INDEX = 2;
-        //private const int QUEST1C_INDEX = 3;
-        //private const int BAKERY_INDEX = 4;
-        //private const int QUESTHUD_INDEX = 5;
-        //private const int TRAVELMAP_INDEX = 6;
-        //private const int PAUSE_INDEX = 7;
+//private const int QUEST1A_INDEX = 1;
+//private const int QUEST1B_INDEX = 2;
+//private const int QUEST1C_INDEX = 3;
+//private const int BAKERY_INDEX = 4;
+//private const int QUESTHUD_INDEX = 5;
+//private const int TRAVELMAP_INDEX = 6;
+//private const int PAUSE_INDEX = 7;
 //    private int RETURNLEVEL_INDEX;
 //    private int ReturnIndex;
 //    public void Awake()

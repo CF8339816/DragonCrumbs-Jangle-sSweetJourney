@@ -10,6 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 6104992722473876540}
   - component: {fileID: 7745683313039656206}
+  - component: {fileID: 1892312554517749875}
+  - component: {fileID: 7992759171223524686}
+  - component: {fileID: 7244518666740944578}
+  - component: {fileID: 1368475984470804188}
+  - component: {fileID: 7148179863166192844}
+  - component: {fileID: 212546844034520926}
   m_Layer: 0
   m_Name: BootStrapData
   m_TagString: Untagged
@@ -46,7 +52,108 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   hudManager: {fileID: 268583558551992349, guid: f9389a794ba45584d824083d1488aa29, type: 3}
   menuManager: {fileID: 1240197563878807089, guid: f9389a794ba45584d824083d1488aa29, type: 3}
-  gameManager: {fileID: 7813943932155508176, guid: f9389a794ba45584d824083d1488aa29, type: 3}
   gameExitManager: {fileID: 8201568613860812012, guid: f9389a794ba45584d824083d1488aa29, type: 3}
-  cameraPrefab: {fileID: 1887375814404526371, guid: f9389a794ba45584d824083d1488aa29, type: 3}
+  mainCharacterCameraPrefab: {fileID: 1615848325210533413, guid: c33c3277ae69fbe42826edef4b39d7da, type: 3}
+  cinemachineMoveCamPrefab: {fileID: 8654444333284435024, guid: cfe8df2a50df57b4ebc62b8168a05c94, type: 3}
   eventSystemPrefab: {fileID: 559076875463310399, guid: 5ef43a50dc149e74cbab161d863e3373, type: 3}
+--- !u!114 &1892312554517749875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2097744561957108436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1370c68bce237724d8f1971b18ea7089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MenuManager
+  Jangle: {fileID: 4086809592721445492, guid: 3d03a8c2dc2a18f438aa50b3901b0ef7, type: 3}
+  Instructions: {fileID: 3126994440105031056, guid: a3e723799f43ed1459a448018f82d7dd, type: 3}
+  StartSplash: {fileID: 8419769341032362555, guid: 28f30adc5f6fce047a77fe7dd5649334, type: 3}
+  ReturnIndex: 0
+--- !u!114 &7992759171223524686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2097744561957108436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae6337aa67bea4841ab9771f0cfc4eb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameExitManager
+  ExitDelay: 5
+--- !u!114 &7244518666740944578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2097744561957108436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b2fa74e3cb062942afb556d67d1b11d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ItemManager
+  currentRecpie: 0
+--- !u!114 &1368475984470804188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2097744561957108436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a90eba18c9998c40a811d0c130a7ce6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialogManager
+  wrightSpeed: 0.01
+  talking: 0
+  textBox: {fileID: 1476466641266159856, guid: 8110ac57b0389ec4684cc025062795af, type: 3}
+  dialogText: {fileID: 3985701056270575622, guid: 7e131dcc4087d7d4fa5f2f8d25b3d9d7, type: 3}
+--- !u!114 &7148179863166192844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2097744561957108436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bace758e0eed6548a3fc82bea01b35d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AddAudio
+  millFlour: {fileID: 0}
+  Success: {fileID: 0}
+  ClimbLadder: {fileID: 0}
+  SFX1: {fileID: 0}
+  SFX2: {fileID: 0}
+  SFX3: {fileID: 0}
+  SFX4: {fileID: 0}
+  SFX5: {fileID: 0}
+  SFX6: {fileID: 0}
+  SFX7: {fileID: 0}
+  SFX8: {fileID: 0}
+  SFX9: {fileID: 0}
+  SFX10: {fileID: 0}
+  SFX11: {fileID: 0}
+  sourceSFXandDialogue: {fileID: 0}
+  startingVolume: 0.35
+  volumeSlider: {fileID: 0}
+--- !u!114 &212546844034520926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2097744561957108436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edd631cf243d9924c951efd35d8c4e86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BackgroundMusicManager
+  musicSource: {fileID: 0}
+  backgroundTrack: {fileID: 0}

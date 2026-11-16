@@ -2,16 +2,17 @@ using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Unity.Cinemachine;
-#region
+#region coder & project
 /// <summary>
-///NSCC GAME2065/4087/Game Development III(B)/Cameron,Jordan
-///Jam 3: Dragon Crumbs: Jangle's Sweet Journey
-/// team: Percy Hebb, Chris French, Kevin Card,  Myranda Roy.
+/// NSCC GAME2065/4087/Game Development III(B)/Cameron,Jordan
+/// Jam 3 :DragonCrumbs: Jangle's Sweet Journey
+/// team: Chris French, Percy Hebb, Kevin Card, Myranda Roy
 /// Coder current script: Chris French Second Year NSCC Game Programming 
-/// Additions / annotations: Kevin Card
+/// Additions / annotations:
 /// code review: 
 /// </summary>
 #endregion
+
 public class ObjectButtonsInteractables : MonoBehaviour
 {    
 
@@ -28,11 +29,11 @@ public class ObjectButtonsInteractables : MonoBehaviour
     [SerializeField] public GameObject CheckMark3;
     [SerializeField] public GameObject CrossOut3;
     [SerializeField] public GameObject QuestPanel;
-    [SerializeField] public GameObject ApplePieRecipeCard;
-    [SerializeField] public GameObject BrowniesRecipeCard;
-    [SerializeField] public GameObject PineNutFudgeRecipeCard;
-    [SerializeField] public GameObject CheeseCakeRecipeCard;
-    [SerializeField] public GameObject CookiesRecipeCard;
+    //[SerializeField] public GameObject ApplePieRecipeCard;
+    //[SerializeField] public GameObject BrowniesRecipeCard;
+    //[SerializeField] public GameObject PineNutFudgeRecipeCard;
+    //[SerializeField] public GameObject CheeseCakeRecipeCard;
+    //[SerializeField] public GameObject CookiesRecipeCard;
     //[SerializeField] public GameObject Instructions;
 
 
@@ -81,43 +82,47 @@ public class ObjectButtonsInteractables : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        //Instructions.SetActive(false);
-        ReferenePanel.SetActive(false);// ---- turns off the reference card when hud begins----CF
-        isQuest = false;
-        isBakery = true;
-        RecipeList = new string[] { "Apple Pie", "Brownies", "Pine Nut Fudge", "Cheesecake", "Cookies" };
+        SetBakeryState();
+
+        ////Instructions.SetActive(false);
+        //ReferenePanel.SetActive(false);// ---- turns off the reference card when hud begins----CF
+        //isQuest = false;
+        //isBakery = true;
+        //RecipeList = new string[] { "Apple Pie", "Brownies", "Pine Nut Fudge", "Cheesecake", "Cookies" };
 
 
     }
-
-    // Update is called once per frame
-    void Update()
+    public void SetBakeryState()
     {
-        
-
-        if (isBakery)
+        isBakery = true;
+        isQuest = false;
+        if (ReferenePanel != null)
         {
             ReferenePanel.SetActive(false);
-
+        }
+        if (QuestPanel != null)
+        {
             QuestPanel.SetActive(false);
+        }
+    }
 
-
+    public void SetQuestState()
+    {
+        isBakery = false;
+        isQuest = true;
+        if (ReferenePanel != null)
+        {
+            ReferenePanel.SetActive(false);
         }
 
-        if (isQuest)
-
+        if (QuestPanel != null)
         {
-
             QuestPanel.SetActive(true);
 
-
-
         }
 
-
-
-
     }
+  
 
     public void OnRecipeCheck()
     {
@@ -135,6 +140,7 @@ public class ObjectButtonsInteractables : MonoBehaviour
 
     public void OnRecipeConfirm()
     {
+        SetQuestState();
         ReferenePanel.SetActive(false);
         ///load travel map scene for the quest area---CF
         ///set the info on the  corner recipe card and turn on the quest panel

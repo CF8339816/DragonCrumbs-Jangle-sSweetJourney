@@ -5,6 +5,16 @@ using UnityEngine.UIElements;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine.Audio;
+#region coder & project
+/// <summary>
+/// NSCC GAME2065/4087/Game Development III(B)/Cameron,Jordan
+/// Jam 3 :DragonCrumbs: Jangle's Sweet Journey
+/// team: Chris French, Percy Hebb, Kevin Card, Myranda Roy
+/// Coder current script: Chris French Second Year NSCC Game Programming 
+/// Additions / annotations:
+/// code review: 
+/// </summary>
+#endregion
 
 public class cineCaminteractmouseover : MonoBehaviour
 {

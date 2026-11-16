@@ -6,8 +6,8 @@ using UnityEngine.UI;
 #region coder & project
 /// <summary>
 /// NSCC GAME2065/4087/Game Development III(B)/Cameron,Jordan
-/// Jam 2 :Monster Mixer
-/// team: Chris French, Benjamin Mackey, Arianna Cutler
+/// Jam 3 :DragonCrumbs: Jangle's Sweet Journey
+/// team: Chris French, Percy Hebb, Kevin Card, Myranda Roy
 /// Coder current script: Chris French Second Year NSCC Game Programming 
 /// Additions / annotations:
 /// code review: 
@@ -218,7 +218,7 @@ public class AddAudio : MonoBehaviour
 
         if (sourceSFXandDialogue != null && sourceSFXandDialogue.clip != null)
         {
-            sourceSFXandDialogue.volume = 2f;
+            sourceSFXandDialogue.volume = 1f;
             sourceSFXandDialogue.clip = SFX6;
             sourceSFXandDialogue.loop = false;
             sourceSFXandDialogue.Play();
@@ -235,7 +235,7 @@ public class AddAudio : MonoBehaviour
 
         if (sourceSFXandDialogue != null && sourceSFXandDialogue.clip != null)
         {
-            sourceSFXandDialogue.volume = 2f;
+            sourceSFXandDialogue.volume =1f;
             sourceSFXandDialogue.clip = SFX7;
             sourceSFXandDialogue.loop = false;
             sourceSFXandDialogue.Play();
@@ -252,7 +252,7 @@ public class AddAudio : MonoBehaviour
 
         if (sourceSFXandDialogue != null && sourceSFXandDialogue.clip != null)
         {
-            sourceSFXandDialogue.volume = 2f;
+            sourceSFXandDialogue.volume = 1f;
             sourceSFXandDialogue.clip = SFX8;
             sourceSFXandDialogue.loop = false;
             sourceSFXandDialogue.Play();
@@ -269,7 +269,7 @@ public class AddAudio : MonoBehaviour
 
         if (sourceSFXandDialogue != null && sourceSFXandDialogue.clip != null)
         {
-            sourceSFXandDialogue.volume = 2f;
+            sourceSFXandDialogue.volume = 1f;
             sourceSFXandDialogue.clip = SFX9;
             sourceSFXandDialogue.loop = false;
             sourceSFXandDialogue.Play();
@@ -287,7 +287,7 @@ public class AddAudio : MonoBehaviour
 
         if (sourceSFXandDialogue != null && sourceSFXandDialogue.clip != null)
         {
-            sourceSFXandDialogue.volume = 2f;
+            sourceSFXandDialogue.volume = 1f;
             sourceSFXandDialogue.clip = SFX10;
             sourceSFXandDialogue.loop = false;
             sourceSFXandDialogue.Play();
@@ -304,7 +304,7 @@ public class AddAudio : MonoBehaviour
 
         if (sourceSFXandDialogue != null && sourceSFXandDialogue.clip != null)
         {
-            sourceSFXandDialogue.volume = 2f;
+            sourceSFXandDialogue.volume = 1f;
             sourceSFXandDialogue.clip = SFX11;
             sourceSFXandDialogue.loop = false;
             sourceSFXandDialogue.Play();

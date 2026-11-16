@@ -48,7 +48,8 @@ public class DialogWthCheck : TalkOrRead,IInteractable
     }
     private void Update()
     {
-        if (itemToAdd != null)
+        //if (itemToAdd != null)
+        if (!string.IsNullOrEmpty(itemToAdd))//---- Changed to ensure unassigned dialogue  appear as null instead of empty strings and throwing an error----cf
         {
             if (itemCheckPassed && DialogManager.dialogManager.talking == false && itemAdded == false)
             {

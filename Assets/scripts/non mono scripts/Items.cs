@@ -14,8 +14,10 @@ public class items
     
     public bool HasEnoughOfItem()
     {
-        if(amountHeld == amountNeeded)
+        //if(amountHeld == amountNeeded)
+        if (amountHeld >= amountNeeded)//----safer in case  accidental pick up more than limit----CF
         {
+            amountHeld = amountNeeded;// creates a hard cut off at cap on item outputs to prevent errors
             return true;
         }
         else

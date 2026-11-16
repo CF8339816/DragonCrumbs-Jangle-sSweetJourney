@@ -17,21 +17,31 @@ public class DialogManager : MonoBehaviour
 
     private string currentText;
 
-    
-    
 
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Awake()
     {
-        if(dialogManager == null)
+        if (dialogManager == null)//---- moved to ensure initalization before scripts ----CF
         {
             dialogManager = this;
         }
         else
         {
-            Destroy(this);
+            Destroy(gameObject);// ----changed to ensure no empty game objects left ----cf
         }
+    }
+
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        //if (dialogManager == null)
+        //{
+        //    dialogManager = this;
+        //}
+        //else
+        //{
+        //    Destroy(this);
+        //}
         dialog = new Queue<string>();
         ClearDialog();
         textBox.SetActive(false);

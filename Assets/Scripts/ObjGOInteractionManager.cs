@@ -1,14 +1,23 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+#region coder & project
+/// <summary>
+/// NSCC GAME2065/4087/Game Development III(B)/Cameron,Jordan
+/// Jam 3 :DragonCrumbs: Jangle's Sweet Journey
+/// team: Chris French, Percy Hebb, Kevin Card, Myranda Roy
+/// Coder current script: Chris French Second Year NSCC Game Programming 
+/// Additions / annotations:
+/// code review: 
+/// </summary>
+#endregion
 
 public class ObjGOInteractionManager : MonoBehaviour
 {
-    ObjectButtonsInteractables objectButtonsInteractables;
-
+   
      [Header("References")]
     public Transform firstPersonCam;
-
+    public ObjectButtonsInteractables objectButtonsInteractables;
     public JangleController playerScript;
     public LayerMask RecipeButtons;
     public LayerMask EnvironmentButtons;
@@ -29,11 +38,11 @@ public class ObjGOInteractionManager : MonoBehaviour
     public Image MillStone;
     public Image BeeHive;
     public Image ApplePie;
-    [Header("Switches")]
+    //[Header("Switches")]
    
-    [Header("UI Reference")]
+    //[Header("UI Reference")]
    
-    private Rigidbody targetBody;
+    //private Rigidbody targetBody;
 
     private bool lookingAtOvenDoor = false;
     private bool lookingAtPrepBoard = false;
@@ -44,19 +53,25 @@ public class ObjGOInteractionManager : MonoBehaviour
     private bool lookingAtBasket = false;
     private bool lookingAtApplePie = false;
 
+    private string currentTargetTag = "";
 
 
 
     void Start()
     {
+        combinedMask = RecipeButtons | EnvironmentButtons;
+        if (objectButtonsInteractables == null)
+        {
+            objectButtonsInteractables = FindFirstObjectByType<ObjectButtonsInteractables>();
+        }
         ResetCrosshairUI();
-        HidePopups();
+      //  HidePopups();
 
     }
-    private void HidePopups()
-    {
+    //private void HidePopups()
+    //{
         
-    }
+    //}
     void Update()
     {
         
@@ -64,8 +79,10 @@ public class ObjGOInteractionManager : MonoBehaviour
             UpdateCrosshairVisibility();
        
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !string.IsNullOrEmpty(currentTargetTag))
         {
+            HandleInteraction(currentTargetTag);
+
             if (lookingAtOvenDoor)
             {
                 UpdateCrosshairVisibility();
@@ -109,134 +126,63 @@ public class ObjGOInteractionManager : MonoBehaviour
 
         }
     }
+
     private void CheckTargets()
     {
-        lookingAtOvenDoor = false;
-        lookingAtPrepBoard = false;
-        lookingAtApplePieRecipe = false;
-        lookingAtLadder = false;
-        lookingAtBeeHive = false;
-        lookingAtMillStone = false;
-        lookingAtBasket = false;
-        lookingAtApplePie = false;
-        HidePopups();
-
-        combinedMask = RecipeButtons | EnvironmentButtons;// combines both layer masks for distance checking
+        currentTargetTag = "";
 
         if (Physics.Raycast(firstPersonCam.position, firstPersonCam.forward, out RaycastHit hit, checkRange, combinedMask))
         {
-            if (hit.distance <= switchRange)// checks for  hitting a sswitch in range
+            if (hit.distance <= switchRange)
             {
-                if (hit.collider.CompareTag("ApplePieRecipe"))
-                {
-                    lookingAtApplePieRecipe = true;
-                    UpdateCrosshairVisibility();
-                    //if (popupFWUI != null && popupFWText != null)
-                    //{
-                    //    popupFWText.text = $"Left-Click to Interact";
-                    //    popupFWUI.SetActive(true);
-                    //}
-                    return;
-                }
-
-                if (hit.collider.CompareTag("ApplePie"))
-                {
-                    lookingAtApplePie = true;
-                    UpdateCrosshairVisibility();
-                    //if (popupFWUI != null && popupFWText != null)
-                    //{
-                    //    popupFWText.text = $"Left-Click to Interact";
-                    //    popupFWUI.SetActive(true);
-                    //}
-                    return;
-                }
-
-                else if (hit.collider.CompareTag("Oven"))
-                {
-                    lookingAtOvenDoor = true;
-                    UpdateCrosshairVisibility();
-                    //if (popupDenUI != null && popupDenText != null)
-                    //{
-                    //    popupDenText.text = $"Left-Click to \nde-/-phase\n blocks";
-                    //    popupDenUI.SetActive(true);
-                    //}
-                    return;
-                }
-                else if (hit.collider.CompareTag("PrepBoard"))
-                {
-                    lookingAtPrepBoard = true;
-                    UpdateCrosshairVisibility();
-                    //if (popupDenUI != null && popupDenText != null)
-                    //{
-                    //    popupDenText.text = $"Left-Click to \nde-/-phase\n blocks";
-                    //    popupDenUI.SetActive(true);
-                    //}
-                    return;
-                }
-                else if (hit.collider.CompareTag("Ladder"))
-                {
-                    lookingAtLadder = true;
-                    UpdateCrosshairVisibility();
-                    //if (popupDenUI != null && popupDenText != null)
-                    //{
-                    //    popupDenText.text = $"Left-Click to \nde-/-phase\n blocks";
-                    //    popupDenUI.SetActive(true);
-                    //}
-                    return;
-                }
-                else if (hit.collider.CompareTag("BeeHive"))
-                {
-                    lookingAtBeeHive = true;
-                    UpdateCrosshairVisibility();
-                    //if (popupDenUI != null && popupDenText != null)
-                    //{
-                    //    popupDenText.text = $"Left-Click to \nde-/-phase\n blocks";
-                    //    popupDenUI.SetActive(true);
-                    //}
-                    return;
-                }
-                else if (hit.collider.CompareTag("PrepBoard"))
-                {
-                    lookingAtPrepBoard = true;
-                    UpdateCrosshairVisibility();
-                    //if (popupDenUI != null && popupDenText != null)
-                    //{
-                    //    popupDenText.text = $"Left-Click to \nde-/-phase\n blocks";
-                    //    popupDenUI.SetActive(true);
-                    //}
-                    return;
-                }
-                else if (hit.collider.CompareTag("Ladder"))
-                {
-                    lookingAtLadder = true;
-                    UpdateCrosshairVisibility();
-                    //if (popupDenUI != null && popupDenText != null)
-                    //{
-                    //    popupDenText.text = $"Left-Click to \nde-/-phase\n blocks";
-                    //    popupDenUI.SetActive(true);
-                    //}
-                    return;
-                }
-                else if (hit.collider.CompareTag("BeeHive"))
-                {
-                    lookingAtBeeHive = true;
-                    UpdateCrosshairVisibility();
-                    //if (popupDenUI != null && popupDenText != null)
-                    //{
-                    //    popupDenText.text = $"Left-Click to \nde-/-phase\n blocks";
-                    //    popupDenUI.SetActive(true);
-                    //}
-                    return;
-                }
-
-
+                currentTargetTag = hit.collider.tag;
+                UpdateCrosshairVisibility();
+                return;
             }
-
         }
-        void LateUpdate()
+
+        ResetCrosshairUI();
+    }
+    private void HandleInteraction(string targetTag)
+    {
+        switch (targetTag)
         {
+            case "Oven":
+                Debug.Log("Interacted with Oven");
+                InteractOven();
+                break;
+            case "PrepBoard":
+                Debug.Log("Interacted with PrepBoard");
+                InteractPrep();
+                break;
+            case "ApplePieRecipe":
+                if (objectButtonsInteractables != null)
+                    objectButtonsInteractables.OnRecipeSelectApplePie();
+                break;
+            case "Ladder":
+                Debug.Log("Interacted with Ladder");
+                Interactladder();
+                break;
+            case "BeeHive":
+                Debug.Log("Interacted with BeeHive");
+                InteractHive();
+                break;
+            case "MillStone":
+                Debug.Log("Interacted with MillStone");
+                InteractMill();
+                break;
+            case "Basket":
+                Debug.Log("Interacted with Basket");
+                InteractBasket();
+                break;
+            case "ApplePie":
+                Debug.Log("Interacted with ApplePie");
+                InteractPie();
+                break;
         }
     }
+
+    
     public void UpdateCrosshairVisibility()
     {
         if (Physics.Raycast(firstPersonCam.position, firstPersonCam.forward, out RaycastHit hit, checkRange, combinedMask))
@@ -363,7 +309,7 @@ public class ObjGOInteractionManager : MonoBehaviour
     {
         if (Physics.Raycast(firstPersonCam.position, firstPersonCam.forward, out RaycastHit hit, checkRange, combinedMask))
         {
-            if (hit.collider.tag == ("Oven"))
+            if (hit.collider.tag == ("PrepBoard"))
             {
 
             }
@@ -373,7 +319,7 @@ public class ObjGOInteractionManager : MonoBehaviour
     {
         if (Physics.Raycast(firstPersonCam.position, firstPersonCam.forward, out RaycastHit hit, checkRange, combinedMask))
         {
-            if (hit.collider.tag == ("Oven"))
+            if (hit.collider.tag == ("Ladder"))
             {
 
             }
@@ -393,7 +339,7 @@ public class ObjGOInteractionManager : MonoBehaviour
     {
         if (Physics.Raycast(firstPersonCam.position, firstPersonCam.forward, out RaycastHit hit, checkRange, combinedMask))
         {
-            if (hit.collider.tag == ("Oven"))
+            if (hit.collider.tag == ("MillStone"))
             {
 
             }
@@ -403,7 +349,7 @@ public class ObjGOInteractionManager : MonoBehaviour
     {
         if (Physics.Raycast(firstPersonCam.position, firstPersonCam.forward, out RaycastHit hit, checkRange, combinedMask))
         {
-            if (hit.collider.tag == ("Oven"))
+            if (hit.collider.tag == ("Basket"))
             {
 
             }
@@ -413,7 +359,7 @@ public class ObjGOInteractionManager : MonoBehaviour
     {
         if (Physics.Raycast(firstPersonCam.position, firstPersonCam.forward, out RaycastHit hit, checkRange, combinedMask))
         {
-            if (hit.collider.tag == ("Oven"))
+            if (hit.collider.tag == ("ApplePie"))
             {
 
             }
@@ -433,3 +379,136 @@ public class ObjGOInteractionManager : MonoBehaviour
     }
     
 }
+
+
+#region old code
+    //private void CheckTargets()
+    //{
+    //    lookingAtOvenDoor = false;
+    //    lookingAtPrepBoard = false;
+    //    lookingAtApplePieRecipe = false;
+    //    lookingAtLadder = false;
+    //    lookingAtBeeHive = false;
+    //    lookingAtMillStone = false;
+    //    lookingAtBasket = false;
+    //    lookingAtApplePie = false;
+    //    HidePopups();
+
+    //    combinedMask = RecipeButtons | EnvironmentButtons;// combines both layer masks for distance checking
+
+    //    if (Physics.Raycast(firstPersonCam.position, firstPersonCam.forward, out RaycastHit hit, checkRange, combinedMask))
+    //    {
+    //        if (hit.distance <= switchRange)// checks for  hitting a sswitch in range
+    //        {
+    //            if (hit.collider.CompareTag("ApplePieRecipe"))
+    //            {
+    //                lookingAtApplePieRecipe = true;
+    //                UpdateCrosshairVisibility();
+    //                //if (popupFWUI != null && popupFWText != null)
+    //                //{
+    //                //    popupFWText.text = $"Left-Click to Interact";
+    //                //    popupFWUI.SetActive(true);
+    //                //}
+    //                return;
+    //            }
+
+    //            if (hit.collider.CompareTag("ApplePie"))
+    //            {
+    //                lookingAtApplePie = true;
+    //                UpdateCrosshairVisibility();
+    //                //if (popupFWUI != null && popupFWText != null)
+    //                //{
+    //                //    popupFWText.text = $"Left-Click to Interact";
+    //                //    popupFWUI.SetActive(true);
+    //                //}
+    //                return;
+    //            }
+
+    //            else if (hit.collider.CompareTag("Oven"))
+    //            {
+    //                lookingAtOvenDoor = true;
+    //                UpdateCrosshairVisibility();
+    //                //if (popupDenUI != null && popupDenText != null)
+    //                //{
+    //                //    popupDenText.text = $"Left-Click to \nde-/-phase\n blocks";
+    //                //    popupDenUI.SetActive(true);
+    //                //}
+    //                return;
+    //            }
+    //            else if (hit.collider.CompareTag("PrepBoard"))
+    //            {
+    //                lookingAtPrepBoard = true;
+    //                UpdateCrosshairVisibility();
+    //                //if (popupDenUI != null && popupDenText != null)
+    //                //{
+    //                //    popupDenText.text = $"Left-Click to \nde-/-phase\n blocks";
+    //                //    popupDenUI.SetActive(true);
+    //                //}
+    //                return;
+    //            }
+    //            else if (hit.collider.CompareTag("Ladder"))
+    //            {
+    //                lookingAtLadder = true;
+    //                UpdateCrosshairVisibility();
+    //                //if (popupDenUI != null && popupDenText != null)
+    //                //{
+    //                //    popupDenText.text = $"Left-Click to \nde-/-phase\n blocks";
+    //                //    popupDenUI.SetActive(true);
+    //                //}
+    //                return;
+    //            }
+    //            else if (hit.collider.CompareTag("BeeHive"))
+    //            {
+    //                lookingAtBeeHive = true;
+    //                UpdateCrosshairVisibility();
+    //                //if (popupDenUI != null && popupDenText != null)
+    //                //{
+    //                //    popupDenText.text = $"Left-Click to \nde-/-phase\n blocks";
+    //                //    popupDenUI.SetActive(true);
+    //                //}
+    //                return;
+    //            }
+    //            else if (hit.collider.CompareTag("PrepBoard"))
+    //            {
+    //                lookingAtPrepBoard = true;
+    //                UpdateCrosshairVisibility();
+    //                //if (popupDenUI != null && popupDenText != null)
+    //                //{
+    //                //    popupDenText.text = $"Left-Click to \nde-/-phase\n blocks";
+    //                //    popupDenUI.SetActive(true);
+    //                //}
+    //                return;
+    //            }
+    //            else if (hit.collider.CompareTag("Ladder"))
+    //            {
+    //                lookingAtLadder = true;
+    //                UpdateCrosshairVisibility();
+    //                //if (popupDenUI != null && popupDenText != null)
+    //                //{
+    //                //    popupDenText.text = $"Left-Click to \nde-/-phase\n blocks";
+    //                //    popupDenUI.SetActive(true);
+    //                //}
+    //                return;
+    //            }
+    //            else if (hit.collider.CompareTag("BeeHive"))
+    //            {
+    //                lookingAtBeeHive = true;
+    //                UpdateCrosshairVisibility();
+    //                //if (popupDenUI != null && popupDenText != null)
+    //                //{
+    //                //    popupDenText.text = $"Left-Click to \nde-/-phase\n blocks";
+    //                //    popupDenUI.SetActive(true);
+    //                //}
+    //                return;
+    //            }
+
+
+    //        }
+
+    //    }
+
+    //} 
+    //    void LateUpdate()
+    //    {
+    //    }
+    #endregion

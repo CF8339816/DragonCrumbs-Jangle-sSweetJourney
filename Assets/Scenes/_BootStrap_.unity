@@ -127,6 +127,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1368475984470804188, guid: 20957c37cb9e9c1488ad6030313f148c, type: 3}
+      propertyPath: textBox
+      value: 
+      objectReference: {fileID: 1476466641266159856, guid: 8110ac57b0389ec4684cc025062795af, type: 3}
     - target: {fileID: 2097744561957108436, guid: 20957c37cb9e9c1488ad6030313f148c, type: 3}
       propertyPath: m_Name
       value: BootStrapData

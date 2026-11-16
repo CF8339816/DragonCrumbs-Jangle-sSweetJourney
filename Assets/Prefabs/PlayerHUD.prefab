@@ -5887,8 +5887,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4343628202866253330}
   - component: {fileID: 3932450516298711365}
-  - component: {fileID: 6438266824129450535}
-  - component: {fileID: 949974731212146549}
   m_Layer: 0
   m_Name: PlayerHUD
   m_TagString: Untagged
@@ -5965,46 +5963,3 @@ MonoBehaviour:
   RefCrossOut3: {fileID: 1212508036718410941}
   isBakery: 0
   isQuest: 0
---- !u!114 &6438266824129450535
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9088702628402275523}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bace758e0eed6548a3fc82bea01b35d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AddAudio
-  millFlour: {fileID: 0}
-  Success: {fileID: 0}
-  ClimbLadder: {fileID: 0}
-  SFX1: {fileID: 0}
-  SFX2: {fileID: 0}
-  SFX3: {fileID: 0}
-  SFX4: {fileID: 0}
-  SFX5: {fileID: 0}
-  SFX6: {fileID: 0}
-  SFX7: {fileID: 0}
-  SFX8: {fileID: 0}
-  SFX9: {fileID: 0}
-  SFX10: {fileID: 0}
-  SFX11: {fileID: 0}
-  sourceSFXandDialogue: {fileID: 0}
-  startingVolume: 0.35
-  volumeSlider: {fileID: 5093608610044453724}
---- !u!114 &949974731212146549
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9088702628402275523}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edd631cf243d9924c951efd35d8c4e86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BackgroundMusicManager
-  musicSource: {fileID: 0}
-  backgroundTrack: {fileID: 0}

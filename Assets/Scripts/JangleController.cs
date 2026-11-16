@@ -2,14 +2,19 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
+
+
 #region coder & project
 /// <summary>
-/// GAME2065/4087/Game Development III(B)/Cameron,Jordan
-/// Dragon Crumbs: Jangle's SweetJourney  GameJam3  Percy Hebb, Chris French, Kevin Card, Myranda Roy
+/// NSCC GAME2065/4087/Game Development III(B)/Cameron,Jordan
+/// Jam 3 :DragonCrumbs: Jangle's Sweet Journey
+/// team: Chris French, Percy Hebb, Kevin Card, Myranda Roy
 /// Coder current script: Chris French Second Year NSCC Game Programming 
-/// Additions / annotations: Fixed floating jump bugs, established clear gravity transitions.
+/// Additions / annotations:
+/// code review: 
 /// </summary>
-#endregion   
+#endregion
+
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class JangleController : MonoBehaviour
