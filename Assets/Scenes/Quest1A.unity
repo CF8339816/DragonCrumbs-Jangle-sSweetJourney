@@ -2035,15 +2035,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 907869416888047876, guid: 2fdf9bbf0274dda4b8de7faff03c2fc6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -29.02898
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 907869416888047876, guid: 2fdf9bbf0274dda4b8de7faff03c2fc6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 13.89999
+      value: 11.5
       objectReference: {fileID: 0}
     - target: {fileID: 907869416888047876, guid: 2fdf9bbf0274dda4b8de7faff03c2fc6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -42.7
+      value: -30
       objectReference: {fileID: 0}
     - target: {fileID: 1038465398506774200, guid: 2fdf9bbf0274dda4b8de7faff03c2fc6, type: 3}
       propertyPath: m_Name
@@ -2060,6 +2060,11 @@ PrefabInstance:
       addedObject: {fileID: 1790671002}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2fdf9bbf0274dda4b8de7faff03c2fc6, type: 3}
+--- !u!4 &1448614681 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5032358127009617744, guid: 2fdf9bbf0274dda4b8de7faff03c2fc6, type: 3}
+  m_PrefabInstance: {fileID: 1448614680}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1537117278
 GameObject:
   m_ObjectHideFlags: 0
@@ -2104,6 +2109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b2fa74e3cb062942afb556d67d1b11d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemManager
+  recipe: []
   currentRecpie: 2
 --- !u!1 &1694895705
 GameObject:
@@ -2330,15 +2336,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1933332170972045464, guid: d159fce3f7f6fe04aab7695d81d49b7e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -16.69342
+      value: 12.33556
       objectReference: {fileID: 0}
     - target: {fileID: 1933332170972045464, guid: d159fce3f7f6fe04aab7695d81d49b7e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 14
+      value: 11.60001
       objectReference: {fileID: 0}
     - target: {fileID: 1933332170972045464, guid: d159fce3f7f6fe04aab7695d81d49b7e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -42.7
+      value: -30
       objectReference: {fileID: 0}
     - target: {fileID: 1933332170972045464, guid: d159fce3f7f6fe04aab7695d81d49b7e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2368,6 +2374,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3669593122021109285, guid: d159fce3f7f6fe04aab7695d81d49b7e, type: 3}
+      propertyPath: FollowOffset.z
+      value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3980461609370593077, guid: d159fce3f7f6fe04aab7695d81d49b7e, type: 3}
+      propertyPath: Target.TrackingTarget
+      value: 
+      objectReference: {fileID: 1448614681}
     - target: {fileID: 6261206671109810870, guid: d159fce3f7f6fe04aab7695d81d49b7e, type: 3}
       propertyPath: m_Name
       value: CinemachineCameraMainMoveCam

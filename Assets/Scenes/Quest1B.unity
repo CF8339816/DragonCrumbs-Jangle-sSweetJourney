@@ -1709,7 +1709,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 907869416888047876, guid: 2fdf9bbf0274dda4b8de7faff03c2fc6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -15
+      value: -30
       objectReference: {fileID: 0}
     - target: {fileID: 1038465398506774200, guid: 2fdf9bbf0274dda4b8de7faff03c2fc6, type: 3}
       propertyPath: m_Name
@@ -1770,6 +1770,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b2fa74e3cb062942afb556d67d1b11d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemManager
+  recipe: []
   currentRecpie: 2
 --- !u!1 &1627340652
 GameObject:
@@ -2311,7 +2312,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1933332170972045464, guid: d159fce3f7f6fe04aab7695d81d49b7e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -15
+      value: -30
       objectReference: {fileID: 0}
     - target: {fileID: 1933332170972045464, guid: d159fce3f7f6fe04aab7695d81d49b7e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2344,6 +2345,10 @@ PrefabInstance:
     - target: {fileID: 3669593122021109285, guid: d159fce3f7f6fe04aab7695d81d49b7e, type: 3}
       propertyPath: FollowOffset.y
       value: 3.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3669593122021109285, guid: d159fce3f7f6fe04aab7695d81d49b7e, type: 3}
+      propertyPath: FollowOffset.z
+      value: -30
       objectReference: {fileID: 0}
     - target: {fileID: 3980461609370593077, guid: d159fce3f7f6fe04aab7695d81d49b7e, type: 3}
       propertyPath: Target.TrackingTarget

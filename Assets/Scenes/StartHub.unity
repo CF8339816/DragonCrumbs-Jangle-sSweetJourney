@@ -754,6 +754,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InstructionMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 3126994440105031056, guid: a3e723799f43ed1459a448018f82d7dd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4271425215548083642, guid: a3e723799f43ed1459a448018f82d7dd, type: 3}
       propertyPath: m_Name
       value: Reselect
