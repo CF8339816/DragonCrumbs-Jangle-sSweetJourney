@@ -5,6 +5,8 @@ public class PassiveItemCheckObject : MonoBehaviour
     public string itemToCheck;
     public float timer = 5;
 
+    public Levelloadobject levelToLoad;
+
     // Update is called once per frame
     void Update()
     {
@@ -14,7 +16,7 @@ public class PassiveItemCheckObject : MonoBehaviour
             timer -= Time.deltaTime;
             if(Time.deltaTime < 0)
             {
-                //level change here
+                levelToLoad.LoadLevel();
             }
         }
         
