@@ -9,7 +9,7 @@ using TMPro;
 public class DialogManager : MonoBehaviour
 {
     public float wrightSpeed = 0.01f;
-    public static DialogManager dialogManager;
+    
     private bool wrighting = false;
     public bool talking = false;
 
@@ -24,11 +24,11 @@ public class DialogManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        if(dialogManager == null)
+        if(servicehub.instance.dialogManager == null)
         {
-            dialogManager = this;
+            servicehub.instance.dialogManager = this;
         }
-        else
+        else if(servicehub.instance.dialogManager != this)
         {
             Destroy(this);
         }

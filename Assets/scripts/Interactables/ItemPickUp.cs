@@ -10,7 +10,7 @@ public class ItemPickUp : MonoBehaviour,IInteractable
     public void Interact()
     {
 
-        ItemManager.instace.AddToItem(itemToAdd);
+        servicehub.instance.itemManager.AddToItem(itemToAdd);
         Destroy(this.gameObject);
     }
 }

@@ -3,7 +3,7 @@ using UnityEngine;
 public class DialogWthCheck : TalkOrRead,IInteractable
 {
 
-    public ItemManager itemManager;
+    private ItemManager itemManager;
 
     [TextArea] public string[] secondDialogPass;
     [TextArea] public string[] secondDialogFail;
@@ -18,7 +18,7 @@ public class DialogWthCheck : TalkOrRead,IInteractable
     private void Start()
     {
         //either set item manger to static or replace it in other code with static
-        itemManager = ItemManager.instace;
+        itemManager = servicehub.instance.itemManager;
     }
     public override void Interact()
     {
@@ -27,22 +27,22 @@ public class DialogWthCheck : TalkOrRead,IInteractable
         {
             if (itemAdded)
             {
-                DialogManager.dialogManager.StartDialog(DialogAfterGvingItem);
+                servicehub.instance.dialogManager.StartDialog(DialogAfterGvingItem);
             }
             else if (itemManager.CheckItem(itemToCheck))
             {
                 itemCheckPassed = true;
-                DialogManager.dialogManager.StartDialog(Dialog, secondDialogPass);
+                servicehub.instance.dialogManager.StartDialog(Dialog, secondDialogPass);
             }
             else
             {
-                DialogManager.dialogManager.StartDialog(Dialog, secondDialogFail);
+                servicehub.instance.dialogManager.StartDialog(Dialog, secondDialogFail);
             }
             
         }
         else
         {
-            DialogManager.dialogManager.ContinueDialog();
+            servicehub.instance.dialogManager.ContinueDialog();
 
         }
     }
@@ -50,7 +50,7 @@ public class DialogWthCheck : TalkOrRead,IInteractable
     {
         if (itemToAdd != null)
         {
-            if (itemCheckPassed && DialogManager.dialogManager.talking == false && itemAdded == false)
+            if (itemCheckPassed && servicehub.instance.dialogManager.talking == false && itemAdded == false)
             {
                 Debug.Log($"gave {itemToAdd}");
                 itemManager.AddToItem(itemToAdd);

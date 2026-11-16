@@ -6,7 +6,7 @@ using UnityEngine;
 public class ItemManager : MonoBehaviour
 {
     // move to survice hub/game manager latter
-    public static ItemManager instace;
+    
     public List<items> recipe = new List<items>();
     public enum Recpie
     {
@@ -22,12 +22,12 @@ public class ItemManager : MonoBehaviour
     {
         LoadRecipe(currentRecpie);
         //remove when instace is moved to survace hub
-        if(instace == null)
+        if(servicehub.instance.itemManager == null)
         {
-            instace = this;
+            servicehub.instance.itemManager = this;
             DontDestroyOnLoad(this.gameObject);
         }
-        else
+        else if (servicehub.instance.itemManager != this)
         {
             Destroy(this.gameObject);
         }

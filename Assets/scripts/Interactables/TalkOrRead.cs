@@ -7,13 +7,13 @@ public class TalkOrRead : MonoBehaviour,IInteractable
     public virtual void Interact()
     {
         Debug.Log("talked");
-        if (!DialogManager.dialogManager.talking)
+        if (!servicehub.instance.dialogManager.talking)
         {
-            DialogManager.dialogManager.StartDialog(Dialog);
+            servicehub.instance.dialogManager.StartDialog(Dialog);
         }
         else
         {
-            DialogManager.dialogManager.ContinueDialog();
+            servicehub.instance.dialogManager.ContinueDialog();
         }
     }
 }

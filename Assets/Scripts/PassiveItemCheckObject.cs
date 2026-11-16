@@ -8,7 +8,7 @@ public class PassiveItemCheckObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (ItemManager.instace.CheckItem(itemToCheck))
+        if (servicehub.instance.itemManager.CheckItem(itemToCheck))
         {
             Debug.Log("Item qouta reached, timer to next scene at " + timer);
             timer -= Time.deltaTime;
