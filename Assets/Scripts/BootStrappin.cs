@@ -44,10 +44,13 @@ public class BootStrappin : MonoBehaviour
 {
     [Header("System References")]// defines other scripts
 
-    public HudManager hudManager;
-    public MenuManager menuManager;  
    
+    public MenuManager menuManager;
+    public DialogManager dialogManager;
     public GameExitManager gameExitManager;
+    public InteractableManager interactableManager;
+    public ItemManager itemManager;
+    public ObjGOInteractionManager objGOInteractionManager;
 
     public GameObject mainCharacterCameraPrefab;
     public GameObject cinemachineMoveCamPrefab;
@@ -96,9 +99,12 @@ public class BootStrappin : MonoBehaviour
         //Debug.Log(" menu loaded...");
      
         if (gameExitManager == null) gameExitManager = GetComponent<GameExitManager>();
-        if (hudManager == null) hudManager = GetComponent<HudManager>();
+      if (dialogManager == null) dialogManager = GetComponent< DialogManager> ();
         if (menuManager == null) menuManager = GetComponent<MenuManager>();
-        
+        if (interactableManager == null) interactableManager = GetComponent<InteractableManager>();
+        if (itemManager == null) itemManager = GetComponent<ItemManager>();
+        if (objGOInteractionManager == null) objGOInteractionManager = GetComponent<ObjGOInteractionManager>();
+
     }
 
     public void InitializeGlobalEventSystem()

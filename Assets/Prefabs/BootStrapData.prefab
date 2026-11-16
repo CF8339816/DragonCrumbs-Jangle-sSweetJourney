@@ -50,11 +50,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ea7df175c4c0f349afba0c92c541471, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  hudManager: {fileID: 268583558551992349, guid: f9389a794ba45584d824083d1488aa29, type: 3}
   menuManager: {fileID: 1240197563878807089, guid: f9389a794ba45584d824083d1488aa29, type: 3}
+  dialogManager: {fileID: 0}
   gameExitManager: {fileID: 8201568613860812012, guid: f9389a794ba45584d824083d1488aa29, type: 3}
+  interactableManager: {fileID: 0}
+  itemManager: {fileID: 0}
+  objGOInteractionManager: {fileID: 0}
   mainCharacterCameraPrefab: {fileID: 1615848325210533413, guid: c33c3277ae69fbe42826edef4b39d7da, type: 3}
-  cinemachineMoveCamPrefab: {fileID: 8654444333284435024, guid: cfe8df2a50df57b4ebc62b8168a05c94, type: 3}
+  cinemachineMoveCamPrefab: {fileID: 6261206671109810870, guid: d159fce3f7f6fe04aab7695d81d49b7e, type: 3}
   eventSystemPrefab: {fileID: 559076875463310399, guid: 5ef43a50dc149e74cbab161d863e3373, type: 3}
 --- !u!114 &1892312554517749875
 MonoBehaviour:
@@ -97,6 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b2fa74e3cb062942afb556d67d1b11d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemManager
+  recipe: []
   currentRecpie: 0
 --- !u!114 &1368475984470804188
 MonoBehaviour:

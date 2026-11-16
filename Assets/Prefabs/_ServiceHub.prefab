@@ -11,10 +11,13 @@ GameObject:
   - component: {fileID: 5807701866550425621}
   - component: {fileID: 8201568613860812012}
   - component: {fileID: 1240197563878807089}
-  - component: {fileID: 268583558551992349}
   - component: {fileID: 2068184330678862916}
   - component: {fileID: 6587073052712719203}
   - component: {fileID: 1005713278779503219}
+  - component: {fileID: 3972760830203295978}
+  - component: {fileID: 4250130618739359792}
+  - component: {fileID: 3854175885471208990}
+  - component: {fileID: 2784474505139376469}
   m_Layer: 0
   m_Name: _ServiceHub
   m_TagString: Untagged
@@ -66,18 +69,6 @@ MonoBehaviour:
   Instructions: {fileID: 3126994440105031056, guid: a3e723799f43ed1459a448018f82d7dd, type: 3}
   StartSplash: {fileID: 8419769341032362555, guid: 28f30adc5f6fce047a77fe7dd5649334, type: 3}
   ReturnIndex: 0
---- !u!114 &268583558551992349
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1887375814404526371}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52694c778c26e1744968ede3fd8e2e4f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HudManager
 --- !u!114 &2068184330678862916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -218,3 +209,88 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3972760830203295978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1887375814404526371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a90eba18c9998c40a811d0c130a7ce6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialogManager
+  wrightSpeed: 0.01
+  talking: 0
+  textBox: {fileID: 2549953041499587716, guid: 460a07e6c66ce25498f454f821228386, type: 3}
+  dialogText: {fileID: 3985701056270575622, guid: 7e131dcc4087d7d4fa5f2f8d25b3d9d7, type: 3}
+--- !u!114 &4250130618739359792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1887375814404526371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
+  interactionType: 0
+  Dialog: []
+  itemToCheck: 
+  secondDialogPass: []
+  secondDialogFail: []
+  DialogAfterGivingItem: []
+  itemToAdd: 
+--- !u!114 &3854175885471208990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1887375814404526371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b2fa74e3cb062942afb556d67d1b11d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ItemManager
+  recipe: []
+  currentRecpie: 0
+--- !u!114 &2784474505139376469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1887375814404526371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb6c86f57c2f61f4fb4e9b0062f28596, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjGOInteractionManager
+  firstPersonCam: {fileID: 6386536737816646826, guid: c33c3277ae69fbe42826edef4b39d7da, type: 3}
+  objectButtonsInteractables: {fileID: 0}
+  playerScript: {fileID: 0}
+  RecipeButtons:
+    serializedVersion: 2
+    m_Bits: 64
+  EnvironmentButtons:
+    serializedVersion: 2
+    m_Bits: 128
+  combinedMask:
+    serializedVersion: 2
+    m_Bits: 0
+  characterController: {fileID: 0}
+  checkRange: 100
+  switchRange: 4
+  butterfly: {fileID: 0}
+  ApplePieRecipe: {fileID: 0}
+  PrepBoard: {fileID: 0}
+  Oven: {fileID: 0}
+  Ladder: {fileID: 0}
+  Basket: {fileID: 0}
+  MillStone: {fileID: 0}
+  BeeHive: {fileID: 0}
+  ApplePie: {fileID: 0}
