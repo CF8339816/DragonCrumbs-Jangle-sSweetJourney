@@ -35,14 +35,15 @@ public class GameExitManager : MonoBehaviour
     //{
     //    if (exitCountdownText == null)   {   exitCountdownText = GameObject.Find("exitCountdownText")?.GetComponent<TextMeshProUGUI>();   }
     //}
-    //public void Ongameexit()
-    //{
-    //    if (!isExiting)
-    //    {
-    //        isExiting = true;
-    //        StartCoroutine(StartExitCountdown());
-    //    }
-    //}
+    public void Ongameexit()
+    {
+        if (!isExiting)
+        {
+            isExiting = true;
+            //StartCoroutine(StartExitCountdown());
+            ExitGame();
+        }
+    }
     //public IEnumerator StartExitCountdown()
     //{
     //    while (Countdown > 0)
@@ -52,7 +53,7 @@ public class GameExitManager : MonoBehaviour
     //        Countdown -= Time.deltaTime;
     //    }
     //    exitCountdownText.text = "Exiting...";
-    //    ExitGame();
+    //  
     //}
     //private void ResetCountdown()
     //{

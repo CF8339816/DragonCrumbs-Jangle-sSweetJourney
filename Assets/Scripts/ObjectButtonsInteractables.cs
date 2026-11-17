@@ -2,6 +2,8 @@ using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Unity.Cinemachine;
+using UnityEngine.Rendering;
+using JetBrains.Annotations;
 #region coder & project
 /// <summary>
 /// NSCC GAME2065/4087/Game Development III(B)/Cameron,Jordan
@@ -15,6 +17,9 @@ using Unity.Cinemachine;
 
 public class ObjectButtonsInteractables : MonoBehaviour
 {    
+
+     public MenuManager menuManager;
+
 
     [Header("UI Elements")]//---- Defines Game Elements for active et calls----CF
     [SerializeField] public GameObject ReferenePanel;
@@ -76,9 +81,15 @@ public class ObjectButtonsInteractables : MonoBehaviour
 
     public bool isQuest = false;
 
+    public string[] ActiveQuest = { "ApplePie", "Brownies", "PineNutFudge", "Cheesecake", "Cookies" };
+    public int currentQuest;
 
 
+    void Awake()
 
+    {
+        if (menuManager == null) menuManager = FindFirstObjectByType<MenuManager>();
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -142,7 +153,7 @@ public class ObjectButtonsInteractables : MonoBehaviour
     {
         SetQuestState();
         ReferenePanel.SetActive(false);
-        ///load travel map scene for the quest area---CF
+        menuManager.onTravel();
         ///set the info on the  corner recipe card and turn on the quest panel
         isQuest = true;
         isBakery = false;
@@ -217,5 +228,30 @@ public class ObjectButtonsInteractables : MonoBehaviour
 
     }
 
+    public void OnApplePieStart()
+    {
+        GoToTravelMap();
+        SetQuestState();
+        ActiveQuest[0] = "ApplePie";
+        currentQuest= 0;
+        RefCheckMark1.SetActive(false);
+        RefCrossOut1.SetActive(false);
+        RefCheckMark2.SetActive(false);
+        RefCrossOut2.SetActive(false);
+        RefCheckMark3.SetActive(false);
+        RefCrossOut3.SetActive(false);
 
+
+    }
+
+    private void GoToTravelMap()
+    {
+        if (menuManager == null)
+            menuManager = FindFirstObjectByType<MenuManager>();
+
+        if (menuManager != null)
+            menuManager.onTravel();
+        else
+            Debug.LogError("MenuManager could not be found in the scene!");
+    }
 }

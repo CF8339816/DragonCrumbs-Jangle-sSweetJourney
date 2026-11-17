@@ -295,63 +295,138 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &222177491183877944
-PrefabInstance:
+--- !u!1 &1272297278 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4863339504343148907, guid: 4869fc6dfb0a46249a023c6bc7070fe7, type: 3}
+  m_PrefabInstance: {fileID: 2523816445258179310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1272297280
+MonoBehaviour:
   m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 559076875463310399, guid: 5ef43a50dc149e74cbab161d863e3373, type: 3}
-      propertyPath: m_Name
-      value: EventSystem
-      objectReference: {fileID: 0}
-    - target: {fileID: 7905733444691546079, guid: 5ef43a50dc149e74cbab161d863e3373, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7905733444691546079, guid: 5ef43a50dc149e74cbab161d863e3373, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7905733444691546079, guid: 5ef43a50dc149e74cbab161d863e3373, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7905733444691546079, guid: 5ef43a50dc149e74cbab161d863e3373, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7905733444691546079, guid: 5ef43a50dc149e74cbab161d863e3373, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7905733444691546079, guid: 5ef43a50dc149e74cbab161d863e3373, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7905733444691546079, guid: 5ef43a50dc149e74cbab161d863e3373, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7905733444691546079, guid: 5ef43a50dc149e74cbab161d863e3373, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7905733444691546079, guid: 5ef43a50dc149e74cbab161d863e3373, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7905733444691546079, guid: 5ef43a50dc149e74cbab161d863e3373, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 5ef43a50dc149e74cbab161d863e3373, type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1272297278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcca6d22cd6543f4bab2f7dc78a9dfb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::cineCaminteractmouseover
+  highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  onObjectClicked:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9138425507695778595}
+        m_TargetAssemblyTypeName: ObjectButtonsInteractables, Assembly-CSharp
+        m_MethodName: OnRecipeSelectCheesecake
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!1 &1527311230 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7747150462383053113, guid: 4869fc6dfb0a46249a023c6bc7070fe7, type: 3}
+  m_PrefabInstance: {fileID: 2523816445258179310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1527311232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1527311230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcca6d22cd6543f4bab2f7dc78a9dfb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::cineCaminteractmouseover
+  highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  onObjectClicked:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9138425507695778595}
+        m_TargetAssemblyTypeName: ObjectButtonsInteractables, Assembly-CSharp
+        m_MethodName: OnRecipeSelectPineNutFudge
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!1 &1836748402 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5859857173762560226, guid: 4869fc6dfb0a46249a023c6bc7070fe7, type: 3}
+  m_PrefabInstance: {fileID: 2523816445258179310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1836748404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1836748402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcca6d22cd6543f4bab2f7dc78a9dfb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::cineCaminteractmouseover
+  highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  onObjectClicked:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9138425507695778595}
+        m_TargetAssemblyTypeName: ObjectButtonsInteractables, Assembly-CSharp
+        m_MethodName: OnRecipeSelectBrownies
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!1 &1983784482 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1520915193607696748, guid: 4869fc6dfb0a46249a023c6bc7070fe7, type: 3}
+  m_PrefabInstance: {fileID: 2523816445258179310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1983784484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1983784482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcca6d22cd6543f4bab2f7dc78a9dfb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::cineCaminteractmouseover
+  highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  onObjectClicked:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9138425507695778595}
+        m_TargetAssemblyTypeName: ObjectButtonsInteractables, Assembly-CSharp
+        m_MethodName: OnRecipeSelectCookies
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &2185189454736152708
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -535,6 +610,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5199316580419955745, guid: 4869fc6dfb0a46249a023c6bc7070fe7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5199316580419955745, guid: 4869fc6dfb0a46249a023c6bc7070fe7, type: 3}
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
@@ -594,11 +673,84 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 7958766638494477436, guid: 4869fc6dfb0a46249a023c6bc7070fe7, type: 3}
+      propertyPath: Highlight.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7958766638494477436, guid: 4869fc6dfb0a46249a023c6bc7070fe7, type: 3}
+      propertyPath: Highlight.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7958766638494477436, guid: 4869fc6dfb0a46249a023c6bc7070fe7, type: 3}
+      propertyPath: Highlight.r
+      value: 0.5089526
+      objectReference: {fileID: 0}
+    - target: {fileID: 7958766638494477436, guid: 4869fc6dfb0a46249a023c6bc7070fe7, type: 3}
+      propertyPath: highlightColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7958766638494477436, guid: 4869fc6dfb0a46249a023c6bc7070fe7, type: 3}
+      propertyPath: highlightColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7958766638494477436, guid: 4869fc6dfb0a46249a023c6bc7070fe7, type: 3}
+      propertyPath: highlightColor.r
+      value: 0.5089526
+      objectReference: {fileID: 0}
+    - target: {fileID: 7958766638494477436, guid: 4869fc6dfb0a46249a023c6bc7070fe7, type: 3}
+      propertyPath: objectButtonsInteractables
+      value: 
+      objectReference: {fileID: 9138425507695778595}
+    - target: {fileID: 7958766638494477436, guid: 4869fc6dfb0a46249a023c6bc7070fe7, type: 3}
+      propertyPath: onObjectClicked.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7958766638494477436, guid: 4869fc6dfb0a46249a023c6bc7070fe7, type: 3}
+      propertyPath: onObjectClicked.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7958766638494477436, guid: 4869fc6dfb0a46249a023c6bc7070fe7, type: 3}
+      propertyPath: onObjectClicked.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 9138425507695778595}
+    - target: {fileID: 7958766638494477436, guid: 4869fc6dfb0a46249a023c6bc7070fe7, type: 3}
+      propertyPath: onObjectClicked.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7958766638494477436, guid: 4869fc6dfb0a46249a023c6bc7070fe7, type: 3}
+      propertyPath: onObjectClicked.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnRecipeSelectApplePie
+      objectReference: {fileID: 0}
+    - target: {fileID: 7958766638494477436, guid: 4869fc6dfb0a46249a023c6bc7070fe7, type: 3}
+      propertyPath: onObjectClicked.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ObjectButtonsInteractables, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7958766638494477436, guid: 4869fc6dfb0a46249a023c6bc7070fe7, type: 3}
+      propertyPath: onObjectClicked.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 9081442312944031540, guid: 4869fc6dfb0a46249a023c6bc7070fe7, type: 3}
+      propertyPath: m_Size.y
+      value: 0.25
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4127896283588822996, guid: 4869fc6dfb0a46249a023c6bc7070fe7, type: 3}
+    - {fileID: 5199316580419955745, guid: 4869fc6dfb0a46249a023c6bc7070fe7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5859857173762560226, guid: 4869fc6dfb0a46249a023c6bc7070fe7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1836748404}
+    - targetCorrespondingSourceObject: {fileID: 7747150462383053113, guid: 4869fc6dfb0a46249a023c6bc7070fe7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1527311232}
+    - targetCorrespondingSourceObject: {fileID: 4863339504343148907, guid: 4869fc6dfb0a46249a023c6bc7070fe7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1272297280}
+    - targetCorrespondingSourceObject: {fileID: 1520915193607696748, guid: 4869fc6dfb0a46249a023c6bc7070fe7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1983784484}
   m_SourcePrefab: {fileID: 100100000, guid: 4869fc6dfb0a46249a023c6bc7070fe7, type: 3}
 --- !u!1001 &3071782817456147635
 PrefabInstance:
@@ -648,11 +800,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 907869416888047876, guid: 2fdf9bbf0274dda4b8de7faff03c2fc6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 11.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 907869416888047876, guid: 2fdf9bbf0274dda4b8de7faff03c2fc6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -15
+      objectReference: {fileID: 0}
     - target: {fileID: 1038465398506774200, guid: 2fdf9bbf0274dda4b8de7faff03c2fc6, type: 3}
       propertyPath: m_Name
       value: Jangle
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 1038465398506774200, guid: 2fdf9bbf0274dda4b8de7faff03c2fc6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1685948540614147637, guid: 2fdf9bbf0274dda4b8de7faff03c2fc6, type: 3}
+      propertyPath: m_TargetDisplay
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 8901389201787251752, guid: 2fdf9bbf0274dda4b8de7faff03c2fc6, type: 3}
+    - {fileID: 2569423378044471447, guid: 2fdf9bbf0274dda4b8de7faff03c2fc6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -740,7 +910,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 410087041}
   - {fileID: 832575519}
-  - {fileID: 222177491183877944}
   - {fileID: 2523816445258179310}
   - {fileID: 2185189454736152708}
   - {fileID: 3071782817456147635}

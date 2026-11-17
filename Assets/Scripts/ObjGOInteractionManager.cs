@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.InputSystem;
 #region coder & project
 /// <summary>
 /// NSCC GAME2065/4087/Game Development III(B)/Cameron,Jordan
@@ -68,64 +69,44 @@ public class ObjGOInteractionManager : MonoBehaviour
       //  HidePopups();
 
     }
-    //private void HidePopups()
-    //{
-        
-    //}
+    private bool EnsureReferences()  // ensures cam and hud references are found if scene change destroys them
+    {
+        if (firstPersonCam == null)
+        {
+            if (Camera.main != null)
+                firstPersonCam = Camera.main.transform;
+            else
+            {
+                GameObject camObj = GameObject.Find("MainCharacterCamera");
+                if (camObj != null)
+                    firstPersonCam = camObj.transform;
+            }
+        }
+
+        if (objectButtonsInteractables == null)
+            objectButtonsInteractables = FindFirstObjectByType<ObjectButtonsInteractables>();
+
+        return firstPersonCam != null;
+    }
     void Update()
     {
-        
-        CheckTargets();
-            UpdateCrosshairVisibility();
-       
-
-        if (Input.GetMouseButtonDown(0) && !string.IsNullOrEmpty(currentTargetTag))
+        if (!EnsureReferences())
         {
-            HandleInteraction(currentTargetTag);
-
-            if (lookingAtOvenDoor)
-            {
-                UpdateCrosshairVisibility();
-               InteractOven();
-            }
-            if (lookingAtPrepBoard)
-            {
-                UpdateCrosshairVisibility();
-                InteractPrep();
-            }
-            if (lookingAtApplePieRecipe)
-            {
-                UpdateCrosshairVisibility();
-                objectButtonsInteractables.OnRecipeRePick();
-            }
-            if (lookingAtLadder)
-            {
-                UpdateCrosshairVisibility();
-                Interactladder();
-            }
-            if (lookingAtBeeHive)
-            {
-                UpdateCrosshairVisibility();
-                InteractHive();
-            }
-            if (lookingAtMillStone)
-            {
-                UpdateCrosshairVisibility();
-                InteractMill();
-            }
-            if (lookingAtBasket)
-            {
-                UpdateCrosshairVisibility();
-                InteractBasket();
-            }
-            if (lookingAtApplePie)
-            {
-                UpdateCrosshairVisibility();
-                InteractPie();
-            }
+            return;
 
         }
+
+        CheckTargets();
+        //   UpdateCrosshairVisibility();
+
+
+        if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame && !string.IsNullOrEmpty(currentTargetTag))
+        {
+            HandleInteraction(currentTargetTag);
+        }
     }
+    
+    
 
     private void CheckTargets()
     {

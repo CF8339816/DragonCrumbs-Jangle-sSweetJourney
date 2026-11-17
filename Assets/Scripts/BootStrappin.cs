@@ -50,6 +50,8 @@ public class BootStrappin : MonoBehaviour
     public GameExitManager gameExitManager;
     public InteractableManager interactableManager;
     public ItemManager itemManager;
+
+
     public ObjGOInteractionManager objGOInteractionManager;
 
     public GameObject mainCharacterCameraPrefab;
@@ -100,6 +102,8 @@ public class BootStrappin : MonoBehaviour
      
         if (gameExitManager == null) gameExitManager = GetComponent<GameExitManager>();
       if (dialogManager == null) dialogManager = GetComponent< DialogManager> ();
+        if (menuManager == null) menuManager = GetComponent<MenuManager>();
+        if (menuManager == null) menuManager = GetComponent<MenuManager>();
         if (menuManager == null) menuManager = GetComponent<MenuManager>();
         if (interactableManager == null) interactableManager = GetComponent<InteractableManager>();
         if (itemManager == null) itemManager = GetComponent<ItemManager>();
