@@ -3,7 +3,7 @@ using UnityEngine;
 public class DialogWthCheck : TalkOrRead,IInteractable
 {
 
-    public ItemManager itemManager;
+    private ItemManager itemManager;
 
     [TextArea] public string[] secondDialogPass;
     [TextArea] public string[] secondDialogFail;
@@ -18,6 +18,7 @@ public class DialogWthCheck : TalkOrRead,IInteractable
     private void Start()
     {
         //either set item manger to static or replace it in other code with static
+        itemManager = ItemManager.instace;
     }
     public override void Interact()
     {

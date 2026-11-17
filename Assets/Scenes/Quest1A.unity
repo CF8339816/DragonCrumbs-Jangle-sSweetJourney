@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 15105723}
   m_Layer: 0
   m_Name: apple
-  m_TagString: Interactable
+  m_TagString: PassiveInteractable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -943,7 +943,7 @@ GameObject:
   - component: {fileID: 830763153}
   m_Layer: 0
   m_Name: apple
-  m_TagString: Interactable
+  m_TagString: PassiveInteractable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1241,7 +1241,7 @@ GameObject:
   - component: {fileID: 1039637858}
   m_Layer: 0
   m_Name: apple
-  m_TagString: Interactable
+  m_TagString: PassiveInteractable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1664,7 +1664,7 @@ GameObject:
   - component: {fileID: 1278081612}
   m_Layer: 0
   m_Name: apple
-  m_TagString: Interactable
+  m_TagString: PassiveInteractable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2424,6 +2424,10 @@ PrefabInstance:
     - target: {fileID: 8696872785873233695, guid: c1c4f62b3dce2ae47ba2589d12431a0e, type: 3}
       propertyPath: m_Name
       value: apple
+      objectReference: {fileID: 0}
+    - target: {fileID: 8696872785873233695, guid: c1c4f62b3dce2ae47ba2589d12431a0e, type: 3}
+      propertyPath: m_TagString
+      value: PassiveInteractable
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

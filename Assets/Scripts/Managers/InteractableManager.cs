@@ -40,7 +40,7 @@ public class items
     {
         amountHeld += 1;
         Debug.Log($"you have {amountHeld} out of {amountNeeded} {itemName}s");
-        if (amountHeld > amountNeeded)
+        if (amountHeld > amountNeeded) //prevents overfollow of item
         {
             Debug.Log($"more of {itemName} that there should be");
             amountHeld = amountNeeded;

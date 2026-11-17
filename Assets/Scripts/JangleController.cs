@@ -174,6 +174,10 @@ public class JangleController : MonoBehaviour
         {
             currentInteractable = collision.GetComponent<IInteractable>();
         }
+        if (collision.gameObject.CompareTag("PassiveInteractable"))
+        {
+            collision.GetComponent<IInteractable>().Interact();
+        }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
