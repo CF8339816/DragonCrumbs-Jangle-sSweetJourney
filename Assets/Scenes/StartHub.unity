@@ -925,6 +925,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3021056863163344471, guid: a3e723799f43ed1459a448018f82d7dd, type: 3}
+      propertyPath: m_ScaleFactor
+      value: 0.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 3021056863163344471, guid: a3e723799f43ed1459a448018f82d7dd, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3021056863163344471, guid: a3e723799f43ed1459a448018f82d7dd, type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 0
       objectReference: {fileID: 0}
@@ -991,6 +999,10 @@ PrefabInstance:
     - target: {fileID: 3603130021446237051, guid: 28f30adc5f6fce047a77fe7dd5649334, type: 3}
       propertyPath: m_RenderMode
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5069743307836569779, guid: 28f30adc5f6fce047a77fe7dd5649334, type: 3}
+      propertyPath: m_ScaleFactor
+      value: 0.65
       objectReference: {fileID: 0}
     - target: {fileID: 5069743307836569779, guid: 28f30adc5f6fce047a77fe7dd5649334, type: 3}
       propertyPath: m_PresetInfoIsWorld
