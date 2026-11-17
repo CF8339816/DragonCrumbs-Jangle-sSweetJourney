@@ -138,19 +138,19 @@ public class MenuManager : MonoBehaviour
     public void onLevel1()
     {
         LoadLevelByIndex(QUEST1A_INDEX);
-             
+        objectButtonsInteractables.SetQuestState();
     }
 
     public void onLevel2()
     {
         LoadLevelByIndex(QUEST1B_INDEX);
-
+        objectButtonsInteractables.SetQuestState();
     }
 
     public void onLevel3()
     {
         LoadLevelByIndex(QUEST1C_INDEX);
-
+        objectButtonsInteractables.SetQuestState();
     }
 
     public void onBakery()
