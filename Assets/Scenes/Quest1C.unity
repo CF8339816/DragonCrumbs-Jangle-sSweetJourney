@@ -598,7 +598,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   enableMaze: 0
-  maze: {fileID: 0}
+  maze: {fileID: 2124370250}
 --- !u!1 &419957415
 GameObject:
   m_ObjectHideFlags: 0
