@@ -39,7 +39,7 @@ public class StageInteractManager : MonoBehaviour
 
         DisableWheatCollider();
 
-        combinedMask = RecipeButtons | EnvironmentButtons;
+        //combinedMask = RecipeButtons | EnvironmentButtons;
         if (objectButtonsInteractables == null)
         {
             objectButtonsInteractables = FindFirstObjectByType<ObjectButtonsInteractables>();
@@ -49,59 +49,8 @@ public class StageInteractManager : MonoBehaviour
             objGOInteractionManager = FindFirstObjectByType<ObjGOInteractionManager>();
         }
     }
-    private bool EnsureReferences()  // ensures cam and hud references are found if scene change destroys them
-    {
-        if (firstPersonCam == null)
-        {
-            if (Camera.main != null)
-                firstPersonCam = Camera.main.transform;
-            else
-            {
-                GameObject camObj = GameObject.Find("MainCharacterCamera");
-                if (camObj != null)
-                    firstPersonCam = camObj.transform;
-            }
-        }
 
-        if (objectButtonsInteractables == null)
-            objectButtonsInteractables = FindFirstObjectByType<ObjectButtonsInteractables>();
-
-        return firstPersonCam != null;
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        if (!EnsureReferences())
-        {
-            return;
-
-        }
-
-        CheckTargets();
-        //   UpdateCrosshairVisibility();
-
-
-        if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame && !string.IsNullOrEmpty(currentTargetTag))
-        {
-            HandleInteraction(currentTargetTag);
-        }
-    }
-
-    private void CheckTargets()
-    {
-        currentTargetTag = "";
-
-        if (Physics.Raycast(firstPersonCam.position, firstPersonCam.forward, out RaycastHit hit, checkRange, combinedMask))
-        {
-            if (hit.distance <= switchRange)
-            {
-                currentTargetTag = hit.collider.tag;
-                //UpdateCrosshairVisibility();
-                return;
-            }
-        }
-    }
-    private void HandleInteraction(string targetTag)
+   public void HandleInteraction(string targetTag)
     {
         switch (targetTag)
         {
@@ -110,7 +59,7 @@ public class StageInteractManager : MonoBehaviour
                 InteractMillStone();
                 break;
 
-            case "PrepBoard":              
+            case "NextLevelDebug":              
                 Debug.Log("Interacted with NextLevelDebug");
                 InteractNextLevelDebug();
                 break;
@@ -119,26 +68,15 @@ public class StageInteractManager : MonoBehaviour
         }
     }
 
-    void InteractMillStone()
+   public void InteractMillStone()
     {
-        if (Physics.Raycast(firstPersonCam.position, firstPersonCam.forward, out RaycastHit hit, checkRange, combinedMask))
-        {
-            if (hit.collider.tag == ("MillStone"))
-            {
+           EnableWheatCollider();
 
-            }
-        }
     }
-    void InteractNextLevelDebug()
-    {
-        if (Physics.Raycast(firstPersonCam.position, firstPersonCam.forward, out RaycastHit hit, checkRange, combinedMask))
-        {
-            if (hit.collider.tag == ("NextLevelDebug"))
-            {
-                if (menuManager != null)
-                    menuManager.onLoadNextLevel();
-            }
-        }
+    public void InteractNextLevelDebug()
+    { 
+        if (menuManager != null)
+            menuManager.onLoadNextLevel();
     }
 
 
@@ -162,71 +100,4 @@ public class StageInteractManager : MonoBehaviour
     }
 
 }
-#region unused ref code
-             //case "ApplePieRecipe":
-            //    if (objectButtonsInteractables != null)
-            //        objectButtonsInteractables.OnRecipeSelectApplePie();
-            //    break;
-            //case "Ladder":
-            //    Debug.Log("Interacted with Ladder");
-            //    Interactladder();
-            //    break;
-            //case "BeeHive":
-            //    Debug.Log("Interacted with BeeHive");
-            //    InteractHive();
-            //    break;
-          
-            //case "Basket":
-            //    Debug.Log("Interacted with Basket");
-            //    InteractBasket();
-            //    break;
-            //case "ApplePie":
-            //    Debug.Log("Interacted with ApplePie");
-            //    InteractPie();
-            //    break;
-   
-//void Interactladder()
-    //{
-    //    if (Physics.Raycast(firstPersonCam.position, firstPersonCam.forward, out RaycastHit hit, checkRange, combinedMask))
-    //    {
-    //        if (hit.collider.tag == ("Ladder"))
-    //        {
 
-    //        }
-    //    }
-    //}
-    //void InteractHive()
-    //{
-    //    if (Physics.Raycast(firstPersonCam.position, firstPersonCam.forward, out RaycastHit hit, checkRange, combinedMask))
-    //    {
-    //        if (hit.collider.tag == ("Oven"))
-    //        {
-
-    //        }
-    //    }
-    //}
-
-
-    //void InteractBasket()
-    //{
-    //    if (Physics.Raycast(firstPersonCam.position, firstPersonCam.forward, out RaycastHit hit, checkRange, combinedMask))
-    //    {
-    //        if (hit.collider.tag == ("Basket"))
-    //        {
-
-    //        }
-    //    }
-    //}
-    //void InteractPie()
-    //{
-    //    if (Physics.Raycast(firstPersonCam.position, firstPersonCam.forward, out RaycastHit hit, checkRange, combinedMask))
-    //    {
-    //        if (hit.collider.tag == ("ApplePie"))
-    //        {
-
-    //        }
-    //    }
-    //}
-
-
-#endregion

@@ -44,9 +44,9 @@ public class CinemachineRaycastDriver : MonoBehaviour
         if (RecipeButtons == 0)
             Debug.LogWarning("Layer '" + targetLayerName + "' does not exist! Check Project Settings > Tags and Layers.");
 
-        EnvironmentButtons = LayerMask.GetMask(targetLayerName); // sets the layermask as defined above
-        if (EnvironmentButtons == 0)
-            Debug.LogWarning("Layer '" + targetLayerName + "' does not exist! Check Project Settings > Tags and Layers.");
+        //EnvironmentButtons = LayerMask.GetMask(targetLayerName); // sets the layermask as defined above
+        //if (EnvironmentButtons == 0)
+        //    Debug.LogWarning("Layer '" + targetLayerName + "' does not exist! Check Project Settings > Tags and Layers.");
 
 
         combinedMask = RecipeButtons | EnvironmentButtons;
@@ -87,7 +87,7 @@ public class CinemachineRaycastDriver : MonoBehaviour
             }
         }
 
-     
+
         ClearHover(); //calls to reset method to remove highlight
     }
 

@@ -6493,9 +6493,9 @@ MonoBehaviour:
   onObjectClicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1240197563878807089, guid: f9389a794ba45584d824083d1488aa29, type: 3}
-        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-        m_MethodName: onLoadNextLevel
+      - m_Target: {fileID: 1072191057}
+        m_TargetAssemblyTypeName: StageInteractManager, Assembly-CSharp
+        m_MethodName: InteractNextLevelDebug
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8302,7 +8302,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1072191057}
         m_TargetAssemblyTypeName: StageInteractManager, Assembly-CSharp
-        m_MethodName: EnableWheatCollider
+        m_MethodName: InteractMillStone
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -16435,6 +16435,10 @@ PrefabInstance:
     - target: {fileID: 1476466641266159856, guid: 8110ac57b0389ec4684cc025062795af, type: 3}
       propertyPath: m_Name
       value: DialogManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 1476466641266159856, guid: 8110ac57b0389ec4684cc025062795af, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
