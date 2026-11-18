@@ -22,8 +22,9 @@ public class CinemachineRaycastDriver : MonoBehaviour
     public string ApplePieTag = "ApplePie";
     //public string otherrecipeTag = "otherrecipewheninitiated";
     public float maxClickDistance = 100f;
-
-    private LayerMask recipeLayerMask;
+    public LayerMask EnvironmentButtons;
+    public LayerMask combinedMask;
+    private LayerMask RecipeButtons;
     private cineCaminteractmouseover currentHoveredObject;
 
     void Start()
@@ -39,9 +40,17 @@ public class CinemachineRaycastDriver : MonoBehaviour
         if (targetCamera == null)
             Debug.LogError("ClickThroughRaycaster: No Camera found! Please assign your Camera in the Inspector.");
 
-        recipeLayerMask = LayerMask.GetMask(targetLayerName); // sets the layermask as defined above
-        if (recipeLayerMask == 0)
+        RecipeButtons = LayerMask.GetMask(targetLayerName); // sets the layermask as defined above
+        if (RecipeButtons == 0)
             Debug.LogWarning("Layer '" + targetLayerName + "' does not exist! Check Project Settings > Tags and Layers.");
+
+        EnvironmentButtons = LayerMask.GetMask(targetLayerName); // sets the layermask as defined above
+        if (EnvironmentButtons == 0)
+            Debug.LogWarning("Layer '" + targetLayerName + "' does not exist! Check Project Settings > Tags and Layers.");
+
+
+        combinedMask = RecipeButtons | EnvironmentButtons;
+
     }
 
     void Update()
@@ -53,7 +62,7 @@ public class CinemachineRaycastDriver : MonoBehaviour
         Ray ray = targetCamera.ScreenPointToRay(mousePos);
 
        
-        if (Physics.Raycast(ray, out RaycastHit hit, maxClickDistance, recipeLayerMask)) // only registers hits on the RecipeButtons layer
+        if (Physics.Raycast(ray, out RaycastHit hit, maxClickDistance, combinedMask)) // only registers hits on the RecipeButtons layer
         {
            
             if (hit.collider.CompareTag(ApplePieTag))// vetts  selectable  based on tag  may be changed to recipies later if more are added , is specifically singled out for demo

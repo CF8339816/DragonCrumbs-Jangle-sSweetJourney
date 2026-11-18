@@ -193,6 +193,34 @@ public class MenuManager : MonoBehaviour
         Instructions.SetActive(false);
         onBakery();
         }
+
+
+    public void onLoadNextLevel()
+    {
+        if (SceneManager.GetActiveScene().buildIndex < 4)
+        {
+            nextIndex = SceneManager.GetActiveScene().buildIndex + 1;
+            LoadLevelByIndex(nextIndex);
+
+
+        }
+        else
+        {
+            onMenu();
+
+        }
+    }
+
+         public void onMenu()
+    {
+        LoadLevelByIndex(STARTHUB_INDEX);
+        SceneManager.LoadScene(STARTHUB_INDEX, LoadSceneMode.Additive);
+      
+    }
+
+
+
+
 }
    
   
