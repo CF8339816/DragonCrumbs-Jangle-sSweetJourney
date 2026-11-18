@@ -173,7 +173,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 15105722}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -982,7 +982,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 830763152}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -1226,6 +1226,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 456148343611571757, guid: 2fdf9bbf0274dda4b8de7faff03c2fc6, type: 3}
   m_PrefabInstance: {fileID: 1448614680}
   m_PrefabAsset: {fileID: 0}
+--- !u!61 &1013263703 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 3415191738900512403, guid: c1c4f62b3dce2ae47ba2589d12431a0e, type: 3}
+  m_PrefabInstance: {fileID: 5480185296631019185}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1039637857
 GameObject:
   m_ObjectHideFlags: 0
@@ -1280,7 +1285,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1039637857}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -1662,6 +1667,7 @@ GameObject:
   - component: {fileID: 1194846192}
   - component: {fileID: 1194846191}
   - component: {fileID: 1194846190}
+  - component: {fileID: 1194846195}
   m_Layer: 6
   m_Name: basket proxie
   m_TagString: ApplePie
@@ -1685,9 +1691,9 @@ MonoBehaviour:
   onObjectClicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ObjectButtonsInteractables, Assembly-CSharp
-        m_MethodName: SetQuestState
+      - m_Target: {fileID: 1194846195}
+        m_TargetAssemblyTypeName: PickUpToggle, Assembly-CSharp
+        m_MethodName: Interact
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1790,6 +1796,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -90, y: -90, z: 90}
+--- !u!114 &1194846195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1194846189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f14491cc2f711c448a79f36879426ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  enableTriggers: 0
+  Triggers:
+  - {fileID: 1013263703}
+  - {fileID: 1278081613}
+  - {fileID: 15105724}
+  - {fileID: 830763154}
+  - {fileID: 1039637859}
 --- !u!1 &1278081611
 GameObject:
   m_ObjectHideFlags: 0
@@ -1844,7 +1869,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1278081611}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -2560,6 +2585,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2461831113656345488, guid: c1c4f62b3dce2ae47ba2589d12431a0e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3415191738900512403, guid: c1c4f62b3dce2ae47ba2589d12431a0e, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8696872785873233695, guid: c1c4f62b3dce2ae47ba2589d12431a0e, type: 3}
