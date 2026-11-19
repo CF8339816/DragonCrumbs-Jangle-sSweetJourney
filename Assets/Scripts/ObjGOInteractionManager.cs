@@ -53,7 +53,8 @@ public class ObjGOInteractionManager : MonoBehaviour
         RecipeButtons = LayerMask.GetMask(recipeLayerName);
         if (RecipeButtons == 0)
             Debug.LogWarning("Layer '" + recipeLayerName + "' does not exist!");
-
+        if (targetCamera == null)
+            targetCamera = GameObject.Find("MainCharacterCamera")?.GetComponent<Camera>();
         if (EnvironmentButtons == 0)
             EnvironmentButtons = LayerMask.GetMask(environmentLayerName);
 
