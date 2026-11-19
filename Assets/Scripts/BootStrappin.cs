@@ -50,8 +50,8 @@ public class BootStrappin : MonoBehaviour
     public GameExitManager gameExitManager;
     public InteractableManager interactableManager;
     public ItemManager itemManager;
-
-
+    public ObjectButtonsInteractables objectButtonsInteractables;
+    public StageInteractManager stageInteractManager;
     public ObjGOInteractionManager objGOInteractionManager;
 
     public GameObject mainCharacterCameraPrefab;
@@ -101,10 +101,10 @@ public class BootStrappin : MonoBehaviour
         //Debug.Log(" menu loaded...");
      
         if (gameExitManager == null) gameExitManager = GetComponent<GameExitManager>();
-      if (dialogManager == null) dialogManager = GetComponent< DialogManager> ();
+        if (dialogManager == null) dialogManager = GetComponent< DialogManager> ();
         if (menuManager == null) menuManager = GetComponent<MenuManager>();
-        if (menuManager == null) menuManager = GetComponent<MenuManager>();
-        if (menuManager == null) menuManager = GetComponent<MenuManager>();
+        if (objectButtonsInteractables == null) objectButtonsInteractables = GetComponent<ObjectButtonsInteractables>();
+        if (stageInteractManager == null) stageInteractManager = GetComponent<StageInteractManager>();
         if (interactableManager == null) interactableManager = GetComponent<InteractableManager>();
         if (itemManager == null) itemManager = GetComponent<ItemManager>();
         if (objGOInteractionManager == null) objGOInteractionManager = GetComponent<ObjGOInteractionManager>();

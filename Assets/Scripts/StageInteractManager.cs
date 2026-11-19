@@ -1,7 +1,9 @@
-using UnityEngine;
-using UnityEngine.UI;
+using System;
 using TMPro;
+using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 #region coder & project
 /// <summary>
 /// NSCC GAME2065/4087/Game Development III(B)/Cameron,Jordan
@@ -39,6 +41,14 @@ public class StageInteractManager : MonoBehaviour
     public GameObject RawApplePieProxy;
     public GameObject PrepBlock;
     public GameObject Dangle;
+    public GameObject MillstoneClickable;
+    public GameObject Wheat;
+
+    [Header("Collection Variables")]
+    public int WheatCount = 0;
+    public int AppleCount = 0;
+    public int FlourCount = 0;
+    public int HoneyCount = 0;
 
 
 
@@ -47,6 +57,15 @@ public class StageInteractManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        if (SceneManager.GetActiveScene().buildIndex >= 1 && SceneManager.GetActiveScene().buildIndex <= 3)
+        {
+            objectButtonsInteractables.SetQuestState();
+        }
+        else if (SceneManager.GetActiveScene().buildIndex == 4 )
+        {
+            objectButtonsInteractables.SetBakeryState();
+        }
+
 
         DisableWheatCollider();
 
@@ -78,10 +97,27 @@ public class StageInteractManager : MonoBehaviour
           
         }
     }
-
+    public void WheatCollect()
+    {
+        WheatCount++;
+    }
    public void InteractMillStone()
     {
-           EnableWheatCollider();
+        if (WheatCount == 5)
+        {
+            WheatCount = 0;
+            FlourCount = 1;
+        }
+        else
+        {
+            FlourCount = 0;
+        }
+
+    }
+
+    public void InteractSythe()
+    {
+        EnableWheatCollider();
 
     }
     public void InteractNextLevelDebug()
@@ -109,6 +145,20 @@ public class StageInteractManager : MonoBehaviour
             boxCollider.enabled = true;
         }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
 

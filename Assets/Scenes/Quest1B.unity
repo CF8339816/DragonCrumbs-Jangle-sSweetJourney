@@ -10556,6 +10556,10 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6830598022554756115, guid: 05bd244785fe2304fa5ee7a42f699137, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8014349105745903500, guid: 05bd244785fe2304fa5ee7a42f699137, type: 3}
       propertyPath: m_Name
       value: PlayerHUD
@@ -10619,7 +10623,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 907869416888047876, guid: 2fdf9bbf0274dda4b8de7faff03c2fc6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.1
+      value: 3.6
       objectReference: {fileID: 0}
     - target: {fileID: 907869416888047876, guid: 2fdf9bbf0274dda4b8de7faff03c2fc6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -14228,12 +14232,12 @@ GameObject:
   - component: {fileID: 1955766232}
   - component: {fileID: 1955766237}
   m_Layer: 6
-  m_Name: millstone
+  m_Name: Sythe
   m_TagString: ApplePie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!50 &1955766232
 Rigidbody2D:
   serializedVersion: 5
@@ -14299,7 +14303,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 6, y: 6.11}
+    oldSize: {x: 4.47, y: 4.47}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -14356,7 +14360,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -5
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: f48e4eb952e541e43a5f82641f908bdb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 66b28e6cb0909664994560c3901c5751, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -14388,9 +14392,9 @@ Transform:
   m_GameObject: {fileID: 1955766231}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 33.5, y: 2.48, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 2}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 23.6, y: 2.48, z: 0}
+  m_LocalScale: {x: 0.77, y: 0.77, z: 3.08}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -14409,7 +14413,19 @@ MonoBehaviour:
   highlightColor: {r: 0.627451, g: 0.1254902, b: 0.9411765, a: 1}
   onObjectClicked:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1072191057}
+        m_TargetAssemblyTypeName: StageInteractManager, Assembly-CSharp
+        m_MethodName: InteractSythe
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1969538061
 GameObject:
   m_ObjectHideFlags: 0
@@ -16119,7 +16135,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1933332170972045464, guid: d159fce3f7f6fe04aab7695d81d49b7e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.20001
+      value: 3.7000098
       objectReference: {fileID: 0}
     - target: {fileID: 1933332170972045464, guid: d159fce3f7f6fe04aab7695d81d49b7e, type: 3}
       propertyPath: m_LocalPosition.z

@@ -19,7 +19,7 @@ public class MenuManager : MonoBehaviour
 {
     public static MenuManager Instance { get; private set; }
     
-    private GameExitManager gameExitManager;
+   // private GameExitManager gameExitManager;
     public ObjectButtonsInteractables objectButtonsInteractables;
 
     [SerializeField] GameObject Jangle;
