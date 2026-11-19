@@ -20,7 +20,7 @@ public class MenuManager : MonoBehaviour
     public static MenuManager Instance { get; private set; }
     
     private GameExitManager gameExitManager;
-    private ObjectButtonsInteractables objectButtonsInteractables;
+    public ObjectButtonsInteractables objectButtonsInteractables;
 
     [SerializeField] GameObject Jangle;
     [SerializeField] GameObject Instructions;
@@ -36,8 +36,8 @@ public class MenuManager : MonoBehaviour
  
     private int RETURNLEVEL_INDEX;
     public int ReturnIndex;
- 
-
+    private bool pendingQuestState = false;
+    private bool pendingBakeryState = false;
     private int nextIndex;
     public void Awake()
     {
@@ -64,64 +64,7 @@ public class MenuManager : MonoBehaviour
      SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        //AutoHookupMenuButtons();
-    }
-    //private void AutoHookupMenuButtons()
-    //{
-    //    Button startButton = GameObject.Find("Start")?.GetComponent<Button>();
-    //    if (startButton != null)
-    //    {
-    //        startButton.onClick.RemoveAllListeners();
-    //        startButton.onClick.AddListener(onStart);
-    //    }
-    //    Button BeginButton = GameObject.Find("Begin")?.GetComponent<Button>();
-    //    if (BeginButton != null)
-    //    {
-    //        BeginButton.onClick.RemoveAllListeners();
-    //        BeginButton.onClick.AddListener(onStart);
-    //    }
-    //    Button ReselectButton = GameObject.Find("Reselect")?.GetComponent<Button>();
-    //    if (ReselectButton != null)
-    //    {
-    //        ReselectButton.onClick.RemoveAllListeners();
-    //        ReselectButton.onClick.AddListener(onReselect);
-    //    }
-
-    //    Button RepickButton = GameObject.Find("RepickButton")?.GetComponent<Button>();
-    //    if (RepickButton != null)
-    //    {
-    //        RepickButton.onClick.RemoveAllListeners();
-    //        RepickButton.onClick.AddListener(objectButtonsInteractables.OnRecipeRePick);
-    //    }
-    //    Button AcceptButton = GameObject.Find("AcceptButton")?.GetComponent<Button>();
-    //    if (AcceptButton != null)
-    //    {
-    //        AcceptButton.onClick.RemoveAllListeners();
-    //        AcceptButton.onClick.AddListener(objectButtonsInteractables.OnApplePieStart);
-    //    }
-    //    Button OkButton = GameObject.Find("OkButton")?.GetComponent<Button>();
-    //    if (OkButton != null)
-    //    {
-    //        OkButton.onClick.RemoveAllListeners();
-    //        OkButton.onClick.AddListener(objectButtonsInteractables.OnRecipeOK);
-    //    }
-     
-
-    //    Button QuitButton = GameObject.Find("Quit")?.GetComponent<Button>();
-    //    if (QuitButton != null)
-    //    {
-    //        QuitButton.onClick.RemoveAllListeners();
-
-
-    //        if (GameExitManager.Instance != null)
-    //        {
-    //            QuitButton.onClick.AddListener(GameExitManager.Instance.Ongameexit);
-    //        }
-    //    }
-
-    //}
+    
     public void LoadLevelByIndex(int index)
     {
         if (index >= 0 && index <7) 
@@ -130,8 +73,60 @@ public class MenuManager : MonoBehaviour
     
         }
     }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (pendingQuestState)
+        {
+            pendingQuestState = false;
+
+            // Find the script in the newly loaded quest scene
+            objectButtonsInteractables = FindFirstObjectByType<ObjectButtonsInteractables>();
+
+            if (objectButtonsInteractables != null)
+            {
+                Debug.Log("Setting QuestState");
+                objectButtonsInteractables.SetQuestState();
+                Debug.Log("QuestState set");
+            }
+            else
+            {
+                Debug.LogWarning("ObjectButtonsInteractables was not found in " + scene.name);
+            }
+        }
+        if (pendingBakeryState)
+        {
+            pendingBakeryState = false;
+
+            // Find the script in the newly loaded quest scene
+            objectButtonsInteractables = FindFirstObjectByType<ObjectButtonsInteractables>();
+
+            if (objectButtonsInteractables != null)
+            {
+                Debug.Log("Setting BakeryState");
+                objectButtonsInteractables.SetBakeryState();
+                Debug.Log("BakeryState set");
+            }
+            else
+            {
+                Debug.LogWarning("ObjectButtonsInteractables was not found in " + scene.name);
+            }
+        }
+
+
+
+
+    }
+
+
     public void onLevel1()
     {
+        pendingQuestState = true;
+        pendingBakeryState = false;
+        if (Jangle != null)
+        {
+            Jangle.SetActive(true);
+        }
         LoadLevelByIndex(QUEST1A_INDEX);
         Debug.Log("Setting QuestState");
         objectButtonsInteractables.SetQuestState();
@@ -140,6 +135,12 @@ public class MenuManager : MonoBehaviour
 
     public void onLevel2()
     {
+        pendingQuestState = true;
+        pendingBakeryState = false;
+        if (Jangle != null)
+        {
+            Jangle.SetActive(true);
+        }
         LoadLevelByIndex(QUEST1B_INDEX);
         Debug.Log("Setting QuestState");
         objectButtonsInteractables.SetQuestState();
@@ -148,6 +149,12 @@ public class MenuManager : MonoBehaviour
 
     public void onLevel3()
     {
+        pendingQuestState = true;
+        pendingBakeryState = false;
+        if (Jangle != null)
+        {
+            Jangle.SetActive(true);
+        }
         LoadLevelByIndex(QUEST1C_INDEX);
         Debug.Log("Setting QuestState");
         objectButtonsInteractables.SetQuestState();
@@ -156,6 +163,8 @@ public class MenuManager : MonoBehaviour
 
     public void onBakery()
     {
+        pendingQuestState = false;
+        pendingBakeryState = true;
         LoadLevelByIndex(BAKERY_INDEX);
 
     }
@@ -193,7 +202,95 @@ public class MenuManager : MonoBehaviour
         Instructions.SetActive(false);
         onBakery();
         }
-}
-   
-  
 
+
+    public void onLoadNextLevel()
+    {
+        if (SceneManager.GetActiveScene().buildIndex < 4)
+        {
+            nextIndex = SceneManager.GetActiveScene().buildIndex + 1;
+            LoadLevelByIndex(nextIndex);
+
+
+        }
+        else
+        {
+            onMenu();
+
+        }
+    }
+
+         public void onMenu()
+    {
+        LoadLevelByIndex(STARTHUB_INDEX);
+       // SceneManager.LoadScene(STARTHUB_INDEX, LoadSceneMode.Additive);
+      
+    }
+
+
+
+
+}
+
+#region old code for ref
+
+//private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+//{
+//    //AutoHookupMenuButtons();
+//}
+//private void AutoHookupMenuButtons()
+//{
+//    Button startButton = GameObject.Find("Start")?.GetComponent<Button>();
+//    if (startButton != null)
+//    {
+//        startButton.onClick.RemoveAllListeners();
+//        startButton.onClick.AddListener(onStart);
+//    }
+//    Button BeginButton = GameObject.Find("Begin")?.GetComponent<Button>();
+//    if (BeginButton != null)
+//    {
+//        BeginButton.onClick.RemoveAllListeners();
+//        BeginButton.onClick.AddListener(onStart);
+//    }
+//    Button ReselectButton = GameObject.Find("Reselect")?.GetComponent<Button>();
+//    if (ReselectButton != null)
+//    {
+//        ReselectButton.onClick.RemoveAllListeners();
+//        ReselectButton.onClick.AddListener(onReselect);
+//    }
+
+//    Button RepickButton = GameObject.Find("RepickButton")?.GetComponent<Button>();
+//    if (RepickButton != null)
+//    {
+//        RepickButton.onClick.RemoveAllListeners();
+//        RepickButton.onClick.AddListener(objectButtonsInteractables.OnRecipeRePick);
+//    }
+//    Button AcceptButton = GameObject.Find("AcceptButton")?.GetComponent<Button>();
+//    if (AcceptButton != null)
+//    {
+//        AcceptButton.onClick.RemoveAllListeners();
+//        AcceptButton.onClick.AddListener(objectButtonsInteractables.OnApplePieStart);
+//    }
+//    Button OkButton = GameObject.Find("OkButton")?.GetComponent<Button>();
+//    if (OkButton != null)
+//    {
+//        OkButton.onClick.RemoveAllListeners();
+//        OkButton.onClick.AddListener(objectButtonsInteractables.OnRecipeOK);
+//    }
+
+
+//    Button QuitButton = GameObject.Find("Quit")?.GetComponent<Button>();
+//    if (QuitButton != null)
+//    {
+//        QuitButton.onClick.RemoveAllListeners();
+
+
+//        if (GameExitManager.Instance != null)
+//        {
+//            QuitButton.onClick.AddListener(GameExitManager.Instance.Ongameexit);
+//        }
+//    }
+
+//}
+
+#endregion

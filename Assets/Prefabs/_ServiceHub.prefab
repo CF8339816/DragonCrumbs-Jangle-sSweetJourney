@@ -68,7 +68,7 @@ MonoBehaviour:
   Jangle: {fileID: 1038465398506774200, guid: 2fdf9bbf0274dda4b8de7faff03c2fc6, type: 3}
   Instructions: {fileID: 3126994440105031056, guid: a3e723799f43ed1459a448018f82d7dd, type: 3}
   StartSplash: {fileID: 8419769341032362555, guid: 28f30adc5f6fce047a77fe7dd5649334, type: 3}
-  ReturnIndex: 0
+  ReturnIndex: 4
 --- !u!114 &2068184330678862916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,27 +270,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb6c86f57c2f61f4fb4e9b0062f28596, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjGOInteractionManager
-  firstPersonCam: {fileID: 6386536737816646826, guid: c33c3277ae69fbe42826edef4b39d7da, type: 3}
-  objectButtonsInteractables: {fileID: 0}
-  playerScript: {fileID: 0}
-  RecipeButtons:
-    serializedVersion: 2
-    m_Bits: 64
+  targetCamera: {fileID: 8685989481953771072, guid: 482cc5e03c488fb41bd4a4c25115023b, type: 3}
+  recipeLayerName: RecipeButtons
+  environmentLayerName: EnvironmentButtons
+  maxClickDistance: 100
+  interactableTags:
+  - ApplePie
+  - ApplePieRecipe
+  - MillStone
+  - NextLevelDebug
+  - Oven
+  - PrepBoard
+  - Ladder
+  - BeeHive
+  - Basket
   EnvironmentButtons:
     serializedVersion: 2
     m_Bits: 128
   combinedMask:
     serializedVersion: 2
     m_Bits: 0
-  characterController: {fileID: 0}
-  checkRange: 100
-  switchRange: 4
-  butterfly: {fileID: 0}
-  ApplePieRecipe: {fileID: 0}
-  PrepBoard: {fileID: 0}
-  Oven: {fileID: 0}
-  Ladder: {fileID: 0}
-  Basket: {fileID: 0}
-  MillStone: {fileID: 0}
-  BeeHive: {fileID: 0}
-  ApplePie: {fileID: 0}
