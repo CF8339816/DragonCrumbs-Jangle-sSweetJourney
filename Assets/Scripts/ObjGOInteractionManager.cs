@@ -20,6 +20,7 @@ public class ObjGOInteractionManager : MonoBehaviour
     [Header("Camera & Crosshair References")]
     [Tooltip("CinemachineBrain cam (or leave empty to auto-find)")]
     public Camera targetCamera;
+    public Transform firstPersonCam;
     //public ObjGOInteractionManager crosshairManager;
 
     [Header("Filtering")]
@@ -63,6 +64,19 @@ public class ObjGOInteractionManager : MonoBehaviour
 
     private void EnsureReferences()
     {
+
+        if (firstPersonCam == null)
+        {
+            if (Camera.main != null)
+                firstPersonCam = Camera.main.transform;
+            else
+            {
+                GameObject camObj = GameObject.Find("MainCharacterCamera");
+                if (camObj != null)
+                    firstPersonCam = camObj.transform;
+            }
+        }
+
         if (targetCamera == null)
             targetCamera = GetComponent<Camera>();
         if (targetCamera == null)
@@ -78,9 +92,14 @@ public class ObjGOInteractionManager : MonoBehaviour
     {
         //if (Mouse.current == null) return;
         ////if (targetCamera == null || crosshairManager == null) EnsureReferences();
-        //if (targetCamera == null) return;
+       if (targetCamera == null)
+        {
+            EnsureReferences();
+            if (targetCamera == null) return; // Exit safely if no camera exists yet
+        }
 
-       
+
+
         Vector2 mousePos = Mouse.current.position.ReadValue();
         Ray ray = targetCamera.ScreenPointToRay(mousePos);
 
