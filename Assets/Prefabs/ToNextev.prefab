@@ -129,7 +129,7 @@ MonoBehaviour:
   onObjectClicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 6779613637237911946, guid: 92b0a111cd4f5f94bb55dd829489d262, type: 3}
         m_TargetAssemblyTypeName: StageInteractManager, Assembly-CSharp
         m_MethodName: InteractNextLevelDebug
         m_Mode: 1

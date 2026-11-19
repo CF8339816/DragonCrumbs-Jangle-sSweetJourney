@@ -33,6 +33,17 @@ public class StageInteractManager : MonoBehaviour
     public float checkRange = 100f;//longer range for grapple and pull
     public float switchRange = 4f; // shorter range for button and switch
 
+    [Header("Interactables")]
+    public GameObject ProxyOvenRawPie;
+    public GameObject ProxyBakedPie;
+    public GameObject RawApplePieProxy;
+    public GameObject PrepBlock;
+    public GameObject Dangle;
+
+
+
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
