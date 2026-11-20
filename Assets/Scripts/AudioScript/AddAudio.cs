@@ -103,7 +103,7 @@ public class AddAudio : MonoBehaviour
             sourceSFXandDialogue.volume = volumeSlider.value;
         }
 
-        if (sourceSFXandDialogue != null && sourceSFXandDialogue.clip != null)
+        if (sourceSFXandDialogue != null && millFlour != null)
         {
             sourceSFXandDialogue.PlayOneShot(millFlour, 1.0f);//plays defined audio clip on ente of collider zone
 
@@ -118,7 +118,7 @@ public class AddAudio : MonoBehaviour
             sourceSFXandDialogue.volume = volumeSlider.value;
         }
 
-        if (sourceSFXandDialogue != null && sourceSFXandDialogue.clip != null)
+        if (sourceSFXandDialogue != null && Success != null)
         {
             sourceSFXandDialogue.PlayOneShot(Success, 1.0f);//plays defined audio clip on ente of collider zone
 
@@ -133,7 +133,7 @@ public class AddAudio : MonoBehaviour
             sourceSFXandDialogue.volume = volumeSlider.value;
         }
 
-        if (sourceSFXandDialogue != null && sourceSFXandDialogue.clip != null)
+        if (sourceSFXandDialogue != null && ClimbLadder != null)
         {
             sourceSFXandDialogue.PlayOneShot(ClimbLadder, 1.0f);//plays defined audio clip on ente of collider zone
 
@@ -147,7 +147,7 @@ public class AddAudio : MonoBehaviour
             sourceSFXandDialogue.volume = volumeSlider.value;
         }
 
-        if (sourceSFXandDialogue != null && sourceSFXandDialogue.clip != null)
+        if (sourceSFXandDialogue != null && SFX1 != null)
         {
             sourceSFXandDialogue.PlayOneShot(SFX1, 1.0f);//plays defined audio clip on ente of collider zone
 
@@ -160,7 +160,7 @@ public class AddAudio : MonoBehaviour
             sourceSFXandDialogue.volume = volumeSlider.value;
         }
 
-        if (sourceSFXandDialogue != null && sourceSFXandDialogue.clip != null)
+        if (sourceSFXandDialogue != null && SFX2 != null)
         {
             sourceSFXandDialogue.PlayOneShot(SFX2, 1.0f);//plays defined audio clip on ente of collider zone
 
@@ -173,7 +173,7 @@ public class AddAudio : MonoBehaviour
             sourceSFXandDialogue.volume = volumeSlider.value;
         }
 
-        if (sourceSFXandDialogue != null && sourceSFXandDialogue.clip != null)
+        if (sourceSFXandDialogue != null && SFX3 != null)
         {
             sourceSFXandDialogue.PlayOneShot(SFX3, 1.0f);//plays defined audio clip on ente of collider zone
 
@@ -186,7 +186,7 @@ public class AddAudio : MonoBehaviour
             sourceSFXandDialogue.volume = volumeSlider.value;
         }
 
-        if (sourceSFXandDialogue != null && sourceSFXandDialogue.clip != null)
+        if (sourceSFXandDialogue != null && SFX4 != null)
         {
             sourceSFXandDialogue.PlayOneShot(SFX4, 1.0f);//plays defined audio clip on ente of collider zone
 
@@ -201,7 +201,7 @@ public class AddAudio : MonoBehaviour
             sourceSFXandDialogue.volume = volumeSlider.value;
         }
 
-        if (sourceSFXandDialogue != null && sourceSFXandDialogue.clip != null)
+        if (sourceSFXandDialogue != null && SFX5 != null)
         {
             sourceSFXandDialogue.PlayOneShot(SFX5, 1.0f);//plays defined audio clip on ente of collider zone
 
@@ -216,7 +216,7 @@ public class AddAudio : MonoBehaviour
             sourceSFXandDialogue.volume = volumeSlider.value;
         }
 
-        if (sourceSFXandDialogue != null && sourceSFXandDialogue.clip != null)
+        if (sourceSFXandDialogue != null && SFX6 != null)
         {
             sourceSFXandDialogue.volume = 1f;
             sourceSFXandDialogue.clip = SFX6;
@@ -233,7 +233,7 @@ public class AddAudio : MonoBehaviour
             sourceSFXandDialogue.volume = volumeSlider.value;
         }
 
-        if (sourceSFXandDialogue != null && sourceSFXandDialogue.clip != null)
+        if (sourceSFXandDialogue != null && SFX7 != null)
         {
             sourceSFXandDialogue.volume =1f;
             sourceSFXandDialogue.clip = SFX7;
@@ -250,7 +250,7 @@ public class AddAudio : MonoBehaviour
             sourceSFXandDialogue.volume = volumeSlider.value;
         }
 
-        if (sourceSFXandDialogue != null && sourceSFXandDialogue.clip != null)
+        if (sourceSFXandDialogue != null && SFX8 != null)
         {
             sourceSFXandDialogue.volume = 1f;
             sourceSFXandDialogue.clip = SFX8;
@@ -267,7 +267,7 @@ public class AddAudio : MonoBehaviour
             sourceSFXandDialogue.volume = volumeSlider.value;
         }
 
-        if (sourceSFXandDialogue != null && sourceSFXandDialogue.clip != null)
+        if (sourceSFXandDialogue != null && SFX9 != null)
         {
             sourceSFXandDialogue.volume = 1f;
             sourceSFXandDialogue.clip = SFX9;
@@ -285,7 +285,7 @@ public class AddAudio : MonoBehaviour
             sourceSFXandDialogue.volume = volumeSlider.value;
         }
 
-        if (sourceSFXandDialogue != null && sourceSFXandDialogue.clip != null)
+        if (sourceSFXandDialogue != null && SFX10 != null)
         {
             sourceSFXandDialogue.volume = 1f;
             sourceSFXandDialogue.clip = SFX10;
@@ -302,7 +302,7 @@ public class AddAudio : MonoBehaviour
             sourceSFXandDialogue.volume = volumeSlider.value;
         }
 
-        if (sourceSFXandDialogue != null && sourceSFXandDialogue.clip != null)
+        if (sourceSFXandDialogue != null && SFX11 != null)
         {
             sourceSFXandDialogue.volume = 1f;
             sourceSFXandDialogue.clip = SFX11;

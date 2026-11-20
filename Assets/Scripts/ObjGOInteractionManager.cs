@@ -100,37 +100,37 @@ public class ObjGOInteractionManager : MonoBehaviour
 
 
 
-        Vector2 mousePos = Mouse.current.position.ReadValue();
-        Ray ray = targetCamera.ScreenPointToRay(mousePos);
+        //Vector2 mousePos = Mouse.current.position.ReadValue();
+        //Ray ray = targetCamera.ScreenPointToRay(mousePos);
 
-        if (Physics.Raycast(ray, out RaycastHit hit, maxClickDistance, combinedMask))
-        {
-            string hitTag = hit.collider.tag;
+        //if (Physics.Raycast(ray, out RaycastHit hit, maxClickDistance, combinedMask))
+        //{
+        //    string hitTag = hit.collider.tag;
 
-            if (interactableTags.Contains(hitTag))
-            {
+        //    if (interactableTags.Contains(hitTag))
+        //    {
                
-                //if (crosshairManager != null)
-                //    crosshairManager.SetCrosshairByTag(hitTag);
+        //        //if (crosshairManager != null)
+        //        //    crosshairManager.SetCrosshairByTag(hitTag);
 
-                cineCaminteractmouseover button = hit.collider.GetComponent<cineCaminteractmouseover>();
-                if (button != currentHoveredObject)
-                {
-                    ClearHover();
-                    currentHoveredObject = button;
-                    if (currentHoveredObject != null)
-                        currentHoveredObject.SetHighlight(true);
-                }
+        //        cineCaminteractmouseover button = hit.collider.GetComponent<cineCaminteractmouseover>();
+        //        if (button != currentHoveredObject)
+        //        {
+        //            ClearHover();
+        //            currentHoveredObject = button;
+        //            if (currentHoveredObject != null)
+        //                currentHoveredObject.SetHighlight(true);
+        //        }
 
-                // 3. Trigger the object's local UnityEvent on click
-                if (Mouse.current.leftButton.wasPressedThisFrame && currentHoveredObject != null)
-                {
-                    currentHoveredObject.TriggerClick();
-                }
+        //        // 3. Trigger the object's local UnityEvent on click
+        //        if (Mouse.current.leftButton.wasPressedThisFrame && currentHoveredObject != null)
+        //        {
+        //            currentHoveredObject.TriggerClick();
+        //        }
 
-                return;
-            }
-        }
+        //        return;
+        //    }
+        //}
 
         ClearHover();
     }

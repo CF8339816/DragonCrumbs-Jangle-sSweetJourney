@@ -130,8 +130,6 @@ GameObject:
   - component: {fileID: 15177640}
   - component: {fileID: 15177639}
   - component: {fileID: 15177638}
-  - component: {fileID: 15177637}
-  - component: {fileID: 15177636}
   m_Layer: 0
   m_Name: Wheat (50)
   m_TagString: Interactable
@@ -139,46 +137,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &15177636
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 15177635}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &15177637
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 15177635}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &15177638
 SpriteRenderer:
   serializedVersion: 2
@@ -477,8 +435,6 @@ GameObject:
   - component: {fileID: 33843447}
   - component: {fileID: 33843446}
   - component: {fileID: 33843445}
-  - component: {fileID: 33843444}
-  - component: {fileID: 33843443}
   m_Layer: 0
   m_Name: Wheat (39)
   m_TagString: Interactable
@@ -486,46 +442,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &33843443
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 33843442}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &33843444
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 33843442}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &33843445
 SpriteRenderer:
   serializedVersion: 2
@@ -624,8 +540,6 @@ GameObject:
   - component: {fileID: 94719834}
   - component: {fileID: 94719833}
   - component: {fileID: 94719832}
-  - component: {fileID: 94719831}
-  - component: {fileID: 94719830}
   m_Layer: 0
   m_Name: Wheat (78)
   m_TagString: Interactable
@@ -633,46 +547,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &94719830
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 94719829}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &94719831
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 94719829}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &94719832
 SpriteRenderer:
   serializedVersion: 2
@@ -771,8 +645,6 @@ GameObject:
   - component: {fileID: 103986459}
   - component: {fileID: 103986458}
   - component: {fileID: 103986457}
-  - component: {fileID: 103986456}
-  - component: {fileID: 103986460}
   m_Layer: 0
   m_Name: Wheat (4)
   m_TagString: Interactable
@@ -780,27 +652,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!65 &103986456
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 103986455}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &103986457
 SpriteRenderer:
   serializedVersion: 2
@@ -888,25 +739,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 982314118}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &103986460
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 103986455}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
 --- !u!1 &106838088
 GameObject:
   m_ObjectHideFlags: 0
@@ -918,8 +750,6 @@ GameObject:
   - component: {fileID: 106838093}
   - component: {fileID: 106838092}
   - component: {fileID: 106838091}
-  - component: {fileID: 106838090}
-  - component: {fileID: 106838089}
   m_Layer: 0
   m_Name: Wheat (20)
   m_TagString: Interactable
@@ -927,46 +757,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &106838089
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 106838088}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &106838090
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 106838088}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &106838091
 SpriteRenderer:
   serializedVersion: 2
@@ -1265,8 +1055,6 @@ GameObject:
   - component: {fileID: 121049340}
   - component: {fileID: 121049339}
   - component: {fileID: 121049338}
-  - component: {fileID: 121049337}
-  - component: {fileID: 121049341}
   m_Layer: 0
   m_Name: Wheat (9)
   m_TagString: Interactable
@@ -1274,27 +1062,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!65 &121049337
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 121049336}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &121049338
 SpriteRenderer:
   serializedVersion: 2
@@ -1382,25 +1149,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 982314118}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &121049341
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 121049336}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
 --- !u!1 &122191774
 GameObject:
   m_ObjectHideFlags: 0
@@ -1412,8 +1160,6 @@ GameObject:
   - component: {fileID: 122191779}
   - component: {fileID: 122191778}
   - component: {fileID: 122191777}
-  - component: {fileID: 122191776}
-  - component: {fileID: 122191775}
   m_Layer: 0
   m_Name: Wheat (16)
   m_TagString: Interactable
@@ -1421,46 +1167,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &122191775
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 122191774}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &122191776
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 122191774}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &122191777
 SpriteRenderer:
   serializedVersion: 2
@@ -1559,8 +1265,6 @@ GameObject:
   - component: {fileID: 153525503}
   - component: {fileID: 153525502}
   - component: {fileID: 153525501}
-  - component: {fileID: 153525500}
-  - component: {fileID: 153525499}
   m_Layer: 0
   m_Name: Wheat (52)
   m_TagString: Interactable
@@ -1568,46 +1272,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &153525499
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 153525498}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &153525500
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 153525498}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &153525501
 SpriteRenderer:
   serializedVersion: 2
@@ -1706,8 +1370,6 @@ GameObject:
   - component: {fileID: 183409813}
   - component: {fileID: 183409812}
   - component: {fileID: 183409811}
-  - component: {fileID: 183409810}
-  - component: {fileID: 183409809}
   m_Layer: 0
   m_Name: Wheat (56)
   m_TagString: Interactable
@@ -1715,46 +1377,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &183409809
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 183409808}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &183409810
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 183409808}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &183409811
 SpriteRenderer:
   serializedVersion: 2
@@ -1853,8 +1475,6 @@ GameObject:
   - component: {fileID: 223470778}
   - component: {fileID: 223470777}
   - component: {fileID: 223470776}
-  - component: {fileID: 223470775}
-  - component: {fileID: 223470774}
   m_Layer: 0
   m_Name: Wheat (80)
   m_TagString: Interactable
@@ -1862,46 +1482,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &223470774
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 223470773}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &223470775
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 223470773}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &223470776
 SpriteRenderer:
   serializedVersion: 2
@@ -2000,8 +1580,6 @@ GameObject:
   - component: {fileID: 231463101}
   - component: {fileID: 231463100}
   - component: {fileID: 231463099}
-  - component: {fileID: 231463098}
-  - component: {fileID: 231463097}
   m_Layer: 0
   m_Name: Wheat (72)
   m_TagString: Interactable
@@ -2009,46 +1587,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &231463097
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 231463096}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &231463098
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 231463096}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &231463099
 SpriteRenderer:
   serializedVersion: 2
@@ -2147,8 +1685,6 @@ GameObject:
   - component: {fileID: 246440314}
   - component: {fileID: 246440313}
   - component: {fileID: 246440312}
-  - component: {fileID: 246440311}
-  - component: {fileID: 246440310}
   m_Layer: 0
   m_Name: Wheat (81)
   m_TagString: Interactable
@@ -2156,46 +1692,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &246440310
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 246440309}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &246440311
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 246440309}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &246440312
 SpriteRenderer:
   serializedVersion: 2
@@ -2294,8 +1790,6 @@ GameObject:
   - component: {fileID: 255503200}
   - component: {fileID: 255503199}
   - component: {fileID: 255503198}
-  - component: {fileID: 255503197}
-  - component: {fileID: 255503196}
   m_Layer: 0
   m_Name: Wheat (77)
   m_TagString: Interactable
@@ -2303,46 +1797,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &255503196
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 255503195}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &255503197
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 255503195}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &255503198
 SpriteRenderer:
   serializedVersion: 2
@@ -2441,8 +1895,6 @@ GameObject:
   - component: {fileID: 270024536}
   - component: {fileID: 270024535}
   - component: {fileID: 270024534}
-  - component: {fileID: 270024533}
-  - component: {fileID: 270024532}
   m_Layer: 0
   m_Name: Wheat (24)
   m_TagString: Interactable
@@ -2450,46 +1902,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &270024532
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 270024531}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &270024533
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 270024531}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &270024534
 SpriteRenderer:
   serializedVersion: 2
@@ -2768,8 +2180,6 @@ GameObject:
   - component: {fileID: 318760132}
   - component: {fileID: 318760131}
   - component: {fileID: 318760130}
-  - component: {fileID: 318760129}
-  - component: {fileID: 318760128}
   m_Layer: 0
   m_Name: Wheat (89)
   m_TagString: Interactable
@@ -2777,46 +2187,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &318760128
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 318760127}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &318760129
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 318760127}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &318760130
 SpriteRenderer:
   serializedVersion: 2
@@ -2915,8 +2285,6 @@ GameObject:
   - component: {fileID: 339881339}
   - component: {fileID: 339881338}
   - component: {fileID: 339881337}
-  - component: {fileID: 339881336}
-  - component: {fileID: 339881335}
   m_Layer: 0
   m_Name: Wheat (29)
   m_TagString: Interactable
@@ -2924,46 +2292,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &339881335
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 339881334}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &339881336
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 339881334}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &339881337
 SpriteRenderer:
   serializedVersion: 2
@@ -3062,8 +2390,6 @@ GameObject:
   - component: {fileID: 360955938}
   - component: {fileID: 360955937}
   - component: {fileID: 360955936}
-  - component: {fileID: 360955935}
-  - component: {fileID: 360955934}
   m_Layer: 0
   m_Name: Wheat (66)
   m_TagString: Interactable
@@ -3071,46 +2397,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &360955934
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 360955933}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &360955935
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 360955933}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &360955936
 SpriteRenderer:
   serializedVersion: 2
@@ -3209,8 +2495,6 @@ GameObject:
   - component: {fileID: 372914870}
   - component: {fileID: 372914869}
   - component: {fileID: 372914868}
-  - component: {fileID: 372914867}
-  - component: {fileID: 372914866}
   m_Layer: 0
   m_Name: Wheat (37)
   m_TagString: Interactable
@@ -3218,46 +2502,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &372914866
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 372914865}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &372914867
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 372914865}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &372914868
 SpriteRenderer:
   serializedVersion: 2
@@ -3356,8 +2600,6 @@ GameObject:
   - component: {fileID: 377296774}
   - component: {fileID: 377296773}
   - component: {fileID: 377296772}
-  - component: {fileID: 377296771}
-  - component: {fileID: 377296770}
   m_Layer: 0
   m_Name: Wheat (14)
   m_TagString: Interactable
@@ -3365,46 +2607,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &377296770
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 377296769}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &377296771
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 377296769}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &377296772
 SpriteRenderer:
   serializedVersion: 2
@@ -3503,8 +2705,6 @@ GameObject:
   - component: {fileID: 385020155}
   - component: {fileID: 385020154}
   - component: {fileID: 385020153}
-  - component: {fileID: 385020152}
-  - component: {fileID: 385020156}
   m_Layer: 0
   m_Name: Wheat (8)
   m_TagString: Interactable
@@ -3512,27 +2712,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!65 &385020152
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 385020151}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &385020153
 SpriteRenderer:
   serializedVersion: 2
@@ -3620,25 +2799,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 982314118}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &385020156
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 385020151}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
 --- !u!1 &410377302
 GameObject:
   m_ObjectHideFlags: 0
@@ -3650,8 +2810,6 @@ GameObject:
   - component: {fileID: 410377307}
   - component: {fileID: 410377306}
   - component: {fileID: 410377305}
-  - component: {fileID: 410377304}
-  - component: {fileID: 410377303}
   m_Layer: 0
   m_Name: Wheat (43)
   m_TagString: Interactable
@@ -3659,46 +2817,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &410377303
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 410377302}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &410377304
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 410377302}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &410377305
 SpriteRenderer:
   serializedVersion: 2
@@ -3924,8 +3042,6 @@ GameObject:
   - component: {fileID: 424078905}
   - component: {fileID: 424078904}
   - component: {fileID: 424078903}
-  - component: {fileID: 424078902}
-  - component: {fileID: 424078901}
   m_Layer: 0
   m_Name: Wheat (83)
   m_TagString: Interactable
@@ -3933,46 +3049,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &424078901
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 424078900}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &424078902
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 424078900}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &424078903
 SpriteRenderer:
   serializedVersion: 2
@@ -4071,8 +3147,6 @@ GameObject:
   - component: {fileID: 435553769}
   - component: {fileID: 435553768}
   - component: {fileID: 435553767}
-  - component: {fileID: 435553766}
-  - component: {fileID: 435553765}
   m_Layer: 0
   m_Name: Wheat (76)
   m_TagString: Interactable
@@ -4080,46 +3154,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &435553765
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 435553764}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &435553766
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 435553764}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &435553767
 SpriteRenderer:
   serializedVersion: 2
@@ -4218,8 +3252,6 @@ GameObject:
   - component: {fileID: 470392937}
   - component: {fileID: 470392936}
   - component: {fileID: 470392935}
-  - component: {fileID: 470392934}
-  - component: {fileID: 470392933}
   m_Layer: 0
   m_Name: Wheat (67)
   m_TagString: Interactable
@@ -4227,46 +3259,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &470392933
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 470392932}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &470392934
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 470392932}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &470392935
 SpriteRenderer:
   serializedVersion: 2
@@ -4365,8 +3357,6 @@ GameObject:
   - component: {fileID: 485371617}
   - component: {fileID: 485371616}
   - component: {fileID: 485371615}
-  - component: {fileID: 485371614}
-  - component: {fileID: 485371613}
   m_Layer: 0
   m_Name: Wheat (57)
   m_TagString: Interactable
@@ -4374,46 +3364,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &485371613
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 485371612}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &485371614
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 485371612}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &485371615
 SpriteRenderer:
   serializedVersion: 2
@@ -4512,8 +3462,6 @@ GameObject:
   - component: {fileID: 541753875}
   - component: {fileID: 541753874}
   - component: {fileID: 541753873}
-  - component: {fileID: 541753872}
-  - component: {fileID: 541753871}
   m_Layer: 0
   m_Name: Wheat (47)
   m_TagString: Interactable
@@ -4521,46 +3469,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &541753871
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 541753870}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &541753872
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 541753870}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &541753873
 SpriteRenderer:
   serializedVersion: 2
@@ -4664,8 +3572,6 @@ GameObject:
   - component: {fileID: 586142654}
   - component: {fileID: 586142653}
   - component: {fileID: 586142652}
-  - component: {fileID: 586142651}
-  - component: {fileID: 586142650}
   m_Layer: 0
   m_Name: Wheat (36)
   m_TagString: Interactable
@@ -4673,46 +3579,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &586142650
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 586142649}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &586142651
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 586142649}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &586142652
 SpriteRenderer:
   serializedVersion: 2
@@ -5211,8 +4077,6 @@ GameObject:
   - component: {fileID: 603480715}
   - component: {fileID: 603480714}
   - component: {fileID: 603480713}
-  - component: {fileID: 603480712}
-  - component: {fileID: 603480711}
   m_Layer: 0
   m_Name: Wheat (61)
   m_TagString: Interactable
@@ -5220,46 +4084,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &603480711
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 603480710}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &603480712
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 603480710}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &603480713
 SpriteRenderer:
   serializedVersion: 2
@@ -5358,8 +4182,6 @@ GameObject:
   - component: {fileID: 641324655}
   - component: {fileID: 641324654}
   - component: {fileID: 641324653}
-  - component: {fileID: 641324652}
-  - component: {fileID: 641324651}
   m_Layer: 0
   m_Name: Wheat (71)
   m_TagString: Interactable
@@ -5367,46 +4189,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &641324651
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 641324650}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &641324652
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 641324650}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &641324653
 SpriteRenderer:
   serializedVersion: 2
@@ -5505,8 +4287,6 @@ GameObject:
   - component: {fileID: 658501996}
   - component: {fileID: 658501995}
   - component: {fileID: 658501994}
-  - component: {fileID: 658501993}
-  - component: {fileID: 658501992}
   m_Layer: 0
   m_Name: Wheat (82)
   m_TagString: Interactable
@@ -5514,46 +4294,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &658501992
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 658501991}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &658501993
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 658501991}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &658501994
 SpriteRenderer:
   serializedVersion: 2
@@ -5652,8 +4392,6 @@ GameObject:
   - component: {fileID: 660136561}
   - component: {fileID: 660136560}
   - component: {fileID: 660136559}
-  - component: {fileID: 660136558}
-  - component: {fileID: 660136557}
   m_Layer: 0
   m_Name: Wheat (28)
   m_TagString: Interactable
@@ -5661,46 +4399,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &660136557
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 660136556}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &660136558
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 660136556}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &660136559
 SpriteRenderer:
   serializedVersion: 2
@@ -5788,6 +4486,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 982314118}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &667416298 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1919581069696232281, guid: 05bd244785fe2304fa5ee7a42f699137, type: 3}
+  m_PrefabInstance: {fileID: 1393135110}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &708215513
 GameObject:
   m_ObjectHideFlags: 0
@@ -5799,8 +4508,6 @@ GameObject:
   - component: {fileID: 708215518}
   - component: {fileID: 708215517}
   - component: {fileID: 708215516}
-  - component: {fileID: 708215515}
-  - component: {fileID: 708215514}
   m_Layer: 0
   m_Name: Wheat (26)
   m_TagString: Interactable
@@ -5808,46 +4515,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &708215514
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 708215513}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &708215515
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 708215513}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &708215516
 SpriteRenderer:
   serializedVersion: 2
@@ -5946,8 +4613,6 @@ GameObject:
   - component: {fileID: 767867928}
   - component: {fileID: 767867927}
   - component: {fileID: 767867926}
-  - component: {fileID: 767867925}
-  - component: {fileID: 767867924}
   m_Layer: 0
   m_Name: Wheat (88)
   m_TagString: Interactable
@@ -5955,46 +4620,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &767867924
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 767867923}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &767867925
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 767867923}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &767867926
 SpriteRenderer:
   serializedVersion: 2
@@ -6093,8 +4718,6 @@ GameObject:
   - component: {fileID: 799823028}
   - component: {fileID: 799823027}
   - component: {fileID: 799823026}
-  - component: {fileID: 799823025}
-  - component: {fileID: 799823024}
   m_Layer: 0
   m_Name: Wheat (40)
   m_TagString: Interactable
@@ -6102,46 +4725,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &799823024
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 799823023}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &799823025
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 799823023}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &799823026
 SpriteRenderer:
   serializedVersion: 2
@@ -6240,8 +4823,6 @@ GameObject:
   - component: {fileID: 808288011}
   - component: {fileID: 808288010}
   - component: {fileID: 808288009}
-  - component: {fileID: 808288008}
-  - component: {fileID: 808288007}
   m_Layer: 0
   m_Name: Wheat (27)
   m_TagString: Interactable
@@ -6249,46 +4830,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &808288007
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 808288006}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &808288008
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 808288006}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &808288009
 SpriteRenderer:
   serializedVersion: 2
@@ -6376,6 +4917,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 982314118}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &836584400 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5439533010522613276, guid: 05bd244785fe2304fa5ee7a42f699137, type: 3}
+  m_PrefabInstance: {fileID: 1393135110}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &839633102
 GameObject:
   m_ObjectHideFlags: 0
@@ -6500,8 +5052,6 @@ GameObject:
   - component: {fileID: 850907310}
   - component: {fileID: 850907309}
   - component: {fileID: 850907308}
-  - component: {fileID: 850907307}
-  - component: {fileID: 850907306}
   m_Layer: 0
   m_Name: Wheat (64)
   m_TagString: Interactable
@@ -6509,46 +5059,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &850907306
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 850907305}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &850907307
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 850907305}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &850907308
 SpriteRenderer:
   serializedVersion: 2
@@ -6760,8 +5270,6 @@ GameObject:
   - component: {fileID: 882642554}
   - component: {fileID: 882642553}
   - component: {fileID: 882642552}
-  - component: {fileID: 882642551}
-  - component: {fileID: 882642550}
   m_Layer: 0
   m_Name: Wheat (65)
   m_TagString: Interactable
@@ -6769,46 +5277,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &882642550
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 882642549}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &882642551
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 882642549}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &882642552
 SpriteRenderer:
   serializedVersion: 2
@@ -6896,6 +5364,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 982314118}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &915020878 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2618057188546486244, guid: 05bd244785fe2304fa5ee7a42f699137, type: 3}
+  m_PrefabInstance: {fileID: 1393135110}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &930755480
 GameObject:
   m_ObjectHideFlags: 0
@@ -6907,8 +5386,6 @@ GameObject:
   - component: {fileID: 930755485}
   - component: {fileID: 930755484}
   - component: {fileID: 930755483}
-  - component: {fileID: 930755482}
-  - component: {fileID: 930755481}
   m_Layer: 0
   m_Name: Wheat (23)
   m_TagString: Interactable
@@ -6916,46 +5393,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &930755481
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 930755480}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &930755482
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 930755480}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &930755483
 SpriteRenderer:
   serializedVersion: 2
@@ -7054,8 +5491,6 @@ GameObject:
   - component: {fileID: 937604476}
   - component: {fileID: 937604475}
   - component: {fileID: 937604474}
-  - component: {fileID: 937604473}
-  - component: {fileID: 937604472}
   m_Layer: 0
   m_Name: Wheat (75)
   m_TagString: Interactable
@@ -7063,46 +5498,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &937604472
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 937604471}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &937604473
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 937604471}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &937604474
 SpriteRenderer:
   serializedVersion: 2
@@ -7212,8 +5607,6 @@ GameObject:
   - component: {fileID: 963794412}
   - component: {fileID: 963794411}
   - component: {fileID: 963794410}
-  - component: {fileID: 963794409}
-  - component: {fileID: 963794408}
   m_Layer: 0
   m_Name: Wheat (59)
   m_TagString: Interactable
@@ -7221,46 +5614,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &963794408
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 963794407}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &963794409
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 963794407}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &963794410
 SpriteRenderer:
   serializedVersion: 2
@@ -7359,8 +5712,6 @@ GameObject:
   - component: {fileID: 966844432}
   - component: {fileID: 966844431}
   - component: {fileID: 966844430}
-  - component: {fileID: 966844429}
-  - component: {fileID: 966844428}
   m_Layer: 0
   m_Name: Wheat (55)
   m_TagString: Interactable
@@ -7368,46 +5719,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &966844428
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 966844427}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &966844429
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 966844427}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &966844430
 SpriteRenderer:
   serializedVersion: 2
@@ -7506,8 +5817,6 @@ GameObject:
   - component: {fileID: 969116998}
   - component: {fileID: 969116997}
   - component: {fileID: 969116996}
-  - component: {fileID: 969116995}
-  - component: {fileID: 969116994}
   m_Layer: 0
   m_Name: Wheat (49)
   m_TagString: Interactable
@@ -7515,46 +5824,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &969116994
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 969116993}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &969116995
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 969116993}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &969116996
 SpriteRenderer:
   serializedVersion: 2
@@ -7774,8 +6043,6 @@ GameObject:
   - component: {fileID: 993374947}
   - component: {fileID: 993374946}
   - component: {fileID: 993374945}
-  - component: {fileID: 993374944}
-  - component: {fileID: 993374943}
   m_Layer: 0
   m_Name: Wheat (79)
   m_TagString: Interactable
@@ -7783,46 +6050,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &993374943
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 993374942}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &993374944
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 993374942}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &993374945
 SpriteRenderer:
   serializedVersion: 2
@@ -7921,8 +6148,6 @@ GameObject:
   - component: {fileID: 1006859466}
   - component: {fileID: 1006859465}
   - component: {fileID: 1006859464}
-  - component: {fileID: 1006859463}
-  - component: {fileID: 1006859462}
   m_Layer: 0
   m_Name: Wheat (48)
   m_TagString: Interactable
@@ -7930,46 +6155,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1006859462
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1006859461}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &1006859463
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1006859461}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &1006859464
 SpriteRenderer:
   serializedVersion: 2
@@ -8068,8 +6253,6 @@ GameObject:
   - component: {fileID: 1014516220}
   - component: {fileID: 1014516219}
   - component: {fileID: 1014516218}
-  - component: {fileID: 1014516217}
-  - component: {fileID: 1014516216}
   m_Layer: 0
   m_Name: Wheat (15)
   m_TagString: Interactable
@@ -8077,46 +6260,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1014516216
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1014516215}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &1014516217
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1014516215}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &1014516218
 SpriteRenderer:
   serializedVersion: 2
@@ -8219,7 +6362,7 @@ GameObject:
   - component: {fileID: 1028630608}
   m_Layer: 7
   m_Name: MillstoneClickable
-  m_TagString: MillStone
+  m_TagString: ApplePie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8356,8 +6499,6 @@ GameObject:
   - component: {fileID: 1058321368}
   - component: {fileID: 1058321367}
   - component: {fileID: 1058321366}
-  - component: {fileID: 1058321365}
-  - component: {fileID: 1058321364}
   m_Layer: 0
   m_Name: Wheat (35)
   m_TagString: Interactable
@@ -8365,46 +6506,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1058321364
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1058321363}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &1058321365
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1058321363}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &1058321366
 SpriteRenderer:
   serializedVersion: 2
@@ -8514,8 +6615,6 @@ GameObject:
   - component: {fileID: 1079094384}
   - component: {fileID: 1079094383}
   - component: {fileID: 1079094382}
-  - component: {fileID: 1079094381}
-  - component: {fileID: 1079094385}
   m_Layer: 0
   m_Name: Wheat (5)
   m_TagString: Interactable
@@ -8523,27 +6622,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!65 &1079094381
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1079094380}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &1079094382
 SpriteRenderer:
   serializedVersion: 2
@@ -8631,25 +6709,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 982314118}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1079094385
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1079094380}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
 --- !u!1 &1089695496
 GameObject:
   m_ObjectHideFlags: 0
@@ -8661,8 +6720,6 @@ GameObject:
   - component: {fileID: 1089695501}
   - component: {fileID: 1089695500}
   - component: {fileID: 1089695499}
-  - component: {fileID: 1089695498}
-  - component: {fileID: 1089695497}
   m_Layer: 0
   m_Name: Wheat (58)
   m_TagString: Interactable
@@ -8670,46 +6727,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1089695497
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1089695496}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &1089695498
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1089695496}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &1089695499
 SpriteRenderer:
   serializedVersion: 2
@@ -8808,8 +6825,6 @@ GameObject:
   - component: {fileID: 1137448439}
   - component: {fileID: 1137448438}
   - component: {fileID: 1137448437}
-  - component: {fileID: 1137448436}
-  - component: {fileID: 1137448435}
   m_Layer: 0
   m_Name: Wheat (46)
   m_TagString: Interactable
@@ -8817,46 +6832,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1137448435
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1137448434}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &1137448436
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1137448434}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &1137448437
 SpriteRenderer:
   serializedVersion: 2
@@ -8955,8 +6930,6 @@ GameObject:
   - component: {fileID: 1160080410}
   - component: {fileID: 1160080409}
   - component: {fileID: 1160080408}
-  - component: {fileID: 1160080407}
-  - component: {fileID: 1160080411}
   m_Layer: 0
   m_Name: Wheat (1)
   m_TagString: Interactable
@@ -8964,27 +6937,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!65 &1160080407
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1160080406}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &1160080408
 SpriteRenderer:
   serializedVersion: 2
@@ -9072,25 +7024,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 982314118}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1160080411
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1160080406}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
 --- !u!1 &1161928014
 GameObject:
   m_ObjectHideFlags: 0
@@ -9102,8 +7035,6 @@ GameObject:
   - component: {fileID: 1161928019}
   - component: {fileID: 1161928018}
   - component: {fileID: 1161928017}
-  - component: {fileID: 1161928016}
-  - component: {fileID: 1161928015}
   m_Layer: 0
   m_Name: Wheat (21)
   m_TagString: Interactable
@@ -9111,46 +7042,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1161928015
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1161928014}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &1161928016
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1161928014}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &1161928017
 SpriteRenderer:
   serializedVersion: 2
@@ -9249,8 +7140,6 @@ GameObject:
   - component: {fileID: 1192501360}
   - component: {fileID: 1192501359}
   - component: {fileID: 1192501358}
-  - component: {fileID: 1192501357}
-  - component: {fileID: 1192501356}
   m_Layer: 0
   m_Name: Wheat (18)
   m_TagString: Interactable
@@ -9258,46 +7147,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1192501356
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1192501355}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &1192501357
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1192501355}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &1192501358
 SpriteRenderer:
   serializedVersion: 2
@@ -9396,8 +7245,6 @@ GameObject:
   - component: {fileID: 1196745144}
   - component: {fileID: 1196745143}
   - component: {fileID: 1196745142}
-  - component: {fileID: 1196745141}
-  - component: {fileID: 1196745140}
   m_Layer: 0
   m_Name: Wheat (84)
   m_TagString: Interactable
@@ -9405,46 +7252,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1196745140
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1196745139}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &1196745141
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1196745139}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &1196745142
 SpriteRenderer:
   serializedVersion: 2
@@ -9543,8 +7350,6 @@ GameObject:
   - component: {fileID: 1203146554}
   - component: {fileID: 1203146553}
   - component: {fileID: 1203146552}
-  - component: {fileID: 1203146551}
-  - component: {fileID: 1203146550}
   m_Layer: 0
   m_Name: Wheat (62)
   m_TagString: Interactable
@@ -9552,46 +7357,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1203146550
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1203146549}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &1203146551
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1203146549}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &1203146552
 SpriteRenderer:
   serializedVersion: 2
@@ -9690,8 +7455,6 @@ GameObject:
   - component: {fileID: 1204699327}
   - component: {fileID: 1204699326}
   - component: {fileID: 1204699325}
-  - component: {fileID: 1204699324}
-  - component: {fileID: 1204699323}
   m_Layer: 0
   m_Name: Wheat (70)
   m_TagString: Interactable
@@ -9699,46 +7462,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1204699323
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1204699322}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &1204699324
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1204699322}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &1204699325
 SpriteRenderer:
   serializedVersion: 2
@@ -9837,8 +7560,6 @@ GameObject:
   - component: {fileID: 1241464389}
   - component: {fileID: 1241464388}
   - component: {fileID: 1241464387}
-  - component: {fileID: 1241464386}
-  - component: {fileID: 1241464385}
   m_Layer: 0
   m_Name: Wheat (33)
   m_TagString: Interactable
@@ -9846,46 +7567,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1241464385
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1241464384}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &1241464386
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1241464384}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &1241464387
 SpriteRenderer:
   serializedVersion: 2
@@ -9989,8 +7670,6 @@ GameObject:
   - component: {fileID: 1326619614}
   - component: {fileID: 1326619613}
   - component: {fileID: 1326619612}
-  - component: {fileID: 1326619611}
-  - component: {fileID: 1326619610}
   m_Layer: 0
   m_Name: Wheat (86)
   m_TagString: Interactable
@@ -9998,46 +7677,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1326619610
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1326619609}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &1326619611
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1326619609}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &1326619612
 SpriteRenderer:
   serializedVersion: 2
@@ -10136,8 +7775,6 @@ GameObject:
   - component: {fileID: 1346670320}
   - component: {fileID: 1346670319}
   - component: {fileID: 1346670318}
-  - component: {fileID: 1346670317}
-  - component: {fileID: 1346670316}
   m_Layer: 0
   m_Name: Wheat (31)
   m_TagString: Interactable
@@ -10145,46 +7782,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1346670316
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1346670315}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &1346670317
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1346670315}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &1346670318
 SpriteRenderer:
   serializedVersion: 2
@@ -10396,6 +7993,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerHUD
       objectReference: {fileID: 0}
+    - target: {fileID: 9028762252356145940, guid: 05bd244785fe2304fa5ee7a42f699137, type: 3}
+      propertyPath: FirstIngredientCollected
+      value: 
+      objectReference: {fileID: 667416298}
+    - target: {fileID: 9028762252356145940, guid: 05bd244785fe2304fa5ee7a42f699137, type: 3}
+      propertyPath: ThirdIngredientCollected
+      value: 
+      objectReference: {fileID: 915020878}
+    - target: {fileID: 9028762252356145940, guid: 05bd244785fe2304fa5ee7a42f699137, type: 3}
+      propertyPath: FourthIngredientCollected
+      value: 
+      objectReference: {fileID: 1576684475}
+    - target: {fileID: 9028762252356145940, guid: 05bd244785fe2304fa5ee7a42f699137, type: 3}
+      propertyPath: SecondIngredientCollected
+      value: 
+      objectReference: {fileID: 836584400}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10473,8 +8086,6 @@ GameObject:
   - component: {fileID: 1488526631}
   - component: {fileID: 1488526630}
   - component: {fileID: 1488526629}
-  - component: {fileID: 1488526628}
-  - component: {fileID: 1488526632}
   m_Layer: 0
   m_Name: Wheat (10)
   m_TagString: Interactable
@@ -10482,27 +8093,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!65 &1488526628
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1488526627}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &1488526629
 SpriteRenderer:
   serializedVersion: 2
@@ -10590,25 +8180,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 982314118}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1488526632
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1488526627}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
 --- !u!1 &1512505676
 GameObject:
   m_ObjectHideFlags: 0
@@ -10620,8 +8191,6 @@ GameObject:
   - component: {fileID: 1512505681}
   - component: {fileID: 1512505680}
   - component: {fileID: 1512505679}
-  - component: {fileID: 1512505678}
-  - component: {fileID: 1512505677}
   m_Layer: 0
   m_Name: Wheat (32)
   m_TagString: Interactable
@@ -10629,46 +8198,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1512505677
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1512505676}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &1512505678
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1512505676}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &1512505679
 SpriteRenderer:
   serializedVersion: 2
@@ -10767,8 +8296,6 @@ GameObject:
   - component: {fileID: 1524414973}
   - component: {fileID: 1524414972}
   - component: {fileID: 1524414971}
-  - component: {fileID: 1524414970}
-  - component: {fileID: 1524414969}
   m_Layer: 0
   m_Name: Wheat (60)
   m_TagString: Interactable
@@ -10776,46 +8303,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1524414969
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1524414968}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &1524414970
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1524414968}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &1524414971
 SpriteRenderer:
   serializedVersion: 2
@@ -10914,8 +8401,6 @@ GameObject:
   - component: {fileID: 1524787758}
   - component: {fileID: 1524787757}
   - component: {fileID: 1524787756}
-  - component: {fileID: 1524787755}
-  - component: {fileID: 1524787754}
   m_Layer: 0
   m_Name: Wheat (25)
   m_TagString: Interactable
@@ -10923,46 +8408,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1524787754
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1524787753}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &1524787755
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1524787753}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &1524787756
 SpriteRenderer:
   serializedVersion: 2
@@ -11061,8 +8506,6 @@ GameObject:
   - component: {fileID: 1535970445}
   - component: {fileID: 1535970444}
   - component: {fileID: 1535970443}
-  - component: {fileID: 1535970442}
-  - component: {fileID: 1535970446}
   m_Layer: 0
   m_Name: Wheat (3)
   m_TagString: Interactable
@@ -11070,27 +8513,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!65 &1535970442
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1535970441}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &1535970443
 SpriteRenderer:
   serializedVersion: 2
@@ -11178,25 +8600,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 982314118}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1535970446
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1535970441}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
 --- !u!1 &1537117278
 GameObject:
   m_ObjectHideFlags: 0
@@ -11254,8 +8657,6 @@ GameObject:
   - component: {fileID: 1539951697}
   - component: {fileID: 1539951696}
   - component: {fileID: 1539951695}
-  - component: {fileID: 1539951694}
-  - component: {fileID: 1539951693}
   m_Layer: 0
   m_Name: Wheat (44)
   m_TagString: Interactable
@@ -11263,46 +8664,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1539951693
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1539951692}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &1539951694
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1539951692}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &1539951695
 SpriteRenderer:
   serializedVersion: 2
@@ -11401,8 +8762,6 @@ GameObject:
   - component: {fileID: 1542130222}
   - component: {fileID: 1542130221}
   - component: {fileID: 1542130220}
-  - component: {fileID: 1542130219}
-  - component: {fileID: 1542130218}
   m_Layer: 0
   m_Name: Wheat (38)
   m_TagString: Interactable
@@ -11410,46 +8769,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1542130218
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1542130217}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &1542130219
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1542130217}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &1542130220
 SpriteRenderer:
   serializedVersion: 2
@@ -11537,6 +8856,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 982314118}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1576684475 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2877098745297755694, guid: 05bd244785fe2304fa5ee7a42f699137, type: 3}
+  m_PrefabInstance: {fileID: 1393135110}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &1603175698
 GameObject:
   m_ObjectHideFlags: 0
@@ -11548,8 +8878,6 @@ GameObject:
   - component: {fileID: 1603175703}
   - component: {fileID: 1603175702}
   - component: {fileID: 1603175701}
-  - component: {fileID: 1603175700}
-  - component: {fileID: 1603175699}
   m_Layer: 0
   m_Name: Wheat (90)
   m_TagString: Interactable
@@ -11557,46 +8885,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1603175699
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1603175698}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &1603175700
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1603175698}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &1603175701
 SpriteRenderer:
   serializedVersion: 2
@@ -11695,8 +8983,6 @@ GameObject:
   - component: {fileID: 1614492821}
   - component: {fileID: 1614492820}
   - component: {fileID: 1614492819}
-  - component: {fileID: 1614492818}
-  - component: {fileID: 1614492817}
   m_Layer: 0
   m_Name: Wheat (17)
   m_TagString: Interactable
@@ -11704,46 +8990,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1614492817
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1614492816}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &1614492818
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1614492816}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &1614492819
 SpriteRenderer:
   serializedVersion: 2
@@ -11842,8 +9088,6 @@ GameObject:
   - component: {fileID: 1656189916}
   - component: {fileID: 1656189915}
   - component: {fileID: 1656189914}
-  - component: {fileID: 1656189913}
-  - component: {fileID: 1656189912}
   m_Layer: 0
   m_Name: Wheat (85)
   m_TagString: Interactable
@@ -11851,46 +9095,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1656189912
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1656189911}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &1656189913
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1656189911}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &1656189914
 SpriteRenderer:
   serializedVersion: 2
@@ -11989,8 +9193,6 @@ GameObject:
   - component: {fileID: 1664798104}
   - component: {fileID: 1664798103}
   - component: {fileID: 1664798102}
-  - component: {fileID: 1664798101}
-  - component: {fileID: 1664798100}
   m_Layer: 0
   m_Name: Wheat (12)
   m_TagString: Interactable
@@ -11998,46 +9200,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1664798100
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1664798099}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &1664798101
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1664798099}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &1664798102
 SpriteRenderer:
   serializedVersion: 2
@@ -12136,8 +9298,6 @@ GameObject:
   - component: {fileID: 1686267860}
   - component: {fileID: 1686267859}
   - component: {fileID: 1686267858}
-  - component: {fileID: 1686267857}
-  - component: {fileID: 1686267861}
   m_Layer: 0
   m_Name: Wheat (7)
   m_TagString: Interactable
@@ -12145,27 +9305,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!65 &1686267857
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1686267856}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &1686267858
 SpriteRenderer:
   serializedVersion: 2
@@ -12253,25 +9392,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 982314118}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1686267861
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1686267856}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
 --- !u!1 &1694895705
 GameObject:
   m_ObjectHideFlags: 0
@@ -12330,8 +9450,6 @@ GameObject:
   - component: {fileID: 1712103217}
   - component: {fileID: 1712103216}
   - component: {fileID: 1712103215}
-  - component: {fileID: 1712103214}
-  - component: {fileID: 1712103213}
   m_Layer: 0
   m_Name: Wheat (34)
   m_TagString: Interactable
@@ -12339,46 +9457,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1712103213
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1712103212}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &1712103214
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1712103212}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &1712103215
 SpriteRenderer:
   serializedVersion: 2
@@ -12477,8 +9555,6 @@ GameObject:
   - component: {fileID: 1729879012}
   - component: {fileID: 1729879011}
   - component: {fileID: 1729879010}
-  - component: {fileID: 1729879009}
-  - component: {fileID: 1729879008}
   m_Layer: 0
   m_Name: Wheat (19)
   m_TagString: Interactable
@@ -12486,46 +9562,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1729879008
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1729879007}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &1729879009
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1729879007}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &1729879010
 SpriteRenderer:
   serializedVersion: 2
@@ -12624,8 +9660,6 @@ GameObject:
   - component: {fileID: 1757487029}
   - component: {fileID: 1757487028}
   - component: {fileID: 1757487027}
-  - component: {fileID: 1757487026}
-  - component: {fileID: 1757487025}
   m_Layer: 0
   m_Name: Wheat (51)
   m_TagString: Interactable
@@ -12633,46 +9667,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1757487025
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1757487024}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &1757487026
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1757487024}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &1757487027
 SpriteRenderer:
   serializedVersion: 2
@@ -12771,8 +9765,6 @@ GameObject:
   - component: {fileID: 1788492155}
   - component: {fileID: 1788492154}
   - component: {fileID: 1788492153}
-  - component: {fileID: 1788492152}
-  - component: {fileID: 1788492151}
   m_Layer: 0
   m_Name: Wheat (11)
   m_TagString: Interactable
@@ -12780,46 +9772,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1788492151
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1788492150}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &1788492152
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1788492150}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &1788492153
 SpriteRenderer:
   serializedVersion: 2
@@ -12918,8 +9870,6 @@ GameObject:
   - component: {fileID: 1803933601}
   - component: {fileID: 1803933600}
   - component: {fileID: 1803933599}
-  - component: {fileID: 1803933598}
-  - component: {fileID: 1803933597}
   m_Layer: 0
   m_Name: Wheat (87)
   m_TagString: Interactable
@@ -12927,46 +9877,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1803933597
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1803933596}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &1803933598
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1803933596}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &1803933599
 SpriteRenderer:
   serializedVersion: 2
@@ -13065,8 +9975,6 @@ GameObject:
   - component: {fileID: 1876466986}
   - component: {fileID: 1876466985}
   - component: {fileID: 1876466984}
-  - component: {fileID: 1876466983}
-  - component: {fileID: 1876466982}
   m_Layer: 0
   m_Name: Wheat (30)
   m_TagString: Interactable
@@ -13074,46 +9982,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1876466982
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1876466981}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &1876466983
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1876466981}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &1876466984
 SpriteRenderer:
   serializedVersion: 2
@@ -13248,8 +10116,6 @@ GameObject:
   - component: {fileID: 1929518860}
   - component: {fileID: 1929518859}
   - component: {fileID: 1929518858}
-  - component: {fileID: 1929518857}
-  - component: {fileID: 1929518856}
   m_Layer: 0
   m_Name: Wheat (42)
   m_TagString: Interactable
@@ -13257,46 +10123,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1929518856
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1929518855}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &1929518857
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1929518855}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &1929518858
 SpriteRenderer:
   serializedVersion: 2
@@ -13406,8 +10232,6 @@ GameObject:
   - component: {fileID: 1938983071}
   - component: {fileID: 1938983070}
   - component: {fileID: 1938983069}
-  - component: {fileID: 1938983068}
-  - component: {fileID: 1938983067}
   m_Layer: 0
   m_Name: Wheat (45)
   m_TagString: Interactable
@@ -13415,46 +10239,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1938983067
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1938983066}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &1938983068
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1938983066}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &1938983069
 SpriteRenderer:
   serializedVersion: 2
@@ -13694,8 +10478,6 @@ GameObject:
   - component: {fileID: 1941200133}
   - component: {fileID: 1941200132}
   - component: {fileID: 1941200131}
-  - component: {fileID: 1941200130}
-  - component: {fileID: 1941200129}
   m_Layer: 0
   m_Name: Wheat (22)
   m_TagString: Interactable
@@ -13703,46 +10485,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1941200129
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1941200128}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &1941200130
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1941200128}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &1941200131
 SpriteRenderer:
   serializedVersion: 2
@@ -13983,8 +10725,6 @@ GameObject:
   - component: {fileID: 1969538066}
   - component: {fileID: 1969538065}
   - component: {fileID: 1969538064}
-  - component: {fileID: 1969538063}
-  - component: {fileID: 1969538062}
   m_Layer: 0
   m_Name: Wheat (41)
   m_TagString: Interactable
@@ -13992,46 +10732,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1969538062
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1969538061}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &1969538063
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1969538061}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &1969538064
 SpriteRenderer:
   serializedVersion: 2
@@ -14130,8 +10830,6 @@ GameObject:
   - component: {fileID: 1971511160}
   - component: {fileID: 1971511159}
   - component: {fileID: 1971511158}
-  - component: {fileID: 1971511157}
-  - component: {fileID: 1971511156}
   m_Layer: 0
   m_Name: Wheat (73)
   m_TagString: Interactable
@@ -14139,46 +10837,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1971511156
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1971511155}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &1971511157
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1971511155}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &1971511158
 SpriteRenderer:
   serializedVersion: 2
@@ -14277,8 +10935,6 @@ GameObject:
   - component: {fileID: 1996476168}
   - component: {fileID: 1996476167}
   - component: {fileID: 1996476166}
-  - component: {fileID: 1996476165}
-  - component: {fileID: 1996476169}
   m_Layer: 0
   m_Name: Wheat (6)
   m_TagString: Interactable
@@ -14286,27 +10942,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!65 &1996476165
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1996476164}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &1996476166
 SpriteRenderer:
   serializedVersion: 2
@@ -14394,25 +11029,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 982314118}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1996476169
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1996476164}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
 --- !u!1 &1997270106
 GameObject:
   m_ObjectHideFlags: 0
@@ -14424,8 +11040,6 @@ GameObject:
   - component: {fileID: 1997270110}
   - component: {fileID: 1997270109}
   - component: {fileID: 1997270108}
-  - component: {fileID: 1997270107}
-  - component: {fileID: 1997270111}
   m_Layer: 0
   m_Name: Wheat (2)
   m_TagString: Interactable
@@ -14433,27 +11047,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!65 &1997270107
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1997270106}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &1997270108
 SpriteRenderer:
   serializedVersion: 2
@@ -14541,25 +11134,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 982314118}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1997270111
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1997270106}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
 --- !u!1 &2040694530
 GameObject:
   m_ObjectHideFlags: 0
@@ -14571,8 +11145,6 @@ GameObject:
   - component: {fileID: 2040694535}
   - component: {fileID: 2040694534}
   - component: {fileID: 2040694533}
-  - component: {fileID: 2040694532}
-  - component: {fileID: 2040694531}
   m_Layer: 0
   m_Name: Wheat (74)
   m_TagString: Interactable
@@ -14580,46 +11152,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2040694531
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2040694530}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &2040694532
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2040694530}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &2040694533
 SpriteRenderer:
   serializedVersion: 2
@@ -14718,8 +11250,6 @@ GameObject:
   - component: {fileID: 2046807515}
   - component: {fileID: 2046807514}
   - component: {fileID: 2046807513}
-  - component: {fileID: 2046807512}
-  - component: {fileID: 2046807511}
   m_Layer: 0
   m_Name: Wheat (53)
   m_TagString: Interactable
@@ -14727,46 +11257,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2046807511
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2046807510}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &2046807512
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2046807510}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &2046807513
 SpriteRenderer:
   serializedVersion: 2
@@ -14865,8 +11355,6 @@ GameObject:
   - component: {fileID: 2050883833}
   - component: {fileID: 2050883832}
   - component: {fileID: 2050883831}
-  - component: {fileID: 2050883830}
-  - component: {fileID: 2050883829}
   m_Layer: 0
   m_Name: Wheat (68)
   m_TagString: Interactable
@@ -14874,46 +11362,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2050883829
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2050883828}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &2050883830
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2050883828}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &2050883831
 SpriteRenderer:
   serializedVersion: 2
@@ -15012,8 +11460,6 @@ GameObject:
   - component: {fileID: 2055846499}
   - component: {fileID: 2055846498}
   - component: {fileID: 2055846497}
-  - component: {fileID: 2055846496}
-  - component: {fileID: 2055846495}
   m_Layer: 0
   m_Name: Wheat (13)
   m_TagString: Interactable
@@ -15021,46 +11467,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2055846495
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2055846494}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &2055846496
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2055846494}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &2055846497
 SpriteRenderer:
   serializedVersion: 2
@@ -15159,8 +11565,6 @@ GameObject:
   - component: {fileID: 2090611226}
   - component: {fileID: 2090611225}
   - component: {fileID: 2090611224}
-  - component: {fileID: 2090611223}
-  - component: {fileID: 2090611222}
   m_Layer: 0
   m_Name: Wheat (63)
   m_TagString: Interactable
@@ -15168,46 +11572,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2090611222
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2090611221}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &2090611223
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2090611221}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &2090611224
 SpriteRenderer:
   serializedVersion: 2
@@ -15306,8 +11670,6 @@ GameObject:
   - component: {fileID: 2092677632}
   - component: {fileID: 2092677631}
   - component: {fileID: 2092677630}
-  - component: {fileID: 2092677629}
-  - component: {fileID: 2092677628}
   m_Layer: 0
   m_Name: Wheat (69)
   m_TagString: Interactable
@@ -15315,46 +11677,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2092677628
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2092677627}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &2092677629
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2092677627}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &2092677630
 SpriteRenderer:
   serializedVersion: 2
@@ -15453,8 +11775,6 @@ GameObject:
   - component: {fileID: 2124943274}
   - component: {fileID: 2124943273}
   - component: {fileID: 2124943272}
-  - component: {fileID: 2124943271}
-  - component: {fileID: 2124943270}
   m_Layer: 0
   m_Name: Wheat (54)
   m_TagString: Interactable
@@ -15462,46 +11782,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2124943270
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2124943269}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
-  interactionType: 0
-  Dialog: []
-  itemToCheck: 
-  secondDialogPass: []
-  secondDialogFail: []
-  DialogAfterGivingItem: []
-  itemToAdd: 
---- !u!65 &2124943271
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2124943269}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6, y: 6.46, z: 0.83}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &2124943272
 SpriteRenderer:
   serializedVersion: 2
@@ -15755,6 +12035,10 @@ PrefabInstance:
     - target: {fileID: 1316093083827108522, guid: 057c3d5d5ab57a34faeba8c38c78bec9, type: 3}
       propertyPath: m_Name
       value: ToNextev
+      objectReference: {fileID: 0}
+    - target: {fileID: 1316093083827108522, guid: 057c3d5d5ab57a34faeba8c38c78bec9, type: 3}
+      propertyPath: m_TagString
+      value: ApplePie
       objectReference: {fileID: 0}
     - target: {fileID: 8577962634729465978, guid: 057c3d5d5ab57a34faeba8c38c78bec9, type: 3}
       propertyPath: m_LocalPosition.x

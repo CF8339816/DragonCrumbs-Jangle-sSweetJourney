@@ -25,7 +25,7 @@ public class StageInteractManager : MonoBehaviour, IInteractable
     public ObjectButtonsInteractables objectButtonsInteractables;
     public ObjGOInteractionManager objGOInteractionManager;
     public MenuManager menuManager;
-   private PieVisabilityManager pieVisabilityManager;
+   public PieVisabilityManager pieVisabilityManager;
 
 
     public JangleController playerScript;
@@ -63,19 +63,26 @@ public class StageInteractManager : MonoBehaviour, IInteractable
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        if (SceneManager.GetActiveScene().buildIndex >= 1 && SceneManager.GetActiveScene().buildIndex <= 3)
-        {
-            objectButtonsInteractables.SetQuestState();
-        }
-        else if (SceneManager.GetActiveScene().buildIndex == 4 )
-        {
-            objectButtonsInteractables.SetBakeryState();
-        }
+        //if (SceneManager.GetActiveScene().buildIndex >= 1 && SceneManager.GetActiveScene().buildIndex <= 3)
+        //{
+        //    objectButtonsInteractables.SetQuestState();
+        //}
+        //else if (SceneManager.GetActiveScene().buildIndex == 4 )
+        //{
+        //    objectButtonsInteractables.SetBakeryState();
+        //}
+
+        ////combinedMask = RecipeButtons | EnvironmentButtons;
+        //if (objectButtonsInteractables == null)
+        //{
+        //    objectButtonsInteractables = FindFirstObjectByType<ObjectButtonsInteractables>();
+        //}
+        //if (objGOInteractionManager == null)
+        //{
+        //    objGOInteractionManager = FindFirstObjectByType<ObjGOInteractionManager>();
+        //}
 
 
-        DisableWheatCollider();
-
-        //combinedMask = RecipeButtons | EnvironmentButtons;
         if (objectButtonsInteractables == null)
         {
             objectButtonsInteractables = FindFirstObjectByType<ObjectButtonsInteractables>();
@@ -84,6 +91,28 @@ public class StageInteractManager : MonoBehaviour, IInteractable
         {
             objGOInteractionManager = FindFirstObjectByType<ObjGOInteractionManager>();
         }
+        if (pieVisabilityManager == null)
+        {
+            pieVisabilityManager = FindFirstObjectByType<PieVisabilityManager>();
+        }
+        if (menuManager == null)
+        {
+            menuManager = FindFirstObjectByType<MenuManager>();
+        }
+
+        if (objectButtonsInteractables != null)
+        {
+            if (SceneManager.GetActiveScene().buildIndex >= 1 && SceneManager.GetActiveScene().buildIndex <= 3)
+            {
+                objectButtonsInteractables.SetQuestState();
+            }
+            else if (SceneManager.GetActiveScene().buildIndex == 4)
+            {
+                objectButtonsInteractables.SetBakeryState();
+            }
+        }
+
+        DisableWheatCollider();
     }
 
 
@@ -150,27 +179,28 @@ public class StageInteractManager : MonoBehaviour, IInteractable
     public void WheatCollect()
     {
         WheatCount++;
+        if (ItemManager.instace != null) ItemManager.instace.AddToItem("wheat");
     }
-   public void InteractMillStone()
-    {
-        if (WheatCount == 5)
+    public void InteractMillStone()
+    {       
+        if (WheatCount >= 5)
         {
             WheatCount = 0;
             FlourCount = 1;
+            if (ItemManager.instace != null) ItemManager.instace.AddToItem("flour");
         }
-        else
-        {
-            FlourCount = 0;
-        }
-        objectButtonsInteractables.SetFlour_TXT();
+        if (objectButtonsInteractables != null)
+            objectButtonsInteractables.SetFlour_TXT();       
+
     }
 
     public void InteractBeeHive()
     {
-       
-            HoneyCount = 1;
-        
-        objectButtonsInteractables.SetHoney_TXT();
+        HoneyCount = 1;
+        if (ItemManager.instace != null) ItemManager.instace.AddToItem("honey");
+
+        if (objectButtonsInteractables != null)
+            objectButtonsInteractables.SetHoney_TXT();
     }
 
 
@@ -208,15 +238,18 @@ public class StageInteractManager : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-         
+
 
         if (gameObject.CompareTag("PassiveInteractable"))
         {
             Debug.Log("Interacted with " + gameObject.name);
-           if (gameObject.name=="Wheat")
-            WheatCount ++;
+            if (gameObject.name == "Wheat")
+                WheatCount++;
             Destroy(gameObject);
-            objectButtonsInteractables.SetWheat_TXT();
+            if (objectButtonsInteractables != null)
+            {
+                objectButtonsInteractables.SetWheat_TXT();
+            }
         }
 
         else if (gameObject.CompareTag("Apple"))
@@ -225,9 +258,11 @@ public class StageInteractManager : MonoBehaviour, IInteractable
             if (gameObject.name == "Apple")
                 AppleCount++;
             Destroy(gameObject);
-            objectButtonsInteractables.SetApple_TXT();
+            if (objectButtonsInteractables != null)
+            {
+                objectButtonsInteractables.SetApple_TXT();
+            }
         }
-
 
 
     }
@@ -235,6 +270,7 @@ public class StageInteractManager : MonoBehaviour, IInteractable
     
        public void OnMakePie()
     {
+
         if (AppleCount == 5 && FlourCount == 1 && HoneyCount == 1)
         {
             AppleCount = 0;
@@ -246,6 +282,7 @@ public class StageInteractManager : MonoBehaviour, IInteractable
 
     public void PieForDangle()
     {
+        if (pieVisabilityManager == null) return;
         pieVisabilityManager.RawApplePieProxy.SetActive(false);
         pieVisabilityManager.ProxyOvenRawPie.SetActive(false);
         pieVisabilityManager.ProxyBakedPie.SetActive(false);
@@ -254,6 +291,7 @@ public class StageInteractManager : MonoBehaviour, IInteractable
 
     public void IntaDaOven()
     {
+        if (pieVisabilityManager == null) return;
         pieVisabilityManager.RawApplePieProxy.SetActive(false);
         pieVisabilityManager.ProxyOvenRawPie.SetActive(true);
         pieVisabilityManager.ProxyBakedPie.SetActive(false);
@@ -273,18 +311,25 @@ public class StageInteractManager : MonoBehaviour, IInteractable
 
     private IEnumerator BakePieRoutine()
     {
-        pieVisabilityManager.RawApplePieProxy.SetActive(false);
-        pieVisabilityManager.ProxyOvenRawPie.SetActive(false);
-        playerScript.flameOn = true;
+        if (pieVisabilityManager != null)
+        {
+            pieVisabilityManager.RawApplePieProxy.SetActive(false);
+            pieVisabilityManager.ProxyOvenRawPie.SetActive(false);
+        }
+        if (playerScript != null) playerScript.flameOn = true;
 
         yield return new WaitForSeconds(5f);
 
-        playerScript.flameOn = false;
-        pieVisabilityManager.ProxyBakedPie.SetActive(true);
+        if (playerScript != null) playerScript.flameOn = false;
+        if (pieVisabilityManager != null)
+        {
+            pieVisabilityManager.ProxyBakedPie.SetActive(true);
+        }
     }
 
     public void setPieVisibility()
-    {  
+    {
+        if (pieVisabilityManager == null) return;
         pieVisabilityManager.RawApplePieProxy.SetActive(true);
         pieVisabilityManager.ProxyOvenRawPie.SetActive(false);
         pieVisabilityManager.ProxyBakedPie.SetActive(false);   

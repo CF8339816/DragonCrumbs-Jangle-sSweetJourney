@@ -59,15 +59,13 @@ public class BootStrappin : MonoBehaviour
 
     public GameObject eventSystemPrefab;
 
-    private const int STARTHUB_INDEX = 0;
-    private const int QUEST1A_INDEX = 1;
-    private const int QUEST1B_INDEX = 2;
-    private const int QUEST1C_INDEX = 3;
-    private const int BAKERY_INDEX = 4;
-    private const int QUESTHUD_INDEX = 5;
-    private const int TRAVELMAP_INDEX = 6;
-    private const int PAUSE_INDEX = 7;
-  
+    //private const int STARTHUB_INDEX = 0;
+    //private const int QUEST1A_INDEX = 1;
+    //private const int QUEST1B_INDEX = 2;
+    //private const int QUEST1C_INDEX = 3;
+    //private const int BAKERY_INDEX = 4;
+
+    //private const int TRAVELMAP_INDEX = 5;
 
     public Camera ActiveMainCamera { get; private set; }
     public CinemachineCamera ActiveMoveCam { get; private set; } 

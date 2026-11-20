@@ -275,12 +275,12 @@ public class ObjectButtonsInteractables : MonoBehaviour
 
     public void SetFlour_TXT()
     {
-        SecondIngredientCollected.text =  stageInteractManager.FlourCount.ToString() + "/5";
+        SecondIngredientCollected.text =  stageInteractManager.FlourCount.ToString() + "/1";
     }
 
     public void SetHoney_TXT()
     {
-        ThirdIngredientCollected.text =  stageInteractManager.HoneyCount.ToString() + "/5";
+        ThirdIngredientCollected.text =  stageInteractManager.HoneyCount.ToString() + "/1";
     }
 
 

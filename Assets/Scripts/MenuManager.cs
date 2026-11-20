@@ -67,7 +67,7 @@ public class MenuManager : MonoBehaviour
     
     public void LoadLevelByIndex(int index)
     {
-        if (index >= 0 && index <7) 
+        if (index >= 0 && index <5) 
         {
             SceneManager.LoadScene(index);
     
@@ -128,9 +128,9 @@ public class MenuManager : MonoBehaviour
             Jangle.SetActive(true);
         }
         LoadLevelByIndex(QUEST1A_INDEX);
-        Debug.Log("Setting QuestState");
-        objectButtonsInteractables.SetQuestState();
-        Debug.Log("QuestState set");
+        //Debug.Log("Setting QuestState");
+        //objectButtonsInteractables.SetQuestState();
+        //Debug.Log("QuestState set");
     }
 
     public void onLevel2()
@@ -142,9 +142,9 @@ public class MenuManager : MonoBehaviour
             Jangle.SetActive(true);
         }
         LoadLevelByIndex(QUEST1B_INDEX);
-        Debug.Log("Setting QuestState");
-        objectButtonsInteractables.SetQuestState();
-        Debug.Log("QuestState set");
+        //Debug.Log("Setting QuestState");
+        //objectButtonsInteractables.SetQuestState();
+        //Debug.Log("QuestState set");
     }
 
     public void onLevel3()
@@ -156,9 +156,9 @@ public class MenuManager : MonoBehaviour
             Jangle.SetActive(true);
         }
         LoadLevelByIndex(QUEST1C_INDEX);
-        Debug.Log("Setting QuestState");
-        objectButtonsInteractables.SetQuestState();
-        Debug.Log("QuestState set");
+        //Debug.Log("Setting QuestState");
+        //objectButtonsInteractables.SetQuestState();
+        //Debug.Log("QuestState set");
     }
 
     public void onBakery()
