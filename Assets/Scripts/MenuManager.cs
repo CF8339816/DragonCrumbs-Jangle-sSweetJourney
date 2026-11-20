@@ -18,8 +18,8 @@ using static UnityEngine.UIElements.UxmlAttributeDescription;
 public class MenuManager : MonoBehaviour
 {
     public static MenuManager Instance { get; private set; }
-    
-   // private GameExitManager gameExitManager;
+
+    private GameExitManager gameExitManager;
     public ObjectButtonsInteractables objectButtonsInteractables;
 
     [SerializeField] GameObject Jangle;
@@ -39,9 +39,18 @@ public class MenuManager : MonoBehaviour
     private bool pendingQuestState = false;
     private bool pendingBakeryState = false;
     private int nextIndex;
-    public void Awake()
+    void Awake()
     {
-        Instructions.SetActive(false);
+        BootStrappin bootStrappin = FindFirstObjectByType<BootStrappin>();
+        if (bootStrappin != null)
+        {
+            bootStrappin.FindManagers();
+        }
+        //Changed cause the code below throws a couple of random errors depending on load orders ensures first load 
+        //BootStrappin bootStrappin = FindFirstObjectByType<BootStrappin>();
+        //bootStrappin.FindManagers();
+
+        if (Instructions != null) Instructions.SetActive(false);
         Debug.Log("CustomSceneManager awakening...");
         if (Instance != null && Instance != this)
         {
@@ -51,6 +60,8 @@ public class MenuManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject); // keeps script accessible across scene changes
 
+        StageInteractManager stageInteractManager = FindFirstObjectByType<StageInteractManager>();
+        ObjectButtonsInteractables objectButtonsInteractables = FindFirstObjectByType<ObjectButtonsInteractables>();
         //AutoHookupMenuButtons();
 
     }
@@ -76,11 +87,18 @@ public class MenuManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+
+        if (scene.buildIndex == STARTHUB_INDEX)
+        {
+            if (Instructions == null) Instructions = GameObject.Find("Instructions");
+            if (StartSplash == null) StartSplash = GameObject.Find("StartSplash");
+        }
+
         if (pendingQuestState)
         {
             pendingQuestState = false;
 
-            // Find the script in the newly loaded quest scene
+            //finds the script in the newly loaded quest scene
             objectButtonsInteractables = FindFirstObjectByType<ObjectButtonsInteractables>();
 
             if (objectButtonsInteractables != null)
@@ -98,7 +116,7 @@ public class MenuManager : MonoBehaviour
         {
             pendingBakeryState = false;
 
-            // Find the script in the newly loaded quest scene
+            // finds the script in the newly loaded quest scene
             objectButtonsInteractables = FindFirstObjectByType<ObjectButtonsInteractables>();
 
             if (objectButtonsInteractables != null)
@@ -112,9 +130,6 @@ public class MenuManager : MonoBehaviour
                 Debug.LogWarning("ObjectButtonsInteractables was not found in " + scene.name);
             }
         }
-
-
-
 
     }
 

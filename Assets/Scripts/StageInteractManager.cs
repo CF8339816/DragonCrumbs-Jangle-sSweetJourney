@@ -25,8 +25,8 @@ public class StageInteractManager : MonoBehaviour, IInteractable
     public ObjectButtonsInteractables objectButtonsInteractables;
     public ObjGOInteractionManager objGOInteractionManager;
     public MenuManager menuManager;
-   public PieVisabilityManager pieVisabilityManager;
-
+    public PieVisabilityManager pieVisabilityManager;
+ 
 
     public JangleController playerScript;
     public LayerMask RecipeButtons;
@@ -58,7 +58,17 @@ public class StageInteractManager : MonoBehaviour, IInteractable
     public int FreshBakedPie = 0;
 
 
-
+    void Awake()
+    {
+        BootStrappin bootStrappin = FindFirstObjectByType<BootStrappin>();
+        if (bootStrappin != null)
+        {
+            bootStrappin.FindManagers();
+        }
+        //Changed cause the code below throws a couple of random errors depending on load orders ensures first load 
+        //BootStrappin bootStrappin = FindFirstObjectByType< BootStrappin > ();
+        //bootStrappin.FindManagers();
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -82,7 +92,7 @@ public class StageInteractManager : MonoBehaviour, IInteractable
         //    objGOInteractionManager = FindFirstObjectByType<ObjGOInteractionManager>();
         //}
 
-
+      
         if (objectButtonsInteractables == null)
         {
             objectButtonsInteractables = FindFirstObjectByType<ObjectButtonsInteractables>();
@@ -115,19 +125,17 @@ public class StageInteractManager : MonoBehaviour, IInteractable
         DisableWheatCollider();
     }
 
-
     void Update()
     {
 
         UpdateCheckBoxes();
 
 
-
-
     }
 
     public void UpdateCheckBoxes()
     {
+        if (objectButtonsInteractables == null) return;
         if (AppleCount >=5)
         {
             objectButtonsInteractables.CheckMark1.SetActive(true);
@@ -158,6 +166,23 @@ public class StageInteractManager : MonoBehaviour, IInteractable
             objectButtonsInteractables.CheckMark3.SetActive(false);
             objectButtonsInteractables.CrossOut3.SetActive(true);
         }
+
+        if (AppleCount >=1) objectButtonsInteractables.IngredientAP1A.SetActive(true);
+        else if (AppleCount >= 2) objectButtonsInteractables.IngredientAP1B.SetActive(true);
+        else if (AppleCount >= 3) objectButtonsInteractables.IngredientAP1C.SetActive(true);
+        else if (AppleCount >= 4) objectButtonsInteractables.IngredientAP1D.SetActive(true);
+        else if (AppleCount >= 5) objectButtonsInteractables.IngredientAP1E.SetActive(true);
+
+        if (FlourCount >= 1) objectButtonsInteractables.IngredientAP2A.SetActive(true);
+       
+        if (HoneyCount >= 1) objectButtonsInteractables.IngredientAP3A.SetActive(true);
+              
+        if (WheatCount >= 1) objectButtonsInteractables.IngredientWheat1A.SetActive(true);
+        else if (WheatCount >= 2) objectButtonsInteractables.IngredientWheat1B.SetActive(true);
+        else if (WheatCount >= 3) objectButtonsInteractables.IngredientWheat1C.SetActive(true);
+        else if (WheatCount >= 4) objectButtonsInteractables.IngredientWheat1D.SetActive(true);
+        else if (WheatCount >= 5) objectButtonsInteractables.IngredientWheat1E.SetActive(true);
+
     }
     public void HandleInteraction(string targetTag)
     {
@@ -180,6 +205,9 @@ public class StageInteractManager : MonoBehaviour, IInteractable
     {
         WheatCount++;
         if (ItemManager.instace != null) ItemManager.instace.AddToItem("wheat");
+
+        if (objectButtonsInteractables != null)
+            objectButtonsInteractables.SetWheat_TXT();
     }
     public void InteractMillStone()
     {       
@@ -202,7 +230,6 @@ public class StageInteractManager : MonoBehaviour, IInteractable
         if (objectButtonsInteractables != null)
             objectButtonsInteractables.SetHoney_TXT();
     }
-
 
     public void InteractSythe()
     {
@@ -339,7 +366,8 @@ public class StageInteractManager : MonoBehaviour, IInteractable
     {
         if (FreshBakedPie == 1)
         {
-
+            FreshBakedPie = 0;
+            objectButtonsInteractables.DangleExit.SetActive(true);
         }
 
 

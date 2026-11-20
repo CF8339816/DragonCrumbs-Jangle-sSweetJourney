@@ -59,13 +59,13 @@ public class BootStrappin : MonoBehaviour
 
     public GameObject eventSystemPrefab;
 
-    //private const int STARTHUB_INDEX = 0;
-    //private const int QUEST1A_INDEX = 1;
-    //private const int QUEST1B_INDEX = 2;
-    //private const int QUEST1C_INDEX = 3;
-    //private const int BAKERY_INDEX = 4;
+    private const int STARTHUB_INDEX = 0;
+    private const int QUEST1A_INDEX = 1;
+    private const int QUEST1B_INDEX = 2;
+    private const int QUEST1C_INDEX = 3;
+    private const int BAKERY_INDEX = 4;
 
-    //private const int TRAVELMAP_INDEX = 5;
+    private const int TRAVELMAP_INDEX = 5;
 
     public Camera ActiveMainCamera { get; private set; }
     public CinemachineCamera ActiveMoveCam { get; private set; } 
@@ -109,6 +109,66 @@ public class BootStrappin : MonoBehaviour
         if (pieVisabilityManager == null) pieVisabilityManager = GetComponent<PieVisabilityManager>();
     }
 
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        FindManagers(); // Automatically refreshes scene references whenever a new stage loads
+    }
+
+    public void FindManagers()// assigns the name of the if they are not already defined for stage use redundanct check
+    {
+        if (stageInteractManager == null) stageInteractManager = FindFirstObjectByType<StageInteractManager>();
+
+        if (objectButtonsInteractables == null) objectButtonsInteractables = FindFirstObjectByType<ObjectButtonsInteractables>();
+
+        if (menuManager == null) menuManager = FindFirstObjectByType<MenuManager>();
+
+        if (pieVisabilityManager == null) pieVisabilityManager = FindFirstObjectByType<PieVisabilityManager>();
+
+        if (objGOInteractionManager == null) objGOInteractionManager = FindFirstObjectByType<ObjGOInteractionManager>();
+
+        if (gameExitManager == null) gameExitManager = FindFirstObjectByType<GameExitManager>();
+
+        if (itemManager == null) itemManager = FindFirstObjectByType<ItemManager>();
+
+        if (dialogManager == null) dialogManager = FindFirstObjectByType<DialogManager>();
+
+        if (interactableManager == null) interactableManager = FindFirstObjectByType<InteractableManager>();
+    }
+
+    //public void FindManagers()// assigns the name of the if they are not already defined for stage use redundanct check
+    //{
+    //    StageInteractManager stageInteractManager = FindFirstObjectByType<StageInteractManager>();
+
+    //    ObjectButtonsInteractables objectButtonsInteractables = FindFirstObjectByType<ObjectButtonsInteractables>();
+
+    //    MenuManager menuManager = FindFirstObjectByType<MenuManager>();
+
+    //    PieVisabilityManager pieVisabilityManager = FindFirstObjectByType<PieVisabilityManager>();
+
+    //    ObjGOInteractionManager objGOInteractionManager = FindFirstObjectByType<ObjGOInteractionManager>();
+
+    //    GameExitManager gameExitManager = FindFirstObjectByType<GameExitManager>();
+
+    //    ItemManager itemManager = FindFirstObjectByType<ItemManager>();
+
+    //    DialogManager dialogManager = FindFirstObjectByType<DialogManager>();
+
+    //    InteractableManager interactableManager = FindFirstObjectByType<InteractableManager>();
+
+    //    //ObjectButtonsInteractables objectButtonsInteractables
+    //    //    = FindFirstObjectByType<ObjectButtonsInteractables>();
+
+    //}
     public void InitializeGlobalEventSystem()
     {
         EventSystem existingSystem = Object.FindFirstObjectByType<EventSystem>();// checks for extra event systems

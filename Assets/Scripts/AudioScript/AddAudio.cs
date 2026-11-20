@@ -43,8 +43,17 @@ public class AddAudio : MonoBehaviour
     [Header("UI Elements")]
     [SerializeField] public Slider volumeSlider; // defines  the slider ui element being used
 
-    private void Awake()
+    void Awake()
     {
+        BootStrappin bootStrappin = FindFirstObjectByType<BootStrappin>();
+        if (bootStrappin != null)
+        {
+            bootStrappin.FindManagers();
+        }
+        //Changed cause the code below throws a couple of random errors depending on load orders ensures first load 
+        //BootStrappin bootStrappin = FindFirstObjectByType<BootStrappin>();
+        //bootStrappin.FindManagers();
+
         GameObject sliderObject = GameObject.Find("Volume");
         if (sliderObject != null)
         {

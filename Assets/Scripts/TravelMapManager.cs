@@ -9,12 +9,22 @@ public class TravelMapManager : MonoBehaviour
     //public TextMeshProUGUI exitCountdownText;
     private float Countdown;
     private bool isLoading = false;
-   [SerializeField] private ObjectButtonsInteractables objectButtonsInteractables;
-    [SerializeField] private MenuManager menuManager;
+    private ObjectButtonsInteractables objectButtonsInteractables;
+    private MenuManager menuManager;
+    private StageInteractManager stageInteractManager;
     public string travelMapSceneName = "TravelMap";
 
     void Awake()
     {
+        BootStrappin bootStrappin = FindFirstObjectByType<BootStrappin>();
+        if (bootStrappin != null)
+        {
+            bootStrappin.FindManagers();
+        }
+        //Changed cause the code below throws a couple of random errors depending on load orders ensures first load 
+        //BootStrappin bootStrappin = FindFirstObjectByType<BootStrappin>();
+        //bootStrappin.FindManagers();
+
         //if (Instance != null && Instance != this)
         //{
         //    Destroy(gameObject);
@@ -90,8 +100,27 @@ public class TravelMapManager : MonoBehaviour
                 menuManager.onLevel1();
             }
         }
+
+        else if (menuManager != null && objectButtonsInteractables != null)
+        {
+            if (objectButtonsInteractables.currentQuest == 0)
+            {
+                if (stageInteractManager.AppleCount < 5 || stageInteractManager.FlourCount < 1 || stageInteractManager.HoneyCount < 1)
+                menuManager.onLoadNextLevel();
+            }
+        }
+        
+        else if (menuManager != null && objectButtonsInteractables != null)
+        {
+            if (objectButtonsInteractables.currentQuest == 0)
+            {
+                if (stageInteractManager.AppleCount == 5 && stageInteractManager.FlourCount == 1 && stageInteractManager.HoneyCount == 1)
+                    menuManager.onBakery();
+            }
+        }
         else
         {
+                       
             Debug.LogWarning("TravelMapManager: Missing MenuManager or ObjectButtonsInteractables!");
         }
 

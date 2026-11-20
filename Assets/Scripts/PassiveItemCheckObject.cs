@@ -10,6 +10,7 @@ public class PassiveItemCheckObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (triggered || ItemManager.instace == null) return;//---- added to ensure load level by index iss not called every frame once timer runs ou t----CF
         if (ItemManager.instace.CheckItem(itemToCheck))
         {
             Debug.Log("Item qouta reached, timer to next scene at " + timer);

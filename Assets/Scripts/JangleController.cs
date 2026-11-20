@@ -35,8 +35,17 @@ public class JangleController : MonoBehaviour
     public bool flameOn = false;
     private bool isFacingRight = false;
 
-    private void Awake()
+    void Awake()
     {
+        BootStrappin bootStrappin = FindFirstObjectByType<BootStrappin>();
+        if (bootStrappin != null)
+        {
+            bootStrappin.FindManagers();
+        }
+        //Changed cause the code below throws a couple of random errors depending on load orders ensures first load 
+        //BootStrappin bootStrappin = FindFirstObjectByType<BootStrappin>();
+        //bootStrappin.FindManagers();
+
         inputActions = new PlayerControls();
         rb2d = GetComponent<Rigidbody2D>();
 
@@ -176,7 +185,7 @@ public class JangleController : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("PassiveInteractable"))
         {
-            collision.GetComponent<IInteractable>().Interact();
+            collision.GetComponent<IInteractable>()?.Interact();
         }
     }
     private void OnTriggerExit2D(Collider2D collision)

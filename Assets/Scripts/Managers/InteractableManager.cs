@@ -76,7 +76,18 @@ public class InteractableManager : MonoBehaviour, IInteractable
     private ItemManager itemManager;
     private bool itemCheckPassed = false;
     private bool itemAdded = false;
+    void Awake()
+    {
+        BootStrappin bootStrappin = FindFirstObjectByType<BootStrappin>();
+        if (bootStrappin != null)
+        {
+            bootStrappin.FindManagers();
+        }
+        //Changed cause the code below throws a couple of random errors depending on load orders ensures first load 
+        //BootStrappin bootStrappin = FindFirstObjectByType<BootStrappin>(); //----Added to ensure the managerts are assigned---CF
+        //bootStrappin.FindManagers();//----Added to ensure the managerts are assigned---CF
 
+    }
     private void Start()
     {
         itemManager = ItemManager.instace;
@@ -103,6 +114,9 @@ public class InteractableManager : MonoBehaviour, IInteractable
     private void HandleTalkOrRead()
     {
         Debug.Log("talked");
+
+        if (DialogManager.dialogManager == null) return;//---- added to prevent nullstate break----CF
+       
         if (!DialogManager.dialogManager.talking)
         {
             DialogManager.dialogManager.StartDialog(Dialog);
@@ -116,6 +130,8 @@ public class InteractableManager : MonoBehaviour, IInteractable
     private void HandleDialogWithCheck()
     {
         Debug.Log("talked");
+        if (DialogManager.dialogManager == null || itemManager == null) return; //---- added to prevent nullstate break----CF
+        
         if (!DialogManager.dialogManager.talking)
         {
             if (itemAdded)
@@ -140,6 +156,9 @@ public class InteractableManager : MonoBehaviour, IInteractable
 
     private void HandleItemPickUp()
     {
+
+        if (itemManager == null) itemManager = ItemManager.instace;//---- added to prevent nullstate break----CF
+
         if (!string.IsNullOrEmpty(itemToAdd))
         {
             itemManager.AddToItem(itemToAdd);
@@ -151,6 +170,8 @@ public class InteractableManager : MonoBehaviour, IInteractable
     {
         if (interactionType == InteractionType.DialogWithCheck && !string.IsNullOrEmpty(itemToAdd))
         {
+            if (itemManager == null) itemManager = ItemManager.instace; //----reverify fall back to prevent null breaks----CF
+
             if (itemCheckPassed && !DialogManager.dialogManager.talking && !itemAdded)
             {
                 Debug.Log($"gave {itemToAdd}");

@@ -42,7 +42,7 @@ public class ObjectButtonsInteractables : MonoBehaviour
     //[SerializeField] public GameObject CheeseCakeRecipeCard;
     //[SerializeField] public GameObject CookiesRecipeCard;
     //[SerializeField] public GameObject Instructions;
-
+    [SerializeField] public GameObject DangleExit;
 
     [Header("Text outputs")]
     public TextMeshProUGUI FirstIngredientCollected;
@@ -92,15 +92,22 @@ public class ObjectButtonsInteractables : MonoBehaviour
 
 
     void Awake()
-
     {
-        if (menuManager == null) menuManager = FindFirstObjectByType<MenuManager>();
+        BootStrappin bootStrappin = FindFirstObjectByType<BootStrappin>();
+        if (bootStrappin != null)
+        {
+            bootStrappin.FindManagers();
+        }
+        //Changed cause the code below throws a couple of random errors depending on load orders ensures first load 
+        //BootStrappin bootStrappin = FindFirstObjectByType<BootStrappin>();
+        //bootStrappin.FindManagers();
+        
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         SetBakeryState();
-
+        DangleExit.SetActive(false);
         ////Instructions.SetActive(false);
         //ReferenePanel.SetActive(false);// ---- turns off the reference card when hud begins----CF
         //isQuest = false;
@@ -240,12 +247,7 @@ public class ObjectButtonsInteractables : MonoBehaviour
         SetQuestState();
         ActiveQuest[0] = "ApplePie";
         currentQuest= 0;
-        RefCheckMark1.SetActive(false);
-        RefCrossOut1.SetActive(false);
-        RefCheckMark2.SetActive(false);
-        RefCrossOut2.SetActive(false);
-        RefCheckMark3.SetActive(false);
-        RefCrossOut3.SetActive(false);
+        ResetRecipeQuestCard();
 
 
     }
@@ -283,7 +285,31 @@ public class ObjectButtonsInteractables : MonoBehaviour
         ThirdIngredientCollected.text =  stageInteractManager.HoneyCount.ToString() + "/1";
     }
 
-
+    public void ResetRecipeQuestCard()
+    {
+        IngredientAP1.SetActive(false);
+        IngredientAP1A.SetActive(false);
+        IngredientAP1B.SetActive(false);
+        IngredientAP1C.SetActive(false);
+        IngredientAP1D.SetActive(false);
+        IngredientAP1E.SetActive(false);
+        IngredientAP2.SetActive(false);
+        IngredientAP2A.SetActive(false);
+        IngredientAP3.SetActive(false);
+        IngredientAP3A.SetActive(false);
+        IngredientMill1.SetActive(false);
+        IngredientWheat1A.SetActive(false);
+        IngredientWheat1B.SetActive(false);
+        IngredientWheat1C.SetActive(false);
+        IngredientWheat1D.SetActive(false);
+        IngredientWheat1E.SetActive(false);
+        RefCheckMark1.SetActive(false);
+        RefCrossOut1.SetActive(false);
+        RefCheckMark2.SetActive(false);
+        RefCrossOut2.SetActive(false);
+        RefCheckMark3.SetActive(false);
+        RefCrossOut3.SetActive(false);
+    }
 
 
 

@@ -27,6 +27,18 @@ public class CinemachineRaycastDriver : MonoBehaviour
     private LayerMask RecipeButtons;
     private cineCaminteractmouseover currentHoveredObject;
 
+
+    void Awake()
+    {
+        BootStrappin bootStrappin = FindFirstObjectByType<BootStrappin>();
+        if (bootStrappin != null)
+        {
+            bootStrappin.FindManagers();
+        }
+        //Changed cause the code below throws a couple of random errors depending on load orders ensures first load 
+        //BootStrappin bootStrappin = FindFirstObjectByType<BootStrappin>();
+        //bootStrappin.FindManagers();
+    }
     void Start()
     {
        

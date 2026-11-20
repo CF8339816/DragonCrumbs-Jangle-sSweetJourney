@@ -17,10 +17,12 @@ public class GameExitManager : MonoBehaviour
 {
     public static GameExitManager Instance { get; private set; }
     public float ExitDelay = 5f;
-    //public TextMeshProUGUI exitCountdownText;
+    public TextMeshProUGUI exitCountdownText;
     private float Countdown;
     private bool isExiting = false;
-     void Awake()
+
+
+    void Awake()
     {
         if (Instance != null && Instance != this)
         {
@@ -29,40 +31,53 @@ public class GameExitManager : MonoBehaviour
         }
         Instance = this;
         DontDestroyOnLoad(gameObject); // keeps script accessable accross scene changes
-        //ResetCountdown();                    
+        
+        BootStrappin bootStrappin = FindFirstObjectByType<BootStrappin>();
+        if (bootStrappin != null)
+        {
+            bootStrappin.FindManagers();
+        }
+        //Changed cause the code below throws a couple of random errors depending on load orders ensures first load 
+
+
+        //BootStrappin bootStrappin = FindFirstObjectByType<BootStrappin>();
+        // bootStrappin.FindManagers();
+
+        ResetCountdown();
     }
-    //private void Update()
-    //{
-    //    if (exitCountdownText == null)   {   exitCountdownText = GameObject.Find("exitCountdownText")?.GetComponent<TextMeshProUGUI>();   }
-    //}
+
+    private void Update()
+    {
+        if (exitCountdownText == null) { exitCountdownText = GameObject.Find("exitCountdownText")?.GetComponent<TextMeshProUGUI>(); }
+    }
     public void Ongameexit()
     {
         if (!isExiting)
         {
             isExiting = true;
-            //StartCoroutine(StartExitCountdown());
+            StartCoroutine(StartExitCountdown());
             ExitGame();
         }
     }
-    //public IEnumerator StartExitCountdown()
-    //{
-    //    while (Countdown > 0)
-    //    {
-    //        exitCountdownText.text = "Game Exit in: " + Mathf.Ceil(Countdown).ToString();// displays the countdown output in an always rounded up to whole int
-    //        yield return null;
-    //        Countdown -= Time.deltaTime;
-    //    }
-    //    exitCountdownText.text = "Exiting...";
-    //  
-    //}
-    //private void ResetCountdown()
-    //{
-    //    Countdown = ExitDelay;
-    //    if (exitCountdownText != null)
-    //    {
-    //        exitCountdownText.text = "";
-    //    }
-    //}
+    public IEnumerator StartExitCountdown()
+    {
+        while (Countdown > .1f)
+        {
+            exitCountdownText.text = "Game Exit in: " + Mathf.Ceil(Countdown).ToString();// displays the countdown output in an always rounded up to whole int
+            yield return null;
+            Countdown -= Time.deltaTime;
+        }
+        exitCountdownText.text = "Exiting...";
+
+    }
+    private void ResetCountdown()
+    {
+        Countdown = ExitDelay;
+        if (exitCountdownText != null)
+        {
+            exitCountdownText.text = "";
+        }
+    }
     public void ExitGame()
     {
         Debug.Log("Exiting Game...");

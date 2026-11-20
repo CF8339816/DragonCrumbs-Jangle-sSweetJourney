@@ -20,9 +20,17 @@ public class DialogManager : MonoBehaviour
 
     private void Awake()
     {
+        BootStrappin bootStrappin = FindFirstObjectByType<BootStrappin>();
+        if (bootStrappin != null)
+        {
+            bootStrappin.FindManagers();
+        }
+        //Changed cause the code below throws a couple of random errors depending on load orders ensures first load 
+
         if (dialogManager == null)//---- moved to ensure initalization before scripts ----CF
         {
             dialogManager = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {

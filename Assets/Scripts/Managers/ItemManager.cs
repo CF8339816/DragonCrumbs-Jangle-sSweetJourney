@@ -8,6 +8,10 @@ public class ItemManager : MonoBehaviour
     // move to survice hub/game manager latter
     public static ItemManager instace;
     public List<items> recipe = new List<items>();
+    public string cleanItem;
+    public int newCount;
+    public string item;
+
     public enum Recpie
     {
         none,
@@ -16,9 +20,17 @@ public class ItemManager : MonoBehaviour
         two
     }
     public Recpie currentRecpie;
-
+ //private BootStrappin bootStrappin;
     private void Awake() //----moved here to ensure it runs the exists check before other scripts to prtevent error---cf
     {
+        BootStrappin bootStrappin = FindFirstObjectByType<BootStrappin>();
+        if (bootStrappin != null)
+        {
+            bootStrappin.FindManagers();
+        }
+        //Changed cause the code below throws a couple of random errors depending on load orders ensures first load 
+
+        //bootStrappin.FindManagers();
         //remove when instance is moved to survace hub
         if (instace == null)
         {
@@ -35,6 +47,9 @@ public class ItemManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+      
+     
+
         ////remove when instance is moved to survace hub
         //if (instace == null)
         //{
@@ -110,18 +125,50 @@ public class ItemManager : MonoBehaviour
     {
         recipe.Clear();
         
+    }  
+    public void SyncWithStageAndUI(string cleanItem, int newCount)//---- added to bridge to  Stageinteractmanager and PlayerHUD text strings----CF
+    {
+        StageInteractManager stageInteractManager = FindFirstObjectByType<StageInteractManager>();
+        ObjectButtonsInteractables objectButtonsInteractables = FindFirstObjectByType<ObjectButtonsInteractables>();
+
+        if (stageInteractManager != null)
+        {
+            switch (cleanItem)
+            {
+                case "apple":
+                    stageInteractManager.AppleCount = newCount;
+                    if (objectButtonsInteractables != null) objectButtonsInteractables.SetApple_TXT();
+                    break;
+                case "wheat":
+                    stageInteractManager.WheatCount = newCount;
+                    if (objectButtonsInteractables != null) objectButtonsInteractables.SetWheat_TXT();
+                    break;
+                case "flour":
+                    stageInteractManager.FlourCount = newCount;
+                    if (objectButtonsInteractables != null) objectButtonsInteractables.SetFlour_TXT();
+                    break;
+                case "honey":
+                    stageInteractManager.HoneyCount = newCount;
+                    if (objectButtonsInteractables != null) objectButtonsInteractables.SetHoney_TXT();
+                    break;
+            }
+        }
     }
     public void AddToItem(string item)
     {
         item.ToLower();
         for(int i = 0; i < recipe.Count; i++)
         {
-            
-            if (recipe[i].itemName.ToLower() == item.ToLower())
+
+            //if (recipe[i].itemName.ToLower() == item.ToLower())
+            if (recipe[i].itemName.ToLower() == cleanItem)//---- Changed to bridge to  Stageinteractmanager and PlayerHUD text strings----CF
             {
 
                 Debug.Log($"you got {item}");
                 recipe[i].AddToItemCount();
+
+                SyncWithStageAndUI(cleanItem, recipe[i].amountHeld);//---- added to bridge to  Stageinteractmanager and PlayerHUD text strings----CF
+
                 if (recipe[i].amountHeld == recipe[i].amountNeeded)
                 {
                     //do stuff here
@@ -129,15 +176,25 @@ public class ItemManager : MonoBehaviour
             }
         }
     }
+
+
+  
+
+
     public bool CheckItem(string item)
     {
+        if (string.IsNullOrEmpty(item)) return false;//---- added to bridge to  Stageinteractmanager and PlayerHUD text strings----CF
+
         bool hasEnoughOfItem = false;
-        item.ToLower();
+        //item.ToLower();
+        string cleanItem = item.ToLower();//---- changed to bridge to  Stageinteractmanager and PlayerHUD text strings----CF
+
         for (int i = 0; i < recipe.Count; i++)
+
         {
-            if (recipe[i].itemName.ToLower() == item.ToLower())
+            //if (recipe[i].itemName.ToLower() == item.ToLower())
+            if (recipe[i].itemName.ToLower() == cleanItem)//---- Changed to bridge to  Stageinteractmanager and PlayerHUD text strings----CF
             {
-                
                 hasEnoughOfItem = recipe[i].HasEnoughOfItem();
                 if (hasEnoughOfItem)
                 {
