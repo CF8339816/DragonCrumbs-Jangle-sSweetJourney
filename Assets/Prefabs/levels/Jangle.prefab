@@ -501,6 +501,7 @@ MonoBehaviour:
   jumpSpeed: 12
   glideSpeed: -1
   jangleFlame: {fileID: 952532038202749417}
+  flameOn: 0
 --- !u!50 &7647610995749830765
 Rigidbody2D:
   serializedVersion: 5
@@ -868,11 +869,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7166918358997883249, guid: 482cc5e03c488fb41bd4a4c25115023b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.9
+      value: 3.6
       objectReference: {fileID: 0}
     - target: {fileID: 7166918358997883249, guid: 482cc5e03c488fb41bd4a4c25115023b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -15
+      value: -35.1
       objectReference: {fileID: 0}
     - target: {fileID: 7166918358997883249, guid: 482cc5e03c488fb41bd4a4c25115023b, type: 3}
       propertyPath: m_LocalRotation.w
