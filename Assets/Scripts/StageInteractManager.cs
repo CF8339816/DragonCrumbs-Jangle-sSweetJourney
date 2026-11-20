@@ -26,7 +26,7 @@ public class StageInteractManager : MonoBehaviour, IInteractable
     public ObjGOInteractionManager objGOInteractionManager;
     public MenuManager menuManager;
     public PieVisabilityManager pieVisabilityManager;
- 
+    public TravelMapManager travelMapManager;
 
     public JangleController playerScript;
     public LayerMask RecipeButtons;

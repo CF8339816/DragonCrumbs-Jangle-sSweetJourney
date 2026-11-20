@@ -31,14 +31,21 @@ public class MenuManager : MonoBehaviour
     private const int QUEST1B_INDEX = 2;
     private const int QUEST1C_INDEX = 3;
     private const int BAKERY_INDEX = 4;
-   
     private const int TRAVELMAP_INDEX = 5;
- 
+
+    public int STARTHUB;
+    public int QUEST1A;
+    public int QUEST1B;
+    public int QUEST1C;
+    public int BAKERYX;
+    public int TRAVELMAP;
+
+
     private int RETURNLEVEL_INDEX;
     public int ReturnIndex;
     private bool pendingQuestState = false;
     private bool pendingBakeryState = false;
-    private int nextIndex;
+    public int nextIndex;
     void Awake()
     {
         BootStrappin bootStrappin = FindFirstObjectByType<BootStrappin>();
@@ -64,13 +71,21 @@ public class MenuManager : MonoBehaviour
         ObjectButtonsInteractables objectButtonsInteractables = FindFirstObjectByType<ObjectButtonsInteractables>();
         //AutoHookupMenuButtons();
 
-    }
-    private void OnEnable()
+
+    STARTHUB = STARTHUB_INDEX;
+    QUEST1A = QUEST1A_INDEX;
+    QUEST1B = QUEST1B_INDEX;
+    QUEST1C = QUEST1C_INDEX;
+    BAKERYX = BAKERY_INDEX;
+    TRAVELMAP = TRAVELMAP_INDEX;
+
+}
+    public void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    private void OnDisable()
+    public void OnDisable()
     {
      SceneManager.sceneLoaded -= OnSceneLoaded;
     }
@@ -78,14 +93,14 @@ public class MenuManager : MonoBehaviour
     
     public void LoadLevelByIndex(int index)
     {
-        if (index >= 0 && index <5) 
+        if (index >= 0 && index <= 5) 
         {
             SceneManager.LoadScene(index);
     
         }
     }
 
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
 
         if (scene.buildIndex == STARTHUB_INDEX)
@@ -187,7 +202,6 @@ public class MenuManager : MonoBehaviour
 
     public void onTravel()
     {
-
 
         if (Jangle != null)
         {

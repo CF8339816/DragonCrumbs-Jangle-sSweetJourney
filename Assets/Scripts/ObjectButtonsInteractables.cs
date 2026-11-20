@@ -97,6 +97,8 @@ public class ObjectButtonsInteractables : MonoBehaviour
         if (bootStrappin != null)
         {
             bootStrappin.FindManagers();
+            if (menuManager == null) menuManager = bootStrappin.menuManager;
+            if (stageInteractManager == null) stageInteractManager = bootStrappin.stageInteractManager;
         }
         //Changed cause the code below throws a couple of random errors depending on load orders ensures first load 
         //BootStrappin bootStrappin = FindFirstObjectByType<BootStrappin>();
@@ -106,6 +108,7 @@ public class ObjectButtonsInteractables : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        SetDefaultText();
         SetBakeryState();
         DangleExit.SetActive(false);
         ////Instructions.SetActive(false);
@@ -243,12 +246,14 @@ public class ObjectButtonsInteractables : MonoBehaviour
 
     public void OnApplePieStart()
     {
-        GoToTravelMap();
-        SetQuestState();
         ActiveQuest[0] = "ApplePie";
+       
         currentQuest= 0;
-        ResetRecipeQuestCard();
+        if (ItemManager.instace != null) ItemManager.instace.LoadRecipe(ItemManager.Recpie.one);
+        SetQuestState();
 
+        ResetRecipeQuestCard();
+        GoToTravelMap();
 
     }
 
@@ -264,7 +269,13 @@ public class ObjectButtonsInteractables : MonoBehaviour
     }
 
 
-
+    public void SetDefaultText()
+    {
+        FirstIngredientCollected.text = "";
+        SecondIngredientCollected.text = "";
+        ThirdIngredientCollected.text = "";
+        FourthIngredientCollected.text = "";
+    }
 
     public void SetWheat_TXT()
     {

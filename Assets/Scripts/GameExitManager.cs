@@ -31,12 +31,22 @@ public class GameExitManager : MonoBehaviour
         }
         Instance = this;
         DontDestroyOnLoad(gameObject); // keeps script accessable accross scene changes
-        
+        exitCountdownText.text = "";
         BootStrappin bootStrappin = FindFirstObjectByType<BootStrappin>();
         if (bootStrappin != null)
         {
             bootStrappin.FindManagers();
         }
+        if (exitCountdownText == null)
+        {
+            // exitCountdownText = FindFirstObjectByType<TextMeshProUGUI>();
+            GameObject foundObj = GameObject.Find("exitCountdownText");
+            if (foundObj != null)
+            {
+                exitCountdownText = foundObj.GetComponent<TextMeshProUGUI>();
+            }
+        }
+
         //Changed cause the code below throws a couple of random errors depending on load orders ensures first load 
 
 

@@ -85,46 +85,86 @@ public class TravelMapManager : MonoBehaviour
         Countdown = StageLoadDelay;
         
     }
+    private void FindLocalReferences()
+    {
+        if (BootStrappin.Instance != null)
+        {
+            BootStrappin.Instance.FindManagers();
+            if (menuManager == null) menuManager = BootStrappin.Instance.menuManager;
+            if (objectButtonsInteractables == null) objectButtonsInteractables = BootStrappin.Instance.objectButtonsInteractables;
+            if (stageInteractManager == null) stageInteractManager = BootStrappin.Instance.stageInteractManager;
+        }
+
+        if (menuManager == null) menuManager = FindFirstObjectByType<MenuManager>();
+        if (objectButtonsInteractables == null) objectButtonsInteractables = FindFirstObjectByType<ObjectButtonsInteractables>();
+        if (stageInteractManager == null) stageInteractManager = FindFirstObjectByType<StageInteractManager>();
+    }
+
     public void LoadQuestLevel()
     {
-        if (menuManager == null)
-            menuManager = FindFirstObjectByType<MenuManager>();
+        FindLocalReferences();
 
-        if (objectButtonsInteractables == null)
-            objectButtonsInteractables = FindFirstObjectByType<ObjectButtonsInteractables>();
+        if (menuManager != null)
+        {
+            // [CODE REVIEW] Default to quest 0 (Apple Pie) if ObjectButtonsInteractables was unloaded with the Bakery scene
+            int questIndex = (objectButtonsInteractables != null) ? objectButtonsInteractables.currentQuest : 0;
 
-        if (menuManager != null && objectButtonsInteractables != null)
-        {
-            if (objectButtonsInteractables.currentQuest == 0)
+            if (questIndex == 0)
             {
-                menuManager.onLevel1();
-            }
-        }
-
-        else if (menuManager != null && objectButtonsInteractables != null)
-        {
-            if (objectButtonsInteractables.currentQuest == 0)
-            {
-                if (stageInteractManager.AppleCount < 5 || stageInteractManager.FlourCount < 1 || stageInteractManager.HoneyCount < 1)
-                menuManager.onLoadNextLevel();
-            }
-        }
-        
-        else if (menuManager != null && objectButtonsInteractables != null)
-        {
-            if (objectButtonsInteractables.currentQuest == 0)
-            {
-                if (stageInteractManager.AppleCount == 5 && stageInteractManager.FlourCount == 1 && stageInteractManager.HoneyCount == 1)
-                    menuManager.onBakery();
+                // [CODE REVIEW] Null-safe check in case StageInteractManager isn't in the TravelMap scene
+                if (stageInteractManager == null || (stageInteractManager.AppleCount < 1 && stageInteractManager.FlourCount < 1 && stageInteractManager.HoneyCount < 1))
+                {
+                    menuManager.onLevel1();
+                }
             }
         }
         else
         {
-                       
-            Debug.LogWarning("TravelMapManager: Missing MenuManager or ObjectButtonsInteractables!");
+            Debug.LogWarning("TravelMapManager: Missing MenuManager!");
         }
+    }
 
+    public void NextQuestLevel()
+    {
+        FindLocalReferences();
 
+        if (menuManager != null)
+        {
+            int questIndex = (objectButtonsInteractables != null) ? objectButtonsInteractables.currentQuest : 0;
 
+            if (questIndex == 0)
+            {
+                if (stageInteractManager == null || stageInteractManager.AppleCount < 5 || stageInteractManager.FlourCount < 1 || stageInteractManager.HoneyCount < 1)
+                {
+                    menuManager.onLoadNextLevel();
+                }
+            }
+        }
+        else
+        {
+            Debug.LogWarning("TravelMapManager: Missing MenuManager!");
+        }
+    }
+
+    public void LastQuestLevel()
+    {
+        FindLocalReferences();
+
+        if (menuManager != null)
+        {
+            int questIndex = (objectButtonsInteractables != null) ? objectButtonsInteractables.currentQuest : 0;
+
+            if (questIndex == 0)
+            {
+                if (stageInteractManager != null && stageInteractManager.AppleCount == 5 && stageInteractManager.FlourCount == 1 && stageInteractManager.HoneyCount == 1)
+                {
+                    menuManager.onBakery();
+                }
+            }
+        }
+        else
+        {
+            Debug.LogWarning("TravelMapManager: Missing MenuManager!");
+        }
     }
 }

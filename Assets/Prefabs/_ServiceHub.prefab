@@ -18,6 +18,9 @@ GameObject:
   - component: {fileID: 4250130618739359792}
   - component: {fileID: 3854175885471208990}
   - component: {fileID: 2784474505139376469}
+  - component: {fileID: 8040828822348675765}
+  - component: {fileID: 2251630951268802868}
+  - component: {fileID: 5141461712284848853}
   m_Layer: 0
   m_Name: _ServiceHub
   m_TagString: Untagged
@@ -33,7 +36,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1887375814404526371}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -53,6 +56,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameExitManager
   ExitDelay: 5
+  exitCountdownText: {fileID: 0}
 --- !u!114 &1240197563878807089
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65,10 +69,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1370c68bce237724d8f1971b18ea7089, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MenuManager
+  objectButtonsInteractables: {fileID: 0}
   Jangle: {fileID: 1038465398506774200, guid: 2fdf9bbf0274dda4b8de7faff03c2fc6, type: 3}
-  Instructions: {fileID: 3126994440105031056, guid: a3e723799f43ed1459a448018f82d7dd, type: 3}
+  Instructions: {fileID: 0}
   StartSplash: {fileID: 8419769341032362555, guid: 28f30adc5f6fce047a77fe7dd5649334, type: 3}
+  STARTHUB: 0
+  QUEST1A: 0
+  QUEST1B: 0
+  QUEST1C: 0
+  BAKERYX: 0
+  TRAVELMAP: 0
   ReturnIndex: 4
+  nextIndex: 0
 --- !u!114 &2068184330678862916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -257,6 +269,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemManager
   recipe: []
+  cleanItem: 
+  newCount: 0
+  item: 
   currentRecpie: 0
 --- !u!114 &2784474505139376469
 MonoBehaviour:
@@ -270,7 +285,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb6c86f57c2f61f4fb4e9b0062f28596, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjGOInteractionManager
-  targetCamera: {fileID: 8685989481953771072, guid: 482cc5e03c488fb41bd4a4c25115023b, type: 3}
+  targetCamera: {fileID: 0}
+  firstPersonCam: {fileID: 0}
+  enableRaycast: 0
   recipeLayerName: RecipeButtons
   environmentLayerName: EnvironmentButtons
   maxClickDistance: 100
@@ -290,3 +307,60 @@ MonoBehaviour:
   combinedMask:
     serializedVersion: 2
     m_Bits: 0
+--- !u!114 &8040828822348675765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1887375814404526371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc5ca2d4769a3534ebbf2fc153184e75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TravelMapManager
+  StageLoadDelay: 5
+  travelMapSceneName: TravelMap
+--- !u!114 &2251630951268802868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1887375814404526371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bace758e0eed6548a3fc82bea01b35d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AddAudio
+  millFlour: {fileID: 0}
+  Success: {fileID: 0}
+  ClimbLadder: {fileID: 0}
+  SFX1: {fileID: 0}
+  SFX2: {fileID: 0}
+  SFX3: {fileID: 0}
+  SFX4: {fileID: 0}
+  SFX5: {fileID: 0}
+  SFX6: {fileID: 0}
+  SFX7: {fileID: 0}
+  SFX8: {fileID: 0}
+  SFX9: {fileID: 0}
+  SFX10: {fileID: 0}
+  SFX11: {fileID: 0}
+  sourceSFXandDialogue: {fileID: 0}
+  startingVolume: 0.35
+  volumeSlider: {fileID: 0}
+--- !u!114 &5141461712284848853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1887375814404526371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edd631cf243d9924c951efd35d8c4e86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BackgroundMusicManager
+  musicSource: {fileID: 0}
+  backgroundTrack: {fileID: 0}

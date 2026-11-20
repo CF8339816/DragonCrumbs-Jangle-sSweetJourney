@@ -11922,7 +11922,15 @@ PrefabInstance:
     - target: {fileID: 215134155858997033, guid: 057c3d5d5ab57a34faeba8c38c78bec9, type: 3}
       propertyPath: onObjectClicked.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1072191057}
+      objectReference: {fileID: 8040828822348675765, guid: f9389a794ba45584d824083d1488aa29, type: 3}
+    - target: {fileID: 215134155858997033, guid: 057c3d5d5ab57a34faeba8c38c78bec9, type: 3}
+      propertyPath: onObjectClicked.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: NextQuestLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 215134155858997033, guid: 057c3d5d5ab57a34faeba8c38c78bec9, type: 3}
+      propertyPath: onObjectClicked.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: TravelMapManager, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 1316093083827108522, guid: 057c3d5d5ab57a34faeba8c38c78bec9, type: 3}
       propertyPath: m_Name
       value: ToNextev

@@ -44,7 +44,7 @@ public class BootStrappin : MonoBehaviour
 {
     [Header("System References")]// defines other scripts
 
-   
+    public TravelMapManager travelMapManager;
     public MenuManager menuManager;
     public DialogManager dialogManager;
     public GameExitManager gameExitManager;
@@ -107,6 +107,7 @@ public class BootStrappin : MonoBehaviour
         if (itemManager == null) itemManager = GetComponent<ItemManager>();
         if (objGOInteractionManager == null) objGOInteractionManager = GetComponent<ObjGOInteractionManager>();
         if (pieVisabilityManager == null) pieVisabilityManager = GetComponent<PieVisabilityManager>();
+        if (travelMapManager == null) travelMapManager = GetComponent<TravelMapManager>();
     }
 
     private void OnEnable()
@@ -137,7 +138,9 @@ public class BootStrappin : MonoBehaviour
         if (objGOInteractionManager == null) objGOInteractionManager = FindFirstObjectByType<ObjGOInteractionManager>();
 
         if (gameExitManager == null) gameExitManager = FindFirstObjectByType<GameExitManager>();
-
+        
+        if (travelMapManager == null) travelMapManager = FindFirstObjectByType<TravelMapManager>();
+      
         if (itemManager == null) itemManager = FindFirstObjectByType<ItemManager>();
 
         if (dialogManager == null) dialogManager = FindFirstObjectByType<DialogManager>();
