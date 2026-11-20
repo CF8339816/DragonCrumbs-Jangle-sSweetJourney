@@ -1,9 +1,11 @@
+using JetBrains.Annotations;
+using TMPro;
+using Unity.Cinemachine;
 using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
-using UnityEngine.UIElements;
-using Unity.Cinemachine;
 using UnityEngine.Rendering;
-using JetBrains.Annotations;
+using UnityEngine.Rendering.Universal;
+using UnityEngine.UIElements;
 #region coder & project
 /// <summary>
 /// NSCC GAME2065/4087/Game Development III(B)/Cameron,Jordan
@@ -19,7 +21,7 @@ public class ObjectButtonsInteractables : MonoBehaviour
 {    
 
      public MenuManager menuManager;
-
+    public StageInteractManager stageInteractManager;
 
     [Header("UI Elements")]//---- Defines Game Elements for active et calls----CF
     [SerializeField] public GameObject ReferenePanel;
@@ -42,10 +44,14 @@ public class ObjectButtonsInteractables : MonoBehaviour
     //[SerializeField] public GameObject Instructions;
 
 
+    [Header("Text outputs")]
+    public TextMeshProUGUI FirstIngredientCollected;
+    public TextMeshProUGUI SecondIngredientCollected;
+    public TextMeshProUGUI ThirdIngredientCollected;
+    public TextMeshProUGUI FourthIngredientCollected;
 
 
-
-    [Header ("Apple Pie recipie")]//---- defines quick ref visual objects for apple pie recipe----CF
+   [Header ("Apple Pie recipie")]//---- defines quick ref visual objects for apple pie recipe----CF
     [SerializeField] public GameObject IngredientAP1;
     [SerializeField] public GameObject IngredientAP1A;
     [SerializeField] public GameObject IngredientAP1B;
@@ -254,4 +260,32 @@ public class ObjectButtonsInteractables : MonoBehaviour
         else
             Debug.LogError("MenuManager could not be found in the scene!");
     }
+
+
+
+
+    public void SetWheat_TXT()
+    {
+       FourthIngredientCollected.text = "Sub ingredient Wheat(to mill Flour)" + stageInteractManager.WheatCount.ToString()+"/5" ;
+    }
+    public void SetApple_TXT()
+    {
+        FirstIngredientCollected.text =  stageInteractManager.AppleCount.ToString() + "/5";
+    }
+
+    public void SetFlour_TXT()
+    {
+        SecondIngredientCollected.text =  stageInteractManager.FlourCount.ToString() + "/5";
+    }
+
+    public void SetHoney_TXT()
+    {
+        ThirdIngredientCollected.text =  stageInteractManager.HoneyCount.ToString() + "/5";
+    }
+
+
+
+
+
+
 }

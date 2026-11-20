@@ -32,7 +32,7 @@ public class JangleController : MonoBehaviour
     private Rigidbody2D rb2d;
 
     private bool isGliding = false;
-    private bool flameOn = false;
+    public bool flameOn = false;
     private bool isFacingRight = false;
 
     private void Awake()

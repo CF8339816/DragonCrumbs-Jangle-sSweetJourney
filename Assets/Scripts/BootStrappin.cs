@@ -53,7 +53,7 @@ public class BootStrappin : MonoBehaviour
     public ObjectButtonsInteractables objectButtonsInteractables;
     public StageInteractManager stageInteractManager;
     public ObjGOInteractionManager objGOInteractionManager;
-
+    public PieVisabilityManager pieVisabilityManager;
     public GameObject mainCharacterCameraPrefab;
     public GameObject cinemachineMoveCamPrefab;
 
@@ -108,7 +108,7 @@ public class BootStrappin : MonoBehaviour
         if (interactableManager == null) interactableManager = GetComponent<InteractableManager>();
         if (itemManager == null) itemManager = GetComponent<ItemManager>();
         if (objGOInteractionManager == null) objGOInteractionManager = GetComponent<ObjGOInteractionManager>();
-
+        if (pieVisabilityManager == null) pieVisabilityManager = GetComponent<PieVisabilityManager>();
     }
 
     public void InitializeGlobalEventSystem()

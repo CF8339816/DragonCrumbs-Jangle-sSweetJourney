@@ -298,6 +298,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &11525909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 11525903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f361dd6d9157d2408fe2bfc78cab8c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  ProxyOvenRawPie: {fileID: 0}
+  ProxyBakedPie: {fileID: 0}
+  RawApplePieProxy: {fileID: 0}
 --- !u!1 &40858863
 GameObject:
   m_ObjectHideFlags: 0
@@ -3322,6 +3337,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5754877870375046274, guid: 4869fc6dfb0a46249a023c6bc7070fe7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 11525908}
+    - targetCorrespondingSourceObject: {fileID: 5754877870375046274, guid: 4869fc6dfb0a46249a023c6bc7070fe7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 11525909}
     - targetCorrespondingSourceObject: {fileID: 5859857173762560226, guid: 4869fc6dfb0a46249a023c6bc7070fe7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1836748404}

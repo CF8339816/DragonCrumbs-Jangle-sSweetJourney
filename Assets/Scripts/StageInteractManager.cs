@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Collections;
+
 #region coder & project
 /// <summary>
 /// NSCC GAME2065/4087/Game Development III(B)/Cameron,Jordan
@@ -16,18 +18,21 @@ using UnityEngine.UI;
 #endregion
 
 
-public class StageInteractManager : MonoBehaviour
+public class StageInteractManager : MonoBehaviour, IInteractable
 { 
       [Header("References")]
     public Transform firstPersonCam;
     public ObjectButtonsInteractables objectButtonsInteractables;
     public ObjGOInteractionManager objGOInteractionManager;
     public MenuManager menuManager;
+   private PieVisabilityManager pieVisabilityManager;
+
+
     public JangleController playerScript;
     public LayerMask RecipeButtons;
     public LayerMask EnvironmentButtons;
     public LayerMask combinedMask;
-    public CharacterController characterController;
+    private CharacterController characterController;
 
     private string currentTargetTag = "";
 
@@ -35,14 +40,15 @@ public class StageInteractManager : MonoBehaviour
     public float checkRange = 100f;//longer range for grapple and pull
     public float switchRange = 4f; // shorter range for button and switch
 
-    [Header("Interactables")]
-    public GameObject ProxyOvenRawPie;
-    public GameObject ProxyBakedPie;
-    public GameObject RawApplePieProxy;
-    public GameObject PrepBlock;
-    public GameObject Dangle;
-    public GameObject MillstoneClickable;
-    public GameObject Wheat;
+    //[Header("Interactables")]
+    //public GameObject ProxyOvenRawPie;
+    //public GameObject ProxyBakedPie;
+    //public GameObject RawApplePieProxy;
+    //public GameObject PrepBlock;
+    //public GameObject Dangle;
+    //public GameObject MillstoneClickable;
+    //public GameObject Wheat;
+    //public GameObject Sythe;
 
     [Header("Collection Variables")]
     public int WheatCount = 0;
@@ -112,8 +118,17 @@ public class StageInteractManager : MonoBehaviour
         {
             FlourCount = 0;
         }
-
+        objectButtonsInteractables.SetFlour_TXT();
     }
+
+    public void InteractBeeHive()
+    {
+       
+            HoneyCount = 1;
+        
+        objectButtonsInteractables.SetHoney_TXT();
+    }
+
 
     public void InteractSythe()
     {
@@ -131,30 +146,105 @@ public class StageInteractManager : MonoBehaviour
     {       
         GameObject wheat = GameObject.Find("Wheat");
               
-        if (wheat != null && wheat.TryGetComponent<BoxCollider>(out BoxCollider boxCollider))
+        if (wheat != null && wheat.TryGetComponent<BoxCollider2D>(out BoxCollider2D boxCollider2D))
         {
-            boxCollider.enabled = false;
+            boxCollider2D.enabled = false;
         }
     }
     public void EnableWheatCollider()
     {      
         GameObject wheat = GameObject.Find("Wheat");
 
-        if (wheat != null && wheat.TryGetComponent<BoxCollider>(out BoxCollider boxCollider))
+        if (wheat != null && wheat.TryGetComponent<BoxCollider2D>(out BoxCollider2D boxCollider2D))
         {
-            boxCollider.enabled = true;
+            boxCollider2D.enabled = true;
         }
     }
 
 
+    public void Interact()
+    {
+         
+
+        if (gameObject.CompareTag("PassiveInteractable"))
+        {
+            Debug.Log("Interacted with " + gameObject.name);
+           if (gameObject.name=="Wheat")
+            WheatCount ++;
+            Destroy(gameObject);
+            objectButtonsInteractables.SetWheat_TXT();
+        }
+
+        else if (gameObject.CompareTag("Apple"))
+        {
+            Debug.Log("Interacted with " + gameObject.name);
+            if (gameObject.name == "Apple")
+                AppleCount++;
+            Destroy(gameObject);
+            objectButtonsInteractables.SetApple_TXT();
+        }
 
 
 
+    }
 
+    
+       public void OnMakePie()
+    {
+        if (AppleCount == 5 && FlourCount == 1 && HoneyCount == 1)
+        {
+            AppleCount = 0;
+            FlourCount = 0;
+            HoneyCount = 0;
+            setPieVisibility();
+            
 
+          
+        }
+        else
+        {
+            
 
+        }
+    }
 
+    public void IntaDaOven()
+    {
+        pieVisabilityManager.RawApplePieProxy.SetActive(false);
+        pieVisabilityManager.ProxyOvenRawPie.SetActive(true);
+        pieVisabilityManager.ProxyBakedPie.SetActive(false);
+    }
 
+    public void OnBakingTime()
+    {
+        //pieVisabilityManager.RawApplePieProxy.SetActive(false);
+        //pieVisabilityManager.ProxyOvenRawPie.SetActive(false);
+        //playerScript.flameOn = true;
+        //await Task.Delay(5000); // 5000 milliseconds = 5 seconds
+        //playerScript.flameOn = false;
+        //pieVisabilityManager.ProxyBakedPie.SetActive(true);
+    
+        StartCoroutine(BakePieRoutine());
+    }
+
+    private IEnumerator BakePieRoutine()
+    {
+        pieVisabilityManager.RawApplePieProxy.SetActive(false);
+        pieVisabilityManager.ProxyOvenRawPie.SetActive(false);
+        playerScript.flameOn = true;
+
+        yield return new WaitForSeconds(5f);
+
+        playerScript.flameOn = false;
+        pieVisabilityManager.ProxyBakedPie.SetActive(true);
+    }
+
+    public void setPieVisibility()
+    {  
+        pieVisabilityManager.RawApplePieProxy.SetActive(true);
+        pieVisabilityManager.ProxyOvenRawPie.SetActive(false);
+        pieVisabilityManager.ProxyBakedPie.SetActive(false);   
+    }
 
 
 
