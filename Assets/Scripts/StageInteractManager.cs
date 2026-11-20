@@ -55,7 +55,7 @@ public class StageInteractManager : MonoBehaviour, IInteractable
     public int AppleCount = 0;
     public int FlourCount = 0;
     public int HoneyCount = 0;
-
+    public int FreshBakedPie = 0;
 
 
 
@@ -86,7 +86,51 @@ public class StageInteractManager : MonoBehaviour, IInteractable
         }
     }
 
-   public void HandleInteraction(string targetTag)
+
+    void Update()
+    {
+
+        UpdateCheckBoxes();
+
+
+
+
+    }
+
+    public void UpdateCheckBoxes()
+    {
+        if (AppleCount >=5)
+        {
+            objectButtonsInteractables.CheckMark1.SetActive(true);
+            objectButtonsInteractables.CrossOut1.SetActive(false);
+        }
+        else
+        {
+            objectButtonsInteractables.CheckMark1.SetActive(false);
+            objectButtonsInteractables.CrossOut1.SetActive(true);
+        }
+        if (FlourCount >= 1)
+        {
+            objectButtonsInteractables.CheckMark2.SetActive(true);
+            objectButtonsInteractables.CrossOut2.SetActive(false);
+        }
+        else
+        {
+            objectButtonsInteractables.CheckMark2.SetActive(false);
+            objectButtonsInteractables.CrossOut2.SetActive(true);
+        }
+        if (HoneyCount >= 1)
+        {
+            objectButtonsInteractables.CheckMark3.SetActive(true);
+            objectButtonsInteractables.CrossOut3.SetActive(false);
+        }
+        else
+        {
+            objectButtonsInteractables.CheckMark3.SetActive(false);
+            objectButtonsInteractables.CrossOut3.SetActive(true);
+        }
+    }
+    public void HandleInteraction(string targetTag)
     {
         switch (targetTag)
         {
@@ -197,15 +241,15 @@ public class StageInteractManager : MonoBehaviour, IInteractable
             FlourCount = 0;
             HoneyCount = 0;
             setPieVisibility();
-            
-
-          
         }
-        else
-        {
-            
+    }
 
-        }
+    public void PieForDangle()
+    {
+        pieVisabilityManager.RawApplePieProxy.SetActive(false);
+        pieVisabilityManager.ProxyOvenRawPie.SetActive(false);
+        pieVisabilityManager.ProxyBakedPie.SetActive(false);
+        FreshBakedPie = 1;
     }
 
     public void IntaDaOven()
@@ -246,7 +290,15 @@ public class StageInteractManager : MonoBehaviour, IInteractable
         pieVisabilityManager.ProxyBakedPie.SetActive(false);   
     }
 
+    public void interactDangle()
+    {
+        if (FreshBakedPie == 1)
+        {
 
+        }
+
+
+    }
 
 
 

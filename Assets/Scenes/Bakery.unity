@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 6391333}
   - component: {fileID: 6391332}
   - component: {fileID: 6391331}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: RawApplePieProxy
   m_TagString: ApplePie
   m_Icon: {fileID: 0}
@@ -191,9 +191,9 @@ MonoBehaviour:
   onObjectClicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1417601747}
-        m_TargetAssemblyTypeName: ObjectButtonsInteractables, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 1161676290}
+        m_TargetAssemblyTypeName: StageInteractManager, Assembly-CSharp
+        m_MethodName: IntaDaOven
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -286,13 +286,13 @@ MonoBehaviour:
   onObjectClicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1417601747}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 0
+      - m_Target: {fileID: 1161676290}
+        m_TargetAssemblyTypeName: StageInteractManager, Assembly-CSharp
+        m_MethodName: OnMakePie
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -310,9 +310,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f361dd6d9157d2408fe2bfc78cab8c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  ProxyOvenRawPie: {fileID: 0}
-  ProxyBakedPie: {fileID: 0}
-  RawApplePieProxy: {fileID: 0}
+  ProxyOvenRawPie: {fileID: 517230213}
+  ProxyBakedPie: {fileID: 637081631}
+  RawApplePieProxy: {fileID: 6391329}
+--- !u!114 &15417381 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1919581069696232281, guid: 05bd244785fe2304fa5ee7a42f699137, type: 3}
+  m_PrefabInstance: {fileID: 2185189454736152708}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &40858863
 GameObject:
   m_ObjectHideFlags: 0
@@ -968,13 +979,13 @@ MonoBehaviour:
   onObjectClicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1417601747}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 0
+      - m_Target: {fileID: 1161676290}
+        m_TargetAssemblyTypeName: StageInteractManager, Assembly-CSharp
+        m_MethodName: OnBakingTime
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1415,6 +1426,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &917526910 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2618057188546486244, guid: 05bd244785fe2304fa5ee7a42f699137, type: 3}
+  m_PrefabInstance: {fileID: 2185189454736152708}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &1000108481
 GameObject:
   m_ObjectHideFlags: 0
@@ -1820,6 +1842,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92b0a111cd4f5f94bb55dd829489d262, type: 3}
+--- !u!114 &1161676290 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6779613637237911946, guid: 92b0a111cd4f5f94bb55dd829489d262, type: 3}
+  m_PrefabInstance: {fileID: 1161676289}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1417601747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f81b24ecf96fb148bdf6db189886202, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StageInteractManager
 --- !u!1 &1207769819
 GameObject:
   m_ObjectHideFlags: 0
@@ -2275,6 +2308,17 @@ Transform:
   - {fileID: 1453552876}
   m_Father: {fileID: 235168182}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1522069246 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2877098745297755694, guid: 05bd244785fe2304fa5ee7a42f699137, type: 3}
+  m_PrefabInstance: {fileID: 2185189454736152708}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &1527311230 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7747150462383053113, guid: 4869fc6dfb0a46249a023c6bc7070fe7, type: 3}
@@ -2589,6 +2633,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1860687663 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5439533010522613276, guid: 05bd244785fe2304fa5ee7a42f699137, type: 3}
+  m_PrefabInstance: {fileID: 2185189454736152708}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &1966917550
 GameObject:
   m_ObjectHideFlags: 0
@@ -3063,6 +3118,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerHUD
       objectReference: {fileID: 0}
+    - target: {fileID: 9028762252356145940, guid: 05bd244785fe2304fa5ee7a42f699137, type: 3}
+      propertyPath: stageInteractManager
+      value: 
+      objectReference: {fileID: 1161676290}
+    - target: {fileID: 9028762252356145940, guid: 05bd244785fe2304fa5ee7a42f699137, type: 3}
+      propertyPath: FirstIngredientCollected
+      value: 
+      objectReference: {fileID: 15417381}
+    - target: {fileID: 9028762252356145940, guid: 05bd244785fe2304fa5ee7a42f699137, type: 3}
+      propertyPath: ThirdIngredientCollected
+      value: 
+      objectReference: {fileID: 917526910}
+    - target: {fileID: 9028762252356145940, guid: 05bd244785fe2304fa5ee7a42f699137, type: 3}
+      propertyPath: FourthIngredientCollected
+      value: 
+      objectReference: {fileID: 1522069246}
+    - target: {fileID: 9028762252356145940, guid: 05bd244785fe2304fa5ee7a42f699137, type: 3}
+      propertyPath: SecondIngredientCollected
+      value: 
+      objectReference: {fileID: 1860687663}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3232,6 +3307,14 @@ PrefabInstance:
     - target: {fileID: 5754877870375046274, guid: 4869fc6dfb0a46249a023c6bc7070fe7, type: 3}
       propertyPath: m_Name
       value: PrepBlock
+      objectReference: {fileID: 0}
+    - target: {fileID: 5754877870375046274, guid: 4869fc6dfb0a46249a023c6bc7070fe7, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5754877870375046274, guid: 4869fc6dfb0a46249a023c6bc7070fe7, type: 3}
+      propertyPath: m_TagString
+      value: PrepBoard
       objectReference: {fileID: 0}
     - target: {fileID: 5859857173762560226, guid: 4869fc6dfb0a46249a023c6bc7070fe7, type: 3}
       propertyPath: m_Layer
