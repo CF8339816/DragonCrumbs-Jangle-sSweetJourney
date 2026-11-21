@@ -100,16 +100,35 @@ public class ObjectButtonsInteractables : MonoBehaviour
             if (menuManager == null) menuManager = bootStrappin.menuManager;
             if (stageInteractManager == null) stageInteractManager = bootStrappin.stageInteractManager;
         }
+
+        if (menuManager == null)
+        { 
+            menuManager = FindFirstObjectByType<MenuManager>(); 
+        }
+        if (stageInteractManager == null)
+        { 
+            stageInteractManager = FindFirstObjectByType<StageInteractManager>();
+        }
+
         //Changed cause the code below throws a couple of random errors depending on load orders ensures first load 
         //BootStrappin bootStrappin = FindFirstObjectByType<BootStrappin>();
         //bootStrappin.FindManagers();
-        
+
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         SetDefaultText();
-        SetBakeryState();
+        if (MenuManager.Instance != null && MenuManager.Instance.hasActiveQuest)
+        {
+            SetQuestState();
+            RefreshAllIngredientTexts();
+        }
+        else
+        {
+            SetDefaultText();
+            SetBakeryState();
+        }
         DangleExit.SetActive(false);
         ////Instructions.SetActive(false);
         //ReferenePanel.SetActive(false);// ---- turns off the reference card when hud begins----CF
@@ -145,11 +164,14 @@ public class ObjectButtonsInteractables : MonoBehaviour
         if (QuestPanel != null)
         {
             QuestPanel.SetActive(true);
-
         }
 
+        
+        SetApple_TXT();
+        SetFlour_TXT();
+        SetHoney_TXT();
+        SetWheat_TXT();
     }
-  
 
     public void OnRecipeCheck()
     {
@@ -167,12 +189,13 @@ public class ObjectButtonsInteractables : MonoBehaviour
 
     public void OnRecipeConfirm()
     {
-        SetQuestState();
+        MenuManager.Instance.hasActiveQuest = true;
+        //SetQuestState();
         ReferenePanel.SetActive(false);
         menuManager.onTravel();
         ///set the info on the  corner recipe card and turn on the quest panel
-        isQuest = true;
-        isBakery = false;
+        //isQuest = true;
+        //isBakery = false;
     }
     public void OnRecipeRePick()
     {
@@ -246,17 +269,23 @@ public class ObjectButtonsInteractables : MonoBehaviour
 
     public void OnApplePieStart()
     {
+        if (menuManager == null) menuManager = FindFirstObjectByType<MenuManager>();
+        if (menuManager != null) menuManager.hasActiveQuest = true; 
         ActiveQuest[0] = "ApplePie";
-       
-        currentQuest= 0;
+        currentQuest = 0;
         if (ItemManager.instace != null) ItemManager.instace.LoadRecipe(ItemManager.Recpie.one);
         SetQuestState();
-
         ResetRecipeQuestCard();
         GoToTravelMap();
 
     }
-
+    public void RefreshAllIngredientTexts()
+    {
+        SetApple_TXT();
+        SetFlour_TXT();
+        SetHoney_TXT();
+        SetWheat_TXT();
+    }
     private void GoToTravelMap()
     {
         if (menuManager == null)
@@ -279,21 +308,31 @@ public class ObjectButtonsInteractables : MonoBehaviour
 
     public void SetWheat_TXT()
     {
-       FourthIngredientCollected.text = "Sub ingredient Wheat(to mill Flour)" + stageInteractManager.WheatCount.ToString()+"/5" ;
+        
+        if (stageInteractManager == null) stageInteractManager = FindFirstObjectByType<StageInteractManager>();
+        if (FourthIngredientCollected != null && stageInteractManager != null)
+            FourthIngredientCollected.text = "Sub ingredient Wheat(to mill Flour)" + stageInteractManager.WheatCount.ToString() + "/5";
     }
+
     public void SetApple_TXT()
     {
-        FirstIngredientCollected.text =  stageInteractManager.AppleCount.ToString() + "/5";
+        if (stageInteractManager == null) stageInteractManager = FindFirstObjectByType<StageInteractManager>();
+        if (FirstIngredientCollected != null && stageInteractManager != null)
+            FirstIngredientCollected.text = stageInteractManager.AppleCount.ToString() + "/5";
     }
 
     public void SetFlour_TXT()
     {
-        SecondIngredientCollected.text =  stageInteractManager.FlourCount.ToString() + "/1";
+        if (stageInteractManager == null) stageInteractManager = FindFirstObjectByType<StageInteractManager>();
+        if (SecondIngredientCollected != null && stageInteractManager != null)
+            SecondIngredientCollected.text = stageInteractManager.FlourCount.ToString() + "/1";
     }
 
     public void SetHoney_TXT()
     {
-        ThirdIngredientCollected.text =  stageInteractManager.HoneyCount.ToString() + "/1";
+        if (stageInteractManager == null) stageInteractManager = FindFirstObjectByType<StageInteractManager>();
+        if (ThirdIngredientCollected != null && stageInteractManager != null)
+            ThirdIngredientCollected.text = stageInteractManager.HoneyCount.ToString() + "/1";
     }
 
     public void ResetRecipeQuestCard()
