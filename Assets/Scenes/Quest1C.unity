@@ -763,14 +763,62 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1396117564}
     - target: {fileID: 6779613637237911946, guid: 92b0a111cd4f5f94bb55dd829489d262, type: 3}
+      propertyPath: travelMapManager
+      value: 
+      objectReference: {fileID: 897215485}
+    - target: {fileID: 6779613637237911946, guid: 92b0a111cd4f5f94bb55dd829489d262, type: 3}
       propertyPath: objectButtonsInteractables
       value: 
       objectReference: {fileID: 1553431630}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4136167807909413014, guid: 92b0a111cd4f5f94bb55dd829489d262, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 474069917}
   m_SourcePrefab: {fileID: 100100000, guid: 92b0a111cd4f5f94bb55dd829489d262, type: 3}
+--- !u!1 &474069916 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4136167807909413014, guid: 92b0a111cd4f5f94bb55dd829489d262, type: 3}
+  m_PrefabInstance: {fileID: 474069915}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &474069917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 474069916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1370c68bce237724d8f1971b18ea7089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MenuManager
+  objectButtonsInteractables: {fileID: 1553431630}
+  Jangle: {fileID: 1448614681}
+  Instructions: {fileID: 0}
+  StartSplash: {fileID: 0}
+  STARTHUB: 0
+  QUEST1A: 0
+  QUEST1B: 0
+  QUEST1C: 0
+  BAKERYX: 0
+  TRAVELMAP: 0
+  hasActiveQuest: 0
+  ReturnIndex: 0
+  nextIndex: 0
+--- !u!114 &474069918 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6779613637237911946, guid: 92b0a111cd4f5f94bb55dd829489d262, type: 3}
+  m_PrefabInstance: {fileID: 474069915}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 474069916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f81b24ecf96fb148bdf6db189886202, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StageInteractManager
 --- !u!114 &533924501 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7401257985490142586, guid: 8110ac57b0389ec4684cc025062795af, type: 3}
@@ -903,6 +951,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1240197563878807089, guid: f9389a794ba45584d824083d1488aa29, type: 3}
+      propertyPath: objectButtonsInteractables
+      value: 
+      objectReference: {fileID: 1553431630}
     - target: {fileID: 1887375814404526371, guid: f9389a794ba45584d824083d1488aa29, type: 3}
       propertyPath: m_Name
       value: _ServiceHub
@@ -915,6 +967,18 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4250130618739359792, guid: f9389a794ba45584d824083d1488aa29, type: 3}
+      propertyPath: dialogManager
+      value: 
+      objectReference: {fileID: 533924501}
+    - target: {fileID: 4250130618739359792, guid: f9389a794ba45584d824083d1488aa29, type: 3}
+      propertyPath: stageInteractManager
+      value: 
+      objectReference: {fileID: 474069918}
+    - target: {fileID: 4250130618739359792, guid: f9389a794ba45584d824083d1488aa29, type: 3}
+      propertyPath: objectButtonsInteractables
+      value: 
+      objectReference: {fileID: 1553431630}
     - target: {fileID: 5807701866550425621, guid: f9389a794ba45584d824083d1488aa29, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3101.7378
@@ -966,15 +1030,15 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: f9389a794ba45584d824083d1488aa29, type: 3}
 --- !u!114 &897215485 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1240197563878807089, guid: f9389a794ba45584d824083d1488aa29, type: 3}
+  m_CorrespondingSourceObject: {fileID: 8040828822348675765, guid: f9389a794ba45584d824083d1488aa29, type: 3}
   m_PrefabInstance: {fileID: 897215484}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1370c68bce237724d8f1971b18ea7089, type: 3}
+  m_Script: {fileID: 11500000, guid: fc5ca2d4769a3534ebbf2fc153184e75, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MenuManager
+  m_EditorClassIdentifier: Assembly-CSharp::TravelMapManager
 --- !u!1 &1274271198
 GameObject:
   m_ObjectHideFlags: 0
@@ -1164,6 +1228,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerHUD
       objectReference: {fileID: 0}
+    - target: {fileID: 9028762252356145940, guid: 05bd244785fe2304fa5ee7a42f699137, type: 3}
+      propertyPath: stageInteractManager
+      value: 
+      objectReference: {fileID: 474069918}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1256,6 +1324,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2fdf9bbf0274dda4b8de7faff03c2fc6, type: 3}
+--- !u!1 &1448614681 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1038465398506774200, guid: 2fdf9bbf0274dda4b8de7faff03c2fc6, type: 3}
+  m_PrefabInstance: {fileID: 1448614680}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1537117278
 GameObject:
   m_ObjectHideFlags: 0
@@ -1474,7 +1547,7 @@ MonoBehaviour:
   onObjectClicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 897215485}
+      - m_Target: {fileID: 474069917}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
         m_MethodName: onBakery
         m_Mode: 1
@@ -1598,7 +1671,7 @@ SphereCollider:
   m_ProvidesContacts: 1
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 0.8
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &7820715810936967140
 MeshRenderer:

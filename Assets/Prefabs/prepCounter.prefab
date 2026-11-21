@@ -353,7 +353,6 @@ GameObject:
   - component: {fileID: 3532103790404630908}
   - component: {fileID: 1940807026784236592}
   - component: {fileID: 6085181419576283305}
-  - component: {fileID: 5199316580419955745}
   - component: {fileID: 7958766638494477436}
   - component: {fileID: 9081442312944031540}
   m_Layer: 0
@@ -435,28 +434,6 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &5199316580419955745
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3781566831968078900}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 1
-  m_Enabled: 0
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &7958766638494477436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -469,11 +446,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcca6d22cd6543f4bab2f7dc78a9dfb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::cineCaminteractmouseover
-  Highlight: {r: 1, g: 0, b: 0.9943986, a: 0}
-  RecipeButtons:
-    serializedVersion: 2
-    m_Bits: 64
-  objectButtonsInteractables: {fileID: 0}
+  highlightColor: {r: 0.627451, g: 0.1254902, b: 0.9411765, a: 1}
+  onObjectClicked:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!65 &9081442312944031540
 BoxCollider:
   m_ObjectHideFlags: 0
