@@ -32,7 +32,8 @@ public class CinemachineRaycastDriver : MonoBehaviour
         "PrepBoard",
         "Ladder",
         "BeeHive",
-        "Basket"
+        "Basket",
+        "Dangle"
     };
 
     public float maxClickDistance = 100f;

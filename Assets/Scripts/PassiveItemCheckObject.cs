@@ -7,7 +7,7 @@ using UnityEngine;
 /// </summary>
 /// 
 
-public class PassiveItemCheckObject : MonoBehaviour
+public class PassiveItemCheckObject : MonoBehaviour, IInteractable (public class PassiveItemCheckObject : MonoBehaviour)
 {
     public StageInteractManager stageInteractManager;
     public MenuManager menuManager;

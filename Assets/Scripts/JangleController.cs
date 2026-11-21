@@ -46,7 +46,7 @@ public class JangleController : MonoBehaviour
         //Changed cause the code below throws a couple of random errors depending on load orders ensures first load 
         //BootStrappin bootStrappin = FindFirstObjectByType<BootStrappin>();
         //bootStrappin.FindManagers();
-
+        addAudio = FindFirstObjectByType<AddAudio>();
         inputActions = new PlayerControls();
         rb2d = GetComponent<Rigidbody2D>();
 
@@ -59,7 +59,7 @@ public class JangleController : MonoBehaviour
     private void OnEnable()
     {
         inputActions.Player.Enable();
-
+        inputActions.Player.Interact.performed += OnInteract; 
         inputActions.Player.Move.performed += OnMoveInput; // ---- WASD Movement ---- CF
         inputActions.Player.Move.canceled += OnMoveStopped;
 

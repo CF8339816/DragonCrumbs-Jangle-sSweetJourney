@@ -1,5 +1,7 @@
 //using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 //using UnityEngine.Rendering;
 using UnityEngine.UI;
 
@@ -42,6 +44,7 @@ public class AddAudio : MonoBehaviour
 
     [Header("UI Elements")]
     [SerializeField] public Slider volumeSlider; // defines  the slider ui element being used
+    private float currentNormalizedVolume = 0.35f; // stores default volume across scenes
 
     void Awake()
     {
@@ -54,11 +57,11 @@ public class AddAudio : MonoBehaviour
         //BootStrappin bootStrappin = FindFirstObjectByType<BootStrappin>();
         //bootStrappin.FindManagers();
 
-        GameObject sliderObject = GameObject.Find("Volume");
-        if (sliderObject != null)
-        {
-            volumeSlider = sliderObject.GetComponent<Slider>();
-        }
+        //GameObject sliderObject = GameObject.Find("VolumeSFX");
+        //if (sliderObject != null)
+        //{
+        //    volumeSlider = sliderObject.GetComponent<Slider>();
+        //}
 
         if (sourceSFXandDialogue == null) sourceSFXandDialogue = GetComponent<AudioSource>();
         if (sourceSFXandDialogue == null) sourceSFXandDialogue = gameObject.AddComponent<AudioSource>();
@@ -67,51 +70,79 @@ public class AddAudio : MonoBehaviour
         sourceSFXandDialogue.playOnAwake = false;
         sourceSFXandDialogue.mute = false;
 
+        currentNormalizedVolume = startingVolume;
+        sourceSFXandDialogue.volume = currentNormalizedVolume;
     }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        StartupAudio(); //finds the SFX slider in newly loaded scenes
+    }
+
     private void Start()
     {
         StartupAudio();
 
     }
-    public void StartupAudio()
+    public void StartupAudio()//slider name VolumeSFX
     {
-        sourceSFXandDialogue.volume = startingVolume; // Safely sets 0.35f fallback
+        if (volumeSlider == null)
+        {
+            GameObject sliderObject = GameObject.Find("VolumeSFX");
+            if (sliderObject != null)
+            {
+                volumeSlider = sliderObject.GetComponent<Slider>();
+            }
+        }
+
+        sourceSFXandDialogue.volume = currentNormalizedVolume; // Safely sets 0.35f fallback (or saved volume)
 
         if (volumeSlider != null)
         {
-            volumeSlider.minValue = 0f;
-            volumeSlider.maxValue = 1f;
+            
+            volumeSlider.onValueChanged.RemoveListener(OnVolumeChanged);// configures the slider 
+            volumeSlider.minValue = 1f;                                 // for 1 to 100 whole-number 
+            volumeSlider.maxValue = 100f;                               //increments without 
+            volumeSlider.wholeNumbers = true;                           //snapping back
 
-
-            if (volumeSlider.value != 1f && volumeSlider.value != 0f)// If another script already adjusted the slider from 1.0, match it
-            {
-                sourceSFXandDialogue.volume = volumeSlider.value;
-            }
-            else
-            {
-                volumeSlider.value = sourceSFXandDialogue.volume; // Handshake 0.35f to UI
-            }
-
+            volumeSlider.SetValueWithoutNotify(Mathf.Round(currentNormalizedVolume * 100f)); // provides 35 vol setting to UI without retriggering event
             volumeSlider.onValueChanged.AddListener(OnVolumeChanged);
-
         }
     }
 
     public void OnVolumeChanged(float newVolume)
     {
+        currentNormalizedVolume = Mathf.Clamp01(newVolume / 100f);// converts 1-100 slider value into 0.01f-1.0f AudioSource volume
         if (sourceSFXandDialogue != null)  //allose for volumme to be changedc based on slider valuie during play 
         {
             sourceSFXandDialogue.volume = newVolume;
         }
     }
-
+    private void ApplyCurrentVolume()
+    {
+        if (volumeSlider != null && sourceSFXandDialogue != null)
+        {
+            currentNormalizedVolume = Mathf.Clamp01(volumeSlider.value / 100f);
+            sourceSFXandDialogue.volume = currentNormalizedVolume;
+        }
+        else if (sourceSFXandDialogue != null)
+        {
+            sourceSFXandDialogue.volume = currentNormalizedVolume;
+        }
+    }
     public void OnMillFlour()
     {
-        if (volumeSlider != null && sourceSFXandDialogue != null)// presets volume per new govenrences above
-        {
-            sourceSFXandDialogue.volume = volumeSlider.value;
-        }
-
+        ApplyCurrentVolume();
         if (sourceSFXandDialogue != null && millFlour != null)
         {
             sourceSFXandDialogue.PlayOneShot(millFlour, 1.0f);//plays defined audio clip on ente of collider zone
@@ -122,11 +153,7 @@ public class AddAudio : MonoBehaviour
 
     public void OnSuccess()
     {
-        if (volumeSlider != null && sourceSFXandDialogue != null)// presets volume per new govenrences above
-        {
-            sourceSFXandDialogue.volume
-                = volumeSlider.value;
-        }
+        ApplyCurrentVolume();
         if (sourceSFXandDialogue != null && Success != null)
         {
             sourceSFXandDialogue.PlayOneShot(Success, 1.0f);//plays defined audio clip on ente of collider zone
@@ -134,10 +161,7 @@ public class AddAudio : MonoBehaviour
     }
     public void OnWingFlap()
     {
-        if (volumeSlider != null && sourceSFXandDialogue != null)// presets volume per new govenrences above
-        {
-            sourceSFXandDialogue.volume = volumeSlider.value;
-        }
+        ApplyCurrentVolume();
         if (sourceSFXandDialogue != null && WingFlap != null)
         {
             sourceSFXandDialogue.PlayOneShot(WingFlap, 1.0f);//plays defined audio clip on ente of collider zone
@@ -145,10 +169,7 @@ public class AddAudio : MonoBehaviour
     }
     public void OnFireBreath()
     {
-        if (volumeSlider != null && sourceSFXandDialogue != null)// presets volume per new govenrences above
-        {
-            sourceSFXandDialogue.volume = volumeSlider.value;
-        }
+        ApplyCurrentVolume();
         if (sourceSFXandDialogue != null && FireBreath != null)
         {
             sourceSFXandDialogue.PlayOneShot(FireBreath, 1.0f);//plays defined audio clip on ente of collider zone
@@ -156,10 +177,7 @@ public class AddAudio : MonoBehaviour
     }
     public void OnPickupSound()
     {
-        if (volumeSlider != null && sourceSFXandDialogue != null)// presets volume per new govenrences above
-        {
-            sourceSFXandDialogue.volume = volumeSlider.value;
-        }
+        ApplyCurrentVolume();
         if (sourceSFXandDialogue != null && PickupSound != null)
         {
             sourceSFXandDialogue.PlayOneShot(PickupSound, 1.0f);//plays defined audio clip on ente of collider zone
@@ -167,10 +185,7 @@ public class AddAudio : MonoBehaviour
     }
     public void OnWalkSound()
     {
-        if (volumeSlider != null && sourceSFXandDialogue != null)// presets volume per new govenrences above
-        {
-            sourceSFXandDialogue.volume = volumeSlider.value;
-        }
+        ApplyCurrentVolume();
         if (sourceSFXandDialogue != null && WalkSound != null)
         {
             sourceSFXandDialogue.PlayOneShot(WalkSound, 1.0f);//plays defined audio clip on ente of collider zone
@@ -178,10 +193,7 @@ public class AddAudio : MonoBehaviour
     }
     public void OnMiscDialogueGarble()
     {
-        if (volumeSlider != null && sourceSFXandDialogue != null)// presets volume per new govenrences above
-        {
-            sourceSFXandDialogue.volume = volumeSlider.value;
-        }
+        ApplyCurrentVolume();
         if (sourceSFXandDialogue != null && MiscDialogueGarble != null)
         {
             sourceSFXandDialogue.PlayOneShot(MiscDialogueGarble, 1.0f);//plays defined audio clip on ente of collider zone
@@ -189,10 +201,7 @@ public class AddAudio : MonoBehaviour
     }
     public void OnLanding()
     {
-        if (volumeSlider != null && sourceSFXandDialogue != null)// presets volume per new govenrences above
-        {
-            sourceSFXandDialogue.volume = volumeSlider.value;
-        }
+        ApplyCurrentVolume();
         if (sourceSFXandDialogue != null && Landing != null)
         {
             sourceSFXandDialogue.PlayOneShot(Landing, 1.0f);//plays defined audio clip on ente of collider zone
@@ -200,10 +209,7 @@ public class AddAudio : MonoBehaviour
     }
     public void OnVoicesNewSprites()
     {
-        if (volumeSlider != null && sourceSFXandDialogue != null)// presets volume per new govenrences above
-        {
-            sourceSFXandDialogue.volume = volumeSlider.value;
-        }
+        ApplyCurrentVolume();
         if (sourceSFXandDialogue != null && VoicesNewSprites != null) // [CODE REVIEW] Respect volume slider instead of forcing 1f
         {
             sourceSFXandDialogue.clip = VoicesNewSprites;
@@ -213,10 +219,7 @@ public class AddAudio : MonoBehaviour
     }
     public void OnVoiceDangle()
     {
-        if (volumeSlider != null && sourceSFXandDialogue != null)// presets volume per new govenrences above
-        {
-            sourceSFXandDialogue.volume = volumeSlider.value;
-        }
+        ApplyCurrentVolume();
         if (sourceSFXandDialogue != null && VoiceDangle != null)
         {
             sourceSFXandDialogue.clip = VoiceDangle;
@@ -226,10 +229,7 @@ public class AddAudio : MonoBehaviour
     }
     public void OnBeeHive()
     {
-        if (volumeSlider != null && sourceSFXandDialogue != null)// presets volume per new govenrences above
-        {
-            sourceSFXandDialogue.volume = volumeSlider.value;
-        }
+        ApplyCurrentVolume();
         if (sourceSFXandDialogue != null && BeeHive != null)
         {
             sourceSFXandDialogue.clip = BeeHive;
@@ -239,10 +239,7 @@ public class AddAudio : MonoBehaviour
     }
     public void OnSFX9()
     {
-        if (volumeSlider != null && sourceSFXandDialogue != null)// presets volume per new govenrences above
-        {
-            sourceSFXandDialogue.volume = volumeSlider.value;
-        }
+        ApplyCurrentVolume();
         if (sourceSFXandDialogue != null && SFX9 != null)
         {
             sourceSFXandDialogue.clip = SFX9;
@@ -252,10 +249,7 @@ public class AddAudio : MonoBehaviour
     }
     public void OnSFX10()
     {
-        if (volumeSlider != null && sourceSFXandDialogue != null)// presets volume per new govenrences above
-        {
-            sourceSFXandDialogue.volume = volumeSlider.value;
-        }
+        ApplyCurrentVolume();
         if (sourceSFXandDialogue != null && SFX10 != null)
         {
             sourceSFXandDialogue.clip = SFX10;
@@ -265,10 +259,7 @@ public class AddAudio : MonoBehaviour
     }
     public void OnSFX11()
     {
-        if (volumeSlider != null && sourceSFXandDialogue != null)// presets volume per new govenrences above
-        {
-            sourceSFXandDialogue.volume = volumeSlider.value;
-        }
+        ApplyCurrentVolume();
         if (sourceSFXandDialogue != null && SFX11 != null)
         {
             sourceSFXandDialogue.clip = SFX11;
