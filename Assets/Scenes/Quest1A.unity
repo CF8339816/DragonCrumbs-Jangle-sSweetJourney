@@ -671,7 +671,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TalkOrRead
   Dialog:
-  - there are 5 apples around here
+  - you need a few apples?
+  - well you can have some from my trees
+  - just grab this basket the fly on up
 --- !u!212 &318021322
 SpriteRenderer:
   serializedVersion: 2
