@@ -337,10 +337,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3787ef43f47802f438faf552c276d7dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TalkOrRead
-  dialogManager: {fileID: 0}
+  dialogManager: {fileID: 533924501}
   Dialog:
-  - hey I can't find this hives queen, if you could find her for me I;ll give you
-    some honey
+  - 'hey I can''t find this hives queen, if you could find her for me I;ll give you
+    some honey  '
 --- !u!212 &318021322
 SpriteRenderer:
   serializedVersion: 2
@@ -700,6 +700,17 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
+--- !u!114 &533924501 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7401257985490142586, guid: 8110ac57b0389ec4684cc025062795af, type: 3}
+  m_PrefabInstance: {fileID: 4326617902003001583}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a90eba18c9998c40a811d0c130a7ce6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialogManager
 --- !u!1 &877845673
 GameObject:
   m_ObjectHideFlags: 0
@@ -825,6 +836,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: _ServiceHub
       objectReference: {fileID: 0}
+    - target: {fileID: 2350509527145330638, guid: f9389a794ba45584d824083d1488aa29, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2945712248496364635, guid: f9389a794ba45584d824083d1488aa29, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5807701866550425621, guid: f9389a794ba45584d824083d1488aa29, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3101.7378
@@ -865,7 +884,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1533131269252181784, guid: f9389a794ba45584d824083d1488aa29, type: 3}
+    - {fileID: 2350509527145330638, guid: f9389a794ba45584d824083d1488aa29, type: 3}
+    - {fileID: 2945712248496364635, guid: f9389a794ba45584d824083d1488aa29, type: 3}
+    - {fileID: 3972760830203295978, guid: f9389a794ba45584d824083d1488aa29, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1222,9 +1245,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PassiveItemCheckObject
   stageInteractManager: {fileID: 0}
   menuManager: {fileID: 0}
+  dialogManager: {fileID: 0}
   itemToCheck: apple
   timer: 5
   nextSceneIndex: 4
+  dialogPass: []
+  dialogFail: []
 --- !u!4 &1694895707
 Transform:
   m_ObjectHideFlags: 0
