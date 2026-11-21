@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 215134155858997033}
   m_Layer: 7
   m_Name: ToNextev
-  m_TagString: ApplePie
+  m_TagString: NextLevelDebug
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

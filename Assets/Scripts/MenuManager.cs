@@ -40,7 +40,7 @@ public class MenuManager : MonoBehaviour
     public int BAKERYX;
     public int TRAVELMAP;
 
-
+    public bool hasActiveQuest = false;
     private int RETURNLEVEL_INDEX;
     public int ReturnIndex;
     private bool pendingQuestState = false;
@@ -193,10 +193,17 @@ public class MenuManager : MonoBehaviour
 
     public void onBakery()
     {
-        pendingQuestState = false;
-        pendingBakeryState = true;
+        if (hasActiveQuest)
+        {
+            pendingQuestState = true;
+            pendingBakeryState = false;
+        }
+        else
+        {
+            pendingQuestState = false;
+            pendingBakeryState = true;
+        }
         LoadLevelByIndex(BAKERY_INDEX);
-
     }
 
 
@@ -227,6 +234,7 @@ public class MenuManager : MonoBehaviour
     }
     public void onStart()
     {
+        hasActiveQuest = false;
         StartSplash.SetActive(false);
         Instructions.SetActive(false);
         onBakery();

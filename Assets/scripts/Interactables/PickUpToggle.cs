@@ -14,7 +14,8 @@ public class PickUpToggle : MonoBehaviour,IInteractable
             Debug.Log("activating triggers");
             for (int i = 0; i < Triggers.Length; i++)
             {
-                Triggers[i].enabled = true;
+                if (Triggers[i] != null)//----added to remove the  missing ref error happening from the destroyeed game objects----CF
+                    Triggers[i].enabled = true;
             }
             
         }
@@ -23,7 +24,8 @@ public class PickUpToggle : MonoBehaviour,IInteractable
             Debug.Log("deactivating triggers");
             for (int i = 0; i < Triggers.Length; i++)
             {
-                Triggers[i].enabled = false;
+                if (Triggers[i] != null)//----added to remove the  missing ref error happening from the destroyeed game objects----CF
+                    Triggers[i].enabled = false;
             }
             
         }

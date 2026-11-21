@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 #region coder & project
@@ -18,9 +19,27 @@ public class CinemachineRaycastDriver : MonoBehaviour
     public Camera targetCamera ;
 
     [Header("Filtering")]
-    public string targetLayerName = "RecipeButtons";
-    public string ApplePieTag = "ApplePie";
+   public string targetLayerName1 = "RecipeButtons";
+    public string targetLayerName2 = "EnvironmentButtons";
+    //public string ApplePieTag = "ApplePie";
     //public string otherrecipeTag = "otherrecipewheninitiated";
+
+    public List<string> interactableTags = new List<string> // [CODE REVIEW] Replaces single ApplePieTag with a multi-tag list
+    {
+        "ApplePie",
+        "ApplePieRecipe",
+        "MillStone",
+        "NextLevelDebug",
+        "Oven",
+        "PrepBoard",
+        "Ladder",
+        "BeeHive",
+        "Basket"
+    };
+
+
+
+
     public float maxClickDistance = 100f;
     public LayerMask EnvironmentButtons;
     public LayerMask combinedMask;
@@ -41,68 +60,106 @@ public class CinemachineRaycastDriver : MonoBehaviour
     }
     void Start()
     {
-       
+
         if (targetCamera == null)// checks to ensure script on a cam  
-            targetCamera = GetComponent<Camera>();
-
-       
-        if (targetCamera == null) //ensures the derfault is the main character cam withthe brain on it
-            targetCamera = GameObject.Find("MainCharacterCamera")?.GetComponent<Camera>();
-
-        if (targetCamera == null)
-            Debug.LogError("ClickThroughRaycaster: No Camera found! Please assign your Camera in the Inspector.");
-
-        RecipeButtons = LayerMask.GetMask(targetLayerName); // sets the layermask as defined above
-        if (RecipeButtons == 0)
-            Debug.LogWarning("Layer '" + targetLayerName + "' does not exist! Check Project Settings > Tags and Layers.");
-
-        //EnvironmentButtons = LayerMask.GetMask(targetLayerName); // sets the layermask as defined above
-        //if (EnvironmentButtons == 0)
-        //    Debug.LogWarning("Layer '" + targetLayerName + "' does not exist! Check Project Settings > Tags and Layers.");
-
-
-        combinedMask = RecipeButtons | EnvironmentButtons;
-
-    }
-
-    void Update()
-    {
-        if (Mouse.current == null || targetCamera == null) return;
-
-       
-        Vector2 mousePos = Mouse.current.position.ReadValue();// casts ray from mouse oposition
-        Ray ray = targetCamera.ScreenPointToRay(mousePos);
-
-       
-        if (Physics.Raycast(ray, out RaycastHit hit, maxClickDistance, combinedMask)) // only registers hits on the RecipeButtons layer
         {
-           
-            if (hit.collider.CompareTag(ApplePieTag))// vetts  selectable  based on tag  may be changed to recipies later if more are added , is specifically singled out for demo
-            { 
-                cineCaminteractmouseover button = hit.collider.GetComponent<cineCaminteractmouseover>();
-
-                
-                if (button != currentHoveredObject)// highlights
-                {
-                    ClearHover();
-                    currentHoveredObject = button;
-                    if (currentHoveredObject != null)
-                        currentHoveredObject.SetHighlight(true);
-                }
-
-                if (Mouse.current.leftButton.wasPressedThisFrame && currentHoveredObject != null)// triggers event
-                {
-                    currentHoveredObject.TriggerClick();
-                }
-
-                return;
-            }
+            targetCamera = GetComponent<Camera>();
         }
 
+        if (targetCamera == null) //ensures the derfault is the main character cam withthe brain on it
 
-        ClearHover(); //calls to reset method to remove highlight
+        {
+            targetCamera = GameObject.Find("MainCharacterCamera")?.GetComponent<Camera>();
+
+        }
+        if (targetCamera == null)
+        {
+            Debug.LogError("ClickThroughRaycaster: No Camera found! Please assign your Camera in the Inspector.");
+
+            RecipeButtons = LayerMask.GetMask(targetLayerName1); // sets the layermask as defined above
+            EnvironmentButtons = LayerMask.GetMask(targetLayerName2);
+            if (RecipeButtons == 0)
+            {
+                Debug.LogWarning("Layer '" + targetLayerName1 + "' does not exist! Check Project Settings > Tags and Layers.");
+            }
+            //EnvironmentButtons = LayerMask.GetMask(targetLayerName); // sets the layermask as defined above
+            //if (EnvironmentButtons == 0)
+            //    Debug.LogWarning("Layer '" + targetLayerName + "' does not exist! Check Project Settings > Tags and Layers.");
+            if (EnvironmentButtons == 0)
+            {
+                Debug.LogWarning("Layer '" + targetLayerName2 + "' does not exist! Check Project Settings > Tags and Layers.");
+                //EnvironmentButtons = LayerMask.GetMask(environmentLayerName);
+            }
+            combinedMask = RecipeButtons | EnvironmentButtons;
+
+        }
+
+        void Update()
+        {
+            if (Mouse.current == null || targetCamera == null) return;
+            {
+
+                Vector2 mousePos = Mouse.current.position.ReadValue();// casts ray from mouse oposition
+                Ray ray = targetCamera.ScreenPointToRay(mousePos);
+
+                if (Physics.Raycast(ray, out RaycastHit hit, maxClickDistance, combinedMask))
+                {
+                    if (interactableTags.Contains(hit.collider.tag))
+                    {
+                        HandleHoverAndClick(hit.collider.GetComponent<cineCaminteractmouseover>());
+                        return;
+                    }
+                }
+                RaycastHit2D hit2D = Physics2D.GetRayIntersection(ray, maxClickDistance, combinedMask);
+                if (hit2D.collider != null && interactableTags.Contains(hit2D.collider.tag))
+                {
+                    HandleHoverAndClick(hit2D.collider.GetComponent<cineCaminteractmouseover>());
+                    return;
+                }
+                //if (Physics.Raycast(ray, out RaycastHit hit, maxClickDistance, combinedMask)) // only registers hits on the RecipeButtons layer
+                //{
+
+                //    if (hit.collider.CompareTag(ApplePieTag))// vetts  selectable  based on tag  may be changed to recipies later if more are added , is specifically singled out for demo
+                //    { 
+                //        cineCaminteractmouseover button = hit.collider.GetComponent<cineCaminteractmouseover>();
+
+
+                //        if (button != currentHoveredObject)// highlights
+                //        {
+                //            ClearHover();
+                //            currentHoveredObject = button;
+                //            if (currentHoveredObject != null)
+                //                currentHoveredObject.SetHighlight(true);
+                //        }
+
+                //        if (Mouse.current.leftButton.wasPressedThisFrame && currentHoveredObject != null)// triggers event
+                //        {
+                //            currentHoveredObject.TriggerClick();
+                //        }
+
+                //        return;
+                //    }
+            }
+
+
+            ClearHover(); //calls to reset method to remove highlight
+        }
     }
+    private void HandleHoverAndClick(cineCaminteractmouseover button)
+    {
+        if (button != currentHoveredObject)// highlights
+        {
+            ClearHover();
+            currentHoveredObject = button;
+            if (currentHoveredObject != null)
+                currentHoveredObject.SetHighlight(true);
+        }
 
+        if (Mouse.current.leftButton.wasPressedThisFrame && currentHoveredObject != null)// triggers event
+        {
+            currentHoveredObject.TriggerClick();
+        }
+    }
     private void ClearHover()// clears the mouseover highlight
     {
         if (currentHoveredObject != null)

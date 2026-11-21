@@ -64,6 +64,7 @@ public class StageInteractManager : MonoBehaviour, IInteractable
         if (bootStrappin != null)
         {
             bootStrappin.FindManagers();
+
         }
         //Changed cause the code below throws a couple of random errors depending on load orders ensures first load 
         //BootStrappin bootStrappin = FindFirstObjectByType< BootStrappin > ();
