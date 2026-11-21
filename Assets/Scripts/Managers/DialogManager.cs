@@ -22,7 +22,7 @@ public class DialogManager : MonoBehaviour
     public bool talking = false;
 
     private Queue<string> dialog;
-
+    private AddAudio addAudio;
     private string currentText;
 
     public GameObject textBox;
@@ -45,6 +45,10 @@ public class DialogManager : MonoBehaviour
         {
             Destroy(gameObject);// ----changed to ensure no empty game objects left ----cf
         }
+
+
+        if (addAudio == null) addAudio = FindFirstObjectByType<AddAudio>();
+
     }
 
     private void OnEnable()
@@ -108,10 +112,12 @@ public class DialogManager : MonoBehaviour
     {
         if (!wrighting)
         {
+            
             ClearDialog();
             if (dialog.Count == 0)
             {
                 StopTalking();
+               
                 return;
             }
             currentText = dialog.Dequeue();
@@ -136,12 +142,14 @@ public class DialogManager : MonoBehaviour
     IEnumerator WriteDialog()
     {
         wrighting = true;
+        addAudio.OnVoicesNewSprites();
         for (int i = 0; i < currentText.Length; i += 1)
         {
             WriteDialog(currentText[i].ToString());
             yield return new WaitForSeconds(wrightSpeed);
         }
         wrighting = false;
+        addAudio.StopVoicesNewSprites();
     }
 
     // Update is called once per frame

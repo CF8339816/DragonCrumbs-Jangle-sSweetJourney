@@ -251,6 +251,16 @@ public class AddAudio : MonoBehaviour
             sourceSFXandDialogue.Play();
         }
     }
+
+    public void StopVoicesNewSprites()
+    {
+        if (sourceSFXandDialogue != null && sourceSFXandDialogue.clip == VoicesNewSprites)
+        {
+            sourceSFXandDialogue.Stop();
+            sourceSFXandDialogue.loop = false;
+        }
+    }
+
     public void OnVoiceDangle()
     {
         ApplyCurrentVolume();
@@ -261,6 +271,16 @@ public class AddAudio : MonoBehaviour
             sourceSFXandDialogue.Play();
         }
     }
+
+    public void StopVoiceDangle()
+    {
+        if (sourceSFXandDialogue != null && sourceSFXandDialogue.clip == VoiceDangle)
+        {
+            sourceSFXandDialogue.Stop();
+            sourceSFXandDialogue.loop = false;
+        }
+    }
+
     public void OnBeeHive()
     {
         ApplyCurrentVolume();
@@ -269,6 +289,15 @@ public class AddAudio : MonoBehaviour
             sourceSFXandDialogue.clip = BeeHive;
             sourceSFXandDialogue.loop = false;
             sourceSFXandDialogue.Play();
+        }
+    }
+    
+    public void StopBeeHivek()
+    {
+        if (sourceSFXandDialogue != null && sourceSFXandDialogue.clip == BeeHive)
+        {
+            sourceSFXandDialogue.Stop();
+            sourceSFXandDialogue.loop = false;
         }
     }
     public void OnSFX9()

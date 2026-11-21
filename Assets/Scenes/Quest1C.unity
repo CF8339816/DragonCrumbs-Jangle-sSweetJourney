@@ -341,6 +341,8 @@ MonoBehaviour:
   Dialog:
   - 'hey I can''t find this hives queen, if you could find her for me I;ll give you
     some honey  '
+  - 'Hey thanks the bees should calm down now.... '
+  - 'here is some fresh honey  i hope the pie turns out good!! '
 --- !u!212 &318021322
 SpriteRenderer:
   serializedVersion: 2
@@ -409,8 +411,8 @@ Transform:
   m_GameObject: {fileID: 318021318}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 33.6, y: 8.74, z: 0}
-  m_LocalScale: {x: 8.05, y: 8.05, z: 8.05}
+  m_LocalPosition: {x: 33.6, y: 6, z: 0}
+  m_LocalScale: {x: 5.6, y: 5.6, z: 5.6}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -700,6 +702,86 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
+--- !u!1001 &474069915
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1150466861331689813, guid: 92b0a111cd4f5f94bb55dd829489d262, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -17.75048
+      objectReference: {fileID: 0}
+    - target: {fileID: 1150466861331689813, guid: 92b0a111cd4f5f94bb55dd829489d262, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1150466861331689813, guid: 92b0a111cd4f5f94bb55dd829489d262, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 16.66629
+      objectReference: {fileID: 0}
+    - target: {fileID: 1150466861331689813, guid: 92b0a111cd4f5f94bb55dd829489d262, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1150466861331689813, guid: 92b0a111cd4f5f94bb55dd829489d262, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1150466861331689813, guid: 92b0a111cd4f5f94bb55dd829489d262, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1150466861331689813, guid: 92b0a111cd4f5f94bb55dd829489d262, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1150466861331689813, guid: 92b0a111cd4f5f94bb55dd829489d262, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1150466861331689813, guid: 92b0a111cd4f5f94bb55dd829489d262, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1150466861331689813, guid: 92b0a111cd4f5f94bb55dd829489d262, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4136167807909413014, guid: 92b0a111cd4f5f94bb55dd829489d262, type: 3}
+      propertyPath: m_Name
+      value: StageInteractManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 6779613637237911946, guid: 92b0a111cd4f5f94bb55dd829489d262, type: 3}
+      propertyPath: playerScript
+      value: 
+      objectReference: {fileID: 1686748734}
+    - target: {fileID: 6779613637237911946, guid: 92b0a111cd4f5f94bb55dd829489d262, type: 3}
+      propertyPath: firstPersonCam
+      value: 
+      objectReference: {fileID: 1396117564}
+    - target: {fileID: 6779613637237911946, guid: 92b0a111cd4f5f94bb55dd829489d262, type: 3}
+      propertyPath: objectButtonsInteractables
+      value: 
+      objectReference: {fileID: 1553431630}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 92b0a111cd4f5f94bb55dd829489d262, type: 3}
+--- !u!114 &474069916 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6779613637237911946, guid: 92b0a111cd4f5f94bb55dd829489d262, type: 3}
+  m_PrefabInstance: {fileID: 474069915}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f81b24ecf96fb148bdf6db189886202, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StageInteractManager
 --- !u!114 &533924501 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7401257985490142586, guid: 8110ac57b0389ec4684cc025062795af, type: 3}
@@ -1087,6 +1169,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 05bd244785fe2304fa5ee7a42f699137, type: 3}
+--- !u!4 &1396117564 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 907869416888047876, guid: 2fdf9bbf0274dda4b8de7faff03c2fc6, type: 3}
+  m_PrefabInstance: {fileID: 1448614680}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1448614680
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1209,11 +1296,33 @@ MonoBehaviour:
   newCount: 0
   item: 
   currentRecpie: 2
+--- !u!114 &1553431630 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9028762252356145940, guid: 05bd244785fe2304fa5ee7a42f699137, type: 3}
+  m_PrefabInstance: {fileID: 1393135110}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cee1c40b8d68ae94a8af53752cdf16e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectButtonsInteractables
 --- !u!4 &1686748731 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5032358127009617744, guid: 2fdf9bbf0274dda4b8de7faff03c2fc6, type: 3}
   m_PrefabInstance: {fileID: 1448614680}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1686748734 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8298714858937829163, guid: 2fdf9bbf0274dda4b8de7faff03c2fc6, type: 3}
+  m_PrefabInstance: {fileID: 1448614680}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da758f1b096e02a41a8d758315dd86ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::JangleController
 --- !u!1 &1694895705
 GameObject:
   m_ObjectHideFlags: 0
@@ -1356,9 +1465,9 @@ MonoBehaviour:
   onObjectClicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1240197563878807089, guid: f9389a794ba45584d824083d1488aa29, type: 3}
-        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-        m_MethodName: onBakery
+      - m_Target: {fileID: 474069916}
+        m_TargetAssemblyTypeName: StageInteractManager, Assembly-CSharp
+        m_MethodName: InteractNextLevelDebug
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1556,3 +1665,4 @@ SceneRoots:
   - {fileID: 1448614680}
   - {fileID: 8577962632812699029}
   - {fileID: 897215484}
+  - {fileID: 474069915}

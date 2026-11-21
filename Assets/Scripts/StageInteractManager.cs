@@ -57,9 +57,11 @@ public class StageInteractManager : MonoBehaviour, IInteractable
     public int HoneyCount = 0;
     public int FreshBakedPie = 0;
 
+    public static StageInteractManager Instance { get; private set; }
 
     void Awake()
     {
+        Instance = this;
         BootStrappin bootStrappin = FindFirstObjectByType<BootStrappin>();
         if (bootStrappin != null)
         {
@@ -142,7 +144,7 @@ public class StageInteractManager : MonoBehaviour, IInteractable
 
     void Update()
     {
-
+       
         UpdateCheckBoxes();
 
 
@@ -249,7 +251,18 @@ public class StageInteractManager : MonoBehaviour, IInteractable
             if (objectButtonsInteractables.CheckMark3 != null) objectButtonsInteractables.CheckMark3.SetActive(false);
             if (objectButtonsInteractables.CrossOut3 != null) objectButtonsInteractables.CrossOut3.SetActive(true);
         }
-
+        if (AppleCount <= 0 && objectButtonsInteractables.IngredientAP1A != null) objectButtonsInteractables.IngredientAP1A.SetActive(false);
+        if (AppleCount <= 0 && objectButtonsInteractables.IngredientAP1B != null) objectButtonsInteractables.IngredientAP1B.SetActive(false);
+        if (AppleCount <= 0 && objectButtonsInteractables.IngredientAP1C != null) objectButtonsInteractables.IngredientAP1C.SetActive(false);
+        if (AppleCount <= 0 && objectButtonsInteractables.IngredientAP1D != null) objectButtonsInteractables.IngredientAP1D.SetActive(false);
+        if (AppleCount <= 0 && objectButtonsInteractables.IngredientAP1E != null) objectButtonsInteractables.IngredientAP1E.SetActive(false);
+        if (FlourCount <= 0 && objectButtonsInteractables.IngredientAP2A != null) objectButtonsInteractables.IngredientAP2A.SetActive(false);
+        if (HoneyCount <= 0 && objectButtonsInteractables.IngredientAP3A != null) objectButtonsInteractables.IngredientAP3A.SetActive(false);
+        if (WheatCount <= 0 && objectButtonsInteractables.IngredientWheat1A != null) objectButtonsInteractables.IngredientWheat1A.SetActive(false);
+        if (WheatCount <= 0 && objectButtonsInteractables.IngredientWheat1B != null) objectButtonsInteractables.IngredientWheat1B.SetActive(false);
+        if (WheatCount <= 0 && objectButtonsInteractables.IngredientWheat1C != null) objectButtonsInteractables.IngredientWheat1C.SetActive(false);
+        if (WheatCount <= 0 && objectButtonsInteractables.IngredientWheat1D != null) objectButtonsInteractables.IngredientWheat1D.SetActive(false);
+        if (WheatCount <= 0 && objectButtonsInteractables.IngredientWheat1E != null) objectButtonsInteractables.IngredientWheat1E.SetActive(false);
         if (AppleCount >= 1 && objectButtonsInteractables.IngredientAP1A != null) objectButtonsInteractables.IngredientAP1A.SetActive(true);
         if (AppleCount >= 2 && objectButtonsInteractables.IngredientAP1B != null) objectButtonsInteractables.IngredientAP1B.SetActive(true);
         if (AppleCount >= 3 && objectButtonsInteractables.IngredientAP1C != null) objectButtonsInteractables.IngredientAP1C.SetActive(true);
@@ -300,7 +313,7 @@ public class StageInteractManager : MonoBehaviour, IInteractable
     }
     public void InteractBeeHive()
     {
-        addAudio.OnSuccess();
+        addAudio.OnBeeHive();
         HoneyCount = 1;
         SaveCountsToPersistent();
         if (objectButtonsInteractables != null)
@@ -313,8 +326,17 @@ public class StageInteractManager : MonoBehaviour, IInteractable
     }
     public void InteractNextLevelDebug()
     {
+        if (menuManager == null) menuManager = MenuManager.Instance;
+        if (menuManager == null) menuManager = FindFirstObjectByType<MenuManager>();
+
         if (menuManager != null)
+        {
             menuManager.onLoadNextLevel();
+        }
+        else
+        {
+            Debug.LogWarning("StageInteractManager: MenuManager not found!");
+        }
     }
     public void DisableWheatCollider()
     {
