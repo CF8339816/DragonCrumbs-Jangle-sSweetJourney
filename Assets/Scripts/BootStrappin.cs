@@ -127,6 +127,12 @@ public class BootStrappin : MonoBehaviour
 
     public void FindManagers()// assigns the name of the if they are not already defined for stage use redundanct check
     {
+        stageInteractManager = FindFirstObjectByType<StageInteractManager>();
+        objectButtonsInteractables = FindFirstObjectByType<ObjectButtonsInteractables>();
+        pieVisabilityManager = FindFirstObjectByType<PieVisabilityManager>();
+        objGOInteractionManager = FindFirstObjectByType<ObjGOInteractionManager>();
+
+
         if (stageInteractManager == null) stageInteractManager = FindFirstObjectByType<StageInteractManager>();
 
         if (objectButtonsInteractables == null) objectButtonsInteractables = FindFirstObjectByType<ObjectButtonsInteractables>();

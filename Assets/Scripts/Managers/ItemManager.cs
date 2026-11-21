@@ -154,20 +154,33 @@ public class ItemManager : MonoBehaviour
             }
         }
     }
-    public void AddToItem(string item)
+    public void AddToItem(string item)//---- major changes to try and getthe output to work accross scripts for the quest tracking hud outputs fullrework of method----CF
     {
-        item.ToLower();
-        for(int i = 0; i < recipe.Count; i++)
+
+        if (string.IsNullOrEmpty(item))
         {
+            Debug.LogWarning("[ItemManager] AddToItem was called with an EMPTY item name! Check 'Item To Add' on your pickup prefab.");
+            return;
+        }
 
-            //if (recipe[i].itemName.ToLower() == item.ToLower())
-            if (recipe[i].itemName.ToLower() == cleanItem)//---- Changed to bridge to  Stageinteractmanager and PlayerHUD text strings----CF
+        if (recipe == null || recipe.Count == 0)
+        {
+            LoadRecipe(Recpie.one);
+        }
+
+        string cleanItem = item.Trim().ToLower();
+        bool matched = false;
+
+        for (int i = 0; i < recipe.Count; i++)
+        {
+            if (recipe[i].itemName.ToLower() == cleanItem)
             {
-
-                Debug.Log($"you got {item}");
+                matched = true;
+                Debug.Log($"[ItemManager] Collected '{cleanItem}' -> New count: {recipe[i].amountHeld + 1}/{recipe[i].amountNeeded}");
                 recipe[i].AddToItemCount();
 
-                SyncWithStageAndUI(cleanItem, recipe[i].amountHeld);//---- added to bridge to  Stageinteractmanager and PlayerHUD text strings----CF
+                
+                SyncWithStageAndUI(cleanItem, recipe[i].amountHeld);//sync with StageInteractManager and HUD UI
 
                 if (recipe[i].amountHeld == recipe[i].amountNeeded)
                 {
@@ -175,6 +188,34 @@ public class ItemManager : MonoBehaviour
                 }
             }
         }
+
+        if (!matched)
+        {
+            Debug.LogWarning($"[ItemManager] Picked up '{item}', which does not match 'apple', 'wheat', 'flour', or 'honey'!");
+        }
+
+
+
+
+        //item.ToLower();
+        //for(int i = 0; i < recipe.Count; i++)
+        //{
+
+        //    //if (recipe[i].itemName.ToLower() == item.ToLower())
+        //    if (recipe[i].itemName.ToLower() == cleanItem)//---- Changed to bridge to  Stageinteractmanager and PlayerHUD text strings----CF
+        //    {
+
+        //        Debug.Log($"you got {item}");
+        //        recipe[i].AddToItemCount();
+
+        //        SyncWithStageAndUI(cleanItem, recipe[i].amountHeld);//---- added to bridge to  Stageinteractmanager and PlayerHUD text strings----CF
+
+        //        if (recipe[i].amountHeld == recipe[i].amountNeeded)
+        //        {
+        //            //do stuff here
+        //        }
+        //    }
+        //}
     }
 
 
