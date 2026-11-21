@@ -68,12 +68,7 @@ public class ObjectButtonsInteractables : MonoBehaviour
     [SerializeField] public GameObject IngredientWheat1C;
     [SerializeField] public GameObject IngredientWheat1D;
     [SerializeField] public GameObject IngredientWheat1E;
-    [SerializeField] public GameObject RefCheckMark1;
-    [SerializeField] public GameObject RefCrossOut1;
-    [SerializeField] public GameObject RefCheckMark2;
-    [SerializeField] public GameObject RefCrossOut2;
-    [SerializeField] public GameObject RefCheckMark3;
-    [SerializeField] public GameObject RefCrossOut3;
+    [SerializeField] public GameObject BakedApplePie;
 
     private string[] RecipeList;
 
@@ -210,12 +205,12 @@ public class ObjectButtonsInteractables : MonoBehaviour
         if (OKButton != null) OKButton.SetActive(false);
         if (Accept != null) Accept.SetActive(true);
         if (RePick != null) RePick.SetActive(true);
-        if (RefCheckMark1 != null) RefCheckMark1.SetActive(false);
-        if (RefCrossOut1 != null) RefCrossOut1.SetActive(false);
-        if (RefCheckMark2 != null) RefCheckMark2.SetActive(false);
-        if (RefCrossOut2 != null) RefCrossOut2.SetActive(false);
-        if (RefCheckMark3 != null) RefCheckMark3.SetActive(false);
-        if (RefCrossOut3 != null) RefCrossOut3.SetActive(false);
+        //if (RefCheckMark1 != null) RefCheckMark1.SetActive(false);
+        //if (RefCrossOut1 != null) RefCrossOut1.SetActive(false);
+        //if (RefCheckMark2 != null) RefCheckMark2.SetActive(false);
+        //if (RefCrossOut2 != null) RefCrossOut2.SetActive(false);
+        //if (RefCheckMark3 != null) RefCheckMark3.SetActive(false);
+        //if (RefCrossOut3 != null) RefCrossOut3.SetActive(false);
 
 
     }
@@ -342,12 +337,12 @@ public class ObjectButtonsInteractables : MonoBehaviour
         if (IngredientWheat1C != null) IngredientWheat1C.SetActive(false);
         if (IngredientWheat1D != null) IngredientWheat1D.SetActive(false);
         if (IngredientWheat1E != null) IngredientWheat1E.SetActive(false);
-        if (RefCheckMark1 != null) RefCheckMark1.SetActive(false);
-        if (RefCrossOut1 != null) RefCrossOut1.SetActive(false);
-        if (RefCheckMark2 != null) RefCheckMark2.SetActive(false);
-        if (RefCrossOut2 != null) RefCrossOut2.SetActive(false);
-        if (RefCheckMark3 != null) RefCheckMark3.SetActive(false);
-        if (RefCrossOut3 != null) RefCrossOut3.SetActive(false);
+        //if (RefCheckMark1 != null) RefCheckMark1.SetActive(false);
+        //if (RefCrossOut1 != null) RefCrossOut1.SetActive(false);
+        //if (RefCheckMark2 != null) RefCheckMark2.SetActive(false);
+        //if (RefCrossOut2 != null) RefCrossOut2.SetActive(false);
+        //if (RefCheckMark3 != null) RefCheckMark3.SetActive(false);
+        //if (RefCrossOut3 != null) RefCrossOut3.SetActive(false);
     }
 
     public void UpdateQuestCard()

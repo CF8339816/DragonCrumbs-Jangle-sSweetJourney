@@ -771,17 +771,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92b0a111cd4f5f94bb55dd829489d262, type: 3}
---- !u!114 &474069916 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6779613637237911946, guid: 92b0a111cd4f5f94bb55dd829489d262, type: 3}
-  m_PrefabInstance: {fileID: 474069915}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f81b24ecf96fb148bdf6db189886202, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::StageInteractManager
 --- !u!114 &533924501 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7401257985490142586, guid: 8110ac57b0389ec4684cc025062795af, type: 3}
@@ -975,6 +964,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9389a794ba45584d824083d1488aa29, type: 3}
+--- !u!114 &897215485 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8040828822348675765, guid: f9389a794ba45584d824083d1488aa29, type: 3}
+  m_PrefabInstance: {fileID: 897215484}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc5ca2d4769a3534ebbf2fc153184e75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TravelMapManager
 --- !u!1 &1274271198
 GameObject:
   m_ObjectHideFlags: 0
@@ -1465,9 +1465,9 @@ MonoBehaviour:
   onObjectClicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 474069916}
-        m_TargetAssemblyTypeName: StageInteractManager, Assembly-CSharp
-        m_MethodName: InteractNextLevelDebug
+      - m_Target: {fileID: 897215485}
+        m_TargetAssemblyTypeName: TravelMapManager, Assembly-CSharp
+        m_MethodName: LastQuestLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -31,17 +31,7 @@ public class TravelMapManager : MonoBehaviour
         {
             bootStrappin.FindManagers();
         }
-        //Changed cause the code below throws a couple of random errors depending on load orders ensures first load 
-        //BootStrappin bootStrappin = FindFirstObjectByType<BootStrappin>();
-        //bootStrappin.FindManagers();
-
-        //if (Instance != null && Instance != this)
-        //{
-        //    Destroy(gameObject);
-        //    return;
-        //}
-        //Instance = this;
-        //DontDestroyOnLoad(gameObject); // keeps script accessable accross scene changes
+       
         ResetCountdown();
     }
 
@@ -116,15 +106,16 @@ public class TravelMapManager : MonoBehaviour
 
         if (menuManager != null)
         {
-            // [CODE REVIEW] Default to quest 0 (Apple Pie) if ObjectButtonsInteractables was unloaded with the Bakery scene
-            int questIndex = (objectButtonsInteractables != null) ? objectButtonsInteractables.currentQuest : 0;
+            
+            int questIndex = (objectButtonsInteractables != null) ? objectButtonsInteractables.currentQuest : 0;// default to quest 0 (Apple Pie) if ObjectButtonsInteractables was unloaded with the Bakery scene
 
             if (questIndex == 0)
             {
-                // [CODE REVIEW] Null-safe check in case StageInteractManager isn't in the TravelMap scene
-                if (stageInteractManager == null || (stageInteractManager.AppleCount < 1 && stageInteractManager.FlourCount < 1 && stageInteractManager.HoneyCount < 1))
+                
+                if (stageInteractManager == null || (stageInteractManager.AppleCount < 1 && stageInteractManager.FlourCount < 1 && stageInteractManager.HoneyCount < 1))// null-safe check in case StageInteractManager isn't in the TravelMap scene
                 {
-                    menuManager.onLevel1();
+                    stageInteractManager.InteractNextLevelDebug();
+                    // menuManager.onLevel1();//commented out to allow for the testing button to drive the to next level for the moment
                 }
             }
         }
@@ -146,7 +137,8 @@ public class TravelMapManager : MonoBehaviour
             {
                 if (stageInteractManager == null || stageInteractManager.AppleCount < 5 || stageInteractManager.FlourCount < 1 || stageInteractManager.HoneyCount < 1)
                 {
-                    menuManager.onLoadNextLevel();
+                    stageInteractManager.InteractNextLevelDebug();
+                    // menuManager.onLoadNextLevel();//commented out to allow for the testing button to drive the to next level for the moment
                 }
             }
         }
@@ -168,7 +160,8 @@ public class TravelMapManager : MonoBehaviour
             {
                 if (stageInteractManager != null && stageInteractManager.AppleCount == 5 && stageInteractManager.FlourCount == 1 && stageInteractManager.HoneyCount == 1)
                 {
-                    menuManager.onBakery();
+                    stageInteractManager.InteractNextLevelDebug();
+                    //menuManager.onBakery();//commented out to allow for the testing button to drive the to next level for the moment
                 }
             }
         }

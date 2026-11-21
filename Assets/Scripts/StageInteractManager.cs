@@ -39,17 +39,7 @@ public class StageInteractManager : MonoBehaviour, IInteractable
     [Header("Settings")]
     public float checkRange = 100f;//longer range for grapple and pull
     public float switchRange = 4f; // shorter range for button and switch
-
-    //[Header("Interactables")]
-    //public GameObject ProxyOvenRawPie;
-    //public GameObject ProxyBakedPie;
-    //public GameObject RawApplePieProxy;
-    //public GameObject PrepBlock;
-    //public GameObject Dangle;
-    //public GameObject MillstoneClickable;
-    //public GameObject Wheat;
-    //public GameObject Sythe;
-
+        
     [Header("Collection Variables")]
     public int WheatCount = 0;
     public int AppleCount = 0;
@@ -72,9 +62,6 @@ public class StageInteractManager : MonoBehaviour, IInteractable
             if (menuManager == null) menuManager = bootStrappin.menuManager;
             if (travelMapManager == null) travelMapManager = bootStrappin.travelMapManager;
         }
-        //Changed cause the code below throws a couple of random errors depending on load orders ensures first load 
-        //BootStrappin bootStrappin = FindFirstObjectByType< BootStrappin > ();
-        //bootStrappin.FindManagers();
 
         if (addAudio == null) addAudio = FindFirstObjectByType<AddAudio>();
     }
@@ -82,24 +69,7 @@ public class StageInteractManager : MonoBehaviour, IInteractable
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        //if (SceneManager.GetActiveScene().buildIndex >= 1 && SceneManager.GetActiveScene().buildIndex <= 3)
-        //{
-        //    objectButtonsInteractables.SetQuestState();
-        //}
-        //else if (SceneManager.GetActiveScene().buildIndex == 4 )
-        //{
-        //    objectButtonsInteractables.SetBakeryState();
-        //}
-
-        ////combinedMask = RecipeButtons | EnvironmentButtons;
-        //if (objectButtonsInteractables == null)
-        //{
-        //    objectButtonsInteractables = FindFirstObjectByType<ObjectButtonsInteractables>();
-        //}
-        //if (objGOInteractionManager == null)
-        //{
-        //    objGOInteractionManager = FindFirstObjectByType<ObjGOInteractionManager>();
-        //}
+       
         if (playerScript == null)
         {
             playerScript = FindFirstObjectByType<JangleController>();
@@ -340,46 +310,30 @@ public class StageInteractManager : MonoBehaviour, IInteractable
     }
     public void DisableWheatCollider()
     {
-        //foreach (GameObject obj in FindObjectsByType<GameObject>(FindObjectsInactive.Include, FindObjectsSortMode.None))
-        foreach (BoxCollider2D boxCollider2D in FindObjectsByType<BoxCollider2D>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+          foreach (BoxCollider2D boxCollider2D in FindObjectsByType<BoxCollider2D>(FindObjectsInactive.Include, FindObjectsSortMode.None))
         {
             if (boxCollider2D.gameObject.name == "Wheat")
             {
                 boxCollider2D.enabled = false;
             }
 
-            //if (obj.name.StartsWith("Wheat") && obj.TryGetComponent(out BoxCollider2D boxCollider2D))
-            //{
-            //    boxCollider2D.enabled = false;
-            //}
+            
         }
 
-        //GameObject wheat = GameObject.Find("Wheat");
-        //if (wheat != null && wheat.TryGetComponent(out BoxCollider2D boxCollider2D))
-        //{
-        //    boxCollider2D.enabled = false;
-        //}
+        
     }
     public void EnableWheatCollider()
     {
-        //foreach (GameObject obj in FindObjectsByType<GameObject>(FindObjectsInactive.Include, FindObjectsSortMode.None))
-        foreach (BoxCollider2D boxCollider2D in FindObjectsByType<BoxCollider2D>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+         foreach (BoxCollider2D boxCollider2D in FindObjectsByType<BoxCollider2D>(FindObjectsInactive.Include, FindObjectsSortMode.None))
         {
             if (boxCollider2D.gameObject.name == "Wheat")
             {
                 boxCollider2D.enabled = true;
             }
-            //if (obj.name.StartsWith("Wheat") && obj.TryGetComponent(out BoxCollider2D boxCollider2D))
-            //{
-            //    boxCollider2D.enabled = true;
-            //}
+          
         }
 
-        //GameObject wheat = GameObject.Find("Wheat");
-        //if (wheat != null && wheat.TryGetComponent(out BoxCollider2D boxCollider2D))
-        //{
-        //    boxCollider2D.enabled = true;
-        //}
+      
     }
     public void Interact()
     {
@@ -446,13 +400,7 @@ public class StageInteractManager : MonoBehaviour, IInteractable
     }
     public void OnBakingTime()
     {
-        //pieVisabilityManager.RawApplePieProxy.SetActive(false);
-        //pieVisabilityManager.ProxyOvenRawPie.SetActive(false);
-        //playerScript.flameOn = true;
-        //await Task.Delay(5000); // 5000 milliseconds = 5 seconds
-        //playerScript.flameOn = false;
-        //pieVisabilityManager.ProxyBakedPie.SetActive(true);
-        StartCoroutine(BakePieRoutine());
+         StartCoroutine(BakePieRoutine());
     }
     private IEnumerator BakePieRoutine()
     {
