@@ -2,6 +2,16 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+#region coder & project
+/// <summary>
+/// NSCC GAME2065/4087/Game Development III(B)/Cameron,Jordan
+/// Jam 3 :DragonCrumbs: Jangle's Sweet Journey
+/// team: Chris French, Percy Hebb, Kevin Card, Myranda Roy
+/// Coder current script: Chris French Second Year NSCC Game Programming 
+/// Additions / annotations:
+/// code review: 
+/// </summary>
+#endregion
 public class TravelMapManager : MonoBehaviour
 {
     public static TravelMapManager Instance { get; private set; }
@@ -34,20 +44,20 @@ public class TravelMapManager : MonoBehaviour
         //DontDestroyOnLoad(gameObject); // keeps script accessable accross scene changes
         ResetCountdown();
     }
-   
+
     void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    
+
     void OnDisable()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        
+
         if (scene.name == travelMapSceneName)
         {
             ResetCountdown();
@@ -60,17 +70,17 @@ public class TravelMapManager : MonoBehaviour
         if (!isLoading)
         {
             isLoading = true;
-       
-            StartCoroutine(StartLoadCountdown());   
-            
-          
+
+            StartCoroutine(StartLoadCountdown());
+
+
         }
     }
     public IEnumerator StartLoadCountdown()
     {
         while (Countdown > .25f)
         {
-            
+
             yield return null;
             Countdown -= Time.deltaTime;
         }
@@ -78,12 +88,12 @@ public class TravelMapManager : MonoBehaviour
         ResetCountdown();
 
         LoadQuestLevel();
- 
+
     }
     private void ResetCountdown()
     {
         Countdown = StageLoadDelay;
-        
+
     }
     private void FindLocalReferences()
     {

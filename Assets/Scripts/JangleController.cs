@@ -27,6 +27,7 @@ public class JangleController : MonoBehaviour
     [Header("References")]
     [SerializeField] private GameObject jangleFlame; // ----set firebreath object----CF
 
+    private AddAudio addAudio;
     private PlayerControls inputActions;
     private Vector2 moveInput;
     private Rigidbody2D rb2d;
@@ -94,6 +95,7 @@ public class JangleController : MonoBehaviour
     private void OnMoveInput(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
+        addAudio.OnWalkSound();
     }
 
     private void OnMoveStopped(InputAction.CallbackContext context)
@@ -105,9 +107,9 @@ public class JangleController : MonoBehaviour
     {
 
         rb2d.linearVelocity = new Vector2(rb2d.linearVelocity.x, jumpSpeed);//---- applies upward force for jump when spacebar is pressed---- CF
+        addAudio.OnWingFlap();
 
-
-        isGliding = true;// ----marks gliding state true as long as spacebar is held down---- CF
+       isGliding = true;// ----marks gliding state true as long as spacebar is held down---- CF
     }
 
     private void OnJumpGlideStopped(InputAction.CallbackContext context)
@@ -120,6 +122,8 @@ public class JangleController : MonoBehaviour
     {
         flameOn = true;
         ToggleFireBreath();
+        addAudio.OnFireBreath();
+
     }
 
     private void OnFireBreathStopped(InputAction.CallbackContext context)
@@ -171,7 +175,7 @@ public class JangleController : MonoBehaviour
     private IInteractable currentInteractable;
     public void OnInteract(InputAction.CallbackContext context)
     {
-        if(context.performed && currentInteractable != null)
+        if (context.performed && currentInteractable != null)
         {
             currentInteractable.Interact();
         }
@@ -192,7 +196,7 @@ public class JangleController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Interactable"))
         {
-            if(currentInteractable == collision.GetComponent<IInteractable>())
+            if (currentInteractable == collision.GetComponent<IInteractable>())
             {
                 currentInteractable = null;
             }
@@ -200,5 +204,3 @@ public class JangleController : MonoBehaviour
     }
 
 }
-
-

@@ -2,6 +2,13 @@ using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+/// <summary>
+/// Kevin's scripts combined into one manager for  streamlining.---CF
+/// I have had to rework the entire code block to convert the variable references and 
+/// naming conventions to match the larger block of code as treying to bridge the two 
+/// blocks did not work ..... A.K.A. "The Code of Theseus"
+/// </summary>
+/// 
 
 public class ItemManager : MonoBehaviour
 {
@@ -154,6 +161,34 @@ public class ItemManager : MonoBehaviour
             }
         }
     }
+
+    public void SetItemCountDirect(string itemName, int count)
+    {
+        if (recipe == null || recipe.Count == 0) LoadRecipe(Recpie.one);
+        string target = itemName.Trim().ToLower();
+        for (int i = 0; i < recipe.Count; i++)
+        {
+            if (recipe[i].itemName.ToLower() == target)
+            {
+                recipe[i].amountHeld = Mathf.Clamp(count, 0, recipe[i].amountNeeded);
+            }
+        }
+    }
+
+    public int GetItemCountDirect(string itemName)
+    {
+        if (recipe == null || recipe.Count == 0) return 0;
+        string target = itemName.Trim().ToLower();
+        for (int i = 0; i < recipe.Count; i++)
+        {
+            if (recipe[i].itemName.ToLower() == target)
+            {
+                return recipe[i].amountHeld;
+            }
+        }
+        return 0;
+    }
+
     public void AddToItem(string item)//---- major changes to try and getthe output to work accross scripts for the quest tracking hud outputs fullrework of method----CF
     {
 

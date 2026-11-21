@@ -11,16 +11,17 @@ GameObject:
   - component: {fileID: 5807701866550425621}
   - component: {fileID: 8201568613860812012}
   - component: {fileID: 1240197563878807089}
-  - component: {fileID: 2068184330678862916}
-  - component: {fileID: 6587073052712719203}
   - component: {fileID: 1005713278779503219}
   - component: {fileID: 3972760830203295978}
   - component: {fileID: 4250130618739359792}
   - component: {fileID: 3854175885471208990}
   - component: {fileID: 2784474505139376469}
   - component: {fileID: 8040828822348675765}
-  - component: {fileID: 2251630951268802868}
-  - component: {fileID: 5141461712284848853}
+  - component: {fileID: 4718737252547145894}
+  - component: {fileID: 4490674260053581682}
+  - component: {fileID: 2945712248496364635}
+  - component: {fileID: 2350509527145330638}
+  - component: {fileID: 1533131269252181784}
   m_Layer: 0
   m_Name: _ServiceHub
   m_TagString: Untagged
@@ -79,51 +80,9 @@ MonoBehaviour:
   QUEST1C: 0
   BAKERYX: 0
   TRAVELMAP: 0
+  hasActiveQuest: 0
   ReturnIndex: 4
   nextIndex: 0
---- !u!114 &2068184330678862916
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1887375814404526371}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bace758e0eed6548a3fc82bea01b35d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AddAudio
-  millFlour: {fileID: 0}
-  Success: {fileID: 0}
-  ClimbLadder: {fileID: 0}
-  SFX1: {fileID: 0}
-  SFX2: {fileID: 0}
-  SFX3: {fileID: 0}
-  SFX4: {fileID: 0}
-  SFX5: {fileID: 0}
-  SFX6: {fileID: 0}
-  SFX7: {fileID: 0}
-  SFX8: {fileID: 0}
-  SFX9: {fileID: 0}
-  SFX10: {fileID: 0}
-  SFX11: {fileID: 0}
-  sourceSFXandDialogue: {fileID: 1005713278779503219}
-  startingVolume: 0.35
-  volumeSlider: {fileID: 0}
---- !u!114 &6587073052712719203
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1887375814404526371}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edd631cf243d9924c951efd35d8c4e86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BackgroundMusicManager
-  musicSource: {fileID: 1005713278779503219}
-  backgroundTrack: {fileID: 0}
 --- !u!82 &1005713278779503219
 AudioSource:
   m_ObjectHideFlags: 0
@@ -228,7 +187,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1887375814404526371}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4a90eba18c9998c40a811d0c130a7ce6, type: 3}
   m_Name: 
@@ -249,6 +208,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
+  stageInteractManager: {fileID: 0}
+  objectButtonsInteractables: {fileID: 0}
+  dialogManager: {fileID: 0}
   interactionType: 0
   Dialog: []
   itemToCheck: 
@@ -321,7 +283,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TravelMapManager
   StageLoadDelay: 5
   travelMapSceneName: TravelMap
---- !u!114 &2251630951268802868
+--- !u!114 &4718737252547145894
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -333,24 +295,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bace758e0eed6548a3fc82bea01b35d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AddAudio
-  millFlour: {fileID: 0}
-  Success: {fileID: 0}
-  ClimbLadder: {fileID: 0}
-  SFX1: {fileID: 0}
-  SFX2: {fileID: 0}
-  SFX3: {fileID: 0}
-  SFX4: {fileID: 0}
-  SFX5: {fileID: 0}
-  SFX6: {fileID: 0}
-  SFX7: {fileID: 0}
-  SFX8: {fileID: 0}
+  millFlour: {fileID: 8300000, guid: 5af9020c7aa5d9c4f8e64b6735179477, type: 3}
+  Success: {fileID: 8300000, guid: 491aee0886b5ed643b0eddb0db1bd19b, type: 3}
+  WingFlap: {fileID: 8300000, guid: 5e4c495b753c2514ea8f05a644c856a1, type: 3}
+  FireBreath: {fileID: 8300000, guid: a5f39240cb93a10488bc386b0871b4e1, type: 3}
+  PickupSound: {fileID: 8300000, guid: 172881b8030103b4d8fac6ab754b7244, type: 3}
+  WalkSound: {fileID: 8300000, guid: 7472ed6b6d132c2409cf481fb031bd4a, type: 3}
+  MiscDialogueGarble: {fileID: 8300000, guid: 156d9874b25959e4a839185db87dd124, type: 3}
+  Landing: {fileID: 8300000, guid: 3cb24ac3ddee16a4d87a7be7d4f830ec, type: 3}
+  VoicesNewSprites: {fileID: 8300000, guid: c1df247c90d4a49479ce7f2a018b940c, type: 3}
+  VoiceDangle: {fileID: 8300000, guid: f5a3fa9010cbb4641bedd0ad705ae525, type: 3}
+  BeeHive: {fileID: 8300000, guid: be7eb88146a465744a41fa2bc13ce047, type: 3}
   SFX9: {fileID: 0}
   SFX10: {fileID: 0}
   SFX11: {fileID: 0}
-  sourceSFXandDialogue: {fileID: 0}
+  sourceSFXandDialogue: {fileID: 1005713278779503219}
   startingVolume: 0.35
   volumeSlider: {fileID: 0}
---- !u!114 &5141461712284848853
+--- !u!114 &4490674260053581682
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -362,5 +324,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edd631cf243d9924c951efd35d8c4e86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BackgroundMusicManager
-  musicSource: {fileID: 0}
-  backgroundTrack: {fileID: 0}
+  musicSource: {fileID: 1005713278779503219}
+  backgroundTrackBakery: {fileID: 8300000, guid: a53711bbc9c35054893f74340ecd7081, type: 3}
+  backgroundTrackDefault: {fileID: 8300000, guid: fd16145dfc559a448a273a213d139dd8, type: 3}
+--- !u!114 &2945712248496364635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1887375814404526371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f361dd6d9157d2408fe2bfc78cab8c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PieVisabilityManager
+  ProxyOvenRawPie: {fileID: 0}
+  ProxyBakedPie: {fileID: 0}
+  RawApplePieProxy: {fileID: 0}
+--- !u!114 &2350509527145330638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1887375814404526371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aee0a83f4c4426943b2df50df171eae2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialogWthCheck
+  dialogManager: {fileID: 3972760830203295978}
+  Dialog:
+  - Wubba WubbaWubba   Gethcha Getcha Getcha  Googo ga gaaa
+  stageInteractManager: {fileID: 6779613637237911946, guid: 92b0a111cd4f5f94bb55dd829489d262, type: 3}
+  objectButtonsInteractables: {fileID: 9028762252356145940, guid: 05bd244785fe2304fa5ee7a42f699137, type: 3}
+  secondDialogPass:
+  - 'Step Two:  ........ I Dunnow........'
+  secondDialogFail:
+  - 'Whamp whamp...
+
+'
+  DialogAfterGvingItem:
+  - CATCH PHRASE!!!!!!!!!
+  itemToCheck: 
+  itemToAdd: 
+--- !u!114 &1533131269252181784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1887375814404526371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1d4164b35db6f742b71c2f94e57e323, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ItemPickUp
+  itemToAdd: 
+  stageInteractManager: {fileID: 6779613637237911946, guid: 92b0a111cd4f5f94bb55dd829489d262, type: 3}
+  objectButtonsInteractables: {fileID: 9028762252356145940, guid: 05bd244785fe2304fa5ee7a42f699137, type: 3}

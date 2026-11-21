@@ -4,7 +4,15 @@ using System.Diagnostics.Tracing;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
+/// <summary>
+/// Kevin's scripts combined into one manager for  streamlining.---CF
+/// I have had to rework the entire code block to convert the variable references and 
+/// naming conventions to match the larger block of code as treying to bridge the two 
+/// blocks did not work ..... A.K.A. "The Code of Theseus"
+/// </summary>
+/// 
 
 public class DialogManager : MonoBehaviour
 {
@@ -17,6 +25,8 @@ public class DialogManager : MonoBehaviour
 
     private string currentText;
 
+    public GameObject textBox;
+    public TMP_Text dialogText;
 
     private void Awake()
     {
@@ -25,7 +35,6 @@ public class DialogManager : MonoBehaviour
         {
             bootStrappin.FindManagers();
         }
-        //Changed cause the code below throws a couple of random errors depending on load orders ensures first load 
 
         if (dialogManager == null)//---- moved to ensure initalization before scripts ----CF
         {
@@ -38,41 +47,46 @@ public class DialogManager : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (textBox == null) textBox = GameObject.Find("DialogBox");
+        if (dialogText == null && textBox != null) dialogText = textBox.GetComponentInChildren<TMP_Text>();
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        //if (dialogManager == null)
-        //{
-        //    dialogManager = this;
-        //}
-        //else
-        //{
-        //    Destroy(this);
-        //}
         dialog = new Queue<string>();
         ClearDialog();
-        textBox.SetActive(false);
+        if (textBox != null) textBox.SetActive(false);
     }
 
     public void StartDialog(string[] text)
     {
-        
         ToggleTextBox();
         Debug.Log("Talking");
         dialog.Clear();
         talking = true;
-        foreach(string line in text)
+        foreach (string line in text)
         {
             dialog.Enqueue(line);
             Debug.Log($"added {line} to queue");
         }
         ContinueDialog();
-
     }
+
     public void StartDialog(string[] text, string[] secondText)
     {
-        
         ToggleTextBox();
         Debug.Log("Talking");
         dialog.Clear();
@@ -88,21 +102,20 @@ public class DialogManager : MonoBehaviour
             Debug.Log($"added {line} to queue");
         }
         ContinueDialog();
-
     }
+
     public void ContinueDialog()
     {
         if (!wrighting)
         {
             ClearDialog();
-            if(dialog.Count == 0)
+            if (dialog.Count == 0)
             {
                 StopTalking();
                 return;
             }
             currentText = dialog.Dequeue();
             StartCoroutine(WriteDialog());
-                
         }
         else
         {
@@ -112,33 +125,34 @@ public class DialogManager : MonoBehaviour
             wrighting = false;
         }
     }
+
     public void StopTalking()
     {
-
         Debug.Log("stopped talking");
         ToggleTextBox();
         talking = false;
     }
+
     IEnumerator WriteDialog()
     {
         wrighting = true;
-        for(int i =0; i < currentText.Length; i += 1)
+        for (int i = 0; i < currentText.Length; i += 1)
         {
             WriteDialog(currentText[i].ToString());
             yield return new WaitForSeconds(wrightSpeed);
         }
         wrighting = false;
     }
+
     // Update is called once per frame
     void Update()
     {
-        
+
     }
-    public GameObject textBox;
-    public TMP_Text dialogText;
 
     public void ToggleTextBox()
     {
+        if (textBox == null) return;
         if (textBox.activeSelf)
         {
             textBox.SetActive(false);
@@ -148,13 +162,14 @@ public class DialogManager : MonoBehaviour
             textBox.SetActive(true);
         }
     }
+
     public void WriteDialog(string Dialog)
     {
-        dialogText.text += Dialog;
+        if (dialogText != null) dialogText.text += Dialog;
     }
+
     public void ClearDialog()
     {
-        dialogText.text = "";
+        if (dialogText != null) dialogText.text = "";
     }
-    
 }

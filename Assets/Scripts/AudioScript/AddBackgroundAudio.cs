@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 #region coder & project
 /// <summary>
 /// NSCC GAME2065/4087/Game Development III(B)/Cameron,Jordan
@@ -13,21 +14,28 @@ using UnityEngine;
 public class BackgroundMusicManager : MonoBehaviour
 {
 
-  
+
     private AddAudio addAudio;
     public AudioSource musicSource; // Dedicated purely to the background music
-    [SerializeField] public AudioClip backgroundTrack;
-    void Awake()
+    [SerializeField] public AudioClip backgroundTrackBakery;
+    [SerializeField] public AudioClip backgroundTrackDefault;
+
+    private const int BAKERY_INDEX = 4;
+    private void OnEnable()
     {
-        BootStrappin bootStrappin = FindFirstObjectByType<BootStrappin>();
-        if (bootStrappin != null)
-        {
-            bootStrappin.FindManagers();
-        }
-        //Changed cause the code below throws a couple of random errors depending on load orders ensures first load 
-        //BootStrappin bootStrappin = FindFirstObjectByType<BootStrappin>();
-        //bootStrappin.FindManagers();
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        PlayAlwaysOnTrack();
+    }
+
     void Start()
     {
         PlayAlwaysOnTrack();
@@ -35,14 +43,20 @@ public class BackgroundMusicManager : MonoBehaviour
 
     public void PlayAlwaysOnTrack()
     {
-        if (musicSource != null && backgroundTrack != null)
+        if (musicSource != null && backgroundTrackBakery != null && backgroundTrackDefault != null)
         {
-            musicSource.clip = backgroundTrack;
+           
+            AudioClip targetTrack = (SceneManager.GetActiveScene().buildIndex == BAKERY_INDEX)// plays the bakery audio 
+                ? backgroundTrackBakery
+                : backgroundTrackDefault;
+
             musicSource.loop = true; // Ensures it never stops
             musicSource.playOnAwake = true; // Optional: plays instantly when scene loads
 
-            if (!musicSource.isPlaying)
+           
+            if (musicSource.clip != targetTrack || !musicSource.isPlaying)// ensures an audio hand off for the scenes
             {
+                musicSource.clip = targetTrack;
                 musicSource.Play();
             }
         }

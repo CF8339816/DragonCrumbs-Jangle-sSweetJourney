@@ -68,7 +68,7 @@ public class BootStrappin : MonoBehaviour
     private const int TRAVELMAP_INDEX = 5;
 
     public Camera ActiveMainCamera { get; private set; }
-    public CinemachineCamera ActiveMoveCam { get; private set; } 
+    public CinemachineCamera ActiveMoveCam { get; private set; }
     public static BootStrappin Instance { get; private set; } = null;
     void Awake()
     {
@@ -97,9 +97,9 @@ public class BootStrappin : MonoBehaviour
         //Debug.Log(" Menu  awakening...");
         //SceneManager.LoadScene(MENU_INDEX, LoadSceneMode.Additive);
         //Debug.Log(" menu loaded...");
-     
+
         if (gameExitManager == null) gameExitManager = GetComponent<GameExitManager>();
-        if (dialogManager == null) dialogManager = GetComponent< DialogManager> ();
+        if (dialogManager == null) dialogManager = GetComponent<DialogManager>();
         if (menuManager == null) menuManager = GetComponent<MenuManager>();
         if (objectButtonsInteractables == null) objectButtonsInteractables = GetComponent<ObjectButtonsInteractables>();
         if (stageInteractManager == null) stageInteractManager = GetComponent<StageInteractManager>();
@@ -127,57 +127,21 @@ public class BootStrappin : MonoBehaviour
 
     public void FindManagers()// assigns the name of the if they are not already defined for stage use redundanct check
     {
+        // [CODE REVIEW] Scene-specific managers: always refresh so destroyed scene references are replaced
         stageInteractManager = FindFirstObjectByType<StageInteractManager>();
         objectButtonsInteractables = FindFirstObjectByType<ObjectButtonsInteractables>();
         pieVisabilityManager = FindFirstObjectByType<PieVisabilityManager>();
         objGOInteractionManager = FindFirstObjectByType<ObjGOInteractionManager>();
+        travelMapManager = FindFirstObjectByType<TravelMapManager>();
 
-
-        if (stageInteractManager == null) stageInteractManager = FindFirstObjectByType<StageInteractManager>();
-
-        if (objectButtonsInteractables == null) objectButtonsInteractables = FindFirstObjectByType<ObjectButtonsInteractables>();
-
+        // [CODE REVIEW] Persistent managers: keep existing reference if already found
         if (menuManager == null) menuManager = FindFirstObjectByType<MenuManager>();
-
-        if (pieVisabilityManager == null) pieVisabilityManager = FindFirstObjectByType<PieVisabilityManager>();
-
-        if (objGOInteractionManager == null) objGOInteractionManager = FindFirstObjectByType<ObjGOInteractionManager>();
-
         if (gameExitManager == null) gameExitManager = FindFirstObjectByType<GameExitManager>();
-        
-        if (travelMapManager == null) travelMapManager = FindFirstObjectByType<TravelMapManager>();
-      
         if (itemManager == null) itemManager = FindFirstObjectByType<ItemManager>();
-
         if (dialogManager == null) dialogManager = FindFirstObjectByType<DialogManager>();
-
         if (interactableManager == null) interactableManager = FindFirstObjectByType<InteractableManager>();
     }
 
-    //public void FindManagers()// assigns the name of the if they are not already defined for stage use redundanct check
-    //{
-    //    StageInteractManager stageInteractManager = FindFirstObjectByType<StageInteractManager>();
-
-    //    ObjectButtonsInteractables objectButtonsInteractables = FindFirstObjectByType<ObjectButtonsInteractables>();
-
-    //    MenuManager menuManager = FindFirstObjectByType<MenuManager>();
-
-    //    PieVisabilityManager pieVisabilityManager = FindFirstObjectByType<PieVisabilityManager>();
-
-    //    ObjGOInteractionManager objGOInteractionManager = FindFirstObjectByType<ObjGOInteractionManager>();
-
-    //    GameExitManager gameExitManager = FindFirstObjectByType<GameExitManager>();
-
-    //    ItemManager itemManager = FindFirstObjectByType<ItemManager>();
-
-    //    DialogManager dialogManager = FindFirstObjectByType<DialogManager>();
-
-    //    InteractableManager interactableManager = FindFirstObjectByType<InteractableManager>();
-
-    //    //ObjectButtonsInteractables objectButtonsInteractables
-    //    //    = FindFirstObjectByType<ObjectButtonsInteractables>();
-
-    //}
     public void InitializeGlobalEventSystem()
     {
         EventSystem existingSystem = Object.FindFirstObjectByType<EventSystem>();// checks for extra event systems
@@ -195,7 +159,7 @@ public class BootStrappin : MonoBehaviour
     }
     public void InitializeGlobalCameraSystem()
     {
-    
+
         GameObject existingMainCam = GameObject.Find("MainCharacterCamera");// sets up main character cam
         if (existingMainCam != null)
         {
@@ -210,7 +174,7 @@ public class BootStrappin : MonoBehaviour
             DontDestroyOnLoad(spawnedMain);
         }
 
-       
+
         GameObject existingCineCam = GameObject.Find("CinemachineCameraMainMoveCam");// sets up Cinemachine brain system
         if (existingCineCam != null)
         {

@@ -2,6 +2,7 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using Unity.Cinemachine;
+using UnityEngine.SceneManagement;
 #region coder & project
 /// <summary>
 /// NSCC GAME2065/4087/Game Development III(B)/Cameron,Jordan
@@ -20,7 +21,8 @@ public class GameExitManager : MonoBehaviour
     public TextMeshProUGUI exitCountdownText;
     private float Countdown;
     private bool isExiting = false;
-
+    private AddAudio addAudio;
+  
 
     void Awake()
     {
@@ -31,55 +33,85 @@ public class GameExitManager : MonoBehaviour
         }
         Instance = this;
         DontDestroyOnLoad(gameObject); // keeps script accessable accross scene changes
-        exitCountdownText.text = "";
+
         BootStrappin bootStrappin = FindFirstObjectByType<BootStrappin>();
         if (bootStrappin != null)
         {
             bootStrappin.FindManagers();
         }
+
+        FindCountdownText();
+        ResetCountdown();
+    }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        FindCountdownText();
+        if (!isExiting) ResetCountdown();
+    }
+
+    // [CODE REVIEW] Finds exitCountdownText even if it starts inactive in the UI hierarchy
+    public void FindCountdownText()
+    {
         if (exitCountdownText == null)
         {
-            // exitCountdownText = FindFirstObjectByType<TextMeshProUGUI>();
-            GameObject foundObj = GameObject.Find("exitCountdownText");
-            if (foundObj != null)
+            foreach (TextMeshProUGUI tmp in FindObjectsByType<TextMeshProUGUI>(FindObjectsInactive.Include, FindObjectsSortMode.None))
             {
-                exitCountdownText = foundObj.GetComponent<TextMeshProUGUI>();
+                if (tmp.name == "exitCountdownText")
+                {
+                    exitCountdownText = tmp;
+                    break;
+                }
             }
         }
-
-        //Changed cause the code below throws a couple of random errors depending on load orders ensures first load 
-
-
-        //BootStrappin bootStrappin = FindFirstObjectByType<BootStrappin>();
-        // bootStrappin.FindManagers();
-
-        ResetCountdown();
     }
 
     private void Update()
     {
-        if (exitCountdownText == null) { exitCountdownText = GameObject.Find("exitCountdownText")?.GetComponent<TextMeshProUGUI>(); }
+        if (exitCountdownText == null) { FindCountdownText(); }
     }
+
     public void Ongameexit()
     {
         if (!isExiting)
         {
             isExiting = true;
+            FindCountdownText();
             StartCoroutine(StartExitCountdown());
-            ExitGame();
+          
         }
     }
+
     public IEnumerator StartExitCountdown()
     {
+        ResetCountdown();
         while (Countdown > .1f)
         {
-            exitCountdownText.text = "Game Exit in: " + Mathf.Ceil(Countdown).ToString();// displays the countdown output in an always rounded up to whole int
+            if (exitCountdownText != null)
+            {
+                exitCountdownText.text = "Game Exit in: " + Mathf.Ceil(Countdown).ToString();// displays the countdown output in an always rounded up to whole int
+            }
             yield return null;
             Countdown -= Time.deltaTime;
         }
-        exitCountdownText.text = "Exiting...";
-
+        if (exitCountdownText != null)
+        {
+            exitCountdownText.text = "Exiting...";
+            addAudio.OnMiscDialogueGarble();
+        }
+        ExitGame();
     }
+
     private void ResetCountdown()
     {
         Countdown = ExitDelay;
@@ -88,12 +120,13 @@ public class GameExitManager : MonoBehaviour
             exitCountdownText.text = "";
         }
     }
+
     public void ExitGame()
     {
         Debug.Log("Exiting Game...");
-         // Works in a built application
+        // Works in a built application
         Application.Quit();
-         // Works inside the Unity Editor
+        // Works inside the Unity Editor
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #endif

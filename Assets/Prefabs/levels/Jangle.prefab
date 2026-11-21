@@ -686,15 +686,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AddAudio
   millFlour: {fileID: 0}
   Success: {fileID: 0}
-  ClimbLadder: {fileID: 0}
-  SFX1: {fileID: 0}
-  SFX2: {fileID: 0}
-  SFX3: {fileID: 0}
-  SFX4: {fileID: 0}
-  SFX5: {fileID: 0}
-  SFX6: {fileID: 0}
-  SFX7: {fileID: 0}
-  SFX8: {fileID: 0}
+  WingFlap: {fileID: 0}
+  FireBreath: {fileID: 0}
+  PickupSound: {fileID: 0}
+  WalkSound: {fileID: 0}
+  MiscDialogueGarble: {fileID: 0}
+  Landing: {fileID: 0}
+  VoicesNewSprites: {fileID: 0}
+  VoiceDangle: {fileID: 0}
+  BeeHive: {fileID: 0}
   SFX9: {fileID: 0}
   SFX10: {fileID: 0}
   SFX11: {fileID: 0}
@@ -714,7 +714,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BackgroundMusicManager
   musicSource: {fileID: 0}
-  backgroundTrack: {fileID: 0}
+  backgroundTrackBakery: {fileID: 0}
+  backgroundTrackDefault: {fileID: 0}
 --- !u!1 &8162621151089300545
 GameObject:
   m_ObjectHideFlags: 0

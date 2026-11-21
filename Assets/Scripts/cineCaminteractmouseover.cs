@@ -45,7 +45,7 @@ public class cineCaminteractmouseover : MonoBehaviour
 
         if (objRenderer != null)
         {
-           
+
             if (objRenderer.material.HasProperty("_BaseColor"))
             {
                 isURP = true;
@@ -88,13 +88,3 @@ public class cineCaminteractmouseover : MonoBehaviour
         onObjectClicked?.Invoke();
     }
 }
-
-
-
-
-
-
-
-
-
-

@@ -16,7 +16,7 @@ using UnityEngine.UI;
 
 public class ObjGOInteractionManager : MonoBehaviour
 {
-   
+
     [Header("Camera & Crosshair References")]
     [Tooltip("CinemachineBrain cam (or leave empty to auto-find)")]
     public Camera targetCamera;
@@ -102,7 +102,7 @@ public class ObjGOInteractionManager : MonoBehaviour
     {
         //if (Mouse.current == null) return;
         ////if (targetCamera == null || crosshairManager == null) EnsureReferences();
-       if (targetCamera == null)
+        if (targetCamera == null)
         {
             EnsureReferences();
             if (targetCamera == null) return; // Exit safely if no camera exists yet
@@ -119,7 +119,7 @@ public class ObjGOInteractionManager : MonoBehaviour
 
         //    if (interactableTags.Contains(hitTag))
         //    {
-               
+
         //        //if (crosshairManager != null)
         //        //    crosshairManager.SetCrosshairByTag(hitTag);
 
@@ -157,7 +157,3 @@ public class ObjGOInteractionManager : MonoBehaviour
         //        crosshairManager.ResetCrosshairUI();
     }
 }
-
-
-
-
