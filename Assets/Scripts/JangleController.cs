@@ -118,6 +118,7 @@ public class JangleController : MonoBehaviour
     private void OnMoveStopped(InputAction.CallbackContext context)
     {
         moveInput = Vector2.zero;
+        addAudio.StopWalk();
     }
 
     private void OnJumpGlideInput(InputAction.CallbackContext context)
@@ -136,6 +137,8 @@ public class JangleController : MonoBehaviour
     {
 
         isGliding = false;// ----  reverts to standard gravity force when space bar released ---- CF
+        addAudio.StopWingFlap();
+
     }
 
     private void OnFireBreathInput(InputAction.CallbackContext context)
@@ -150,6 +153,7 @@ public class JangleController : MonoBehaviour
     {
         flameOn = false;
         ToggleFireBreath();
+        addAudio.StopFireBreath();
     }
 
     private void MovePlayer()

@@ -318,12 +318,18 @@ public class StageInteractManager : MonoBehaviour, IInteractable
     }
     public void DisableWheatCollider()
     {
-        foreach (GameObject obj in FindObjectsByType<GameObject>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+        //foreach (GameObject obj in FindObjectsByType<GameObject>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+        foreach (BoxCollider2D boxCollider2D in FindObjectsByType<BoxCollider2D>(FindObjectsInactive.Include, FindObjectsSortMode.None))
         {
-            if (obj.name.StartsWith("Wheat") && obj.TryGetComponent(out BoxCollider2D boxCollider2D))
+            if (boxCollider2D.gameObject.name == "Wheat")
             {
                 boxCollider2D.enabled = false;
             }
+
+            //if (obj.name.StartsWith("Wheat") && obj.TryGetComponent(out BoxCollider2D boxCollider2D))
+            //{
+            //    boxCollider2D.enabled = false;
+            //}
         }
 
         //GameObject wheat = GameObject.Find("Wheat");
@@ -334,12 +340,17 @@ public class StageInteractManager : MonoBehaviour, IInteractable
     }
     public void EnableWheatCollider()
     {
-        foreach (GameObject obj in FindObjectsByType<GameObject>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+        //foreach (GameObject obj in FindObjectsByType<GameObject>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+        foreach (BoxCollider2D boxCollider2D in FindObjectsByType<BoxCollider2D>(FindObjectsInactive.Include, FindObjectsSortMode.None))
         {
-            if (obj.name.StartsWith("Wheat") && obj.TryGetComponent(out BoxCollider2D boxCollider2D))
+            if (boxCollider2D.gameObject.name == "Wheat")
             {
                 boxCollider2D.enabled = true;
             }
+            //if (obj.name.StartsWith("Wheat") && obj.TryGetComponent(out BoxCollider2D boxCollider2D))
+            //{
+            //    boxCollider2D.enabled = true;
+            //}
         }
 
         //GameObject wheat = GameObject.Find("Wheat");
@@ -433,7 +444,8 @@ public class StageInteractManager : MonoBehaviour, IInteractable
 
         if (playerScript != null) playerScript.flameOn = true;
         addAudio.OnFireBreath();
-        yield return new WaitForSeconds(28f);
+        yield return new WaitForSeconds(15f);
+        addAudio.StopFireBreath();
         if (playerScript != null) playerScript.flameOn = false;
 
         if (playerScript != null) playerScript.SetFireBreath(false);

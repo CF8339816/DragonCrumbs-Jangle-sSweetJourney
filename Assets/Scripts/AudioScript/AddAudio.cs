@@ -164,7 +164,17 @@ public class AddAudio : MonoBehaviour
         ApplyCurrentVolume();
         if (sourceSFXandDialogue != null && WingFlap != null)
         {
-            sourceSFXandDialogue.PlayOneShot(WingFlap, 1.0f);//plays defined audio clip on ente of collider zone
+            sourceSFXandDialogue.clip = WingFlap;//plays defined audio clip on ente of collider zone
+            sourceSFXandDialogue.loop = true;
+            sourceSFXandDialogue.Play();
+        }
+    }
+    public void StopWingFlap()
+    {
+        if (sourceSFXandDialogue != null && sourceSFXandDialogue.clip == WingFlap)
+        {
+            sourceSFXandDialogue.Stop();
+            sourceSFXandDialogue.loop = false;
         }
     }
     public void OnFireBreath()
@@ -172,7 +182,19 @@ public class AddAudio : MonoBehaviour
         ApplyCurrentVolume();
         if (sourceSFXandDialogue != null && FireBreath != null)
         {
-            sourceSFXandDialogue.PlayOneShot(FireBreath, 1.0f);//plays defined audio clip on ente of collider zone
+            sourceSFXandDialogue.clip = FireBreath; //plays defined audio clip on ente of collider zone
+            sourceSFXandDialogue.loop = true;
+            sourceSFXandDialogue.Play();
+
+
+        }
+    }
+    public void StopFireBreath()
+    {
+        if (sourceSFXandDialogue != null && sourceSFXandDialogue.clip == FireBreath)
+        {
+            sourceSFXandDialogue.Stop();
+            sourceSFXandDialogue.loop = false;
         }
     }
     public void OnPickupSound()
@@ -188,9 +210,21 @@ public class AddAudio : MonoBehaviour
         ApplyCurrentVolume();
         if (sourceSFXandDialogue != null && WalkSound != null)
         {
-            sourceSFXandDialogue.PlayOneShot(WalkSound, 1.0f);//plays defined audio clip on ente of collider zone
+            sourceSFXandDialogue.clip = WalkSound;//plays defined audio clip on ente of collider zone
+            sourceSFXandDialogue.loop = true;
+            sourceSFXandDialogue.Play();
         }
     }
+
+    public void StopWalk()
+    {
+        if (sourceSFXandDialogue != null && sourceSFXandDialogue.clip == WalkSound)
+        {
+            sourceSFXandDialogue.Stop();
+            sourceSFXandDialogue.loop = false;
+        }
+    }
+
     public void OnMiscDialogueGarble()
     {
         ApplyCurrentVolume();

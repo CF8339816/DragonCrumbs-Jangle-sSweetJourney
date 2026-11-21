@@ -119,8 +119,12 @@ public class ObjectButtonsInteractables : MonoBehaviour
     void Start()
     {
         SetDefaultText();
-        if (MenuManager.Instance != null && MenuManager.Instance.hasActiveQuest)
+        int currentBuildIndex = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
+
+
+        if ((currentBuildIndex >= 1 && currentBuildIndex <= 3) || (MenuManager.Instance != null && MenuManager.Instance.hasActiveQuest))
         {
+            if (MenuManager.Instance != null) MenuManager.Instance.hasActiveQuest = true;
             SetQuestState();
             RefreshAllIngredientTexts();
         }

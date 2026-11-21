@@ -243,14 +243,25 @@ public class MenuManager : MonoBehaviour
         if (SceneManager.GetActiveScene().buildIndex < 4)
         {
             nextIndex = SceneManager.GetActiveScene().buildIndex + 1;
-            LoadLevelByIndex(nextIndex);
+            if (nextIndex >= 1 && nextIndex <= 3)
+            {
+                hasActiveQuest = true;
+                pendingQuestState = true;
+                pendingBakeryState = false;
+            }
+            else if (nextIndex == 4)
+            {
+                pendingQuestState = hasActiveQuest;
+                pendingBakeryState = !hasActiveQuest;
+                LoadLevelByIndex(nextIndex);
 
 
-        }
-        else
-        {
-            onMenu();
+            }
+            else
+            {
+                onMenu();
 
+            }
         }
     }
 
