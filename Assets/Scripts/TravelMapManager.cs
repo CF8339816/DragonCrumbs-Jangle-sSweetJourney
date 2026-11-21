@@ -114,8 +114,8 @@ public class TravelMapManager : MonoBehaviour
                 
                 if (stageInteractManager == null || (stageInteractManager.AppleCount < 1 && stageInteractManager.FlourCount < 1 && stageInteractManager.HoneyCount < 1))// null-safe check in case StageInteractManager isn't in the TravelMap scene
                 {
-                    stageInteractManager.InteractNextLevelDebug();
-                    // menuManager.onLevel1();//commented out to allow for the testing button to drive the to next level for the moment
+                   // stageInteractManager.InteractNextLevelDebug();
+                    menuManager.onLevel1();//commented out to allow for the testing button to drive the to next level for the moment
                 }
             }
         }
@@ -137,8 +137,8 @@ public class TravelMapManager : MonoBehaviour
             {
                 if (stageInteractManager == null || stageInteractManager.AppleCount < 5 || stageInteractManager.FlourCount < 1 || stageInteractManager.HoneyCount < 1)
                 {
-                    stageInteractManager.InteractNextLevelDebug();
-                    // menuManager.onLoadNextLevel();//commented out to allow for the testing button to drive the to next level for the moment
+                    //stageInteractManager.InteractNextLevelDebug();
+                     menuManager.onLoadNextLevel();//commented out to allow for the testing button to drive the to next level for the moment
                 }
             }
         }
@@ -160,8 +160,8 @@ public class TravelMapManager : MonoBehaviour
             {
                 if (stageInteractManager != null && stageInteractManager.AppleCount == 5 && stageInteractManager.FlourCount == 1 && stageInteractManager.HoneyCount == 1)
                 {
-                    stageInteractManager.InteractNextLevelDebug();
-                    //menuManager.onBakery();//commented out to allow for the testing button to drive the to next level for the moment
+                   // stageInteractManager.InteractNextLevelDebug();
+                    menuManager.onBakery();//commented out to allow for the testing button to drive the to next level for the moment
                 }
             }
         }

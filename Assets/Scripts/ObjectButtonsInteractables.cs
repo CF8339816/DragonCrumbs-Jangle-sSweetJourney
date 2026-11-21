@@ -321,6 +321,8 @@ public class ObjectButtonsInteractables : MonoBehaviour
     }
     public void ResetRecipeQuestCard()
     {
+
+        if (BakedApplePieB !=null) BakedApplePieB.SetActive(false);
         if (IngredientAP1 != null) IngredientAP1.SetActive(true);
         if (IngredientAP1A != null) IngredientAP1A.SetActive(false);
         if (IngredientAP1B != null) IngredientAP1B.SetActive(false);
@@ -347,7 +349,7 @@ public class ObjectButtonsInteractables : MonoBehaviour
 
     public void UpdateQuestCard()
     {
-        
+        if (BakedApplePieB != null) if (stageInteractManager.FreshBakedPie <= 1) BakedApplePieB.SetActive(true);
         if (IngredientAP1A != null) if (stageInteractManager.AppleCount <= 1) IngredientAP1A.SetActive(true);
         if (IngredientAP1B != null) if (stageInteractManager.AppleCount <= 2) IngredientAP1B.SetActive(true);
         if (IngredientAP1C != null) if (stageInteractManager.AppleCount <= 3) IngredientAP1C.SetActive(true);
