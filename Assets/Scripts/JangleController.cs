@@ -59,7 +59,7 @@ public class JangleController : MonoBehaviour
     private void OnEnable()
     {
         inputActions.Player.Enable();
-      
+
         inputActions.Player.Move.performed += OnMoveInput; // ---- WASD Movement ---- CF
         inputActions.Player.Move.canceled += OnMoveStopped;
 
@@ -67,9 +67,9 @@ public class JangleController : MonoBehaviour
         inputActions.Player.JumpGlide.canceled += OnJumpGlideStopped;
 
         inputActions.Player.FireBreath.performed += OnFireBreathInput;   // ----Ctrl either left or right  Fire Breath  changed from shift to avoid sticky keys if player spams breath---- CF
-        inputActions.Player.FireBreath.canceled += OnFireBreathStopped; 
-        
-        inputActions.Player.Interact.performed += OnInteract; 
+        inputActions.Player.FireBreath.canceled += OnFireBreathStopped;
+
+        inputActions.Player.Interact.performed += OnInteract;
     }
 
     private void OnDisable()
@@ -86,6 +86,15 @@ public class JangleController : MonoBehaviour
         inputActions.Player.Interact.performed -= OnInteract;
 
         inputActions.Player.Disable();
+    }
+
+    // [CODE REVIEW] Direct E-key fallback in case PlayerControls.Player.Interact isn't bound to Keyboard E
+    private void Update()
+    {
+        if (Keyboard.current != null && Keyboard.current.eKey.wasPressedThisFrame && currentInteractable != null)
+        {
+            TriggerCurrentInteractable();
+        }
     }
 
     private void FixedUpdate()
@@ -112,13 +121,13 @@ public class JangleController : MonoBehaviour
 
         moveInput = context.ReadValue<Vector2>();
         if (addAudio == null) addAudio = FindFirstObjectByType<AddAudio>();
-        addAudio.OnWalkSound();
+        if (addAudio != null) addAudio.OnWalkSound();
     }
 
     private void OnMoveStopped(InputAction.CallbackContext context)
     {
         moveInput = Vector2.zero;
-        addAudio.StopWalk();
+        if (addAudio != null) addAudio.StopWalk();
     }
 
     private void OnJumpGlideInput(InputAction.CallbackContext context)
@@ -130,14 +139,13 @@ public class JangleController : MonoBehaviour
         if (addAudio != null) addAudio.OnWingFlap();
 
         isGliding = true;// ----marks gliding state true as long as spacebar is held down---- CF
-        isGliding = true;// ----marks gliding state true as long as spacebar is held down---- CF
     }
 
     private void OnJumpGlideStopped(InputAction.CallbackContext context)
     {
 
         isGliding = false;// ----  reverts to standard gravity force when space bar released ---- CF
-        addAudio.StopWingFlap();
+        if (addAudio != null) addAudio.StopWingFlap();
 
     }
 
@@ -145,7 +153,8 @@ public class JangleController : MonoBehaviour
     {
         flameOn = true;
         ToggleFireBreath();
-        addAudio.OnFireBreath();
+        if (addAudio == null) addAudio = FindFirstObjectByType<AddAudio>();
+        if (addAudio != null) addAudio.OnFireBreath();
 
     }
 
@@ -153,7 +162,7 @@ public class JangleController : MonoBehaviour
     {
         flameOn = false;
         ToggleFireBreath();
-        addAudio.StopFireBreath();
+        if (addAudio != null) addAudio.StopFireBreath();
     }
 
     private void MovePlayer()
@@ -202,20 +211,34 @@ public class JangleController : MonoBehaviour
     }
 
     private IInteractable currentInteractable;
+    private float lastInteractTime = -1f;
+
     public void OnInteract(InputAction.CallbackContext context)
     {
         if (context.performed && currentInteractable != null)
         {
-            if (interactPromptUI != null) interactPromptUI.SetActive(false); // hide prompt once dialogue opens
-            currentInteractable.Interact();
+            TriggerCurrentInteractable();
         }
+    }
+
+    
+    private void TriggerCurrentInteractable()
+    {
+        if (Time.unscaledTime - lastInteractTime < 0.1f) return;
+        lastInteractTime = Time.unscaledTime;
+
+        if (interactPromptUI != null) interactPromptUI.SetActive(false); // hide prompt once dialogue opens
+        currentInteractable.Interact();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Interactable"))
         {
-            currentInteractable = collision.GetComponent<IInteractable>();
+          
+            currentInteractable = collision.GetComponent<IInteractable>()
+                ?? collision.GetComponentInParent<IInteractable>()
+                ?? collision.GetComponentInChildren<IInteractable>();
 
             if (currentInteractable != null && interactPromptUI != null)
             {
@@ -224,14 +247,21 @@ public class JangleController : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("PassiveInteractable"))
         {
-            collision.GetComponent<IInteractable>()?.Interact();
+            IInteractable passive = collision.GetComponent<IInteractable>()
+                ?? collision.GetComponentInParent<IInteractable>()
+                ?? collision.GetComponentInChildren<IInteractable>();
+            passive?.Interact();
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Interactable"))
         {
-            if (currentInteractable == collision.GetComponent<IInteractable>())
+            IInteractable exiting = collision.GetComponent<IInteractable>()
+                ?? collision.GetComponentInParent<IInteractable>()
+                ?? collision.GetComponentInChildren<IInteractable>();
+
+            if (currentInteractable == exiting)
             {
                 currentInteractable = null;
                 if (interactPromptUI != null)

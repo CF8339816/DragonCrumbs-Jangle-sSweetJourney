@@ -194,6 +194,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Jangle
       objectReference: {fileID: 0}
+    - target: {fileID: 8298714858937829163, guid: 2fdf9bbf0274dda4b8de7faff03c2fc6, type: 3}
+      propertyPath: interactPromptUI
+      value: 
+      objectReference: {fileID: 315645233}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -203,6 +207,11 @@ PrefabInstance:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3126994440105031056, guid: a3e723799f43ed1459a448018f82d7dd, type: 3}
   m_PrefabInstance: {fileID: 627030684386925101}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &315645233 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8121228897308382744, guid: 05bd244785fe2304fa5ee7a42f699137, type: 3}
+  m_PrefabInstance: {fileID: 1829251708}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &410087039
 GameObject:
@@ -748,6 +757,10 @@ PrefabInstance:
     - target: {fileID: 559076875463310399, guid: 5ef43a50dc149e74cbab161d863e3373, type: 3}
       propertyPath: m_Name
       value: EventSystem
+      objectReference: {fileID: 0}
+    - target: {fileID: 559076875463310399, guid: 5ef43a50dc149e74cbab161d863e3373, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7905733444691546079, guid: 5ef43a50dc149e74cbab161d863e3373, type: 3}
       propertyPath: m_LocalPosition.x

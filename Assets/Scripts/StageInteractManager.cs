@@ -449,6 +449,7 @@ public class StageInteractManager : MonoBehaviour, IInteractable
             {
                 objectButtonsInteractables.DangleExit.SetActive(true);
             }
+            objectButtonsInteractables.SetBakeryState();
         }
     }
 }

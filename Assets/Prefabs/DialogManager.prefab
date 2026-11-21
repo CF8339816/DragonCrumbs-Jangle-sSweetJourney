@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1075404689735975052
 Transform:
   m_ObjectHideFlags: 0
@@ -205,7 +205,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6940353903600022791, guid: 460a07e6c66ce25498f454f821228386, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 200.39
+      value: 321.4
       objectReference: {fileID: 0}
     - target: {fileID: 6940353903600022791, guid: 460a07e6c66ce25498f454f821228386, type: 3}
       propertyPath: m_LocalPosition.x
@@ -254,6 +254,14 @@ PrefabInstance:
     - target: {fileID: 6940353903600022791, guid: 460a07e6c66ce25498f454f821228386, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6989598961775703503, guid: 460a07e6c66ce25498f454f821228386, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 9.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6989598961775703503, guid: 460a07e6c66ce25498f454f821228386, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 79.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
