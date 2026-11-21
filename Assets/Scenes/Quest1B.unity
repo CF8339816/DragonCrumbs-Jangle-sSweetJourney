@@ -2094,7 +2094,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3787ef43f47802f438faf552c276d7dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TalkOrRead
-  Dialog: []
+  Dialog:
+  - hey, if you go get me some wheat then I'll let you use my mill to make some flour
+    with it
 --- !u!212 &318021322
 SpriteRenderer:
   serializedVersion: 2
