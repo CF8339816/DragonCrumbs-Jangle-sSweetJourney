@@ -206,6 +206,7 @@ public class JangleController : MonoBehaviour
     {
         if (context.performed && currentInteractable != null)
         {
+            if (interactPromptUI != null) interactPromptUI.SetActive(false); // hide prompt once dialogue opens
             currentInteractable.Interact();
         }
     }
@@ -235,7 +236,7 @@ public class JangleController : MonoBehaviour
                 currentInteractable = null;
                 if (interactPromptUI != null)
                 {
-                    interactPromptUI.SetActive(false); // hwdide popup when Jangle walks away
+                    interactPromptUI.SetActive(false); // hides the popup when Jangle walks away
                 }
             }
         }

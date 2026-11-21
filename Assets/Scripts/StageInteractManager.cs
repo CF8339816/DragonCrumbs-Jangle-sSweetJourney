@@ -221,6 +221,9 @@ public class StageInteractManager : MonoBehaviour, IInteractable
             if (objectButtonsInteractables.CheckMark3 != null) objectButtonsInteractables.CheckMark3.SetActive(false);
             if (objectButtonsInteractables.CrossOut3 != null) objectButtonsInteractables.CrossOut3.SetActive(true);
         }
+       
+
+        if (FreshBakedPie <= 0 && objectButtonsInteractables.BakedApplePieB != null) objectButtonsInteractables.BakedApplePieB.SetActive(false);
         if (AppleCount <= 0 && objectButtonsInteractables.IngredientAP1A != null) objectButtonsInteractables.IngredientAP1A.SetActive(false);
         if (AppleCount <= 0 && objectButtonsInteractables.IngredientAP1B != null) objectButtonsInteractables.IngredientAP1B.SetActive(false);
         if (AppleCount <= 0 && objectButtonsInteractables.IngredientAP1C != null) objectButtonsInteractables.IngredientAP1C.SetActive(false);
@@ -245,6 +248,8 @@ public class StageInteractManager : MonoBehaviour, IInteractable
         if (WheatCount >= 3 && objectButtonsInteractables.IngredientWheat1C != null) objectButtonsInteractables.IngredientWheat1C.SetActive(true);
         if (WheatCount >= 4 && objectButtonsInteractables.IngredientWheat1D != null) objectButtonsInteractables.IngredientWheat1D.SetActive(true);
         if (WheatCount >= 5 && objectButtonsInteractables.IngredientWheat1E != null) objectButtonsInteractables.IngredientWheat1E.SetActive(true);
+        if (FreshBakedPie <= 1 && objectButtonsInteractables.BakedApplePieB != null) objectButtonsInteractables.BakedApplePieB.SetActive(true);
+
     }
     public void HandleInteraction(string targetTag)
     {

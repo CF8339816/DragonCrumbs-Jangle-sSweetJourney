@@ -68,7 +68,7 @@ public class ObjectButtonsInteractables : MonoBehaviour
     [SerializeField] public GameObject IngredientWheat1C;
     [SerializeField] public GameObject IngredientWheat1D;
     [SerializeField] public GameObject IngredientWheat1E;
-    [SerializeField] public GameObject BakedApplePie;
+    [SerializeField] public GameObject BakedApplePieB;
 
     private string[] RecipeList;
 
