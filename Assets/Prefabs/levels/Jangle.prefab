@@ -716,6 +716,8 @@ MonoBehaviour:
   musicSource: {fileID: 0}
   backgroundTrackBakery: {fileID: 0}
   backgroundTrackDefault: {fileID: 0}
+  VolumeBG: {fileID: 0}
+  startingMusicVolume: 0.25
 --- !u!1 &8162621151089300545
 GameObject:
   m_ObjectHideFlags: 0

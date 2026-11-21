@@ -19,6 +19,7 @@ TagManager:
   - PassiveInteractable
   - NextLevelDebug
   - Dangle
+  - Sythe
   layers:
   - Default
   - TransparentFX

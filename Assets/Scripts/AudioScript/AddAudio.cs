@@ -19,7 +19,7 @@ using UnityEngine.UI;
 public class AddAudio : MonoBehaviour
 {// Start is called once before the first execution of Update after the MonoBehaviour is created
 
-    private BackgroundMusicManager backgroundMusicManager;
+    private AddBackgroundAudio backgroundMusicManager;
 
     [Header("audio clip")]
     [SerializeField] public AudioClip millFlour;// defines clip 

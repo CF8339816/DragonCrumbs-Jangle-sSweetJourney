@@ -33,7 +33,8 @@ public class CinemachineRaycastDriver : MonoBehaviour
         "Ladder",
         "BeeHive",
         "Basket",
-        "Dangle"
+        "Dangle",
+        "Sythe"
     };
 
     public float maxClickDistance = 100f;
@@ -50,17 +51,17 @@ public class CinemachineRaycastDriver : MonoBehaviour
         {
             bootStrappin.FindManagers();
         }
-        SetupCameraAndLayers(); // [CODE REVIEW] Ensure camera & layers initialize immediately in Awake
+        SetupCameraAndLayers(); // ensures camera & layers initialize immediately in Awake
     }
 
     void Start()
     {
-        SetupCameraAndLayers(); // [CODE REVIEW] Re-verify in Start in case camera spawned after Awake
+        SetupCameraAndLayers(); // reverifies in Start incase camera spawned after Awake
     }
 
     private void SetupCameraAndLayers()
     {
-        if (targetCamera == null)// checks to ensure script on a cam  
+        if (targetCamera == null)// checks to ensure script added to cam object
         {
             targetCamera = GetComponent<Camera>();
         }
@@ -72,7 +73,7 @@ public class CinemachineRaycastDriver : MonoBehaviour
 
         if (targetCamera == null)
         {
-            targetCamera = Camera.main; // [CODE REVIEW] Extra fallback to Camera.main
+            targetCamera = Camera.main; // redundancy to Camera main
         }
 
         RecipeButtons = LayerMask.GetMask(targetLayerName1); // sets the layermask as defined above
@@ -94,15 +95,15 @@ public class CinemachineRaycastDriver : MonoBehaviour
     {
         if (Mouse.current == null) return;
 
-        // [CODE REVIEW] Re-acquire camera if scene changed and old camera was destroyed
-        if (targetCamera == null)
+        
+        if (targetCamera == null)//find and reconnect to camera if scene changed and old camera was destroyed
         {
             SetupCameraAndLayers();
             if (targetCamera == null) return;
         }
 
-        // [CODE REVIEW] Safety check in case combinedMask wasn't built yet
-        if (combinedMask == 0)
+       
+        if (combinedMask == 0) // safety check for combinedMask
         {
             SetupCameraAndLayers();
         }

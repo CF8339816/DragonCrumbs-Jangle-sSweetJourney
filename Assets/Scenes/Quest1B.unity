@@ -10528,9 +10528,9 @@ GameObject:
   - component: {fileID: 1955766234}
   - component: {fileID: 1955766237}
   - component: {fileID: 1955766238}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Sythe
-  m_TagString: ApplePie
+  m_TagString: Sythe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
