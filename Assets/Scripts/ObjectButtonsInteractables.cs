@@ -358,7 +358,7 @@ public class ObjectButtonsInteractables : MonoBehaviour
       
         if (IngredientAP2A != null) if (stageInteractManager.FlourCount <= 1) IngredientAP2A.SetActive(true);
        
-        if (IngredientAP3A != null) if (stageInteractManager.HoneyCount <= 5) IngredientAP3A.SetActive(true);
+        if (IngredientAP3A != null) if (stageInteractManager.HoneyCount <= 1) IngredientAP3A.SetActive(true);
 
         if (IngredientMill1 != null) if (stageInteractManager.WheatCount <= 5) IngredientMill1.SetActive(true);
         if (IngredientWheat1A != null) if (stageInteractManager.WheatCount <= 1) IngredientWheat1A.SetActive(true);

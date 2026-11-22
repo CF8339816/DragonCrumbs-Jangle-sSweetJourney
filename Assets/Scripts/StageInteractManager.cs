@@ -458,7 +458,16 @@ public class StageInteractManager : MonoBehaviour, IInteractable
         }
     }
 
-
+    public void BACK2theBakery()
+    {
+        if (AppleCount <= 5 || FlourCount <= 1 || HoneyCount <= 1)
+        {
+            AppleCount = 5;
+            FlourCount = 1;
+            HoneyCount = 1;
+        }
+        menuManager.onBakery();
+    }
     public void farm2fix()
     {
         menuManager.onLevel2();
