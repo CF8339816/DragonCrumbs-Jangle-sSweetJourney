@@ -412,17 +412,22 @@ public class StageInteractManager : MonoBehaviour, IInteractable
         if (pieVisabilityManager != null)
         {
             pieVisabilityManager.RawApplePieProxy.SetActive(false);
-            
         }
 
         if (playerScript != null) playerScript.SetFireBreath(true);
 
-        if (playerScript != null) playerScript.flameOn = true;
-        addAudio.OnFireBreath();
+        if (playerScript != null)
+        {
+            playerScript.flameOn = true;
+            addAudio.OnFireBreath();
+        }
         yield return new WaitForSeconds(15f);
-        addAudio.StopFireBreath();
-        if (playerScript != null) playerScript.flameOn = false;
 
+        if (playerScript != null)
+        {
+            playerScript.flameOn = false;
+            addAudio.StopFireBreath();
+        }
         if (playerScript != null) playerScript.SetFireBreath(false);
 
         if (pieVisabilityManager != null)

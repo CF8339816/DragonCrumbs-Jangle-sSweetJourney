@@ -88,7 +88,7 @@ public class JangleController : MonoBehaviour
         inputActions.Player.Disable();
     }
 
-    // [CODE REVIEW] Direct E-key fallback in case PlayerControls.Player.Interact isn't bound to Keyboard E
+    //  direct E-key fallback in case PlayerControls.Player.Interact isn't bound to Keyboard E
     private void Update()
     {
         if (Keyboard.current != null && Keyboard.current.eKey.wasPressedThisFrame && currentInteractable != null)

@@ -292,7 +292,7 @@ public class AddAudio : MonoBehaviour
         }
     }
     
-    public void StopBeeHivek()
+    public void StopBeeHive()
     {
         if (sourceSFXandDialogue != null && sourceSFXandDialogue.clip == BeeHive)
         {
