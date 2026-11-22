@@ -452,4 +452,15 @@ public class StageInteractManager : MonoBehaviour, IInteractable
             objectButtonsInteractables.SetBakeryState();
         }
     }
+
+
+    public void farm2fix()
+    {
+        menuManager.onLevel2();
+    }
+
+    public void farm3fix()
+    {
+        menuManager.onLevel3();
+    }
 }
