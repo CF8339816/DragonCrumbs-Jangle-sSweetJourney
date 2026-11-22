@@ -32,6 +32,8 @@ public class ToggleMaze : MonoBehaviour, IInteractable
     }
     public virtual void Interact()
     {
+      
+
         if (stageInteractManager == null) stageInteractManager = FindFirstObjectByType<StageInteractManager>();
         if (objectButtonsInteractables == null) objectButtonsInteractables = FindFirstObjectByType<ObjectButtonsInteractables>();
 
@@ -42,7 +44,7 @@ public class ToggleMaze : MonoBehaviour, IInteractable
             if (maze != null)
             {
                 maze.SetActive(enableMaze);
-                addAudio.OnBeeHive();
+              
 
             }
             if (stageInteractManager != null)
@@ -62,8 +64,8 @@ public class ToggleMaze : MonoBehaviour, IInteractable
         {
             Debug.Log("deactivating maze");
             if (maze != null) maze.SetActive(enableMaze);
-            addAudio.StopBeeHive();
-            stageInteractManager.HoneyCount = 1;
+       
+          
         }
     }
 }

@@ -33,6 +33,7 @@ public class StageInteractManager : MonoBehaviour, IInteractable
     public LayerMask EnvironmentButtons;
     public LayerMask combinedMask;
     private CharacterController characterController;
+    public ToggleMaze toggleMaze;
 
     private string currentTargetTag = "";
 
@@ -278,6 +279,7 @@ public class StageInteractManager : MonoBehaviour, IInteractable
         {
             WheatCount = 0;
             FlourCount = 1;
+        
             SaveCountsToPersistent();
         }
         if (objectButtonsInteractables != null)
@@ -288,8 +290,17 @@ public class StageInteractManager : MonoBehaviour, IInteractable
     }
     public void InteractBeeHive()
     {
-        addAudio.OnBeeHive();
+        //addAudio.OnBeeHive();
+        //HoneyCount = 1;
+
+        Debug.Log("Adding honey count");
         HoneyCount = 1;
+
+        if (HoneyCount >= 1) Debug.Log("honey added succedssfully to countt");
+        else Debug.Log("No Honey herre ya looser");
+
+
+
         SaveCountsToPersistent();
         if (objectButtonsInteractables != null)
             objectButtonsInteractables.SetHoney_TXT();
@@ -458,14 +469,30 @@ public class StageInteractManager : MonoBehaviour, IInteractable
         }
     }
 
+    public void SlapTheHive()
+    {
+
+        InteractBeeHive();
+
+
+        Debug.Log("Adding honey count");
+        HoneyCount = 1;
+
+        if (HoneyCount >= 1) Debug.Log("honey added succedssfully to countt");
+        else Debug.Log("No Honey herre ya looser");
+
+        InteractBeeHive();
+
+        toggleMaze.Interact();
+
+    }
     public void BACK2theBakery()
     {
-        if (AppleCount <= 5 || FlourCount <= 1 || HoneyCount <= 1)
-        {
+        
             AppleCount = 5;
             FlourCount = 1;
             HoneyCount = 1;
-        }
+        
         menuManager.onBakery();
     }
     public void farm2fix()

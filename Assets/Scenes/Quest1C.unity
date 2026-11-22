@@ -572,7 +572,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   stageInteractManager: {fileID: 6779613637237911946, guid: 92b0a111cd4f5f94bb55dd829489d262, type: 3}
-  objectButtonsInteractables: {fileID: 0}
+  objectButtonsInteractables: {fileID: 1553431630}
   enableMaze: 0
   maze: {fileID: 2124370250}
 --- !u!1 &419957415
@@ -1409,7 +1409,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a38ebb6f9dd4d1f488a1c169ab6594f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PassiveItemCheckObject
-  stageInteractManager: {fileID: 0}
+  stageInteractManager: {fileID: 474069916}
   menuManager: {fileID: 0}
   dialogManager: {fileID: 0}
   itemToCheck: apple
