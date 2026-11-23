@@ -729,6 +729,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6022756951575955728}
   - component: {fileID: 5844278354489638092}
+  - component: {fileID: 4140256799556265387}
   - component: {fileID: 8463682015858516294}
   m_Layer: 0
   m_Name: jangleProxy
@@ -811,6 +812,20 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &4140256799556265387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8162621151089300545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a895ee6dead984541a355f01327c0ae6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::jangleAnimationManager
+  direction: {x: 0, y: 0}
+  animator: {fileID: 8463682015858516294}
 --- !u!95 &8463682015858516294
 Animator:
   serializedVersion: 7
@@ -892,11 +907,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7166918358997883249, guid: 482cc5e03c488fb41bd4a4c25115023b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.33556
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7166918358997883249, guid: 482cc5e03c488fb41bd4a4c25115023b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.10001
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7166918358997883249, guid: 482cc5e03c488fb41bd4a4c25115023b, type: 3}
       propertyPath: m_LocalPosition.z
