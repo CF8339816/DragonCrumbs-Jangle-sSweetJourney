@@ -21,6 +21,7 @@ public class MenuManager : MonoBehaviour
 
     private GameExitManager gameExitManager;
     public ObjectButtonsInteractables objectButtonsInteractables;
+    public StageInteractManager stageInteractManager;
 
     [SerializeField] GameObject Jangle;
     [SerializeField] GameObject Instructions;
@@ -201,8 +202,30 @@ public class MenuManager : MonoBehaviour
             pendingBakeryState = true;
         }
         LoadLevelByIndex(BAKERY_INDEX);
+
+
     }
 
+
+    public void onBack2TheBakeyDebug()
+    {
+        if (hasActiveQuest)
+        {
+            pendingQuestState = true;
+            pendingBakeryState = false;
+
+            stageInteractManager.AppleCount = 5;
+            stageInteractManager.FlourCount = 1;
+            stageInteractManager.HoneyCount = 1;
+
+        }
+        else
+        {
+            pendingQuestState = false;
+            pendingBakeryState = true;
+        }
+        LoadLevelByIndex(BAKERY_INDEX);
+    }
 
     public void onTravel()
     {
