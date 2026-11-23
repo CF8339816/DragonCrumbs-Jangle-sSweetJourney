@@ -3903,9 +3903,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PassiveItemCheckObject
   stageInteractManager: {fileID: 0}
   menuManager: {fileID: 0}
+  dialogManager: {fileID: 0}
   itemToCheck: apple
   timer: 5
   nextSceneIndex: 4
+  dialogPass: []
+  dialogFail: []
 --- !u!4 &1694895707
 Transform:
   m_ObjectHideFlags: 0
