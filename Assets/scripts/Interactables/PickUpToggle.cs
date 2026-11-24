@@ -9,8 +9,7 @@ using UnityEngine;
 
 public class PickUpToggle : MonoBehaviour, IInteractable
 {
-    //repercents current state
-    public bool enableTriggers = false;
+    
     //refernace to all triggers to turn on
     public Collider2D[] Triggers;
 
@@ -25,26 +24,13 @@ public class PickUpToggle : MonoBehaviour, IInteractable
 
     public virtual void Interact()
     {
-        enableTriggers = !enableTriggers;
-        if (enableTriggers)
+        
+        Debug.Log("activating triggers");
+        for (int i = 0; i < Triggers.Length; i++)
         {
-            Debug.Log("activating triggers");
-            for (int i = 0; i < Triggers.Length; i++)
-            {
-                if (Triggers[i] != null)//----added to remove the  missing ref error happening from the destroyeed game objects----CF
-                    Triggers[i].enabled = true;
-            }
-
+            if (Triggers[i] != null)//----added to remove the  missing ref error happening from the destroyeed game objects----CF
+                Triggers[i].enabled = true;
         }
-        else
-        {
-            Debug.Log("deactivating triggers");
-            for (int i = 0; i < Triggers.Length; i++)
-            {
-                if (Triggers[i] != null)//----added to remove the  missing ref error happening from the destroyeed game objects----CF
-                    Triggers[i].enabled = false;
-            }
 
-        }
     }
 }
