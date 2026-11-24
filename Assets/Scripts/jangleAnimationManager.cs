@@ -54,7 +54,7 @@ public class jangleAnimationManager : MonoBehaviour
         {
             animator.SetBool(movingHash, false);
         }
-        SetGrounded(Physics2D.Raycast(transform.position, -Vector3.up, col.bounds.extents.y + 0.0001f));
+        SetGrounded(Physics2D.Raycast(col.transform.position, -Vector3.up, col.bounds.extents.y + 0.0001f));
         
     }
     //triggers jump animation
