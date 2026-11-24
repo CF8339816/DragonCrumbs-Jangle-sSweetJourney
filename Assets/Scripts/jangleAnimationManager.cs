@@ -11,7 +11,7 @@ public class jangleAnimationManager : MonoBehaviour
     private int movingHash = Animator.StringToHash("Moving");
     private int flapTriggerHash = Animator.StringToHash("Jumping");
     private int gildingHash = Animator.StringToHash("Gliding");
-    private int fireBreathHash = Animator.StringToHash("Breathing");
+    private int fireBreathHash = Animator.StringToHash("Breathing fire");
 
     private void Start()
     {
@@ -67,6 +67,10 @@ public class jangleAnimationManager : MonoBehaviour
     public void SetGrounded(bool grounded)
     {
         animator.SetBool(groundedHash, grounded);
+        if(grounded == true)
+        {
+            SetGliding(false);
+        }
     }
     //sets if glide animation should play or not
     public void SetGliding(bool gliding)

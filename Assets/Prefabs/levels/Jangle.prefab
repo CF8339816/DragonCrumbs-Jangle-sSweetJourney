@@ -502,6 +502,7 @@ MonoBehaviour:
   glideSpeed: -1
   jangleFlame: {fileID: 952532038202749417}
   interactPromptUI: {fileID: 0}
+  animationManager: {fileID: 4140256799556265387}
   flameOn: 0
 --- !u!50 &7647610995749830765
 Rigidbody2D:
