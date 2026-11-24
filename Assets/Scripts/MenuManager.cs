@@ -18,9 +18,10 @@ using static UnityEngine.UIElements.UxmlAttributeDescription;
 public class MenuManager : MonoBehaviour
 {
     public static MenuManager Instance { get; private set; }
-    
+
     private GameExitManager gameExitManager;
-    private ObjectButtonsInteractables objectButtonsInteractables;
+    public ObjectButtonsInteractables objectButtonsInteractables;
+    public StageInteractManager stageInteractManager;
 
     [SerializeField] GameObject Jangle;
     [SerializeField] GameObject Instructions;
@@ -31,17 +32,33 @@ public class MenuManager : MonoBehaviour
     private const int QUEST1B_INDEX = 2;
     private const int QUEST1C_INDEX = 3;
     private const int BAKERY_INDEX = 4;
-   
     private const int TRAVELMAP_INDEX = 5;
- 
+
+    public int STARTHUB;
+    public int QUEST1A;
+    public int QUEST1B;
+    public int QUEST1C;
+    public int BAKERYX;
+    public int TRAVELMAP;
+
+    public bool hasActiveQuest = false;
     private int RETURNLEVEL_INDEX;
     public int ReturnIndex;
- 
-
-    private int nextIndex;
-    public void Awake()
+    private bool pendingQuestState = false;
+    private bool pendingBakeryState = false;
+    public int nextIndex;
+    void Awake()
     {
-        Instructions.SetActive(false);
+        BootStrappin bootStrappin = FindFirstObjectByType<BootStrappin>();
+        if (bootStrappin != null)
+        {
+            bootStrappin.FindManagers();
+        }
+        //Changed cause the code below throws a couple of random errors depending on load orders ensures first load 
+        //BootStrappin bootStrappin = FindFirstObjectByType<BootStrappin>();
+        //bootStrappin.FindManagers();
+
+        if (Instructions != null) Instructions.SetActive(false);
         Debug.Log("CustomSceneManager awakening...");
         if (Instance != null && Instance != this)
         {
@@ -53,117 +70,165 @@ public class MenuManager : MonoBehaviour
 
         //AutoHookupMenuButtons();
 
+
+        STARTHUB = STARTHUB_INDEX;
+        QUEST1A = QUEST1A_INDEX;
+        QUEST1B = QUEST1B_INDEX;
+        QUEST1C = QUEST1C_INDEX;
+        BAKERYX = BAKERY_INDEX;
+        TRAVELMAP = TRAVELMAP_INDEX;
+
     }
-    private void OnEnable()
+    public void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    private void OnDisable()
+    public void OnDisable()
     {
-     SceneManager.sceneLoaded -= OnSceneLoaded;
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        //AutoHookupMenuButtons();
-    }
-    //private void AutoHookupMenuButtons()
-    //{
-    //    Button startButton = GameObject.Find("Start")?.GetComponent<Button>();
-    //    if (startButton != null)
-    //    {
-    //        startButton.onClick.RemoveAllListeners();
-    //        startButton.onClick.AddListener(onStart);
-    //    }
-    //    Button BeginButton = GameObject.Find("Begin")?.GetComponent<Button>();
-    //    if (BeginButton != null)
-    //    {
-    //        BeginButton.onClick.RemoveAllListeners();
-    //        BeginButton.onClick.AddListener(onStart);
-    //    }
-    //    Button ReselectButton = GameObject.Find("Reselect")?.GetComponent<Button>();
-    //    if (ReselectButton != null)
-    //    {
-    //        ReselectButton.onClick.RemoveAllListeners();
-    //        ReselectButton.onClick.AddListener(onReselect);
-    //    }
 
-    //    Button RepickButton = GameObject.Find("RepickButton")?.GetComponent<Button>();
-    //    if (RepickButton != null)
-    //    {
-    //        RepickButton.onClick.RemoveAllListeners();
-    //        RepickButton.onClick.AddListener(objectButtonsInteractables.OnRecipeRePick);
-    //    }
-    //    Button AcceptButton = GameObject.Find("AcceptButton")?.GetComponent<Button>();
-    //    if (AcceptButton != null)
-    //    {
-    //        AcceptButton.onClick.RemoveAllListeners();
-    //        AcceptButton.onClick.AddListener(objectButtonsInteractables.OnApplePieStart);
-    //    }
-    //    Button OkButton = GameObject.Find("OkButton")?.GetComponent<Button>();
-    //    if (OkButton != null)
-    //    {
-    //        OkButton.onClick.RemoveAllListeners();
-    //        OkButton.onClick.AddListener(objectButtonsInteractables.OnRecipeOK);
-    //    }
-     
-
-    //    Button QuitButton = GameObject.Find("Quit")?.GetComponent<Button>();
-    //    if (QuitButton != null)
-    //    {
-    //        QuitButton.onClick.RemoveAllListeners();
-
-
-    //        if (GameExitManager.Instance != null)
-    //        {
-    //            QuitButton.onClick.AddListener(GameExitManager.Instance.Ongameexit);
-    //        }
-    //    }
-
-    //}
     public void LoadLevelByIndex(int index)
     {
-        if (index >= 0 && index <7) 
+        if (index >= 0 && index <= 5)
         {
             SceneManager.LoadScene(index);
-    
+
         }
     }
+
+    public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+
+        if (scene.buildIndex == STARTHUB_INDEX)
+        {
+            if (Instructions == null) Instructions = GameObject.Find("Instructions");
+            if (StartSplash == null) StartSplash = GameObject.Find("StartSplash");
+        }
+
+        if (pendingQuestState)
+        {
+            pendingQuestState = false;
+
+            //finds the script in the newly loaded quest scene
+            objectButtonsInteractables = FindFirstObjectByType<ObjectButtonsInteractables>();
+
+            if (objectButtonsInteractables != null)
+            {
+                Debug.Log("Setting QuestState");
+                objectButtonsInteractables.SetQuestState();
+                Debug.Log("QuestState set");
+            }
+            else
+            {
+                Debug.LogWarning("ObjectButtonsInteractables was not found in " + scene.name);
+            }
+        }
+        if (pendingBakeryState)
+        {
+            pendingBakeryState = false;
+
+            // finds the script in the newly loaded quest scene
+            objectButtonsInteractables = FindFirstObjectByType<ObjectButtonsInteractables>();
+
+            if (objectButtonsInteractables != null)
+            {
+                Debug.Log("Setting BakeryState");
+                objectButtonsInteractables.SetBakeryState();
+                Debug.Log("BakeryState set");
+            }
+            else
+            {
+                Debug.LogWarning("ObjectButtonsInteractables was not found in " + scene.name);
+            }
+        }
+
+    }
+
     public void onLevel1()
     {
+        pendingQuestState = true;
+        pendingBakeryState = false;
+        if (Jangle != null)
+        {
+            Jangle.SetActive(true);
+        }
         LoadLevelByIndex(QUEST1A_INDEX);
-        Debug.Log("Setting QuestState");
-        objectButtonsInteractables.SetQuestState();
-        Debug.Log("QuestState set");
+        //Debug.Log("Setting QuestState");
+        //objectButtonsInteractables.SetQuestState();
+        //Debug.Log("QuestState set");
     }
 
     public void onLevel2()
     {
+        pendingQuestState = true;
+        pendingBakeryState = false;
+        if (Jangle != null)
+        {
+            Jangle.SetActive(true);
+        }
         LoadLevelByIndex(QUEST1B_INDEX);
-        Debug.Log("Setting QuestState");
-        objectButtonsInteractables.SetQuestState();
-        Debug.Log("QuestState set");
+        //Debug.Log("Setting QuestState");
+        //objectButtonsInteractables.SetQuestState();
+        //Debug.Log("QuestState set");
     }
 
     public void onLevel3()
     {
+        pendingQuestState = true;
+        pendingBakeryState = false;
+        if (Jangle != null)
+        {
+            Jangle.SetActive(true);
+        }
         LoadLevelByIndex(QUEST1C_INDEX);
-        Debug.Log("Setting QuestState");
-        objectButtonsInteractables.SetQuestState();
-        Debug.Log("QuestState set");
+        //Debug.Log("Setting QuestState");
+        //objectButtonsInteractables.SetQuestState();
+        //Debug.Log("QuestState set");
     }
 
     public void onBakery()
     {
+        if (hasActiveQuest)
+        {
+            pendingQuestState = true;
+            pendingBakeryState = false;
+        }
+        else
+        {
+            pendingQuestState = false;
+            pendingBakeryState = true;
+        }
         LoadLevelByIndex(BAKERY_INDEX);
+
 
     }
 
 
+    public void onBack2TheBakeyDebug()
+    {
+        if (hasActiveQuest)
+        {
+            pendingQuestState = true;
+            pendingBakeryState = false;
+
+            stageInteractManager.AppleCount = 5;
+            stageInteractManager.FlourCount = 1;
+            stageInteractManager.HoneyCount = 1;
+
+        }
+        else
+        {
+            pendingQuestState = false;
+            pendingBakeryState = true;
+        }
+        LoadLevelByIndex(BAKERY_INDEX);
+    }
+
     public void onTravel()
     {
-
 
         if (Jangle != null)
         {
@@ -173,27 +238,65 @@ public class MenuManager : MonoBehaviour
         LoadLevelByIndex(TRAVELMAP_INDEX);
     }
 
-    
+
 
     public void onBegin()
     {
-        StartSplash.SetActive(false);
-        Instructions.SetActive(true);
+        if (StartSplash != null) StartSplash.SetActive(false);
+        if (Instructions != null) Instructions.SetActive(true);
 
     }
     public void onReselect()
     {
-        StartSplash.SetActive(true);
-        Instructions.SetActive(false);
+        if (StartSplash != null) StartSplash.SetActive(true);
+        if (Instructions != null) Instructions.SetActive(false);
 
     }
     public void onStart()
     {
-        StartSplash.SetActive(false);
-        Instructions.SetActive(false);
+        hasActiveQuest = false;
+        if (StartSplash != null) StartSplash.SetActive(false);
+        if (Instructions != null) Instructions.SetActive(false);
         onBakery();
-        }
-}
-   
-  
+    }
 
+
+    public void onLoadNextLevel()
+    {
+        if (SceneManager.GetActiveScene().buildIndex < 4)
+        {
+            nextIndex = SceneManager.GetActiveScene().buildIndex + 1;
+            if (nextIndex >= 1 && nextIndex <= 3)
+            {
+                hasActiveQuest = true;
+                pendingQuestState = true;
+                pendingBakeryState = false;
+            }
+            else if (nextIndex == 4)
+            {
+                pendingQuestState = hasActiveQuest;
+                pendingBakeryState = !hasActiveQuest;
+                LoadLevelByIndex(nextIndex);
+
+
+            }
+            else
+            {
+                onMenu();
+
+            }
+        }
+    }
+
+    public void onMenu()
+    {
+        hasActiveQuest = false; // [CODE REVIEW] Reset active quest flag when returning to main hub
+        LoadLevelByIndex(STARTHUB_INDEX);
+        // SceneManager.LoadScene(STARTHUB_INDEX, LoadSceneMode.Additive);
+
+    }
+
+
+
+
+}

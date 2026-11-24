@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 6515914390702519252}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 11.5, z: -15}
+  m_LocalPosition: {x: 12.33556, y: 8.20001, z: -35.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -78,7 +78,7 @@ Camera:
     m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 1
+  m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
@@ -187,3 +187,9 @@ MonoBehaviour:
   targetLayerName: RecipeButtons
   ApplePieTag: ApplePie
   maxClickDistance: 100
+  EnvironmentButtons:
+    serializedVersion: 2
+    m_Bits: 0
+  combinedMask:
+    serializedVersion: 2
+    m_Bits: 0

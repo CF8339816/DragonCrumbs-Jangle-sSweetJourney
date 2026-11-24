@@ -1,7 +1,9 @@
 using UnityEngine;
 /// <summary>
 /// Kevin's scripts combined into one manager for  streamlining.---CF
-/// 
+/// I have had to rework the entire code block to convert the variable references and 
+/// naming conventions to match the larger block of code as treying to bridge the two 
+/// blocks did not work ..... A.K.A. "The Code of Theseus"
 /// </summary>
 /// 
 
@@ -40,7 +42,7 @@ public class items
     {
         amountHeld += 1;
         Debug.Log($"you have {amountHeld} out of {amountNeeded} {itemName}s");
-        if (amountHeld > amountNeeded)
+        if (amountHeld > amountNeeded) //prevents overfollow of item
         {
             Debug.Log($"more of {itemName} that there should be");
             amountHeld = amountNeeded;
@@ -57,6 +59,11 @@ public class InteractableManager : MonoBehaviour, IInteractable
         DialogWithCheck,
         ItemPickUp
     }
+
+    [Header("Core Manager References")]
+    public StageInteractManager stageInteractManager;
+    public ObjectButtonsInteractables objectButtonsInteractables;
+    public DialogManager dialogManager;
 
     [Header("Interaction Mode")]
     public InteractionType interactionType = InteractionType.TalkOrRead;
@@ -77,9 +84,24 @@ public class InteractableManager : MonoBehaviour, IInteractable
     private bool itemCheckPassed = false;
     private bool itemAdded = false;
 
+    void Awake()
+    {
+        BootStrappin bootStrappin = FindFirstObjectByType<BootStrappin>();
+        if (bootStrappin != null)
+        {
+            bootStrappin.FindManagers();
+            if (stageInteractManager == null) stageInteractManager = bootStrappin.stageInteractManager;
+            if (objectButtonsInteractables == null) objectButtonsInteractables = bootStrappin.objectButtonsInteractables;
+            if (dialogManager == null) dialogManager = bootStrappin.dialogManager;
+        }
+    }
+
     private void Start()
     {
         itemManager = ItemManager.instace;
+        if (stageInteractManager == null) stageInteractManager = FindFirstObjectByType<StageInteractManager>();
+        if (objectButtonsInteractables == null) objectButtonsInteractables = FindFirstObjectByType<ObjectButtonsInteractables>();
+        if (dialogManager == null) dialogManager = DialogManager.dialogManager;
     }
 
     public void Interact()
@@ -103,46 +125,67 @@ public class InteractableManager : MonoBehaviour, IInteractable
     private void HandleTalkOrRead()
     {
         Debug.Log("talked");
-        if (!DialogManager.dialogManager.talking)
+        if (dialogManager == null) dialogManager = DialogManager.dialogManager;
+        if (dialogManager == null) return;//---- added to prevent nullstate break----CF
+
+        if (!dialogManager.talking)
         {
-            DialogManager.dialogManager.StartDialog(Dialog);
+            dialogManager.StartDialog(Dialog);
         }
         else
         {
-            DialogManager.dialogManager.ContinueDialog();
+            dialogManager.ContinueDialog();
         }
     }
 
     private void HandleDialogWithCheck()
     {
         Debug.Log("talked");
-        if (!DialogManager.dialogManager.talking)
+        if (dialogManager == null) dialogManager = DialogManager.dialogManager;
+        if (dialogManager == null) return; //---- added to prevent nullstate break----CF
+        if (stageInteractManager == null) stageInteractManager = FindFirstObjectByType<StageInteractManager>();
+
+        bool hasEnough = (stageInteractManager != null)
+            ? stageInteractManager.HasEnoughOfItem(itemToCheck)
+            : (itemManager != null && itemManager.CheckItem(itemToCheck));
+
+        if (!dialogManager.talking)
         {
             if (itemAdded)
             {
-                DialogManager.dialogManager.StartDialog(DialogAfterGivingItem);
+                dialogManager.StartDialog(DialogAfterGivingItem);
             }
-            else if (itemManager.CheckItem(itemToCheck))
+            else if (hasEnough)
             {
                 itemCheckPassed = true;
-                DialogManager.dialogManager.StartDialog(Dialog, secondDialogPass);
+                dialogManager.StartDialog(Dialog, secondDialogPass);
             }
             else
             {
-                DialogManager.dialogManager.StartDialog(Dialog, secondDialogFail);
+                dialogManager.StartDialog(Dialog, secondDialogFail);
             }
         }
         else
         {
-            DialogManager.dialogManager.ContinueDialog();
+            dialogManager.ContinueDialog();
         }
     }
 
     private void HandleItemPickUp()
     {
+        if (stageInteractManager == null) stageInteractManager = FindFirstObjectByType<StageInteractManager>();
+
         if (!string.IsNullOrEmpty(itemToAdd))
         {
-            itemManager.AddToItem(itemToAdd);
+            if (stageInteractManager != null)
+            {
+                stageInteractManager.AddCollectedItem(itemToAdd);
+            }
+            else
+            {
+                if (itemManager == null) itemManager = ItemManager.instace;//---- added to prevent nullstate break----CF
+                if (itemManager != null) itemManager.AddToItem(itemToAdd);
+            }
         }
         Destroy(gameObject);
     }
@@ -151,10 +194,23 @@ public class InteractableManager : MonoBehaviour, IInteractable
     {
         if (interactionType == InteractionType.DialogWithCheck && !string.IsNullOrEmpty(itemToAdd))
         {
-            if (itemCheckPassed && !DialogManager.dialogManager.talking && !itemAdded)
+            if (dialogManager == null) dialogManager = DialogManager.dialogManager;
+            if (dialogManager == null) return;
+
+            if (itemCheckPassed && !dialogManager.talking && !itemAdded)
             {
                 Debug.Log($"gave {itemToAdd}");
-                itemManager.AddToItem(itemToAdd);
+                if (stageInteractManager == null) stageInteractManager = FindFirstObjectByType<StageInteractManager>();
+
+                if (stageInteractManager != null)
+                {
+                    stageInteractManager.AddCollectedItem(itemToAdd);
+                }
+                else
+                {
+                    if (itemManager == null) itemManager = ItemManager.instace; //----reverify fall back to prevent null breaks----CF
+                    if (itemManager != null) itemManager.AddToItem(itemToAdd);
+                }
                 itemAdded = true;
             }
         }

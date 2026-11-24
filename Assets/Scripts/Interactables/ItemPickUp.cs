@@ -1,20 +1,43 @@
 using UnityEngine;
+/// <summary>
+/// Kevin's scripts combined into one manager for  streamlining.---CF
+/// I have had to rework the entire code block to convert the variable references and 
+/// naming conventions to match the larger block of code as treying to bridge the two 
+/// blocks did not work ..... A.K.A. "The Code of Theseus"
+/// </summary>
+/// 
 
-public class ItemPickUp : MonoBehaviour,IInteractable
+public class ItemPickUp : MonoBehaviour, IInteractable
 {
-    public string itemToEffect;
+    public string itemToAdd;
+    public StageInteractManager stageInteractManager;
+    public ObjectButtonsInteractables objectButtonsInteractables;
 
-
-    public ItemManager itemManager;
-
-    private void Start()
+    void Awake()
     {
-        //set item manager here or replace item manger refeance to static instance
+        BootStrappin bootStrappin = FindFirstObjectByType<BootStrappin>();
+        if (bootStrappin != null)
+        {
+            bootStrappin.FindManagers();
+            if (stageInteractManager == null) stageInteractManager = bootStrappin.stageInteractManager;
+            if (objectButtonsInteractables == null) objectButtonsInteractables = bootStrappin.objectButtonsInteractables;
+        }
     }
 
     public void Interact()
     {
-        itemManager.AddToItem(itemToEffect);
+        if (stageInteractManager == null) stageInteractManager = FindFirstObjectByType<StageInteractManager>();
+        if (objectButtonsInteractables == null) objectButtonsInteractables = FindFirstObjectByType<ObjectButtonsInteractables>();
+
+        if (stageInteractManager != null && !string.IsNullOrEmpty(itemToAdd))
+        {
+            stageInteractManager.AddCollectedItem(itemToAdd);
+        }
+        else if (ItemManager.instace != null)
+        {
+            ItemManager.instace.AddToItem(itemToAdd);
+        }
+
         Destroy(this.gameObject);
     }
 }

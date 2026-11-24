@@ -2,6 +2,7 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using Unity.Cinemachine;
+using UnityEngine.SceneManagement;
 #region coder & project
 /// <summary>
 /// NSCC GAME2065/4087/Game Development III(B)/Cameron,Jordan
@@ -17,10 +18,13 @@ public class GameExitManager : MonoBehaviour
 {
     public static GameExitManager Instance { get; private set; }
     public float ExitDelay = 5f;
-    //public TextMeshProUGUI exitCountdownText;
+    public TextMeshProUGUI exitCountdownText;
     private float Countdown;
     private bool isExiting = false;
-     void Awake()
+    private AddAudio addAudio;
+  
+
+    void Awake()
     {
         if (Instance != null && Instance != this)
         {
@@ -29,46 +33,100 @@ public class GameExitManager : MonoBehaviour
         }
         Instance = this;
         DontDestroyOnLoad(gameObject); // keeps script accessable accross scene changes
-        //ResetCountdown();                    
+
+        BootStrappin bootStrappin = FindFirstObjectByType<BootStrappin>();
+        if (bootStrappin != null)
+        {
+            bootStrappin.FindManagers();
+        }
+
+        FindCountdownText();
+        ResetCountdown();
     }
-    //private void Update()
-    //{
-    //    if (exitCountdownText == null)   {   exitCountdownText = GameObject.Find("exitCountdownText")?.GetComponent<TextMeshProUGUI>();   }
-    //}
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        FindCountdownText();
+        if (!isExiting) ResetCountdown();
+    }
+
+    // [CODE REVIEW] Finds exitCountdownText even if it starts inactive in the UI hierarchy
+    public void FindCountdownText()
+    {
+        if (exitCountdownText == null)
+        {
+            foreach (TextMeshProUGUI tmp in FindObjectsByType<TextMeshProUGUI>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+            {
+                if (tmp.name == "exitCountdownText")
+                {
+                    exitCountdownText = tmp;
+                    break;
+                }
+            }
+        }
+    }
+
+    private void Update()
+    {
+        if (exitCountdownText == null) { FindCountdownText(); }
+    }
+
     public void Ongameexit()
     {
         if (!isExiting)
         {
             isExiting = true;
-            //StartCoroutine(StartExitCountdown());
-            ExitGame();
+            FindCountdownText();
+            StartCoroutine(StartExitCountdown());
+          
         }
     }
-    //public IEnumerator StartExitCountdown()
-    //{
-    //    while (Countdown > 0)
-    //    {
-    //        exitCountdownText.text = "Game Exit in: " + Mathf.Ceil(Countdown).ToString();// displays the countdown output in an always rounded up to whole int
-    //        yield return null;
-    //        Countdown -= Time.deltaTime;
-    //    }
-    //    exitCountdownText.text = "Exiting...";
-    //  
-    //}
-    //private void ResetCountdown()
-    //{
-    //    Countdown = ExitDelay;
-    //    if (exitCountdownText != null)
-    //    {
-    //        exitCountdownText.text = "";
-    //    }
-    //}
+
+    public IEnumerator StartExitCountdown()
+    {
+        ResetCountdown();
+        while (Countdown > .1f)
+        {
+            if (exitCountdownText != null)
+            {
+                exitCountdownText.text = "Game Exit in: " + Mathf.Ceil(Countdown).ToString();// displays the countdown output in an always rounded up to whole int
+            }
+            yield return null;
+            Countdown -= Time.deltaTime;
+        }
+        if (exitCountdownText != null)
+        {
+            exitCountdownText.text = "Exiting...";
+            addAudio.OnMiscDialogueGarble();
+        }
+        ExitGame();
+    }
+
+    private void ResetCountdown()
+    {
+        Countdown = ExitDelay;
+        if (exitCountdownText != null)
+        {
+            exitCountdownText.text = "";
+        }
+    }
+
     public void ExitGame()
     {
         Debug.Log("Exiting Game...");
-         // Works in a built application
+        // Works in a built application
         Application.Quit();
-         // Works inside the Unity Editor
+        // Works inside the Unity Editor
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #endif

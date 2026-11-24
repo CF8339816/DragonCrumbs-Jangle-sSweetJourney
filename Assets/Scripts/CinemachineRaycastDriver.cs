@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 #region coder & project
@@ -12,74 +13,137 @@ using UnityEngine.InputSystem;
 #endregion
 public class CinemachineRaycastDriver : MonoBehaviour
 {
-   
+
     [Header("Camera Reference")]
     [Tooltip("CinemachineBrain cam (or leave empty to auto-find)")]
-    public Camera targetCamera ;
+    public Camera targetCamera;
 
     [Header("Filtering")]
-    public string targetLayerName = "RecipeButtons";
-    public string ApplePieTag = "ApplePie";
-    //public string otherrecipeTag = "otherrecipewheninitiated";
-    public float maxClickDistance = 100f;
+    public string targetLayerName1 = "RecipeButtons";
+    public string targetLayerName2 = "EnvironmentButtons";
 
-    private LayerMask recipeLayerMask;
+    public List<string> interactableTags = new List<string>
+    {
+        "ApplePie",
+        "ApplePieRecipe",
+        "MillStone",
+        "NextLevelDebug",
+        "Oven",
+        "PrepBoard",
+        "Ladder",
+        "BeeHive",
+        "Basket",
+        "Dangle",
+        "Sythe"
+    };
+
+    public float maxClickDistance = 100f;
+    public LayerMask EnvironmentButtons;
+    public LayerMask combinedMask;
+    private LayerMask RecipeButtons;
     private cineCaminteractmouseover currentHoveredObject;
+
+
+    void Awake()
+    {
+        BootStrappin bootStrappin = FindFirstObjectByType<BootStrappin>();
+        if (bootStrappin != null)
+        {
+            bootStrappin.FindManagers();
+        }
+        SetupCameraAndLayers(); // ensures camera & layers initialize immediately in Awake
+    }
 
     void Start()
     {
-       
-        if (targetCamera == null)// checks to ensure script on a cam  
-            targetCamera = GetComponent<Camera>();
+        SetupCameraAndLayers(); // reverifies in Start incase camera spawned after Awake
+    }
 
-       
-        if (targetCamera == null) //ensures the derfault is the main character cam withthe brain on it
+    private void SetupCameraAndLayers()
+    {
+        if (targetCamera == null)// checks to ensure script added to cam object
+        {
+            targetCamera = GetComponent<Camera>();
+        }
+
+        if (targetCamera == null) //ensures the default is the main character cam with the brain on it
+        {
             targetCamera = GameObject.Find("MainCharacterCamera")?.GetComponent<Camera>();
+        }
 
         if (targetCamera == null)
-            Debug.LogError("ClickThroughRaycaster: No Camera found! Please assign your Camera in the Inspector.");
+        {
+            targetCamera = Camera.main; // redundancy to Camera main
+        }
 
-        recipeLayerMask = LayerMask.GetMask(targetLayerName); // sets the layermask as defined above
-        if (recipeLayerMask == 0)
-            Debug.LogWarning("Layer '" + targetLayerName + "' does not exist! Check Project Settings > Tags and Layers.");
+        RecipeButtons = LayerMask.GetMask(targetLayerName1); // sets the layermask as defined above
+        EnvironmentButtons = LayerMask.GetMask(targetLayerName2);
+
+        if (RecipeButtons == 0)
+        {
+            Debug.LogWarning("Layer '" + targetLayerName1 + "' does not exist! Check Project Settings > Tags and Layers.");
+        }
+        if (EnvironmentButtons == 0)
+        {
+            Debug.LogWarning("Layer '" + targetLayerName2 + "' does not exist! Check Project Settings > Tags and Layers.");
+        }
+
+        combinedMask = RecipeButtons | EnvironmentButtons;
     }
 
     void Update()
     {
-        if (Mouse.current == null || targetCamera == null) return;
+        if (Mouse.current == null) return;
+
+        
+        if (targetCamera == null)//find and reconnect to camera if scene changed and old camera was destroyed
+        {
+            SetupCameraAndLayers();
+            if (targetCamera == null) return;
+        }
 
        
-        Vector2 mousePos = Mouse.current.position.ReadValue();// casts ray from mouse oposition
+        if (combinedMask == 0) // safety check for combinedMask
+        {
+            SetupCameraAndLayers();
+        }
+
+        Vector2 mousePos = Mouse.current.position.ReadValue();// casts ray from mouse position
         Ray ray = targetCamera.ScreenPointToRay(mousePos);
 
-       
-        if (Physics.Raycast(ray, out RaycastHit hit, maxClickDistance, recipeLayerMask)) // only registers hits on the RecipeButtons layer
+        if (Physics.Raycast(ray, out RaycastHit hit, maxClickDistance, combinedMask))
         {
-           
-            if (hit.collider.CompareTag(ApplePieTag))// vetts  selectable  based on tag  may be changed to recipies later if more are added , is specifically singled out for demo
-            { 
-                cineCaminteractmouseover button = hit.collider.GetComponent<cineCaminteractmouseover>();
-
-                
-                if (button != currentHoveredObject)// highlights
-                {
-                    ClearHover();
-                    currentHoveredObject = button;
-                    if (currentHoveredObject != null)
-                        currentHoveredObject.SetHighlight(true);
-                }
-
-                if (Mouse.current.leftButton.wasPressedThisFrame && currentHoveredObject != null)// triggers event
-                {
-                    currentHoveredObject.TriggerClick();
-                }
-
+            if (interactableTags.Contains(hit.collider.tag))
+            {
+                HandleHoverAndClick(hit.collider.GetComponent<cineCaminteractmouseover>());
                 return;
             }
         }
 
-     
+        RaycastHit2D hit2D = Physics2D.GetRayIntersection(ray, maxClickDistance, combinedMask);
+        if (hit2D.collider != null && interactableTags.Contains(hit2D.collider.tag))
+        {
+            HandleHoverAndClick(hit2D.collider.GetComponent<cineCaminteractmouseover>());
+            return;
+        }
+
         ClearHover(); //calls to reset method to remove highlight
+    }
+
+    private void HandleHoverAndClick(cineCaminteractmouseover button)
+    {
+        if (button != currentHoveredObject)// highlights
+        {
+            ClearHover();
+            currentHoveredObject = button;
+            if (currentHoveredObject != null)
+                currentHoveredObject.SetHighlight(true);
+        }
+
+        if (Mouse.current.leftButton.wasPressedThisFrame && currentHoveredObject != null)// triggers event
+        {
+            currentHoveredObject.TriggerClick();
+        }
     }
 
     private void ClearHover()// clears the mouseover highlight

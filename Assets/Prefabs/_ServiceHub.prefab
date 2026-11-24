@@ -11,13 +11,14 @@ GameObject:
   - component: {fileID: 5807701866550425621}
   - component: {fileID: 8201568613860812012}
   - component: {fileID: 1240197563878807089}
-  - component: {fileID: 2068184330678862916}
-  - component: {fileID: 6587073052712719203}
   - component: {fileID: 1005713278779503219}
-  - component: {fileID: 3972760830203295978}
   - component: {fileID: 4250130618739359792}
   - component: {fileID: 3854175885471208990}
   - component: {fileID: 2784474505139376469}
+  - component: {fileID: 8040828822348675765}
+  - component: {fileID: 4718737252547145894}
+  - component: {fileID: 4490674260053581682}
+  - component: {fileID: 1467680769116610792}
   m_Layer: 0
   m_Name: _ServiceHub
   m_TagString: Untagged
@@ -33,7 +34,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1887375814404526371}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -53,6 +54,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameExitManager
   ExitDelay: 5
+  exitCountdownText: {fileID: 0}
 --- !u!114 &1240197563878807089
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65,53 +67,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1370c68bce237724d8f1971b18ea7089, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MenuManager
+  objectButtonsInteractables: {fileID: 0}
   Jangle: {fileID: 1038465398506774200, guid: 2fdf9bbf0274dda4b8de7faff03c2fc6, type: 3}
-  Instructions: {fileID: 3126994440105031056, guid: a3e723799f43ed1459a448018f82d7dd, type: 3}
+  Instructions: {fileID: 0}
   StartSplash: {fileID: 8419769341032362555, guid: 28f30adc5f6fce047a77fe7dd5649334, type: 3}
-  ReturnIndex: 0
---- !u!114 &2068184330678862916
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1887375814404526371}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bace758e0eed6548a3fc82bea01b35d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AddAudio
-  millFlour: {fileID: 0}
-  Success: {fileID: 0}
-  ClimbLadder: {fileID: 0}
-  SFX1: {fileID: 0}
-  SFX2: {fileID: 0}
-  SFX3: {fileID: 0}
-  SFX4: {fileID: 0}
-  SFX5: {fileID: 0}
-  SFX6: {fileID: 0}
-  SFX7: {fileID: 0}
-  SFX8: {fileID: 0}
-  SFX9: {fileID: 0}
-  SFX10: {fileID: 0}
-  SFX11: {fileID: 0}
-  sourceSFXandDialogue: {fileID: 1005713278779503219}
-  startingVolume: 0.35
-  volumeSlider: {fileID: 0}
---- !u!114 &6587073052712719203
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1887375814404526371}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edd631cf243d9924c951efd35d8c4e86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BackgroundMusicManager
-  musicSource: {fileID: 1005713278779503219}
-  backgroundTrack: {fileID: 0}
+  STARTHUB: 0
+  QUEST1A: 0
+  QUEST1B: 0
+  QUEST1C: 0
+  BAKERYX: 0
+  TRAVELMAP: 0
+  hasActiveQuest: 0
+  ReturnIndex: 4
+  nextIndex: 0
 --- !u!82 &1005713278779503219
 AudioSource:
   m_ObjectHideFlags: 0
@@ -209,22 +177,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &3972760830203295978
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1887375814404526371}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a90eba18c9998c40a811d0c130a7ce6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DialogManager
-  wrightSpeed: 0.01
-  talking: 0
-  textBox: {fileID: 2549953041499587716, guid: 460a07e6c66ce25498f454f821228386, type: 3}
-  dialogText: {fileID: 3985701056270575622, guid: 7e131dcc4087d7d4fa5f2f8d25b3d9d7, type: 3}
 --- !u!114 &4250130618739359792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,6 +189,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3d6d5104fddaf74ebfde0655801931b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractableManager
+  stageInteractManager: {fileID: 0}
+  objectButtonsInteractables: {fileID: 0}
+  dialogManager: {fileID: 0}
   interactionType: 0
   Dialog: []
   itemToCheck: 
@@ -257,6 +212,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemManager
   recipe: []
+  cleanItem: 
+  newCount: 0
+  item: 
   currentRecpie: 0
 --- !u!114 &2784474505139376469
 MonoBehaviour:
@@ -270,27 +228,182 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb6c86f57c2f61f4fb4e9b0062f28596, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjGOInteractionManager
-  firstPersonCam: {fileID: 6386536737816646826, guid: c33c3277ae69fbe42826edef4b39d7da, type: 3}
-  objectButtonsInteractables: {fileID: 0}
-  playerScript: {fileID: 0}
-  RecipeButtons:
-    serializedVersion: 2
-    m_Bits: 64
+  targetCamera: {fileID: 0}
+  firstPersonCam: {fileID: 0}
+  enableRaycast: 0
+  recipeLayerName: RecipeButtons
+  environmentLayerName: EnvironmentButtons
+  maxClickDistance: 100
+  interactableTags:
+  - ApplePie
+  - ApplePieRecipe
+  - MillStone
+  - NextLevelDebug
+  - Oven
+  - PrepBoard
+  - Ladder
+  - BeeHive
+  - Basket
   EnvironmentButtons:
     serializedVersion: 2
     m_Bits: 128
   combinedMask:
     serializedVersion: 2
     m_Bits: 0
-  characterController: {fileID: 0}
-  checkRange: 100
-  switchRange: 4
-  butterfly: {fileID: 0}
-  ApplePieRecipe: {fileID: 0}
-  PrepBoard: {fileID: 0}
-  Oven: {fileID: 0}
-  Ladder: {fileID: 0}
-  Basket: {fileID: 0}
-  MillStone: {fileID: 0}
-  BeeHive: {fileID: 0}
-  ApplePie: {fileID: 0}
+--- !u!114 &8040828822348675765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1887375814404526371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc5ca2d4769a3534ebbf2fc153184e75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TravelMapManager
+  StageLoadDelay: 5
+  travelMapSceneName: TravelMap
+--- !u!114 &4718737252547145894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1887375814404526371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bace758e0eed6548a3fc82bea01b35d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AddAudio
+  millFlour: {fileID: 8300000, guid: 5af9020c7aa5d9c4f8e64b6735179477, type: 3}
+  Success: {fileID: 8300000, guid: 491aee0886b5ed643b0eddb0db1bd19b, type: 3}
+  WingFlap: {fileID: 8300000, guid: 5e4c495b753c2514ea8f05a644c856a1, type: 3}
+  FireBreath: {fileID: 8300000, guid: a5f39240cb93a10488bc386b0871b4e1, type: 3}
+  PickupSound: {fileID: 8300000, guid: 172881b8030103b4d8fac6ab754b7244, type: 3}
+  WalkSound: {fileID: 8300000, guid: 7472ed6b6d132c2409cf481fb031bd4a, type: 3}
+  MiscDialogueGarble: {fileID: 8300000, guid: 156d9874b25959e4a839185db87dd124, type: 3}
+  Landing: {fileID: 8300000, guid: 3cb24ac3ddee16a4d87a7be7d4f830ec, type: 3}
+  VoicesNewSprites: {fileID: 8300000, guid: c1df247c90d4a49479ce7f2a018b940c, type: 3}
+  VoiceDangle: {fileID: 8300000, guid: f5a3fa9010cbb4641bedd0ad705ae525, type: 3}
+  BeeHive: {fileID: 8300000, guid: be7eb88146a465744a41fa2bc13ce047, type: 3}
+  SFX9: {fileID: 0}
+  SFX10: {fileID: 0}
+  SFX11: {fileID: 0}
+  sourceSFXandDialogue: {fileID: 1005713278779503219}
+  startingVolume: 0.55
+  volumeSlider: {fileID: 0}
+--- !u!114 &4490674260053581682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1887375814404526371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edd631cf243d9924c951efd35d8c4e86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BackgroundMusicManager
+  musicSource: {fileID: 1467680769116610792}
+  backgroundTrackBakery: {fileID: 8300000, guid: a53711bbc9c35054893f74340ecd7081, type: 3}
+  backgroundTrackDefault: {fileID: 8300000, guid: fd16145dfc559a448a273a213d139dd8, type: 3}
+  VolumeBG: {fileID: 0}
+  startingMusicVolume: 0.25
+--- !u!82 &1467680769116610792
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1887375814404526371}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

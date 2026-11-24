@@ -27,13 +27,25 @@ public class cineCaminteractmouseover : MonoBehaviour
     [Header("Button Action")]
     public UnityEvent onObjectClicked;
 
+
+    void Awake()
+    {
+        BootStrappin bootStrappin = FindFirstObjectByType<BootStrappin>();
+        if (bootStrappin != null)
+        {
+            bootStrappin.FindManagers();
+        }
+        //Changed cause the code below throws a couple of random errors depending on load orders ensures first load 
+        //BootStrappin bootStrappin = FindFirstObjectByType<BootStrappin>();
+        //bootStrappin.FindManagers();
+    }
     void Start()
     {
         objRenderer = GetComponentInChildren<Renderer>();
 
         if (objRenderer != null)
         {
-           
+
             if (objRenderer.material.HasProperty("_BaseColor"))
             {
                 isURP = true;
@@ -76,126 +88,3 @@ public class cineCaminteractmouseover : MonoBehaviour
         onObjectClicked?.Invoke();
     }
 }
-
-
-
-
-
-
-#region Old method to do 
-
-//[Header("Highlight controls")]
-//[SerializeField] private Color Highlight = Color.yellow;
-//private Color _originalColor; //defines variable to record inital material colour of the interactable assets not using a shader system
-//private Renderer _renderer;
-//public LayerMask RecipeButtons;
-//public ObjectButtonsInteractables objectButtonsInteractables;
-//public UnityEvent onObjectClicked;
-//// Start is called once before the first execution of Update after the MonoBehaviour is created
-//void Start()
-//{
-//    _renderer = GetComponent<Renderer>();// pulls the render component to check shader value of target
-
-//    if (_renderer != null)
-//    {
-//        _originalColor = _renderer.material.color; //sets an original color value to revert the mouse over to correct material color for non  shader objects
-
-//    }
-
-//}
-
-//// Update is called once per frame
-//void Update()
-//{
-
-//}
-
-//public void OnPointerEnter(PointerEventData eventData)
-//{
-//    if (EventSystem.current.IsPointerOverGameObject())
-//    {
-//        return;
-//    }
-//    if (_renderer != null)
-//    {
-//        _renderer.material.color = Highlight;// verifies the collider is working and picking up the mouse ratycast
-//    }
-//}
-
-//public void OnPointerExit(PointerEventData eventData)
-//{
-//    if (_renderer != null)
-//    {
-//        _renderer.material.color = _originalColor; // switches back to default 
-//    }
-//}
-
-//public void OnPointerDown(PointerEventData eventData)
-//{
-//    if (gameObject.layer == RecipeButtons) //|| EventSystem.current.IsPointerOverGameObject())// prevents click if over a non tagged fgame object or ui clickable tagged object  to prevent multi clicking 
-//    {
-//        if (gameObject.CompareTag("ApplePie"))
-//        {
-//            if (eventData.button == PointerEventData.InputButton.Left)
-//            {
-//                onObjectClicked?.Invoke();
-//                //objectButtonsInteractables.OnRecipeSelectApplePie();
-//               Debug.Log(gameObject.name + " was clicked!");
-
-//            }
-//        }
-//    }
-
-
-
-//}
-
-
-
-
-
-//private void OnTriggerEnter(Collider other)
-//{
-//    if (other.CompareTag("interactive"))
-//    {
-//        _currentLocationCollider = other;
-//        CamSwitchButton locationData = other.GetComponent<CamSwitchButton>();
-
-//        if (locationData != null)
-//        {
-//            NameLocation = locationData.NameLocation;
-//            Debug.Log($"{NameVessel} entered region: {NameLocation}");
-
-//            if (myVesselInfoPopup != null) // sends data to local popup variable 
-//            {
-//                myVesselInfoPopup.UpdateLocationDisplay(NameLocation);
-//            }
-//            else if (vesselPopupController._vesselInfo != null)// defaults to main popup
-//            {
-//                vesselPopupController._vesselInfo.UpdateLocationDisplay(NameLocation);
-//            }
-//        }
-//    }
-//}
-//private void OnTriggerExit(Collider other)
-//{
-//    if (_currentLocationCollider == other)
-//    {
-//        _currentLocationCollider = null;
-//        NameLocation = "N/A";
-
-//        if (myVesselInfoPopup != null)
-//        {
-//            myVesselInfoPopup.UpdateLocationDisplay(NameLocation);
-//        }
-//        else if (vesselPopupController._vesselInfo != null)
-//        {
-//            vesselPopupController._vesselInfo.UpdateLocationDisplay(NameLocation);
-//        }
-//    }
-//}
-
-#endregion
-
-
-

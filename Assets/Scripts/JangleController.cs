@@ -26,20 +26,30 @@ public class JangleController : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private GameObject jangleFlame; // ----set firebreath object----CF
-
+    [SerializeField] private GameObject interactPromptUI; //----setting up  interacxt popup----CF
+    private AddAudio addAudio;
     private PlayerControls inputActions;
     private Vector2 moveInput;
     private Rigidbody2D rb2d;
 
     private bool isGliding = false;
-    private bool flameOn = false;
+    public bool flameOn = false;
     private bool isFacingRight = false;
 
-    private void Awake()
+    void Awake()
     {
+        BootStrappin bootStrappin = FindFirstObjectByType<BootStrappin>();
+        if (bootStrappin != null)
+        {
+            bootStrappin.FindManagers();
+        }
+        //Changed cause the code below throws a couple of random errors depending on load orders ensures first load 
+        //BootStrappin bootStrappin = FindFirstObjectByType<BootStrappin>();
+        //bootStrappin.FindManagers();
+        addAudio = FindFirstObjectByType<AddAudio>();
         inputActions = new PlayerControls();
         rb2d = GetComponent<Rigidbody2D>();
-
+        if (interactPromptUI != null) interactPromptUI.SetActive(false);
         if (rb2d.gravityScale == 0)// ----maks sure rigid body handles gravity---- CF
         {
             rb2d.gravityScale = 1.5f; //----tweaking gravity value for feel of game play---- CF
@@ -57,8 +67,9 @@ public class JangleController : MonoBehaviour
         inputActions.Player.JumpGlide.canceled += OnJumpGlideStopped;
 
         inputActions.Player.FireBreath.performed += OnFireBreathInput;   // ----Ctrl either left or right  Fire Breath  changed from shift to avoid sticky keys if player spams breath---- CF
-
         inputActions.Player.FireBreath.canceled += OnFireBreathStopped;
+
+        inputActions.Player.Interact.performed += OnInteract;
     }
 
     private void OnDisable()
@@ -72,11 +83,29 @@ public class JangleController : MonoBehaviour
         inputActions.Player.FireBreath.performed -= OnFireBreathInput;
         inputActions.Player.FireBreath.canceled -= OnFireBreathStopped;
 
+        inputActions.Player.Interact.performed -= OnInteract;
+
         inputActions.Player.Disable();
+    }
+
+    //  direct E-key fallback in case PlayerControls.Player.Interact isn't bound to Keyboard E
+    private void Update()
+    {
+        if (Keyboard.current != null && Keyboard.current.eKey.wasPressedThisFrame && currentInteractable != null)
+        {
+            TriggerCurrentInteractable();
+        }
     }
 
     private void FixedUpdate()
     {
+        if (DialogManager.dialogManager != null && DialogManager.dialogManager.talking)
+        {
+            moveInput = Vector2.zero;
+            rb2d.linearVelocity = new Vector2(0f, rb2d.linearVelocity.y);
+            return;
+        }
+
         MovePlayer();
         HandleGlide();
 
@@ -84,19 +113,30 @@ public class JangleController : MonoBehaviour
 
     private void OnMoveInput(InputAction.CallbackContext context)
     {
+        if (DialogManager.dialogManager != null && DialogManager.dialogManager.talking)
+        {
+            moveInput = Vector2.zero;
+            return;
+        }
+
         moveInput = context.ReadValue<Vector2>();
+        if (addAudio == null) addAudio = FindFirstObjectByType<AddAudio>();
+        if (addAudio != null) addAudio.OnWalkSound();
     }
 
     private void OnMoveStopped(InputAction.CallbackContext context)
     {
         moveInput = Vector2.zero;
+        if (addAudio != null) addAudio.StopWalk();
     }
 
     private void OnJumpGlideInput(InputAction.CallbackContext context)
     {
+        if (DialogManager.dialogManager != null && DialogManager.dialogManager.talking) return; //blocks jumping while reading dialogue
 
         rb2d.linearVelocity = new Vector2(rb2d.linearVelocity.x, jumpSpeed);//---- applies upward force for jump when spacebar is pressed---- CF
-
+        if (addAudio == null) addAudio = FindFirstObjectByType<AddAudio>();
+        if (addAudio != null) addAudio.OnWingFlap();
 
         isGliding = true;// ----marks gliding state true as long as spacebar is held down---- CF
     }
@@ -105,18 +145,24 @@ public class JangleController : MonoBehaviour
     {
 
         isGliding = false;// ----  reverts to standard gravity force when space bar released ---- CF
+        if (addAudio != null) addAudio.StopWingFlap();
+
     }
 
     private void OnFireBreathInput(InputAction.CallbackContext context)
     {
         flameOn = true;
         ToggleFireBreath();
+        if (addAudio == null) addAudio = FindFirstObjectByType<AddAudio>();
+        if (addAudio != null) addAudio.OnFireBreath();
+
     }
 
     private void OnFireBreathStopped(InputAction.CallbackContext context)
     {
         flameOn = false;
         ToggleFireBreath();
+        if (addAudio != null) addAudio.StopFireBreath();
     }
 
     private void MovePlayer()
@@ -150,6 +196,11 @@ public class JangleController : MonoBehaviour
             jangleFlame.SetActive(flameOn); // ---- Brings the Fwoooooshhhhhhhhhhh---- CF
         }
     }
+    public void SetFireBreath(bool active)
+    {
+        flameOn = active;
+        ToggleFireBreath();
+    }
 
     private void FlipCharacter()
     {
@@ -160,32 +211,65 @@ public class JangleController : MonoBehaviour
     }
 
     private IInteractable currentInteractable;
+    private float lastInteractTime = -1f;
+
     public void OnInteract(InputAction.CallbackContext context)
     {
-        if(context.performed && currentInteractable != null)
+        if (context.performed && currentInteractable != null)
         {
-            currentInteractable.Interact();
+            TriggerCurrentInteractable();
         }
+    }
+
+    
+    private void TriggerCurrentInteractable()
+    {
+        if (Time.unscaledTime - lastInteractTime < 0.1f) return;
+        lastInteractTime = Time.unscaledTime;
+
+        if (interactPromptUI != null) interactPromptUI.SetActive(false); // hide prompt once dialogue opens
+        currentInteractable.Interact();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Interactable"))
         {
-            currentInteractable = collision.GetComponent<IInteractable>();
+          
+            currentInteractable = collision.GetComponent<IInteractable>()
+                ?? collision.GetComponentInParent<IInteractable>()
+                ?? collision.GetComponentInChildren<IInteractable>();
+
+            if (currentInteractable != null && interactPromptUI != null)
+            {
+                interactPromptUI.SetActive(true); //  popup when Jangle enters NPC range
+            }
+        }
+        if (collision.gameObject.CompareTag("PassiveInteractable"))
+        {
+            IInteractable passive = collision.GetComponent<IInteractable>()
+                ?? collision.GetComponentInParent<IInteractable>()
+                ?? collision.GetComponentInChildren<IInteractable>();
+            passive?.Interact();
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Interactable"))
         {
-            if(currentInteractable == collision.GetComponent<IInteractable>())
+            IInteractable exiting = collision.GetComponent<IInteractable>()
+                ?? collision.GetComponentInParent<IInteractable>()
+                ?? collision.GetComponentInChildren<IInteractable>();
+
+            if (currentInteractable == exiting)
             {
                 currentInteractable = null;
+                if (interactPromptUI != null)
+                {
+                    interactPromptUI.SetActive(false); // hides the popup when Jangle walks away
+                }
             }
         }
     }
 
 }
-
-
