@@ -456,6 +456,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5032358127009617744}
   - component: {fileID: 8298714858937829163}
+  - component: {fileID: 5937339806030850093}
   - component: {fileID: 7647610995749830765}
   - component: {fileID: 3039287615561345546}
   - component: {fileID: 2535398952371138249}
@@ -502,8 +503,23 @@ MonoBehaviour:
   glideSpeed: -1
   jangleFlame: {fileID: 952532038202749417}
   interactPromptUI: {fileID: 0}
-  animationManager: {fileID: 4140256799556265387}
+  animationManager: {fileID: 0}
   flameOn: 0
+--- !u!114 &5937339806030850093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6227759088713445548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a895ee6dead984541a355f01327c0ae6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::jangleAnimationManager
+  direction: {x: 0, y: 0}
+  animator: {fileID: 8463682015858516294}
+  col: {fileID: 3039287615561345546}
 --- !u!50 &7647610995749830765
 Rigidbody2D:
   serializedVersion: 5
@@ -730,7 +746,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6022756951575955728}
   - component: {fileID: 5844278354489638092}
-  - component: {fileID: 4140256799556265387}
   - component: {fileID: 8463682015858516294}
   m_Layer: 0
   m_Name: jangleProxy
@@ -813,20 +828,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &4140256799556265387
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8162621151089300545}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a895ee6dead984541a355f01327c0ae6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::jangleAnimationManager
-  direction: {x: 0, y: 0}
-  animator: {fileID: 8463682015858516294}
 --- !u!95 &8463682015858516294
 Animator:
   serializedVersion: 7

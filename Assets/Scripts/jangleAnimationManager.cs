@@ -6,6 +6,7 @@ public class jangleAnimationManager : MonoBehaviour
 
     public Vector2 direction;
     [SerializeField] private Animator animator;
+    [SerializeField] private Collider2D col;
     private int directionHash = Animator.StringToHash("Direction");
     private int groundedHash = Animator.StringToHash("Grounded");
     private int movingHash = Animator.StringToHash("Moving");
@@ -15,7 +16,7 @@ public class jangleAnimationManager : MonoBehaviour
 
     private void Start()
     {
-        //if animatior is null then checks children, then parrent
+        //if animatior is null then checks children
         if(animator == null && gameObject.GetComponent<Animator>())
         {
             animator = gameObject.GetComponent<Animator>();
@@ -24,9 +25,10 @@ public class jangleAnimationManager : MonoBehaviour
         {
             animator = GetComponentInChildren<Animator>();
         }
-        else if (animator == null)
+        //gets collider from parrent if missing
+        if(col == null)
         {
-            animator = GetComponentInParent<Animator>();
+            col = GetComponent<Collider2D>();
         }
     }
     //pass input contect or vector 2 to handle movement animations
@@ -52,6 +54,8 @@ public class jangleAnimationManager : MonoBehaviour
         {
             animator.SetBool(movingHash, false);
         }
+        SetGrounded(Physics2D.Raycast(transform.position, -Vector3.up, col.bounds.extents.y + 0.0001f));
+        
     }
     //triggers jump animation
     public void OnFlap()
