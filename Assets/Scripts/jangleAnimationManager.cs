@@ -15,17 +15,29 @@ public class jangleAnimationManager : MonoBehaviour
 
     private void Start()
     {
-        if(animator == null)
+        //if animatior is null then checks children, then parrent
+        if(animator == null && gameObject.GetComponent<Animator>())
         {
             animator = gameObject.GetComponent<Animator>();
         }
+        else if (animator == null && GetComponentInChildren<Animator>())
+        {
+            animator = GetComponentInChildren<Animator>();
+        }
+        else if (animator == null)
+        {
+            animator = GetComponentInParent<Animator>();
+        }
     }
-
-    public void OnMove(InputAction.CallbackContext context)
+    //pass input contect or vector 2 to handle movement animations
+    public void OnMove(InputAction.CallbackContext context) 
     {
         direction = context.ReadValue<Vector2>();
     }
-
+    public void OnMove(Vector2 context)
+    {
+        direction = context;
+    }
     
     void Update()
     {
@@ -41,19 +53,22 @@ public class jangleAnimationManager : MonoBehaviour
             animator.SetBool(movingHash, false);
         }
     }
-
+    //triggers jump animation
     public void OnFlap()
     {
         animator.SetTrigger(flapTriggerHash);
     }
+    //sets if fire animation should play or not
     public void SetFireBreath(bool breathingFire)
     {
         animator.SetBool(fireBreathHash, breathingFire);
     }
+    //sets if grounded
     public void SetGrounded(bool grounded)
     {
         animator.SetBool(groundedHash, grounded);
     }
+    //sets if glide animation should play or not
     public void SetGliding(bool gliding)
     {
         animator.SetBool(gildingHash, gliding);

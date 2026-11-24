@@ -27,6 +27,8 @@ public class JangleController : MonoBehaviour
     [Header("References")]
     [SerializeField] private GameObject jangleFlame; // ----set firebreath object----CF
     [SerializeField] private GameObject interactPromptUI; //----setting up  interacxt popup----CF
+
+    [SerializeField] private jangleAnimationManager animationManager;
     private AddAudio addAudio;
     private PlayerControls inputActions;
     private Vector2 moveInput;
@@ -104,38 +106,43 @@ public class JangleController : MonoBehaviour
 
     private void OnMoveInput(InputAction.CallbackContext context)
     {
+        
         if (DialogManager.dialogManager != null && DialogManager.dialogManager.talking)
         {
             moveInput = Vector2.zero;
+            animationManager.OnMove(moveInput);
             return;
         }
-
         moveInput = context.ReadValue<Vector2>();
+        animationManager.OnMove(context);
         if (addAudio == null) addAudio = FindFirstObjectByType<AddAudio>();
         addAudio.OnWalkSound();
     }
 
     private void OnMoveStopped(InputAction.CallbackContext context)
     {
+        animationManager.OnMove(context);
         moveInput = Vector2.zero;
     }
 
     private void OnJumpGlideInput(InputAction.CallbackContext context)
     {
         if (DialogManager.dialogManager != null && DialogManager.dialogManager.talking) return; //blocks jumping while reading dialogue
-
+        
         rb2d.linearVelocity = new Vector2(rb2d.linearVelocity.x, jumpSpeed);//---- applies upward force for jump when spacebar is pressed---- CF
         if (addAudio == null) addAudio = FindFirstObjectByType<AddAudio>();
         if (addAudio != null) addAudio.OnWingFlap();
-
+        animationManager.OnFlap();
         isGliding = true;// ----marks gliding state true as long as spacebar is held down---- CF
         isGliding = true;// ----marks gliding state true as long as spacebar is held down---- CF
+        
     }
 
     private void OnJumpGlideStopped(InputAction.CallbackContext context)
     {
 
         isGliding = false;// ----  reverts to standard gravity force when space bar released ---- CF
+        
     }
 
     private void OnFireBreathInput(InputAction.CallbackContext context)
@@ -168,7 +175,7 @@ public class JangleController : MonoBehaviour
 
     private void HandleGlide()
     {
-
+        animationManager.SetGliding(isGliding);
 
         if (isGliding && rb2d.linearVelocity.y < 0)// ----checks for glide and  then applies the glide slow if falling ---- CF
         {
@@ -181,6 +188,7 @@ public class JangleController : MonoBehaviour
         if (jangleFlame != null)//---- verifies the flameobject exists ---- CF
         {
             jangleFlame.SetActive(flameOn); // ---- Brings the Fwoooooshhhhhhhhhhh---- CF
+            animationManager.SetFireBreath(flameOn);
         }
     }
     public void SetFireBreath(bool active)
