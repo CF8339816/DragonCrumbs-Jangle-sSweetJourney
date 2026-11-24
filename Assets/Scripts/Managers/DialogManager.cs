@@ -22,7 +22,7 @@ public class DialogManager : MonoBehaviour
     public bool talking = false;
 
     private Queue<string> dialog;
-
+    private AddAudio addAudio;
     private string currentText;
 
     public GameObject textBox;
@@ -45,6 +45,10 @@ public class DialogManager : MonoBehaviour
         {
             Destroy(gameObject);// ----changed to ensure no empty game objects left ----cf
         }
+
+
+        if (addAudio == null) addAudio = FindFirstObjectByType<AddAudio>();
+
     }
 
     private void OnEnable()
@@ -59,20 +63,41 @@ public class DialogManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (textBox == null) textBox = GameObject.Find("DialogBox");
-        if (dialogText == null && textBox != null) dialogText = textBox.GetComponentInChildren<TMP_Text>();
+        FindDialogUI();
+    }
+
+    //finds "DialogBox" even if it starts inactive in the scene hierarchy
+    private void FindDialogUI()
+    {
+        if (textBox == null)
+        {
+            foreach (Transform t in FindObjectsByType<Transform>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+            {
+                if (t.name == "DialogBox")
+                {
+                    textBox = t.gameObject;
+                    break;
+                }
+            }
+        }
+        if (dialogText == null && textBox != null)
+        {
+            dialogText = textBox.GetComponentInChildren<TMP_Text>(true);
+        }
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         dialog = new Queue<string>();
+        FindDialogUI();
         ClearDialog();
         if (textBox != null) textBox.SetActive(false);
     }
 
     public void StartDialog(string[] text)
     {
+        FindDialogUI(); // ensures teh UI is linked before opening
         ToggleTextBox();
         Debug.Log("Talking");
         dialog.Clear();
@@ -87,6 +112,7 @@ public class DialogManager : MonoBehaviour
 
     public void StartDialog(string[] text, string[] secondText)
     {
+        FindDialogUI(); // ensures the UI is linked before opening
         ToggleTextBox();
         Debug.Log("Talking");
         dialog.Clear();
@@ -108,10 +134,12 @@ public class DialogManager : MonoBehaviour
     {
         if (!wrighting)
         {
+
             ClearDialog();
             if (dialog.Count == 0)
             {
                 StopTalking();
+
                 return;
             }
             currentText = dialog.Dequeue();
@@ -136,12 +164,15 @@ public class DialogManager : MonoBehaviour
     IEnumerator WriteDialog()
     {
         wrighting = true;
+        if (addAudio == null) addAudio = FindFirstObjectByType<AddAudio>();
+        if (addAudio != null) addAudio.OnVoicesNewSprites();
         for (int i = 0; i < currentText.Length; i += 1)
         {
             WriteDialog(currentText[i].ToString());
             yield return new WaitForSeconds(wrightSpeed);
         }
         wrighting = false;
+        if (addAudio != null) addAudio.StopVoicesNewSprites();
     }
 
     // Update is called once per frame

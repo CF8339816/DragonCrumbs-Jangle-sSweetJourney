@@ -68,12 +68,7 @@ public class ObjectButtonsInteractables : MonoBehaviour
     [SerializeField] public GameObject IngredientWheat1C;
     [SerializeField] public GameObject IngredientWheat1D;
     [SerializeField] public GameObject IngredientWheat1E;
-    [SerializeField] public GameObject RefCheckMark1;
-    [SerializeField] public GameObject RefCrossOut1;
-    [SerializeField] public GameObject RefCheckMark2;
-    [SerializeField] public GameObject RefCrossOut2;
-    [SerializeField] public GameObject RefCheckMark3;
-    [SerializeField] public GameObject RefCrossOut3;
+    [SerializeField] public GameObject BakedApplePieB;
 
     private string[] RecipeList;
 
@@ -119,8 +114,12 @@ public class ObjectButtonsInteractables : MonoBehaviour
     void Start()
     {
         SetDefaultText();
-        if (MenuManager.Instance != null && MenuManager.Instance.hasActiveQuest)
+        int currentBuildIndex = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
+
+
+        if ((currentBuildIndex >= 1 && currentBuildIndex <= 3) || (MenuManager.Instance != null && MenuManager.Instance.hasActiveQuest))
         {
+            if (MenuManager.Instance != null) MenuManager.Instance.hasActiveQuest = true;
             SetQuestState();
             RefreshAllIngredientTexts();
         }
@@ -206,12 +205,12 @@ public class ObjectButtonsInteractables : MonoBehaviour
         if (OKButton != null) OKButton.SetActive(false);
         if (Accept != null) Accept.SetActive(true);
         if (RePick != null) RePick.SetActive(true);
-        if (RefCheckMark1 != null) RefCheckMark1.SetActive(false);
-        if (RefCrossOut1 != null) RefCrossOut1.SetActive(false);
-        if (RefCheckMark2 != null) RefCheckMark2.SetActive(false);
-        if (RefCrossOut2 != null) RefCrossOut2.SetActive(false);
-        if (RefCheckMark3 != null) RefCheckMark3.SetActive(false);
-        if (RefCrossOut3 != null) RefCrossOut3.SetActive(false);
+        //if (RefCheckMark1 != null) RefCheckMark1.SetActive(false);
+        //if (RefCrossOut1 != null) RefCrossOut1.SetActive(false);
+        //if (RefCheckMark2 != null) RefCheckMark2.SetActive(false);
+        //if (RefCrossOut2 != null) RefCrossOut2.SetActive(false);
+        //if (RefCheckMark3 != null) RefCheckMark3.SetActive(false);
+        //if (RefCrossOut3 != null) RefCrossOut3.SetActive(false);
 
 
     }
@@ -322,15 +321,17 @@ public class ObjectButtonsInteractables : MonoBehaviour
     }
     public void ResetRecipeQuestCard()
     {
-        if (IngredientAP1 != null) IngredientAP1.SetActive(false);
+
+        if (BakedApplePieB !=null) BakedApplePieB.SetActive(false);
+        if (IngredientAP1 != null) IngredientAP1.SetActive(true);
         if (IngredientAP1A != null) IngredientAP1A.SetActive(false);
         if (IngredientAP1B != null) IngredientAP1B.SetActive(false);
         if (IngredientAP1C != null) IngredientAP1C.SetActive(false);
         if (IngredientAP1D != null) IngredientAP1D.SetActive(false);
         if (IngredientAP1E != null) IngredientAP1E.SetActive(false);
-        if (IngredientAP2 != null) IngredientAP2.SetActive(false);
+        if (IngredientAP2 != null) IngredientAP2.SetActive(true);
         if (IngredientAP2A != null) IngredientAP2A.SetActive(false);
-        if (IngredientAP3 != null) IngredientAP3.SetActive(false);
+        if (IngredientAP3 != null) IngredientAP3.SetActive(true);
         if (IngredientAP3A != null) IngredientAP3A.SetActive(false);
         if (IngredientMill1 != null) IngredientMill1.SetActive(false);
         if (IngredientWheat1A != null) IngredientWheat1A.SetActive(false);
@@ -338,13 +339,46 @@ public class ObjectButtonsInteractables : MonoBehaviour
         if (IngredientWheat1C != null) IngredientWheat1C.SetActive(false);
         if (IngredientWheat1D != null) IngredientWheat1D.SetActive(false);
         if (IngredientWheat1E != null) IngredientWheat1E.SetActive(false);
-        if (RefCheckMark1 != null) RefCheckMark1.SetActive(false);
-        if (RefCrossOut1 != null) RefCrossOut1.SetActive(false);
-        if (RefCheckMark2 != null) RefCheckMark2.SetActive(false);
-        if (RefCrossOut2 != null) RefCrossOut2.SetActive(false);
-        if (RefCheckMark3 != null) RefCheckMark3.SetActive(false);
-        if (RefCrossOut3 != null) RefCrossOut3.SetActive(false);
+        //if (RefCheckMark1 != null) RefCheckMark1.SetActive(false);
+        //if (RefCrossOut1 != null) RefCrossOut1.SetActive(false);
+        //if (RefCheckMark2 != null) RefCheckMark2.SetActive(false);
+        //if (RefCrossOut2 != null) RefCrossOut2.SetActive(false);
+        //if (RefCheckMark3 != null) RefCheckMark3.SetActive(false);
+        //if (RefCrossOut3 != null) RefCrossOut3.SetActive(false);
     }
+
+    public void UpdateQuestCard()
+    {
+        if (BakedApplePieB != null) if (stageInteractManager.FreshBakedPie <= 1) BakedApplePieB.SetActive(true);
+        if (IngredientAP1A != null) if (stageInteractManager.AppleCount <= 1) IngredientAP1A.SetActive(true);
+        if (IngredientAP1B != null) if (stageInteractManager.AppleCount <= 2) IngredientAP1B.SetActive(true);
+        if (IngredientAP1C != null) if (stageInteractManager.AppleCount <= 3) IngredientAP1C.SetActive(true);
+        if (IngredientAP1D != null) if (stageInteractManager.AppleCount <= 4) IngredientAP1D.SetActive(true);
+        if (IngredientAP1E != null) if (stageInteractManager.AppleCount <= 5) IngredientAP1E.SetActive(true);
+      
+        if (IngredientAP2A != null) if (stageInteractManager.FlourCount <= 1) IngredientAP2A.SetActive(true);
+       
+        if (IngredientAP3A != null) if (stageInteractManager.HoneyCount <= 1) IngredientAP3A.SetActive(true);
+
+        if (IngredientMill1 != null) if (stageInteractManager.WheatCount <= 5) IngredientMill1.SetActive(true);
+        if (IngredientWheat1A != null) if (stageInteractManager.WheatCount <= 1) IngredientWheat1A.SetActive(true);
+        if (IngredientWheat1B != null) if (stageInteractManager.WheatCount <= 2) IngredientWheat1B.SetActive(true);
+        if (IngredientWheat1C != null) if (stageInteractManager.WheatCount <= 3) IngredientWheat1C.SetActive(true);
+        if (IngredientWheat1D != null) if (stageInteractManager.WheatCount <= 4) IngredientWheat1D.SetActive(true);
+        if (IngredientWheat1E != null) if (stageInteractManager.WheatCount <= 5) IngredientWheat1E.SetActive(true);
+        //if (RefCheckMark1 != null) if () RefCheckMark1.SetActive(false);
+        //if (RefCrossOut1 != null) if () RefCrossOut1.SetActive(false);
+        //if (RefCheckMark2 != null) if () RefCheckMark2.SetActive(false);
+        //if (RefCrossOut2 != null) if () RefCrossOut2.SetActive(false);
+        //if (RefCheckMark3 != null) if () RefCheckMark3.SetActive(false);
+        //if (RefCrossOut3 != null) if (l) RefCrossOut3.SetActive(false);
+    }
+
+
+
+
+
+
 }
 
 

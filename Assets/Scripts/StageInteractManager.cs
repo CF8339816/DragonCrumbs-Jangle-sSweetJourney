@@ -33,23 +33,14 @@ public class StageInteractManager : MonoBehaviour, IInteractable
     public LayerMask EnvironmentButtons;
     public LayerMask combinedMask;
     private CharacterController characterController;
+    public ToggleMaze toggleMaze;
 
     private string currentTargetTag = "";
 
     [Header("Settings")]
     public float checkRange = 100f;//longer range for grapple and pull
     public float switchRange = 4f; // shorter range for button and switch
-
-    //[Header("Interactables")]
-    //public GameObject ProxyOvenRawPie;
-    //public GameObject ProxyBakedPie;
-    //public GameObject RawApplePieProxy;
-    //public GameObject PrepBlock;
-    //public GameObject Dangle;
-    //public GameObject MillstoneClickable;
-    //public GameObject Wheat;
-    //public GameObject Sythe;
-
+        
     [Header("Collection Variables")]
     public int WheatCount = 0;
     public int AppleCount = 0;
@@ -57,9 +48,11 @@ public class StageInteractManager : MonoBehaviour, IInteractable
     public int HoneyCount = 0;
     public int FreshBakedPie = 0;
 
+    public static StageInteractManager Instance { get; private set; }
 
     void Awake()
     {
+        Instance = this;
         BootStrappin bootStrappin = FindFirstObjectByType<BootStrappin>();
         if (bootStrappin != null)
         {
@@ -70,9 +63,6 @@ public class StageInteractManager : MonoBehaviour, IInteractable
             if (menuManager == null) menuManager = bootStrappin.menuManager;
             if (travelMapManager == null) travelMapManager = bootStrappin.travelMapManager;
         }
-        //Changed cause the code below throws a couple of random errors depending on load orders ensures first load 
-        //BootStrappin bootStrappin = FindFirstObjectByType< BootStrappin > ();
-        //bootStrappin.FindManagers();
 
         if (addAudio == null) addAudio = FindFirstObjectByType<AddAudio>();
     }
@@ -80,24 +70,7 @@ public class StageInteractManager : MonoBehaviour, IInteractable
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        //if (SceneManager.GetActiveScene().buildIndex >= 1 && SceneManager.GetActiveScene().buildIndex <= 3)
-        //{
-        //    objectButtonsInteractables.SetQuestState();
-        //}
-        //else if (SceneManager.GetActiveScene().buildIndex == 4 )
-        //{
-        //    objectButtonsInteractables.SetBakeryState();
-        //}
-
-        ////combinedMask = RecipeButtons | EnvironmentButtons;
-        //if (objectButtonsInteractables == null)
-        //{
-        //    objectButtonsInteractables = FindFirstObjectByType<ObjectButtonsInteractables>();
-        //}
-        //if (objGOInteractionManager == null)
-        //{
-        //    objGOInteractionManager = FindFirstObjectByType<ObjGOInteractionManager>();
-        //}
+       
         if (playerScript == null)
         {
             playerScript = FindFirstObjectByType<JangleController>();
@@ -142,7 +115,7 @@ public class StageInteractManager : MonoBehaviour, IInteractable
 
     void Update()
     {
-
+       
         UpdateCheckBoxes();
 
 
@@ -249,7 +222,21 @@ public class StageInteractManager : MonoBehaviour, IInteractable
             if (objectButtonsInteractables.CheckMark3 != null) objectButtonsInteractables.CheckMark3.SetActive(false);
             if (objectButtonsInteractables.CrossOut3 != null) objectButtonsInteractables.CrossOut3.SetActive(true);
         }
+       
 
+        if (FreshBakedPie <= 0 && objectButtonsInteractables.BakedApplePieB != null) objectButtonsInteractables.BakedApplePieB.SetActive(false);
+        if (AppleCount <= 0 && objectButtonsInteractables.IngredientAP1A != null) objectButtonsInteractables.IngredientAP1A.SetActive(false);
+        if (AppleCount <= 0 && objectButtonsInteractables.IngredientAP1B != null) objectButtonsInteractables.IngredientAP1B.SetActive(false);
+        if (AppleCount <= 0 && objectButtonsInteractables.IngredientAP1C != null) objectButtonsInteractables.IngredientAP1C.SetActive(false);
+        if (AppleCount <= 0 && objectButtonsInteractables.IngredientAP1D != null) objectButtonsInteractables.IngredientAP1D.SetActive(false);
+        if (AppleCount <= 0 && objectButtonsInteractables.IngredientAP1E != null) objectButtonsInteractables.IngredientAP1E.SetActive(false);
+        if (FlourCount <= 0 && objectButtonsInteractables.IngredientAP2A != null) objectButtonsInteractables.IngredientAP2A.SetActive(false);
+        if (HoneyCount <= 0 && objectButtonsInteractables.IngredientAP3A != null) objectButtonsInteractables.IngredientAP3A.SetActive(false);
+        if (WheatCount <= 0 && objectButtonsInteractables.IngredientWheat1A != null) objectButtonsInteractables.IngredientWheat1A.SetActive(false);
+        if (WheatCount <= 0 && objectButtonsInteractables.IngredientWheat1B != null) objectButtonsInteractables.IngredientWheat1B.SetActive(false);
+        if (WheatCount <= 0 && objectButtonsInteractables.IngredientWheat1C != null) objectButtonsInteractables.IngredientWheat1C.SetActive(false);
+        if (WheatCount <= 0 && objectButtonsInteractables.IngredientWheat1D != null) objectButtonsInteractables.IngredientWheat1D.SetActive(false);
+        if (WheatCount <= 0 && objectButtonsInteractables.IngredientWheat1E != null) objectButtonsInteractables.IngredientWheat1E.SetActive(false);
         if (AppleCount >= 1 && objectButtonsInteractables.IngredientAP1A != null) objectButtonsInteractables.IngredientAP1A.SetActive(true);
         if (AppleCount >= 2 && objectButtonsInteractables.IngredientAP1B != null) objectButtonsInteractables.IngredientAP1B.SetActive(true);
         if (AppleCount >= 3 && objectButtonsInteractables.IngredientAP1C != null) objectButtonsInteractables.IngredientAP1C.SetActive(true);
@@ -262,6 +249,8 @@ public class StageInteractManager : MonoBehaviour, IInteractable
         if (WheatCount >= 3 && objectButtonsInteractables.IngredientWheat1C != null) objectButtonsInteractables.IngredientWheat1C.SetActive(true);
         if (WheatCount >= 4 && objectButtonsInteractables.IngredientWheat1D != null) objectButtonsInteractables.IngredientWheat1D.SetActive(true);
         if (WheatCount >= 5 && objectButtonsInteractables.IngredientWheat1E != null) objectButtonsInteractables.IngredientWheat1E.SetActive(true);
+        if (FreshBakedPie >= 1 && objectButtonsInteractables.BakedApplePieB != null) objectButtonsInteractables.BakedApplePieB.SetActive(true);
+
     }
     public void HandleInteraction(string targetTag)
     {
@@ -290,6 +279,7 @@ public class StageInteractManager : MonoBehaviour, IInteractable
         {
             WheatCount = 0;
             FlourCount = 1;
+        
             SaveCountsToPersistent();
         }
         if (objectButtonsInteractables != null)
@@ -300,8 +290,17 @@ public class StageInteractManager : MonoBehaviour, IInteractable
     }
     public void InteractBeeHive()
     {
-        addAudio.OnSuccess();
+        //addAudio.OnBeeHive();
+        //HoneyCount = 1;
+
+        Debug.Log("Adding honey count");
         HoneyCount = 1;
+
+        if (HoneyCount >= 1) Debug.Log("honey added succedssfully to countt");
+        else Debug.Log("No Honey herre ya looser");
+
+
+
         SaveCountsToPersistent();
         if (objectButtonsInteractables != null)
             objectButtonsInteractables.SetHoney_TXT();
@@ -313,40 +312,44 @@ public class StageInteractManager : MonoBehaviour, IInteractable
     }
     public void InteractNextLevelDebug()
     {
+        if (menuManager == null) menuManager = MenuManager.Instance;
+        if (menuManager == null) menuManager = FindFirstObjectByType<MenuManager>();
+
         if (menuManager != null)
+        {
             menuManager.onLoadNextLevel();
+        }
+        else
+        {
+            Debug.LogWarning("StageInteractManager: MenuManager not found!");
+        }
     }
     public void DisableWheatCollider()
     {
-        foreach (GameObject obj in FindObjectsByType<GameObject>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+          foreach (BoxCollider2D boxCollider2D in FindObjectsByType<BoxCollider2D>(FindObjectsInactive.Include, FindObjectsSortMode.None))
         {
-            if (obj.name.StartsWith("Wheat") && obj.TryGetComponent(out BoxCollider2D boxCollider2D))
+            if (boxCollider2D.gameObject.name == "Wheat")
             {
                 boxCollider2D.enabled = false;
             }
+
+            
         }
 
-        //GameObject wheat = GameObject.Find("Wheat");
-        //if (wheat != null && wheat.TryGetComponent(out BoxCollider2D boxCollider2D))
-        //{
-        //    boxCollider2D.enabled = false;
-        //}
+        
     }
     public void EnableWheatCollider()
     {
-        foreach (GameObject obj in FindObjectsByType<GameObject>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+         foreach (BoxCollider2D boxCollider2D in FindObjectsByType<BoxCollider2D>(FindObjectsInactive.Include, FindObjectsSortMode.None))
         {
-            if (obj.name.StartsWith("Wheat") && obj.TryGetComponent(out BoxCollider2D boxCollider2D))
+            if (boxCollider2D.gameObject.name == "Wheat")
             {
                 boxCollider2D.enabled = true;
             }
+          
         }
 
-        //GameObject wheat = GameObject.Find("Wheat");
-        //if (wheat != null && wheat.TryGetComponent(out BoxCollider2D boxCollider2D))
-        //{
-        //    boxCollider2D.enabled = true;
-        //}
+      
     }
     public void Interact()
     {
@@ -413,29 +416,29 @@ public class StageInteractManager : MonoBehaviour, IInteractable
     }
     public void OnBakingTime()
     {
-        //pieVisabilityManager.RawApplePieProxy.SetActive(false);
-        //pieVisabilityManager.ProxyOvenRawPie.SetActive(false);
-        //playerScript.flameOn = true;
-        //await Task.Delay(5000); // 5000 milliseconds = 5 seconds
-        //playerScript.flameOn = false;
-        //pieVisabilityManager.ProxyBakedPie.SetActive(true);
-        StartCoroutine(BakePieRoutine());
+         StartCoroutine(BakePieRoutine());
     }
     private IEnumerator BakePieRoutine()
     {
         if (pieVisabilityManager != null)
         {
             pieVisabilityManager.RawApplePieProxy.SetActive(false);
-            
         }
 
         if (playerScript != null) playerScript.SetFireBreath(true);
 
-        if (playerScript != null) playerScript.flameOn = true;
-        addAudio.OnFireBreath();
-        yield return new WaitForSeconds(28f);
-        if (playerScript != null) playerScript.flameOn = false;
+        if (playerScript != null)
+        {
+            playerScript.flameOn = true;
+            addAudio.OnFireBreath();
+        }
+        yield return new WaitForSeconds(15f);
 
+        if (playerScript != null)
+        {
+            playerScript.flameOn = false;
+            addAudio.StopFireBreath();
+        }
         if (playerScript != null) playerScript.SetFireBreath(false);
 
         if (pieVisabilityManager != null)
@@ -462,6 +465,43 @@ public class StageInteractManager : MonoBehaviour, IInteractable
             {
                 objectButtonsInteractables.DangleExit.SetActive(true);
             }
+            objectButtonsInteractables.SetBakeryState();
         }
+    }
+
+    public void SlapTheHive()
+    {
+
+        InteractBeeHive();
+
+
+        Debug.Log("Adding honey count");
+        HoneyCount = 1;
+
+        if (HoneyCount >= 1) Debug.Log("honey added succedssfully to countt");
+        else Debug.Log("No Honey herre ya looser");
+
+        InteractBeeHive();
+
+        toggleMaze.Interact();
+
+    }
+    public void BACK2theBakery()
+    {
+        
+            AppleCount = 5;
+            FlourCount = 1;
+            HoneyCount = 1;
+        
+        menuManager.onBakery();
+    }
+    public void farm2fix()
+    {
+        menuManager.onLevel2();
+    }
+
+    public void farm3fix()
+    {
+        menuManager.onLevel3();
     }
 }
