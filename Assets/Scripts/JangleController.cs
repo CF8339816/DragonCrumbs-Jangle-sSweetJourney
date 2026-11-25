@@ -5,11 +5,11 @@ using UnityEngine.SceneManagement;
 #region coder & project
 /// <summary>
 /// GAME2065/4087/Game Development III(B)/Cameron,Jordan
-/// Dragon Crumbs: Jangle's SweetJourney  GameJam3  Percy Hebb, Chris French, Kevin Card, Myranda Roy
-/// Coder current script: Chris French Second Year NSCC Game Programming 
-/// Additions / annotations: Fixed floating jump bugs, established clear gravity transitions.
+/// Dragon Crumbs: Jangle's SweetJourney GameJam3 Percy Hebb, Chris French, Kevin Card, Myranda Roy
+/// Coder current script: Chris French Second Year NSCC Game Programming
+/// Additions / annotations: Fixed floating jump bugs, established clear gravity transitions, integrated Blend Tree parameters.
 /// </summary>
-#endregion   
+#endregion
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class JangleController : MonoBehaviour
@@ -18,6 +18,8 @@ public class JangleController : MonoBehaviour
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float jumpSpeed = 8f;
     [SerializeField] private float glideSpeed = -1.5f; // ----Gentle downward speed cap for glide---- CF
+
+    public Animator JangleAniControllerFireAnis;
 
     [Header("References")]
     [SerializeField] private GameObject jangleFlame; // ----set firebreath object----CF
@@ -28,16 +30,24 @@ public class JangleController : MonoBehaviour
 
     private bool isGliding = false;
     private bool flameOn = false;
-    private bool isFacingRight = false;
+    private bool isFacingRight = false; // Set to true if Jangle's default sprite faces right
 
     private void Awake()
     {
         inputActions = new PlayerControls();
         rb2d = GetComponent<Rigidbody2D>();
 
-        if (rb2d.gravityScale == 0)// ----maks sure rigid body handles gravity---- CF
+        if (rb2d.gravityScale == 0) // ----maks sure rigid body handles gravity---- CF
         {
             rb2d.gravityScale = 1.5f; //----tweaking gravity value for feel of game play---- CF
+        }
+    }
+
+    void Start()
+    {
+        if (JangleAniControllerFireAnis == null)
+        {
+            JangleAniControllerFireAnis = GetComponent<Animator>();
         }
     }
 
@@ -51,8 +61,7 @@ public class JangleController : MonoBehaviour
         inputActions.Player.JumpGlide.performed += OnJumpGlideInput; // ---- Spacebar Jump & Glide ---- CF
         inputActions.Player.JumpGlide.canceled += OnJumpGlideStopped;
 
-        inputActions.Player.FireBreath.performed += OnFireBreathInput;   // ----Ctrl either left or right  Fire Breath  changed from shift to avoid sticky keys if player spams breath---- CF
-
+        inputActions.Player.FireBreath.performed += OnFireBreathInput; // ----Ctrl either left or right Fire Breath changed from shift to avoid sticky keys if player spams breath---- CF
         inputActions.Player.FireBreath.canceled += OnFireBreathStopped;
     }
 
@@ -74,86 +83,96 @@ public class JangleController : MonoBehaviour
     {
         MovePlayer();
         HandleGlide();
-
+        UpdateBlendTree();
     }
 
     private void OnMoveInput(InputAction.CallbackContext context)
     {
+        JangleAniControllerFireAnis.SetBool("iswalking", true);
         moveInput = context.ReadValue<Vector2>();
     }
 
     private void OnMoveStopped(InputAction.CallbackContext context)
     {
+        JangleAniControllerFireAnis.SetBool("iswalking", false);
         moveInput = Vector2.zero;
     }
 
     private void OnJumpGlideInput(InputAction.CallbackContext context)
     {
-
-        rb2d.linearVelocity = new Vector2(rb2d.linearVelocity.x, jumpSpeed);//---- applies upward force for jump when spacebar is pressed---- CF
-
-
-        isGliding = true;// ----marks gliding state true as long as spacebar is held down---- CF
+        rb2d.linearVelocity = new Vector2(rb2d.linearVelocity.x, jumpSpeed); //---- applies upward force for jump when spacebar is pressed---- CF
+        isGliding = true; // ----marks gliding state true as long as spacebar is held down---- CF
+        JangleAniControllerFireAnis.SetTrigger("Jump");
     }
 
     private void OnJumpGlideStopped(InputAction.CallbackContext context)
     {
-
-        isGliding = false;// ----  reverts to standard gravity force when space bar released ---- CF
+        isGliding = false; // ---- reverts to standard gravity force when space bar released ---- CF
     }
 
     private void OnFireBreathInput(InputAction.CallbackContext context)
     {
+        JangleAniControllerFireAnis.SetBool("IsFlame", true);
         flameOn = true;
         ToggleFireBreath();
     }
 
     private void OnFireBreathStopped(InputAction.CallbackContext context)
     {
+        JangleAniControllerFireAnis.SetBool("IsFlame", false);
         flameOn = false;
         ToggleFireBreath();
     }
 
     private void MovePlayer()
     {
-        rb2d.linearVelocity = new Vector2(moveInput.x * moveSpeed, rb2d.linearVelocity.y);// ---- adds gravity to movement  to apply it naturally and ensure ground contact---- CF
+        rb2d.linearVelocity = new Vector2(moveInput.x * moveSpeed, rb2d.linearVelocity.y); // ---- adds gravity to movement to apply it naturally and ensure ground contact---- CF
+
         if (moveInput.x > 0 && !isFacingRight) // ---- checks the direction of motion and ensures player sprite parent is facing the direction of motion----CF
         {
             FlipCharacter();
         }
-        else if (moveInput.x < 0 && isFacingRight)// -----else flips it the other way if moving the other direction ---- CF
+        else if (moveInput.x < 0 && isFacingRight) // -----else flips it the other way if moving the other direction ---- CF
         {
             FlipCharacter();
         }
-
     }
 
     private void HandleGlide()
     {
+        bool activelyGliding = isGliding && rb2d.linearVelocity.y < 0;
 
-
-        if (isGliding && rb2d.linearVelocity.y < 0)// ----checks for glide and  then applies the glide slow if falling ---- CF
+        if (activelyGliding) // ----checks for glide and then applies the glide slow if falling ---- CF
         {
             rb2d.linearVelocity = new Vector2(rb2d.linearVelocity.x, glideSpeed);
         }
+
+        JangleAniControllerFireAnis.SetBool("isGliding", activelyGliding);
+    }
+
+    private void UpdateBlendTree()
+    {
+        JangleAniControllerFireAnis.SetFloat("MoveX", Mathf.Abs(moveInput.x));
+        JangleAniControllerFireAnis.SetFloat("MoveY", rb2d.linearVelocity.y);
     }
 
     private void ToggleFireBreath()
     {
-        if (jangleFlame != null)//---- verifies the flameobject exists ---- CF
+        if (jangleFlame != null) //---- verifies the flameobject exists ---- CF
         {
             jangleFlame.SetActive(flameOn); // ---- Brings the Fwoooooshhhhhhhhhhh---- CF
+        }
+        else
+        {
+            Debug.LogWarning("jangleFlame reference is missing in Inspector!");
         }
     }
 
     private void FlipCharacter()
     {
-        isFacingRight = !isFacingRight;//---- checks facing ----CF
+        isFacingRight = !isFacingRight; //---- checks facing ----CF
         Vector3 currentScale = transform.localScale; // ----selects the parent's scale value asvariable to adjust----CF
         currentScale.x *= -1; // ---- flips sprite packet parrnt through neg x to turn it over / flip direction---- CF
         transform.localScale = currentScale; // ---- sets new scale transform as currnet value---- CF
     }
-    
 }
-
-
