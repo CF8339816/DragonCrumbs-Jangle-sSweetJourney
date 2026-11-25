@@ -20,6 +20,9 @@ public class JangleController : MonoBehaviour
     [SerializeField] private float glideSpeed = -1.5f; // ----Gentle downward speed cap for glide---- CF
 
     public Animator JangleAniControllerFireAnis;
+    public GameObject Fire;
+    public GameObject BakeFire;
+
 
     [Header("References")]
     [SerializeField] private GameObject jangleFlame; // ----set firebreath object----CF
@@ -30,8 +33,9 @@ public class JangleController : MonoBehaviour
 
     private bool isGliding = false;
     private bool flameOn = false;
+    public bool isBakingPie = false;  
     private bool isFacingRight = false; // Set to true if Jangle's default sprite faces right
-
+    private bool isGrounded = false;
     private void Awake()
     {
         inputActions = new PlayerControls();
@@ -45,6 +49,7 @@ public class JangleController : MonoBehaviour
 
     void Start()
     {
+        isGrounded = true;  
         if (JangleAniControllerFireAnis == null)
         {
             JangleAniControllerFireAnis = GetComponent<Animator>();
@@ -88,26 +93,52 @@ public class JangleController : MonoBehaviour
 
     private void OnMoveInput(InputAction.CallbackContext context)
     {
-        JangleAniControllerFireAnis.SetBool("iswalking", true);
+        if (isGrounded == true)
+        {
+            JangleAniControllerFireAnis.SetBool("iswalking", true);
+        }
+        else
+        {
+            JangleAniControllerFireAnis.SetBool("iswalking", false);
+        }
         moveInput = context.ReadValue<Vector2>();
     }
 
     private void OnMoveStopped(InputAction.CallbackContext context)
     {
-        JangleAniControllerFireAnis.SetBool("iswalking", false);
+        if (isGrounded == true)
+        {
+            JangleAniControllerFireAnis.SetBool("iswalking", false);
+        }
+        else
+        {
+            JangleAniControllerFireAnis.SetBool("iswalking", false);
+        }
         moveInput = Vector2.zero;
     }
 
     private void OnJumpGlideInput(InputAction.CallbackContext context)
-    {
-        rb2d.linearVelocity = new Vector2(rb2d.linearVelocity.x, jumpSpeed); //---- applies upward force for jump when spacebar is pressed---- CF
-        isGliding = true; // ----marks gliding state true as long as spacebar is held down---- CF
-        JangleAniControllerFireAnis.SetTrigger("Jump");
+    {       
+        isGrounded = false;
+        if (isGrounded == false)
+        {
+            JangleAniControllerFireAnis.SetBool("isjumpingFlapping", true);
+            rb2d.linearVelocity = new Vector2(rb2d.linearVelocity.x, jumpSpeed); //---- applies upward force for jump when spacebar is pressed---- CF
+            isGliding = true; // ----marks gliding state true as long as spacebar is held down---- CF
+            JangleAniControllerFireAnis.SetTrigger("Jump");
+        }
     }
 
     private void OnJumpGlideStopped(InputAction.CallbackContext context)
     {
-        isGliding = false; // ---- reverts to standard gravity force when space bar released ---- CF
+        if (isGrounded == false)
+        { 
+            isGliding = false; // ---- reverts to standard gravity force when space bar released ---- CF
+            JangleAniControllerFireAnis.SetBool("isjumpingFlapping", false);
+            
+        }
+        isGrounded = true;
+
     }
 
     private void OnFireBreathInput(InputAction.CallbackContext context)
@@ -140,14 +171,14 @@ public class JangleController : MonoBehaviour
 
     private void HandleGlide()
     {
-        bool activelyGliding = isGliding && rb2d.linearVelocity.y < 0;
+        bool currentlyGliding = isGliding && rb2d.linearVelocity.y < 0;
 
-        if (activelyGliding) // ----checks for glide and then applies the glide slow if falling ---- CF
+        if (currentlyGliding) // ----checks for glide and then applies the glide slow if falling ---- CF
         {
             rb2d.linearVelocity = new Vector2(rb2d.linearVelocity.x, glideSpeed);
         }
 
-        JangleAniControllerFireAnis.SetBool("isGliding", activelyGliding);
+        JangleAniControllerFireAnis.SetBool("isGliding", currentlyGliding);
     }
 
     private void UpdateBlendTree()
@@ -161,6 +192,7 @@ public class JangleController : MonoBehaviour
         if (jangleFlame != null) //---- verifies the flameobject exists ---- CF
         {
             jangleFlame.SetActive(flameOn); // ---- Brings the Fwoooooshhhhhhhhhhh---- CF
+            littleFwoosh();
         }
         else
         {
@@ -175,4 +207,42 @@ public class JangleController : MonoBehaviour
         currentScale.x *= -1; // ---- flips sprite packet parrnt through neg x to turn it over / flip direction---- CF
         transform.localScale = currentScale; // ---- sets new scale transform as currnet value---- CF
     }
-}
+
+    public void BakingFwoosh()
+    {
+        if (BakeFire != null)
+        {
+            if (isBakingPie == true)
+            //if (flameOn == true)
+            {
+                BakeFire.SetActive(true);
+            }
+            else
+            {
+                BakeFire.SetActive(false);
+            }
+        }
+    }
+
+    public void littleFwoosh()
+    {
+        if (Fire != null && flameOn == true )
+        {
+            Fire.SetActive(true);
+
+            JangleAniControllerFireAnis.SetBool("IsFlame", true);
+
+
+
+        }
+
+        else
+        { 
+            Fire.SetActive(false);
+            JangleAniControllerFireAnis.SetBool("IsFlame", false);
+        }
+    }
+
+
+
+    }

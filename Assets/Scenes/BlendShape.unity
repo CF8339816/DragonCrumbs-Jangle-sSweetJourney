@@ -431,8 +431,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8735665598696359127}
   - component: {fileID: 5456203301172513764}
+  - component: {fileID: 8735665598696359128}
   m_Layer: 0
-  m_Name: jangleFlameProxy
+  m_Name: jangleFwoosh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -514,7 +515,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -1715553355, guid: cd85429d08d33eb40bbdd7a1ab278050, type: 3}
+  m_Sprite: {fileID: 726864108, guid: 57e7720e6b5296c4994c65f1e9aa6be9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -677,7 +678,10 @@ MonoBehaviour:
   jumpSpeed: 12
   glideSpeed: -1
   JangleAniControllerFireAnis: {fileID: 8757822103925024988}
+  Fire: {fileID: 1092206978251714139}
+  BakeFire: {fileID: 7269895084912439664}
   jangleFlame: {fileID: 1092206978251714139}
+  isBakingPie: 0
 --- !u!1 &4582999677198351939
 GameObject:
   m_ObjectHideFlags: 0
@@ -744,7 +748,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 0e0eb48294874c64b8ca8aec7077eb2d, type: 3}
+  m_Sprite: {fileID: 712802441, guid: 0c169350e2e738d43a07f24ab4847a96, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -812,7 +816,6 @@ GameObject:
   - component: {fileID: 6942377568234913692}
   - component: {fileID: 8757822103925024988}
   - component: {fileID: 8757822103925024989}
-  - component: {fileID: 8757822103925024990}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -829,7 +832,7 @@ Transform:
   m_GameObject: {fileID: 7269895084912439664}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.5, z: 0}
+  m_LocalPosition: {x: -0.84, y: 0.15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -891,13 +894,36 @@ GameObject:
   m_Component:
   - component: {fileID: 6344970944368561590}
   - component: {fileID: 2006830092594161708}
+  - component: {fileID: 7269895084912439665}
   m_Layer: 0
-  m_Name: jangleProxy
+  m_Name: jangleBake
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!95 &7269895084912439665
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7269895084912439664}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f4752c119e801404b9ea64dfa5b02855, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &7873596290855215853
 Transform:
   m_ObjectHideFlags: 0
@@ -962,12 +988,34 @@ Transform:
   m_GameObject: {fileID: 1092206978251714139}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.7, y: 5.8, z: 0}
+  m_LocalPosition: {x: -0.84, y: 0.15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8757822103925024987}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &8735665598696359128
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1092206978251714139}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b28ba02261e549f4091bce85ef6af26f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &8757822103925024987
 Transform:
   m_ObjectHideFlags: 0
@@ -1066,20 +1114,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &8757822103925024990
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6319079767770231006}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edc64964570ac864f86e03c24e525ee9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::JangleBlendMoverFire
-  JangleAniControllerFireAnis: {fileID: 0}
-  moveInput: {x: 0, y: 0}
 --- !u!61 &8909427857073221119
 BoxCollider2D:
   m_ObjectHideFlags: 0
