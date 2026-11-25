@@ -44,7 +44,7 @@ public class ToggleMaze : MonoBehaviour, IInteractable
             if (maze != null)
             {
                 maze.SetActive(enableMaze);
-              
+                addAudio.OnBeeHive();
 
             }
             if (stageInteractManager != null)

@@ -13,7 +13,7 @@ using UnityEngine.UI;
 /// code review: 
 /// </summary>
 #endregion
-
+/// Commented out blocks not removed in this code in case we want to impliment a cursor switch on mouseover later
 public class ObjGOInteractionManager : MonoBehaviour
 {
 

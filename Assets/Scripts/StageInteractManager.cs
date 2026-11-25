@@ -236,7 +236,7 @@ public class StageInteractManager : MonoBehaviour, IInteractable
         if (WheatCount <= 0 && objectButtonsInteractables.IngredientWheat1B != null) objectButtonsInteractables.IngredientWheat1B.SetActive(false);
         if (WheatCount <= 0 && objectButtonsInteractables.IngredientWheat1C != null) objectButtonsInteractables.IngredientWheat1C.SetActive(false);
         if (WheatCount <= 0 && objectButtonsInteractables.IngredientWheat1D != null) objectButtonsInteractables.IngredientWheat1D.SetActive(false);
-        if (WheatCount <= 0 && objectButtonsInteractables.IngredientWheat1E != null) objectButtonsInteractables.IngredientWheat1E.SetActive(false);
+        if (WheatCount <= 0 && objectButtonsInteractables.IngredientWheat1E != null) objectButtonsInteractables.IngredientWheat1E.SetActive(false); 
         if (AppleCount >= 1 && objectButtonsInteractables.IngredientAP1A != null) objectButtonsInteractables.IngredientAP1A.SetActive(true);
         if (AppleCount >= 2 && objectButtonsInteractables.IngredientAP1B != null) objectButtonsInteractables.IngredientAP1B.SetActive(true);
         if (AppleCount >= 3 && objectButtonsInteractables.IngredientAP1C != null) objectButtonsInteractables.IngredientAP1C.SetActive(true);
@@ -248,9 +248,11 @@ public class StageInteractManager : MonoBehaviour, IInteractable
         if (WheatCount >= 2 && objectButtonsInteractables.IngredientWheat1B != null) objectButtonsInteractables.IngredientWheat1B.SetActive(true);
         if (WheatCount >= 3 && objectButtonsInteractables.IngredientWheat1C != null) objectButtonsInteractables.IngredientWheat1C.SetActive(true);
         if (WheatCount >= 4 && objectButtonsInteractables.IngredientWheat1D != null) objectButtonsInteractables.IngredientWheat1D.SetActive(true);
-        if (WheatCount >= 5 && objectButtonsInteractables.IngredientWheat1E != null) objectButtonsInteractables.IngredientWheat1E.SetActive(true);
+        if (WheatCount >= 5 && objectButtonsInteractables.IngredientWheat1E != null) objectButtonsInteractables.IngredientWheat1E.SetActive(true); 
         if (FreshBakedPie >= 1 && objectButtonsInteractables.BakedApplePieB != null) objectButtonsInteractables.BakedApplePieB.SetActive(true);
 
+        if (WheatCount <= 5 && objectButtonsInteractables.RecipeMillStone != null) objectButtonsInteractables.RecipeMillStone.SetActive(false);
+        if (WheatCount >= 5 && objectButtonsInteractables.RecipeMillStone != null) objectButtonsInteractables.RecipeMillStone.SetActive(true);
     }
     public void HandleInteraction(string targetTag)
     {
@@ -277,6 +279,7 @@ public class StageInteractManager : MonoBehaviour, IInteractable
     {
         if (WheatCount >= 5)
         {
+            addAudio.OnMillFlour();
             WheatCount = 0;
             FlourCount = 1;
         
@@ -292,7 +295,7 @@ public class StageInteractManager : MonoBehaviour, IInteractable
     {
         //addAudio.OnBeeHive();
         //HoneyCount = 1;
-
+        addAudio.OnSuccess();
         Debug.Log("Adding honey count");
         HoneyCount = 1;
 
@@ -345,6 +348,7 @@ public class StageInteractManager : MonoBehaviour, IInteractable
             if (boxCollider2D.gameObject.name == "Wheat")
             {
                 boxCollider2D.enabled = true;
+               
             }
           
         }
@@ -432,7 +436,7 @@ public class StageInteractManager : MonoBehaviour, IInteractable
             playerScript.flameOn = true;
             addAudio.OnFireBreath();
         }
-        yield return new WaitForSeconds(15f);
+        yield return new WaitForSeconds(5f);
 
         if (playerScript != null)
         {
@@ -492,7 +496,7 @@ public class StageInteractManager : MonoBehaviour, IInteractable
             AppleCount = 5;
             FlourCount = 1;
             HoneyCount = 1;
-        
+        if (objectButtonsInteractables.DangleBegin != null) objectButtonsInteractables.DangleBegin.SetActive(false);
         menuManager.onBakery();
     }
     public void farm2fix()

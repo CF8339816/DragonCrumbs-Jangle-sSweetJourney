@@ -43,7 +43,7 @@ public class ObjectButtonsInteractables : MonoBehaviour
     //[SerializeField] public GameObject CookiesRecipeCard;
     //[SerializeField] public GameObject Instructions;
     [SerializeField] public GameObject DangleExit;
-
+    [SerializeField] public GameObject DangleBegin;
     [Header("Text outputs")]
     public TextMeshProUGUI FirstIngredientCollected;
     public TextMeshProUGUI SecondIngredientCollected;
@@ -69,7 +69,7 @@ public class ObjectButtonsInteractables : MonoBehaviour
     [SerializeField] public GameObject IngredientWheat1D;
     [SerializeField] public GameObject IngredientWheat1E;
     [SerializeField] public GameObject BakedApplePieB;
-
+    [SerializeField] public GameObject RecipeMillStone;
     private string[] RecipeList;
 
 
@@ -129,6 +129,36 @@ public class ObjectButtonsInteractables : MonoBehaviour
             SetBakeryState();
         }
         if (DangleExit != null) DangleExit.SetActive(false); // [CODE REVIEW] Null guard
+
+
+        //if (currentBuildIndex == 4)//if (menuManager.hasActiveQuest == false && currentBuildIndex ==4)
+        //{
+        //    //if ((DangleBegin != null && stageInteractManager.AppleCount >= 5) || (DangleBegin != null && stageInteractManager.FlourCount >= 1) || (DangleBegin != null && stageInteractManager.HoneyCount >= 1))
+
+        //    //{
+        //    //DangleBegin.SetActive(false);
+        //    //    Destroy(gameObject);
+        //    //}
+        //    //else
+        //    //{
+        //    DangleBegin.SetActive(true);
+        //    //}
+        //}
+
+
+        //if (currentBuildIndex == 4)//if (menuManager.hasActiveQuest == false && currentBuildIndex ==4)
+        //    {
+        //        if ((DangleBegin != null && stageInteractManager.AppleCount < 5) || (DangleBegin != null && stageInteractManager.FlourCount < 1) || (DangleBegin != null && stageInteractManager.HoneyCount < 1))
+        //        {
+        //            DangleBegin.SetActive(true);
+        //        }
+        //        else if ((DangleBegin != null && stageInteractManager.AppleCount >= 5) || (DangleBegin != null && stageInteractManager.FlourCount >= 1) || (DangleBegin != null && stageInteractManager.HoneyCount >= 1))
+
+        //        {
+        //            DangleBegin.SetActive(false);
+        //        }
+        //    }
+
         ////Instructions.SetActive(false);
         //ReferenePanel.SetActive(false);// ---- turns off the reference card when hud begins----CF
         //isQuest = false;
@@ -145,6 +175,7 @@ public class ObjectButtonsInteractables : MonoBehaviour
         {
             ReferenePanel.SetActive(false);
         }
+        if (DangleBegin != null) DangleBegin.SetActive(true);
         if (QuestPanel != null)
         {
             QuestPanel.SetActive(false);
@@ -159,6 +190,7 @@ public class ObjectButtonsInteractables : MonoBehaviour
         {
             ReferenePanel.SetActive(false);
         }
+        if (DangleBegin != null) DangleBegin.SetActive(false);
 
         if (QuestPanel != null)
         {
@@ -186,6 +218,11 @@ public class ObjectButtonsInteractables : MonoBehaviour
 
     }
 
+    public void OnBakeForYouOK()
+    {
+        if (DangleBegin != null) DangleBegin.SetActive(false);
+
+    }
     public void OnRecipeConfirm()
     {
         if (menuManager == null) menuManager = FindFirstObjectByType<MenuManager>();
@@ -339,12 +376,8 @@ public class ObjectButtonsInteractables : MonoBehaviour
         if (IngredientWheat1C != null) IngredientWheat1C.SetActive(false);
         if (IngredientWheat1D != null) IngredientWheat1D.SetActive(false);
         if (IngredientWheat1E != null) IngredientWheat1E.SetActive(false);
-        //if (RefCheckMark1 != null) RefCheckMark1.SetActive(false);
-        //if (RefCrossOut1 != null) RefCrossOut1.SetActive(false);
-        //if (RefCheckMark2 != null) RefCheckMark2.SetActive(false);
-        //if (RefCrossOut2 != null) RefCrossOut2.SetActive(false);
-        //if (RefCheckMark3 != null) RefCheckMark3.SetActive(false);
-        //if (RefCrossOut3 != null) RefCrossOut3.SetActive(false);
+        if (RecipeMillStone != null) RecipeMillStone.SetActive(false);
+     
     }
 
     public void UpdateQuestCard()
@@ -355,7 +388,7 @@ public class ObjectButtonsInteractables : MonoBehaviour
         if (IngredientAP1C != null) if (stageInteractManager.AppleCount <= 3) IngredientAP1C.SetActive(true);
         if (IngredientAP1D != null) if (stageInteractManager.AppleCount <= 4) IngredientAP1D.SetActive(true);
         if (IngredientAP1E != null) if (stageInteractManager.AppleCount <= 5) IngredientAP1E.SetActive(true);
-      
+         if (RecipeMillStone != null) if (stageInteractManager.WheatCount <= 5) RecipeMillStone.SetActive(true);
         if (IngredientAP2A != null) if (stageInteractManager.FlourCount <= 1) IngredientAP2A.SetActive(true);
        
         if (IngredientAP3A != null) if (stageInteractManager.HoneyCount <= 1) IngredientAP3A.SetActive(true);

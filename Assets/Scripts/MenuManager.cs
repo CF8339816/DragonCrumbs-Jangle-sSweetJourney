@@ -257,6 +257,7 @@ public class MenuManager : MonoBehaviour
         hasActiveQuest = false;
         if (StartSplash != null) StartSplash.SetActive(false);
         if (Instructions != null) Instructions.SetActive(false);
+       // if (objectButtonsInteractables.DangleBegin != null) objectButtonsInteractables.DangleBegin.SetActive(true);
         onBakery();
     }
 
