@@ -494,12 +494,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da758f1b096e02a41a8d758315dd86ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::JangleController
-  moveSpeed: 5
+  moveSpeed: 8
   jumpSpeed: 12
   glideSpeed: -1
   jangleFlame: {fileID: 952532038202749417}
   interactPromptUI: {fileID: 0}
   flameOn: 0
+  isBaking: 0
 --- !u!50 &7647610995749830765
 Rigidbody2D:
   serializedVersion: 5
@@ -723,15 +724,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7166918358997883249, guid: 482cc5e03c488fb41bd4a4c25115023b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 958
       objectReference: {fileID: 0}
     - target: {fileID: 7166918358997883249, guid: 482cc5e03c488fb41bd4a4c25115023b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.6
+      value: 449
       objectReference: {fileID: 0}
     - target: {fileID: 7166918358997883249, guid: 482cc5e03c488fb41bd4a4c25115023b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -35.1
+      value: -1152
       objectReference: {fileID: 0}
     - target: {fileID: 7166918358997883249, guid: 482cc5e03c488fb41bd4a4c25115023b, type: 3}
       propertyPath: m_LocalRotation.w

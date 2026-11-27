@@ -35,7 +35,7 @@ public class JangleController : MonoBehaviour
     private bool isGliding = false;
     public bool flameOn = false;
     private bool isFacingRight = false;
-
+    public bool isBaking = false;
     void Awake()
     {
         BootStrappin bootStrappin = FindFirstObjectByType<BootStrappin>();
@@ -99,7 +99,7 @@ public class JangleController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (DialogManager.dialogManager != null && DialogManager.dialogManager.talking)
+        if (DialogManager.dialogManager != null && DialogManager.dialogManager.talking|| isBaking)
         {
             moveInput = Vector2.zero;
             rb2d.linearVelocity = new Vector2(0f, rb2d.linearVelocity.y);

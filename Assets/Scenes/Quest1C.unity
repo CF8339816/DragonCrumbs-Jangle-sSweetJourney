@@ -340,9 +340,9 @@ MonoBehaviour:
   dialogManager: {fileID: 533924501}
   Dialog:
   - 'hey I can''t find this hives queen, if you could find her for me I;ll give you
-    some honey  '
-  - 'Hey thanks the bees should calm down now.... '
-  - 'here is some fresh honey  i hope the pie turns out good!! '
+    some honey  [Press[E] to continue] '
+  - 'Hey thanks the bees should calm down now....  [Press[E] to continue] '
+  - 'here is some fresh honey  i hope the pie turns out good!!  [Press[E] to continue] '
 --- !u!212 &318021322
 SpriteRenderer:
   serializedVersion: 2

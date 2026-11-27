@@ -34,7 +34,7 @@ public class StageInteractManager : MonoBehaviour, IInteractable
     public LayerMask combinedMask;
     private CharacterController characterController;
     public ToggleMaze toggleMaze;
-
+    public PickUpToggle pickUpToggle;
     private string currentTargetTag = "";
 
     [Header("Settings")]
@@ -315,6 +315,14 @@ public class StageInteractManager : MonoBehaviour, IInteractable
         addAudio.OnSuccess();
         EnableWheatCollider();
     }
+
+    public void InteractBasket()
+    {
+        addAudio.OnSuccess();
+        EnableAppleCollider();
+    }
+
+
     public void InteractNextLevelDebug()
     {
         if (menuManager == null) menuManager = MenuManager.Instance;
@@ -345,17 +353,28 @@ public class StageInteractManager : MonoBehaviour, IInteractable
     }
     public void EnableWheatCollider()
     {
-         foreach (BoxCollider2D boxCollider2D in FindObjectsByType<BoxCollider2D>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+        foreach (BoxCollider2D boxCollider2D in FindObjectsByType<BoxCollider2D>(FindObjectsInactive.Include, FindObjectsSortMode.None))
         {
             if (boxCollider2D.gameObject.name == "Wheat")
             {
                 boxCollider2D.enabled = true;
-               
+
             }
-          
+
+        }
+    }
+ public void EnableAppleCollider()
+    {
+        foreach (BoxCollider2D boxCollider2D in FindObjectsByType<BoxCollider2D>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+        {
+            if (boxCollider2D.gameObject.name == "apple")
+            {
+                boxCollider2D.enabled = true;
+
+            }
+
         }
 
-      
     }
     public void Interact()
     {
@@ -422,7 +441,8 @@ public class StageInteractManager : MonoBehaviour, IInteractable
     }
     public void OnBakingTime()
     {
-         StartCoroutine(BakePieRoutine());
+        if (playerScript != null && playerScript.isBaking) return;
+        StartCoroutine(BakePieRoutine());
     }
     private IEnumerator BakePieRoutine()
     {
@@ -431,11 +451,16 @@ public class StageInteractManager : MonoBehaviour, IInteractable
             pieVisabilityManager.RawApplePieProxy.SetActive(false);
         }
 
-        if (playerScript != null) playerScript.SetFireBreath(true);
-
         if (playerScript != null)
         {
+            playerScript.isBaking = true;// turns off movement
+            playerScript.SetFireBreath(true);
             playerScript.flameOn = true;
+        }
+
+        if (addAudio != null)
+        {
+            addAudio.StopWalk(); // stops footsteps if Jangle was walking when clicking the oven
             addAudio.OnFireBreath();
         }
         yield return new WaitForSeconds(5f);
@@ -443,9 +468,15 @@ public class StageInteractManager : MonoBehaviour, IInteractable
         if (playerScript != null)
         {
             playerScript.flameOn = false;
-            addAudio.StopFireBreath();
+            playerScript.SetFireBreath(false);
+            playerScript.isBaking = false; // turns on movement
         }
-        if (playerScript != null) playerScript.SetFireBreath(false);
+
+        if (addAudio != null)
+        {
+            addAudio.StopFireBreath();
+            addAudio.OnSuccess();
+        }
 
         if (pieVisabilityManager != null)
         {
@@ -482,18 +513,7 @@ public class StageInteractManager : MonoBehaviour, IInteractable
         {
             toggleMaze.Interact();
         }
-        //InteractBeeHive();
-
-
-        //Debug.Log("Adding honey count");
-        //HoneyCount = 1;
-
-        //if (HoneyCount >= 1) Debug.Log("honey added succedssfully to countt");
-        //else Debug.Log("No Honey herre ya looser");
-
-        //InteractBeeHive();
-
-        //toggleMaze.Interact();
+       
 
     }
     public void BACK2theBakery()
@@ -510,8 +530,7 @@ public class StageInteractManager : MonoBehaviour, IInteractable
             menuManager.onBakery();
         }
        
-        //if (objectButtonsInteractables.DangleBegin != null) objectButtonsInteractables.DangleBegin.SetActive(false);
-        //menuManager.onBakery();
+       
     }
     public void farm2fix()
     {
