@@ -60,8 +60,8 @@ public class GameExitManager : MonoBehaviour
         if (!isExiting) ResetCountdown();
     }
 
-    // [CODE REVIEW] Finds exitCountdownText even if it starts inactive in the UI hierarchy
-    public void FindCountdownText()
+   
+    public void FindCountdownText() // finds exitCountdownText even if it starts inactive in the UI hierarchy
     {
         if (exitCountdownText == null)
         {

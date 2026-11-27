@@ -105,9 +105,7 @@ public class ObjectButtonsInteractables : MonoBehaviour
             stageInteractManager = FindFirstObjectByType<StageInteractManager>();
         }
 
-        //Changed cause the code below throws a couple of random errors depending on load orders ensures first load 
-        //BootStrappin bootStrappin = FindFirstObjectByType<BootStrappin>();
-        //bootStrappin.FindManagers();
+     
 
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -121,49 +119,16 @@ public class ObjectButtonsInteractables : MonoBehaviour
         {
             if (MenuManager.Instance != null) MenuManager.Instance.hasActiveQuest = true;
             SetQuestState();
-            RefreshAllIngredientTexts();
+       
+            //RefreshAllIngredientTexts();
         }
         else
         {
             SetDefaultText();
             SetBakeryState();
         }
-        if (DangleExit != null) DangleExit.SetActive(false); // [CODE REVIEW] Null guard
+        if (DangleExit != null) DangleExit.SetActive(false); // null guard
 
-
-        //if (currentBuildIndex == 4)//if (menuManager.hasActiveQuest == false && currentBuildIndex ==4)
-        //{
-        //    //if ((DangleBegin != null && stageInteractManager.AppleCount >= 5) || (DangleBegin != null && stageInteractManager.FlourCount >= 1) || (DangleBegin != null && stageInteractManager.HoneyCount >= 1))
-
-        //    //{
-        //    //DangleBegin.SetActive(false);
-        //    //    Destroy(gameObject);
-        //    //}
-        //    //else
-        //    //{
-        //    DangleBegin.SetActive(true);
-        //    //}
-        //}
-
-
-        //if (currentBuildIndex == 4)//if (menuManager.hasActiveQuest == false && currentBuildIndex ==4)
-        //    {
-        //        if ((DangleBegin != null && stageInteractManager.AppleCount < 5) || (DangleBegin != null && stageInteractManager.FlourCount < 1) || (DangleBegin != null && stageInteractManager.HoneyCount < 1))
-        //        {
-        //            DangleBegin.SetActive(true);
-        //        }
-        //        else if ((DangleBegin != null && stageInteractManager.AppleCount >= 5) || (DangleBegin != null && stageInteractManager.FlourCount >= 1) || (DangleBegin != null && stageInteractManager.HoneyCount >= 1))
-
-        //        {
-        //            DangleBegin.SetActive(false);
-        //        }
-        //    }
-
-        ////Instructions.SetActive(false);
-        //ReferenePanel.SetActive(false);// ---- turns off the reference card when hud begins----CF
-        //isQuest = false;
-        //isBakery = true;
-        //RecipeList = new string[] { "Apple Pie", "Brownies", "Pine Nut Fudge", "Cheesecake", "Cookies" };
 
 
     }
@@ -175,11 +140,17 @@ public class ObjectButtonsInteractables : MonoBehaviour
         {
             ReferenePanel.SetActive(false);
         }
-        if (DangleBegin != null) DangleBegin.SetActive(true);
+        //if (DangleBegin != null) DangleBegin.SetActive(true);
         if (QuestPanel != null)
         {
             QuestPanel.SetActive(false);
         }
+
+        bool showIntro = (MenuManager.Instance == null)
+     || (!MenuManager.Instance.hasActiveQuest && !MenuManager.Instance.hasSeenDangleBegin);
+
+        if (DangleBegin != null) DangleBegin.SetActive(showIntro);
+
     }
 
     public void SetQuestState()
@@ -197,11 +168,25 @@ public class ObjectButtonsInteractables : MonoBehaviour
             QuestPanel.SetActive(true);
         }
 
+        bool shouldShowBegin = ((MenuManager.Instance == null) || (!MenuManager.Instance.hasActiveQuest && !MenuManager.Instance.hasSeenDangleBegin));
 
-        SetApple_TXT();
-        SetFlour_TXT();
-        SetHoney_TXT();
-        SetWheat_TXT();
+        //if (DangleBegin != null)
+        //{
+        //    DangleBegin.SetActive(shouldShowBegin);
+        //}
+        //SetApple_TXT();
+        //SetFlour_TXT();
+        //SetHoney_TXT();
+        //SetWheat_TXT();
+
+        if (stageInteractManager == null) stageInteractManager = FindFirstObjectByType<StageInteractManager>();
+        if (stageInteractManager != null)
+        {
+            stageInteractManager.LoadCountsFromPersistent();
+            stageInteractManager.UpdateCheckBoxes();
+        }
+
+        RefreshAllIngredientTexts();
     }
 
     public void OnRecipeCheck()
@@ -221,6 +206,7 @@ public class ObjectButtonsInteractables : MonoBehaviour
     public void OnBakeForYouOK()
     {
         if (DangleBegin != null) DangleBegin.SetActive(false);
+          if (MenuManager.Instance != null) MenuManager.Instance.hasSeenDangleBegin = true;
 
     }
     public void OnRecipeConfirm()
@@ -242,12 +228,7 @@ public class ObjectButtonsInteractables : MonoBehaviour
         if (OKButton != null) OKButton.SetActive(false);
         if (Accept != null) Accept.SetActive(true);
         if (RePick != null) RePick.SetActive(true);
-        //if (RefCheckMark1 != null) RefCheckMark1.SetActive(false);
-        //if (RefCrossOut1 != null) RefCrossOut1.SetActive(false);
-        //if (RefCheckMark2 != null) RefCheckMark2.SetActive(false);
-        //if (RefCrossOut2 != null) RefCrossOut2.SetActive(false);
-        //if (RefCheckMark3 != null) RefCheckMark3.SetActive(false);
-        //if (RefCrossOut3 != null) RefCrossOut3.SetActive(false);
+        
 
 
     }
@@ -303,7 +284,7 @@ public class ObjectButtonsInteractables : MonoBehaviour
         if (menuManager != null) menuManager.hasActiveQuest = true;
         ActiveQuest[0] = "ApplePie";
         currentQuest = 0;
-        if (ItemManager.instace != null) ItemManager.instace.LoadRecipe(ItemManager.Recpie.one);
+        if (ItemManager.instace != null) ItemManager.instace.LoadRecipe(ItemManager.Recpie.ApplePie);
         SetQuestState();
         ResetRecipeQuestCard();
         GoToTravelMap();
@@ -382,31 +363,47 @@ public class ObjectButtonsInteractables : MonoBehaviour
 
     public void UpdateQuestCard()
     {
-        if (BakedApplePieB != null) if (stageInteractManager.FreshBakedPie <= 1) BakedApplePieB.SetActive(true);
-        if (IngredientAP1A != null) if (stageInteractManager.AppleCount <= 1) IngredientAP1A.SetActive(true);
-        if (IngredientAP1B != null) if (stageInteractManager.AppleCount <= 2) IngredientAP1B.SetActive(true);
-        if (IngredientAP1C != null) if (stageInteractManager.AppleCount <= 3) IngredientAP1C.SetActive(true);
-        if (IngredientAP1D != null) if (stageInteractManager.AppleCount <= 4) IngredientAP1D.SetActive(true);
-        if (IngredientAP1E != null) if (stageInteractManager.AppleCount <= 5) IngredientAP1E.SetActive(true);
-         if (RecipeMillStone != null) if (stageInteractManager.WheatCount <= 5) RecipeMillStone.SetActive(true);
-        if (IngredientAP2A != null) if (stageInteractManager.FlourCount <= 1) IngredientAP2A.SetActive(true);
-       
-        if (IngredientAP3A != null) if (stageInteractManager.HoneyCount <= 1) IngredientAP3A.SetActive(true);
+        //if (BakedApplePieB != null) if (stageInteractManager.FreshBakedPie <= 1) BakedApplePieB.SetActive(true);
+        //if (IngredientAP1A != null) if (stageInteractManager.AppleCount <= 1) IngredientAP1A.SetActive(true);
+        //if (IngredientAP1B != null) if (stageInteractManager.AppleCount <= 2) IngredientAP1B.SetActive(true);
+        //if (IngredientAP1C != null) if (stageInteractManager.AppleCount <= 3) IngredientAP1C.SetActive(true);
+        //if (IngredientAP1D != null) if (stageInteractManager.AppleCount <= 4) IngredientAP1D.SetActive(true);
+        //if (IngredientAP1E != null) if (stageInteractManager.AppleCount <= 5) IngredientAP1E.SetActive(true);
+        // if (RecipeMillStone != null) if (stageInteractManager.WheatCount <= 5) RecipeMillStone.SetActive(true);
+        //if (IngredientAP2A != null) if (stageInteractManager.FlourCount <= 1) IngredientAP2A.SetActive(true);
 
-        if (IngredientMill1 != null) if (stageInteractManager.WheatCount <= 5) IngredientMill1.SetActive(true);
-        if (IngredientWheat1A != null) if (stageInteractManager.WheatCount <= 1) IngredientWheat1A.SetActive(true);
-        if (IngredientWheat1B != null) if (stageInteractManager.WheatCount <= 2) IngredientWheat1B.SetActive(true);
-        if (IngredientWheat1C != null) if (stageInteractManager.WheatCount <= 3) IngredientWheat1C.SetActive(true);
-        if (IngredientWheat1D != null) if (stageInteractManager.WheatCount <= 4) IngredientWheat1D.SetActive(true);
-        if (IngredientWheat1E != null) if (stageInteractManager.WheatCount <= 5) IngredientWheat1E.SetActive(true);
-        //if (RefCheckMark1 != null) if () RefCheckMark1.SetActive(false);
-        //if (RefCrossOut1 != null) if () RefCrossOut1.SetActive(false);
-        //if (RefCheckMark2 != null) if () RefCheckMark2.SetActive(false);
-        //if (RefCrossOut2 != null) if () RefCrossOut2.SetActive(false);
-        //if (RefCheckMark3 != null) if () RefCheckMark3.SetActive(false);
-        //if (RefCrossOut3 != null) if (l) RefCrossOut3.SetActive(false);
+        //if (IngredientAP3A != null) if (stageInteractManager.HoneyCount <= 1) IngredientAP3A.SetActive(true);
+
+        //if (IngredientMill1 != null) if (stageInteractManager.WheatCount <= 5) IngredientMill1.SetActive(true);
+        //if (IngredientWheat1A != null) if (stageInteractManager.WheatCount <= 1) IngredientWheat1A.SetActive(true);
+        //if (IngredientWheat1B != null) if (stageInteractManager.WheatCount <= 2) IngredientWheat1B.SetActive(true);
+        //if (IngredientWheat1C != null) if (stageInteractManager.WheatCount <= 3) IngredientWheat1C.SetActive(true);
+        //if (IngredientWheat1D != null) if (stageInteractManager.WheatCount <= 4) IngredientWheat1D.SetActive(true);
+        //if (IngredientWheat1E != null) if (stageInteractManager.WheatCount <= 5) IngredientWheat1E.SetActive(true);
+
+        if (stageInteractManager == null) stageInteractManager = FindFirstObjectByType<StageInteractManager>();
+        if (stageInteractManager == null) return;
+
+        if (BakedApplePieB != null) BakedApplePieB.SetActive(stageInteractManager.FreshBakedPie >= 1);
+
+        if (IngredientAP1A != null) IngredientAP1A.SetActive(stageInteractManager.AppleCount >= 1);
+        if (IngredientAP1B != null) IngredientAP1B.SetActive(stageInteractManager.AppleCount >= 2);
+        if (IngredientAP1C != null) IngredientAP1C.SetActive(stageInteractManager.AppleCount >= 3);
+        if (IngredientAP1D != null) IngredientAP1D.SetActive(stageInteractManager.AppleCount >= 4);
+        if (IngredientAP1E != null) IngredientAP1E.SetActive(stageInteractManager.AppleCount >= 5);
+
+        if (RecipeMillStone != null) RecipeMillStone.SetActive(stageInteractManager.WheatCount >= 5);
+        if (IngredientMill1 != null) IngredientMill1.SetActive(stageInteractManager.WheatCount >= 5);
+
+        if (IngredientAP2A != null) IngredientAP2A.SetActive(stageInteractManager.FlourCount >= 1);
+        if (IngredientAP3A != null) IngredientAP3A.SetActive(stageInteractManager.HoneyCount >= 1);
+
+        if (IngredientWheat1A != null) IngredientWheat1A.SetActive(stageInteractManager.WheatCount >= 1);
+        if (IngredientWheat1B != null) IngredientWheat1B.SetActive(stageInteractManager.WheatCount >= 2);
+        if (IngredientWheat1C != null) IngredientWheat1C.SetActive(stageInteractManager.WheatCount >= 3);
+        if (IngredientWheat1D != null) IngredientWheat1D.SetActive(stageInteractManager.WheatCount >= 4);
+        if (IngredientWheat1E != null) IngredientWheat1E.SetActive(stageInteractManager.WheatCount >= 5);
     }
-
 
 
 

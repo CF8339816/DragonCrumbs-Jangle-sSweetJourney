@@ -244,7 +244,7 @@ public class AddAudio : MonoBehaviour
     public void OnVoicesNewSprites()
     {
         ApplyCurrentVolume();
-        if (sourceSFXandDialogue != null && VoicesNewSprites != null) // [CODE REVIEW] Respect volume slider instead of forcing 1f
+        if (sourceSFXandDialogue != null && VoicesNewSprites != null) // respect volume slider instead of forcing 1f
         {
             sourceSFXandDialogue.clip = VoicesNewSprites;
             sourceSFXandDialogue.loop = false;

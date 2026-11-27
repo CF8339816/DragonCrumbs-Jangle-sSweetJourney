@@ -23,8 +23,11 @@ public class ItemManager : MonoBehaviour
     {
         none,
         test,
-        one,
-        two
+        ApplePie,
+        Brownies,
+        PineNutFudge,
+        Cheesecake,
+        Cookies
     }
     public Recpie currentRecpie;
  //private BootStrappin bootStrappin;
@@ -54,21 +57,14 @@ public class ItemManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-      
-     
 
-        ////remove when instance is moved to survace hub
-        //if (instace == null)
-        //{
-        //    instace = this;
-        //    DontDestroyOnLoad(this.gameObject);
-        //}
-        //else
-        //{
-        //    Destroy(this.gameObject);
-        //}
 
-        LoadRecipe(currentRecpie);
+        if (recipe == null || recipe.Count == 0)//----NullCheck gainst recipe----CF
+        {
+            if (currentRecpie == Recpie.none) currentRecpie = Recpie.ApplePie;///----this will need to be reworked  once or if more recipies are added.----CF
+            LoadRecipe(currentRecpie);
+        }
+        //LoadRecipe(currentRecpie);
     }
     
     // Update is called once per frame
@@ -88,21 +84,31 @@ public class ItemManager : MonoBehaviour
 
                 break;
 
-            case Recpie.test:
-                LoadTestRecipe();
+            //case Recpie.test:
+            //    LoadTestRecipe();
 
+            //    break;
+
+
+            case Recpie.ApplePie:
+                LoadApplePieRecipe();
                 break;
 
 
-            case Recpie.one:
-
-                LoadLevel1Recipe();
+            case Recpie.Brownies:
+                LoadBrowniesRecipe();
                 break;
 
+            case Recpie.PineNutFudge:
+                LoadPineNutFudgeRecipe();
+                break;
 
-            case Recpie.two:
-                LoadLevel2Recipe();
+            case Recpie.Cheesecake:
+                LoadCheesecakeRecipe();
+                break;
 
+            case Recpie.Cookies:
+                LoadCookiesRecipe();
                 break;
         }
     }
@@ -110,7 +116,7 @@ public class ItemManager : MonoBehaviour
     {
         recipe.Clear();
     }
-    private void LoadLevel1Recipe()
+    private void LoadApplePieRecipe()
     {
         recipe.Clear();
         recipe.Add(new items("apple",5));
@@ -119,7 +125,7 @@ public class ItemManager : MonoBehaviour
         recipe.Add(new items("wheat", 5));
         
     }
-    private void LoadLevel2Recipe()
+    private void LoadBrowniesRecipe()
     {
         recipe.Clear();
         recipe.Add(new items("placeholder", 1));
@@ -128,6 +134,34 @@ public class ItemManager : MonoBehaviour
         recipe.Add(new items("placeholder", 1));
 
     }
+    private void LoadPineNutFudgeRecipe()
+    {
+        recipe.Clear();
+        recipe.Add(new items("placeholder", 1));
+        recipe.Add(new items("placeholder", 1));
+        recipe.Add(new items("placeholder", 1));
+        recipe.Add(new items("placeholder", 1));
+
+    }
+    private void LoadCheesecakeRecipe()
+    {
+        recipe.Clear();
+        recipe.Add(new items("placeholder", 1));
+        recipe.Add(new items("placeholder", 1));
+        recipe.Add(new items("placeholder", 1));
+        recipe.Add(new items("placeholder", 1));
+
+    }
+    private void LoadCookiesRecipe()
+    {
+        recipe.Clear();
+        recipe.Add(new items("placeholder", 1));
+        recipe.Add(new items("placeholder", 1));
+        recipe.Add(new items("placeholder", 1));
+        recipe.Add(new items("placeholder", 1));
+
+    }
+
     private void LoadTestRecipe()
     {
         recipe.Clear();
@@ -164,7 +198,7 @@ public class ItemManager : MonoBehaviour
 
     public void SetItemCountDirect(string itemName, int count)
     {
-        if (recipe == null || recipe.Count == 0) LoadRecipe(Recpie.one);
+        if (recipe == null || recipe.Count == 0) LoadRecipe(Recpie.ApplePie);
         string target = itemName.Trim().ToLower();
         for (int i = 0; i < recipe.Count; i++)
         {
@@ -200,7 +234,7 @@ public class ItemManager : MonoBehaviour
 
         if (recipe == null || recipe.Count == 0)
         {
-            LoadRecipe(Recpie.one);
+            LoadRecipe(Recpie.ApplePie);
         }
 
         string cleanItem = item.Trim().ToLower();

@@ -93,13 +93,14 @@ public class ObjGOInteractionManager : MonoBehaviour
             targetCamera = GameObject.Find("MainCharacterCamera")?.GetComponent<Camera>();
         if (targetCamera == null)
             targetCamera = Camera.main;
-
+        /// commented out code for if we want to add a mouseover cursor change at a later date
         //if (crosshairManager == null)
         //    crosshairManager = FindFirstObjectByType<ObjGOInteractionManager>();
     }
 
     void Update()
     {
+        /// commented out code for if we want to add a mouseover cursor change at a later date
         //if (Mouse.current == null) return;
         ////if (targetCamera == null || crosshairManager == null) EnsureReferences();
         if (targetCamera == null)
@@ -109,7 +110,7 @@ public class ObjGOInteractionManager : MonoBehaviour
         }
 
 
-
+        /// commented out code for if we want to add a mouseover cursor change at a later date
         //Vector2 mousePos = Mouse.current.position.ReadValue();
         //Ray ray = targetCamera.ScreenPointToRay(mousePos);
 
@@ -152,7 +153,7 @@ public class ObjGOInteractionManager : MonoBehaviour
             currentHoveredObject.SetHighlight(false);
             currentHoveredObject = null;
         }
-
+        /// commented out code for if we want to add a mouseover cursor change at a later date
         //    if (crosshairManager != null)
         //        crosshairManager.ResetCrosshairUI();
     }

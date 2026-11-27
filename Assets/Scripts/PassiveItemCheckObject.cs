@@ -86,27 +86,6 @@ public class PassiveItemCheckObject : MonoBehaviour, IInteractable
 
 
 
-        //if (stageInteractManager == null) stageInteractManager = FindFirstObjectByType<StageInteractManager>();
-
-        //bool quotaReached = (stageInteractManager != null)
-        //    ? stageInteractManager.HasEnoughOfItem(itemToCheck)
-        //    : (ItemManager.instace != null && ItemManager.instace.CheckItem(itemToCheck));
-
-        //if (quotaReached)
-        //{
-        //    Debug.Log("Item qouta reached, timer to next scene at " + timer);
-        //    timer -= Time.deltaTime;
-        //    //if (Time.deltaTime < 0)///----change  the format to allow timer to reach 0 to trigger level change ----CF
-        //    if (timer <= 0)
-        //    {
-        //        triggered = true;// ---- checkto see if the level change is triggered----CF
-        //        if (menuManager == null) menuManager = MenuManager.Instance;
-        //        if (menuManager != null)// ----enssures menumanager is present for call to level change----CF
-        //        {
-        //            menuManager.LoadLevelByIndex(nextSceneIndex); // ----Calls next scene----CF
-        //        }
-        //    }
-        //}
     }
 
 
@@ -116,7 +95,17 @@ public class PassiveItemCheckObject : MonoBehaviour, IInteractable
         if (menuManager == null) menuManager = MenuManager.Instance;
         if (menuManager != null)// ----enssures menumanager is present for call to level change----CF
         {
-            menuManager.LoadLevelByIndex(nextSceneIndex); // ----Calls next scene----CF
+
+            if (nextSceneIndex == menuManager.BAKERYX)//---- call check to ensure Dangle begin object not loaded on reload of bakery----CF
+            {
+                menuManager.hasActiveQuest = true;
+                menuManager.onBakery();
+            }
+            else// ----Calls next scene----CF
+            {
+                menuManager.LoadLevelByIndex(nextSceneIndex); 
+            }
+            
         }
     }
 

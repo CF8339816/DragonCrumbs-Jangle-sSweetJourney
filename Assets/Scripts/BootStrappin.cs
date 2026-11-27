@@ -127,14 +127,14 @@ public class BootStrappin : MonoBehaviour
 
     public void FindManagers()// assigns the name of the if they are not already defined for stage use redundanct check
     {
-        // [CODE REVIEW] Scene-specific managers: always refresh so destroyed scene references are replaced
+        // scene-specific managers: always refresh so destroyed scene references are replaced
         stageInteractManager = FindFirstObjectByType<StageInteractManager>();
         objectButtonsInteractables = FindFirstObjectByType<ObjectButtonsInteractables>();
         pieVisabilityManager = FindFirstObjectByType<PieVisabilityManager>();
         objGOInteractionManager = FindFirstObjectByType<ObjGOInteractionManager>();
         travelMapManager = FindFirstObjectByType<TravelMapManager>();
 
-        // [CODE REVIEW] Persistent managers: keep existing reference if already found
+        // persistent managers: keep existing reference if already found
         if (menuManager == null) menuManager = FindFirstObjectByType<MenuManager>();
         if (gameExitManager == null) gameExitManager = FindFirstObjectByType<GameExitManager>();
         if (itemManager == null) itemManager = FindFirstObjectByType<ItemManager>();

@@ -918,14 +918,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: _ServiceHub
       objectReference: {fileID: 0}
-    - target: {fileID: 2350509527145330638, guid: f9389a794ba45584d824083d1488aa29, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2945712248496364635, guid: f9389a794ba45584d824083d1488aa29, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5807701866550425621, guid: f9389a794ba45584d824083d1488aa29, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3101.7378
@@ -966,11 +958,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1533131269252181784, guid: f9389a794ba45584d824083d1488aa29, type: 3}
-    - {fileID: 2350509527145330638, guid: f9389a794ba45584d824083d1488aa29, type: 3}
-    - {fileID: 2945712248496364635, guid: f9389a794ba45584d824083d1488aa29, type: 3}
-    - {fileID: 3972760830203295978, guid: f9389a794ba45584d824083d1488aa29, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1104,22 +1092,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1486054435243795689, guid: 05bd244785fe2304fa5ee7a42f699137, type: 3}
-      propertyPath: m_Color.a
-      value: 0.83137256
-      objectReference: {fileID: 0}
-    - target: {fileID: 1486054435243795689, guid: 05bd244785fe2304fa5ee7a42f699137, type: 3}
-      propertyPath: m_Color.b
-      value: 0.080322154
-      objectReference: {fileID: 0}
-    - target: {fileID: 1486054435243795689, guid: 05bd244785fe2304fa5ee7a42f699137, type: 3}
-      propertyPath: m_Color.g
-      value: 0.77677304
-      objectReference: {fileID: 0}
-    - target: {fileID: 1486054435243795689, guid: 05bd244785fe2304fa5ee7a42f699137, type: 3}
-      propertyPath: m_Color.r
-      value: 0.8962264
-      objectReference: {fileID: 0}
     - target: {fileID: 2034729008557303737, guid: 05bd244785fe2304fa5ee7a42f699137, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1139,18 +1111,6 @@ PrefabInstance:
     - target: {fileID: 3861102963728434881, guid: 05bd244785fe2304fa5ee7a42f699137, type: 3}
       propertyPath: m_AnchorMin.x
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4603928585061630906, guid: 05bd244785fe2304fa5ee7a42f699137, type: 3}
-      propertyPath: m_UiScaleMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4603928585061630906, guid: 05bd244785fe2304fa5ee7a42f699137, type: 3}
-      propertyPath: m_ReferenceResolution.x
-      value: 1920
-      objectReference: {fileID: 0}
-    - target: {fileID: 4603928585061630906, guid: 05bd244785fe2304fa5ee7a42f699137, type: 3}
-      propertyPath: m_ReferenceResolution.y
-      value: 1080
       objectReference: {fileID: 0}
     - target: {fileID: 5004105065626007897, guid: 05bd244785fe2304fa5ee7a42f699137, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1207,7 +1167,15 @@ PrefabInstance:
     - target: {fileID: 7604965471839130382, guid: 05bd244785fe2304fa5ee7a42f699137, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 408271593}
+      objectReference: {fileID: 1393135112}
+    - target: {fileID: 7604965471839130382, guid: 05bd244785fe2304fa5ee7a42f699137, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnMazeButtonClicked
+      objectReference: {fileID: 0}
+    - target: {fileID: 7985218863079647474, guid: 05bd244785fe2304fa5ee7a42f699137, type: 3}
+      propertyPath: stageInteractManager
+      value: 
+      objectReference: {fileID: 474069916}
     - target: {fileID: 8014349105745903500, guid: 05bd244785fe2304fa5ee7a42f699137, type: 3}
       propertyPath: m_Name
       value: PlayerHUD
@@ -1222,6 +1190,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8121228897308382744, guid: 05bd244785fe2304fa5ee7a42f699137, type: 3}
   m_PrefabInstance: {fileID: 1393135110}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1393135112 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7985218863079647474, guid: 05bd244785fe2304fa5ee7a42f699137, type: 3}
+  m_PrefabInstance: {fileID: 1393135110}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a55f5db254a48844cbd682f769e907b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ToggleMaze
 --- !u!4 &1396117564 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 907869416888047876, guid: 2fdf9bbf0274dda4b8de7faff03c2fc6, type: 3}

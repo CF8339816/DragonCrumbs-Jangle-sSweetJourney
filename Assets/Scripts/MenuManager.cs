@@ -22,7 +22,7 @@ public class MenuManager : MonoBehaviour
     private GameExitManager gameExitManager;
     public ObjectButtonsInteractables objectButtonsInteractables;
     public StageInteractManager stageInteractManager;
-
+    public MenuManager menuManager;
     [SerializeField] GameObject Jangle;
     [SerializeField] GameObject Instructions;
     [SerializeField] GameObject StartSplash;
@@ -42,6 +42,7 @@ public class MenuManager : MonoBehaviour
     public int TRAVELMAP;
 
     public bool hasActiveQuest = false;
+    public bool hasSeenDangleBegin = false;
     private int RETURNLEVEL_INDEX;
     public int ReturnIndex;
     private bool pendingQuestState = false;
@@ -79,6 +80,7 @@ public class MenuManager : MonoBehaviour
         TRAVELMAP = TRAVELMAP_INDEX;
 
     }
+
     public void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -88,7 +90,14 @@ public class MenuManager : MonoBehaviour
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
-
+    public void onStart()
+    {
+        hasActiveQuest = false;
+        hasSeenDangleBegin = false; // Reset on a brand new game start
+        if (StartSplash != null) StartSplash.SetActive(false);
+        if (Instructions != null) Instructions.SetActive(false);
+        onBakery();
+    }
 
     public void LoadLevelByIndex(int index)
     {
@@ -217,6 +226,8 @@ public class MenuManager : MonoBehaviour
             stageInteractManager.AppleCount = 5;
             stageInteractManager.FlourCount = 1;
             stageInteractManager.HoneyCount = 1;
+            stageInteractManager.SaveCountsToPersistent();
+            menuManager.hasActiveQuest = true;
 
         }
         else
@@ -225,6 +236,7 @@ public class MenuManager : MonoBehaviour
             pendingBakeryState = true;
         }
         LoadLevelByIndex(BAKERY_INDEX);
+
     }
 
     public void onTravel()
@@ -252,16 +264,7 @@ public class MenuManager : MonoBehaviour
         if (Instructions != null) Instructions.SetActive(false);
 
     }
-    public void onStart()
-    {
-        hasActiveQuest = false;
-        if (StartSplash != null) StartSplash.SetActive(false);
-        if (Instructions != null) Instructions.SetActive(false);
-       // if (objectButtonsInteractables.DangleBegin != null) objectButtonsInteractables.DangleBegin.SetActive(true);
-        onBakery();
-    }
-
-
+  
     public void onLoadNextLevel()
     {
         if (SceneManager.GetActiveScene().buildIndex < 4)
@@ -291,7 +294,8 @@ public class MenuManager : MonoBehaviour
 
     public void onMenu()
     {
-        hasActiveQuest = false; // [CODE REVIEW] Reset active quest flag when returning to main hub
+        hasActiveQuest = false; //reset active quest flag when returning to main hub
+        hasSeenDangleBegin = false;
         LoadLevelByIndex(STARTHUB_INDEX);
         // SceneManager.LoadScene(STARTHUB_INDEX, LoadSceneMode.Additive);
 

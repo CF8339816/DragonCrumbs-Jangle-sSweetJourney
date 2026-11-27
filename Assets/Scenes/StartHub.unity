@@ -340,6 +340,27 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
+--- !u!1 &756609442 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8014349105745903500, guid: 05bd244785fe2304fa5ee7a42f699137, type: 3}
+  m_PrefabInstance: {fileID: 1829251708}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &756609445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 756609442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a55f5db254a48844cbd682f769e907b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ToggleMaze
+  stageInteractManager: {fileID: 0}
+  objectButtonsInteractables: {fileID: 0}
+  enableMaze: 0
+  maze: {fileID: 0}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -673,6 +694,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2250837015598473329, guid: 05bd244785fe2304fa5ee7a42f699137, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3717937052026616285, guid: 05bd244785fe2304fa5ee7a42f699137, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3861102963728434881, guid: 05bd244785fe2304fa5ee7a42f699137, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -683,6 +712,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3861102963728434881, guid: 05bd244785fe2304fa5ee7a42f699137, type: 3}
       propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4107270990238009605, guid: 05bd244785fe2304fa5ee7a42f699137, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5004105065626007897, guid: 05bd244785fe2304fa5ee7a42f699137, type: 3}
@@ -725,6 +758,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6081536707755815142, guid: 05bd244785fe2304fa5ee7a42f699137, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6807785652315858326, guid: 05bd244785fe2304fa5ee7a42f699137, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -737,14 +774,33 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7591469659565261188, guid: 05bd244785fe2304fa5ee7a42f699137, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7604965471839130382, guid: 05bd244785fe2304fa5ee7a42f699137, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 756609442}
+    - target: {fileID: 7604965471839130382, guid: 05bd244785fe2304fa5ee7a42f699137, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8014349105745903500, guid: 05bd244785fe2304fa5ee7a42f699137, type: 3}
       propertyPath: m_Name
       value: PlayerHUD
       objectReference: {fileID: 0}
+    - target: {fileID: 8907986588331805095, guid: 05bd244785fe2304fa5ee7a42f699137, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8014349105745903500, guid: 05bd244785fe2304fa5ee7a42f699137, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 756609445}
   m_SourcePrefab: {fileID: 100100000, guid: 05bd244785fe2304fa5ee7a42f699137, type: 3}
 --- !u!1001 &627030684386925101
 PrefabInstance:

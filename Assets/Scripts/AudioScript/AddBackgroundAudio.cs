@@ -55,8 +55,8 @@ public class AddBackgroundAudio : MonoBehaviour
         PlayAlwaysOnTrack();
     }
 
-    // [CODE REVIEW] Connects a second UI slider named "MusicVolume" (1 to 100 increments)
-    public void SetupMusicSlider()
+    
+    public void SetupMusicSlider()// connects a second UI slider named "MusicVolume" (1 to 100 increments)
     {
         if (VolumeBG == null)
         {

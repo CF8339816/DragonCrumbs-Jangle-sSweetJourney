@@ -25,6 +25,7 @@ public class ToggleMaze : MonoBehaviour, IInteractable
             if (stageInteractManager == null) stageInteractManager = bootStrappin.stageInteractManager;
             if (objectButtonsInteractables == null) objectButtonsInteractables = bootStrappin.objectButtonsInteractables;
         }
+        addAudio = FindFirstObjectByType<AddAudio>();
     }
     void Start()
     {
@@ -32,40 +33,74 @@ public class ToggleMaze : MonoBehaviour, IInteractable
     }
     public virtual void Interact()
     {
-      
+        if (addAudio == null) addAudio = FindFirstObjectByType<AddAudio>();
 
+        enableMaze = !enableMaze;
+        if (maze != null)
+        {
+            maze.SetActive(enableMaze);
+        }
+
+        if (enableMaze && addAudio != null)
+        {
+            addAudio.OnBeeHive();
+        }
+
+        //if (stageInteractManager == null) stageInteractManager = FindFirstObjectByType<StageInteractManager>();
+        //if (objectButtonsInteractables == null) objectButtonsInteractables = FindFirstObjectByType<ObjectButtonsInteractables>();
+
+        //enableMaze = !enableMaze;
+        //if (enableMaze)
+        //{
+        //    Debug.Log("activating maze");
+        //    if (maze != null)
+        //    {
+        //        maze.SetActive(enableMaze);
+        //        addAudio.OnBeeHive();
+
+        //    }
+        //    if (stageInteractManager != null)
+        //    {
+        //        stageInteractManager.AppleCount = 5;
+        //        stageInteractManager.FlourCount = 1;
+        //        stageInteractManager.HoneyCount = 1;
+        //        stageInteractManager.SaveCountsToPersistent();
+        //    }
+
+        //    if (objectButtonsInteractables != null)
+        //    {
+        //        objectButtonsInteractables.RefreshAllIngredientTexts();
+        //    }
+        //}
+        //else
+        //{
+        //    Debug.Log("deactivating maze");
+        //    if (maze != null) maze.SetActive(enableMaze);
+
+
+        //}
+    }
+
+    public void OnMazeButtonClicked()
+    {
         if (stageInteractManager == null) stageInteractManager = FindFirstObjectByType<StageInteractManager>();
         if (objectButtonsInteractables == null) objectButtonsInteractables = FindFirstObjectByType<ObjectButtonsInteractables>();
 
-        enableMaze = !enableMaze;
-        if (enableMaze)
+        if (stageInteractManager != null)
         {
-            Debug.Log("activating maze");
-            if (maze != null)
-            {
-                maze.SetActive(enableMaze);
-                addAudio.OnBeeHive();
-
-            }
-            if (stageInteractManager != null)
-            {
-                stageInteractManager.AppleCount = 5;
-                stageInteractManager.FlourCount = 1;
-                stageInteractManager.HoneyCount = 1;
-                stageInteractManager.SaveCountsToPersistent();
-            }
-
-            if (objectButtonsInteractables != null)
-            {
-                objectButtonsInteractables.RefreshAllIngredientTexts();
-            }
+            stageInteractManager.InteractBeeHive(); //----sets HoneyCount = 1, saves to ItemManager, plays success SFX, updates HUD----CF
         }
-        else
+
+        if (objectButtonsInteractables != null)
         {
-            Debug.Log("deactivating maze");
-            if (maze != null) maze.SetActive(enableMaze);
-       
-          
+            objectButtonsInteractables.RefreshAllIngredientTexts();
+            objectButtonsInteractables.UpdateQuestCard();
         }
+
+     
+        enableMaze = false;   //----closees the maze after collecting the honey----CF
+        if (maze != null) maze.SetActive(false);
     }
+
+
 }

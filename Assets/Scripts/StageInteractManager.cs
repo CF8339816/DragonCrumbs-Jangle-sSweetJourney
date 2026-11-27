@@ -63,7 +63,7 @@ public class StageInteractManager : MonoBehaviour, IInteractable
             if (menuManager == null) menuManager = bootStrappin.menuManager;
             if (travelMapManager == null) travelMapManager = bootStrappin.travelMapManager;
         }
-
+      LoadCountsFromPersistent();
         if (addAudio == null) addAudio = FindFirstObjectByType<AddAudio>();
     }
 
@@ -76,7 +76,7 @@ public class StageInteractManager : MonoBehaviour, IInteractable
             playerScript = FindFirstObjectByType<JangleController>();
         }
 
-        LoadCountsFromPersistent();
+    
 
         if (objectButtonsInteractables == null)
         {
@@ -253,6 +253,8 @@ public class StageInteractManager : MonoBehaviour, IInteractable
 
         if (WheatCount <= 5 && objectButtonsInteractables.RecipeMillStone != null) objectButtonsInteractables.RecipeMillStone.SetActive(false);
         if (WheatCount >= 5 && objectButtonsInteractables.RecipeMillStone != null) objectButtonsInteractables.RecipeMillStone.SetActive(true);
+
+        objectButtonsInteractables.UpdateQuestCard();
     }
     public void HandleInteraction(string targetTag)
     {
@@ -465,6 +467,7 @@ public class StageInteractManager : MonoBehaviour, IInteractable
         if (FreshBakedPie == 1)
         {
             FreshBakedPie = 0;
+            MenuManager.Instance.hasActiveQuest = false;
             if (objectButtonsInteractables != null && objectButtonsInteractables.DangleExit != null)
             {
                 objectButtonsInteractables.DangleExit.SetActive(true);
@@ -475,29 +478,40 @@ public class StageInteractManager : MonoBehaviour, IInteractable
 
     public void SlapTheHive()
     {
+        if (toggleMaze != null)
+        {
+            toggleMaze.Interact();
+        }
+        //InteractBeeHive();
 
-        InteractBeeHive();
 
+        //Debug.Log("Adding honey count");
+        //HoneyCount = 1;
 
-        Debug.Log("Adding honey count");
-        HoneyCount = 1;
+        //if (HoneyCount >= 1) Debug.Log("honey added succedssfully to countt");
+        //else Debug.Log("No Honey herre ya looser");
 
-        if (HoneyCount >= 1) Debug.Log("honey added succedssfully to countt");
-        else Debug.Log("No Honey herre ya looser");
+        //InteractBeeHive();
 
-        InteractBeeHive();
-
-        toggleMaze.Interact();
+        //toggleMaze.Interact();
 
     }
     public void BACK2theBakery()
     {
-        
-            AppleCount = 5;
-            FlourCount = 1;
-            HoneyCount = 1;
-        if (objectButtonsInteractables.DangleBegin != null) objectButtonsInteractables.DangleBegin.SetActive(false);
-        menuManager.onBakery();
+        AppleCount = 5;
+        FlourCount = 1;
+        HoneyCount = 1;
+        SaveCountsToPersistent();
+
+        if (menuManager == null) menuManager = MenuManager.Instance;
+        if (menuManager != null)
+        {
+            menuManager.hasActiveQuest = true;
+            menuManager.onBakery();
+        }
+       
+        //if (objectButtonsInteractables.DangleBegin != null) objectButtonsInteractables.DangleBegin.SetActive(false);
+        //menuManager.onBakery();
     }
     public void farm2fix()
     {
