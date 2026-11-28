@@ -3,7 +3,23 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - interactive
+  - UIClickable
+  - Vcam
+  - ApplePie
+  - Oven
+  - PrepBoard
+  - Ladder
+  - BeeHive
+  - MillStone
+  - Basket
+  - ApplePieRecipe
+  - Interactable
+  - PassiveInteractable
+  - NextLevelDebug
+  - Dangle
+  - Sythe
   layers:
   - Default
   - TransparentFX
@@ -11,6 +27,9 @@ TagManager:
   - 
   - Water
   - UI
+  - RecipeButtons
+  - EnvironmentButtons
+  - Player
   - 
   - 
   - 
@@ -20,9 +39,6 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - PlayerSprite
   - 
   - 
   - 
